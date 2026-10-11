@@ -1,0 +1,637 @@
+{
+  "solicitation_id": "NSF 26-516",
+  "program": "Geosciences Core Research: Atmospheric, Geospace, Earth and Ocean Sciences (GEO Core)",
+  "source_url": "https://www.nsf.gov/funding/opportunities/geo-core-geosciences-core-research-atmospheric-geospace-earth-ocean/nsf26-516/solicitation",
+  "retrieved_at": "2026-09-29T23:59:54.266961+00:00",
+  "source_sha256": "b2a1f691e0255131cdafe7ea7a3a032cd539764db2c8ebf62a8634f33de68a79",
+  "tracks": {
+    "track_2": {
+      "name": "Ocean Sciences",
+      "max_total_usd": null,
+      "max_years": 5
+    }
+  },
+  "deadline_rule": "",
+  "demo_deadline": "2026-11-05",
+  "requirements": [
+    {
+      "category": "formatting",
+      "text": "Proposals must be submitted following the rules in the funding opportunity and the Proposal & Award Policies & Procedures Guide (PAPPG).",
+      "source_quote": "All proposals must be submitted in accordance with the requirements specified in the funding opportunity and in the [Proposal & Award Policies & Procedures Guide (PAPPG) and its supplements](/policies/pappg \"NSF Proposal & Award Policies & Procedures Guide (PAPPG)\").",
+      "source_heading": "Important information for proposers and award recipients",
+      "id": "R-001",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Proposals must comply with the standard NSF award terms and conditions applicable to grants and cooperative agreements.",
+      "source_quote": "All NSF grants and cooperative agreements are subject to the applicable set of NSF [award terms and conditions](/awards/terms-conditions \"Award Terms and Conditions\").",
+      "source_heading": "Important information for proposers and award recipients",
+      "id": "R-002",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "program_specific",
+      "text": "Proposals must adhere to NSF's updated research security policies for funded projects.",
+      "source_quote": "NSF has updated its [research security policies](/notices/important/important-notice-no-149-updates-nsf-research-security/in149 \"Important Notice No. 149: Updates to NSF Research Security Policies\") for NSF funded projects.",
+      "source_heading": "Important information for proposers and award recipients",
+      "id": "R-003",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Full proposals are due by 5 p.m. at the submitting organization's local time.",
+      "source_quote": "**Full Proposal Deadline(s)** (due by 5 p.m. submitting organization's local time):",
+      "source_heading": "Program Solicitation NSF 26-516",
+      "id": "R-004",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Proposals must be prepared in accordance with the NSF Proposal & Award Policies & Procedures Guide (PAPPG).",
+      "source_quote": "Proposals must be prepared in accordance with the *[NSF Proposal & Award Policies & Procedures Guide (PAPPG)](https://www.nsf.gov/policies/pappg)*.",
+      "source_heading": "Important Information and Revision Notes",
+      "id": "R-005",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "The version of the guide used must be the one in effect on the proposal's due date.",
+      "source_quote": "Use the version of the guide that is in effect on the proposal's due date.",
+      "source_heading": "Important Information and Revision Notes",
+      "id": "R-006",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "The proposal must demonstrate intellectually ambitious and potentially transformative research.",
+      "source_quote": "NSF is especially interested in intellectually ambitious and potentially transformative research",
+      "source_heading": "NSF Priorities",
+      "id": "R-007",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "The proposal should create opportunities for exceptional early-career investigators.",
+      "source_quote": "work that creates opportunities for exceptional early-career investigators",
+      "source_heading": "NSF Priorities",
+      "id": "R-008",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "If using emerging technologies like AI or advanced computation, their use must be scientifically justified rather than incidental.",
+      "source_quote": "The use of these tools should be scientifically justified rather than incidental.",
+      "source_heading": "NSF Priorities",
+      "id": "R-009",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "The proposal must adhere to standards of scientific rigor, transparency, reproducibility, and research integrity.",
+      "source_quote": "NSF also expects the highest standards of scientific rigor, transparency, reproducibility, research integrity",
+      "source_heading": "NSF Priorities",
+      "id": "R-010",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "The proposal must adhere to the tenets of Gold Standard Science as appropriate for the field and modality.",
+      "source_quote": "and adherence to tenets of [Gold Standard Science](https://www.nsf.gov/policies/gold-standard-science) in proposals, as appropriate for the field of science and research modality.",
+      "source_heading": "NSF Priorities",
+      "id": "R-011",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "The proposal should challenge prevailing paradigms, ask important questions, or develop new theories/methods.",
+      "source_quote": "NSF places particular emphasis on projects that challenge prevailing paradigms, ask important questions, develop new theories or methods",
+      "source_heading": "NSF Priorities",
+      "id": "R-012",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "The proposal should create research tools or datasets that enable further research.",
+      "source_quote": "create research tools or datasets that enable further research",
+      "source_heading": "NSF Priorities",
+      "id": "R-013",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "The proposal should open new lines of inquiry.",
+      "source_quote": "or open new lines of inquiry.",
+      "source_heading": "NSF Priorities",
+      "id": "R-014",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "NSF strongly encourages novel connections across scientific domains (interdisciplinary work).",
+      "source_quote": "it therefore strongly encourages proposals that forge novel connections across scientific domains.",
+      "source_heading": "NSF Priorities",
+      "id": "R-015",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "The proposal should leverage emerging technologies to make new modes, methods, or scales of science possible.",
+      "source_quote": "proposals that leverage emerging technologies, including AI, advanced computation, and automation, to make new modes, methods, or scales of science possible.",
+      "source_heading": "NSF Priorities",
+      "id": "R-016",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "Use of tools should open fundamentally new scientific questions, reveal invisible patterns, or enable new capabilities beyond accelerating workflows.",
+      "source_quote": "Beyond accelerating existing workflows, such tools open fundamentally new scientific questions, reveal patterns invisible to prior methods, and enable experimental and analytical capabilities.",
+      "source_heading": "NSF Priorities",
+      "id": "R-017",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "budget",
+      "text": "For ambitious, transformative research, proposals requesting up to five years of support are encouraged.",
+      "source_quote": "NSF encourages proposals requesting up to five years of support.",
+      "source_heading": "NSF Priorities",
+      "id": "R-018",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "For preliminary or time-sensitive work, investigators should consider using specific mechanisms like Planning Proposal, RAPID, EAGER, and RAISE.",
+      "source_quote": "For preliminary or time-sensitive work, NSF encourages investigators to use mechanisms such as Planning Proposal, RAPID, EAGER, and RAISE",
+      "source_heading": "NSF Priorities",
+      "id": "R-019",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "NSF welcomes submissions from all researchers, particularly those earlier in their careers.",
+      "source_quote": "NSF welcomes submissions from all researchers, particularly those earlier in their careers",
+      "source_heading": "NSF Priorities",
+      "id": "R-020",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "If submitting via Research.gov, proposals must follow PAPPG guidelines.",
+      "source_quote": "For proposals submitted via Research.gov, *[PAPPG](https://www.nsf.gov/policies/pappg)* guidelines apply.",
+      "source_heading": "Proposal Preparation and Submission Instructions",
+      "id": "R-021",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "If submitting via Grants.gov, proposals must follow the NSF Grants.gov Application Guide guidelines.",
+      "source_quote": "For proposals submitted via Grants.gov, *[NSF Grants.gov Application Guide](https://www.nsf.gov/policies/document/nsf-grantsgov-application-guide)* guidelines apply.",
+      "source_heading": "Proposal Preparation and Submission Instructions",
+      "id": "R-022",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "budget",
+      "text": "Voluntary committed cost sharing is not allowed in the proposal.",
+      "source_quote": "Inclusion of voluntary committed cost sharing is prohibited.",
+      "source_heading": "Proposal Preparation and Submission Instructions",
+      "id": "R-023",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "Proposals can be submitted at any time; there is no fixed deadline.",
+      "source_quote": "Proposals Accepted Anytime",
+      "source_heading": "Proposal Preparation and Submission Instructions",
+      "id": "R-024",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "program_specific",
+      "text": "If a project spans multiple programs, investigators must select the program that best aligns with the project's primary focus.",
+      "source_quote": "In cases where projects span multiple programs, investigators should select the program that best aligns with the project's primary focus.",
+      "source_heading": "II. Program Description",
+      "id": "R-025",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "Proposals are encouraged to advance translational impacts, such as innovations and patents, that benefit the American people.",
+      "source_quote": "The programs encourage foundational research in the geosciences that lead to translational impacts, including innovations and patents, that benefit the American people.",
+      "source_heading": "II. Program Description",
+      "id": "R-026",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "Proposals should involve collaborations with industry, national laboratories, international partners, and public-sector organizations.",
+      "source_quote": "The programs support projects that involve collaborations with industry, national laboratories, international partners, and public-sector organizations.",
+      "source_heading": "II. Program Description",
+      "id": "R-027",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "Proposals are encouraged to leverage appropriate cyberinfrastructure or physical research infrastructure.",
+      "source_quote": "Projects may leverage research infrastructure \u2013 cyberinfrastructure or physical infrastructure \u2013 as appropriate.",
+      "source_heading": "II. Program Description",
+      "id": "R-028",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "NSF GEO encourages proposal submissions from institutions in EPSCoR jurisdictions.",
+      "source_quote": "NSF GEO encourages proposal submissions from institutions in the [Established Program to Stimulate Competitive Research (EPSCoR) jurisdictions](https://www.nsf.gov/funding/initiatives/epscor/state-websites).",
+      "source_heading": "II. Program Description",
+      "id": "R-029",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "Proposals should advance one or more of the following measures of success: peer-reviewed publications/scholarly outputs, creation/curation/expansion of publicly accessible data sets, or development of new methods/tools/models/instrumentation.",
+      "source_quote": "**Proposals should advance one or more of the following measures of success:**\n\n* Peer-reviewed publications and other scholarly outputs that advance knowledge in the geosciences\n* Creation, curation, or expansion of publicly accessible data sets that enable further scientific research\n* Development of new methods, tools, models, or instrumentation that improve the understanding of geoscience systems",
+      "source_heading": "II. Program Description",
+      "id": "R-030",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Proposers must be entities eligible to submit proposals to the NSF as defined in the PAPPG Chapter I.E.",
+      "source_quote": "The categories of proposers eligible to submit proposals to the National Science Foundation are identified in the *NSF Proposal & Award Policies & Procedures Guide* [(PAPPG), Chapter I.E](https://www.nsf.gov/policies/pappg/eligibility).",
+      "source_heading": "IV. Eligibility Information",
+      "id": "R-031",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Unaffiliated individuals are not eligible to submit proposals.",
+      "source_quote": "Unaffiliated individuals are not eligible to submit proposals in response to this solicitation.",
+      "source_heading": "IV. Eligibility Information",
+      "id": "R-032",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Collaborative proposals submitted as separate submissions from multiple organizations must use Research.gov for submission.",
+      "source_quote": "All collaborative proposals submitted as separate submissions from multiple organizations must be submitted via Research.gov.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "id": "R-033",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Proposals involving off-site work must include a one-page description of safety protocols in the 'Special Information and Supplementary Documents' section.",
+      "source_quote": "The Off-Site Safety Protocol should be uploaded as a 1-page document in the \"Special Information and Supplementary Documents\" section.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "id": "R-034",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Proposals requiring access to community research platforms must upload a copy of the request filed with platform managers as a supplementary document.",
+      "source_quote": "file appropriate requests with the platform managers and upload a copy of the request as a supplementary document.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "id": "R-035",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Proposals involving vessels from the Academic Research Fleet must include the UNOLS Science & Marine Equipment request form as a supplementary document.",
+      "source_quote": "include a University National Oceanographic Laboratory System Science & Marine Equipment (SME) [request form](https://www.unols.org/document/unols-ship-time-requests-ship-scheduling-and-shared-use-equipment) as a supplementary document.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "id": "R-036",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "If approval for permits has been obtained, the approval should be included in the 'Special Information and Supplementary Documents' section.",
+      "source_quote": "If approval has been obtained, it should be included in the \"Special Information and Supplementary Documents\" section.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "id": "R-037",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "The Project Description must describe how permitting for collecting, destroying (if applicable), and importing/exporting samples will be addressed.",
+      "source_quote": "Principal investigators are required to describe in the \"Project Description\" how permitting for collecting, destroying (if applicable) and importing/exporting samples will be addressed.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "id": "R-038",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "The Data Management and Sharing Plan must describe how the proposal meets NSF GEO's requirement to deposit final data sets, metadata, derived products, software/code, and physical samples in a long-lived public archive upon publication or within two years of collection.",
+      "source_quote": "How the proposal will meet that requirement must be described in the \"Data Management and Sharing Plan.\"",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "id": "R-039",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "If full compliance with data deposition is impracticable or inadvisable, the Data Management and Sharing Plan must describe the extent of compliance and justify limits on accessibility and sharing.",
+      "source_quote": "Where full compliance is impracticable or inadvisable, the plan must describe the extent of compliance and justify any limits on accessibility and sharing.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "id": "R-040",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Proposals must be submitted through Research.gov or Grants.gov unless explicitly noted otherwise.",
+      "source_quote": "You can submit proposals in response to this solicitation through Research.gov or Grants.gov, unless otherwise noted.",
+      "source_heading": "C. Research.gov/Grants.gov Requirements",
+      "id": "R-041",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "Proposals must be evaluated based on the two National Science Board-approved merit review criteria: Intellectual Merit and Broader Impacts.",
+      "source_quote": "All NSF proposals are evaluated through use of the two National Science Board-approved merit review criteria:",
+      "source_heading": "A. Merit Review Principles and Criteria",
+      "id": "R-042",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "All proposals must pass an initial compliance check before proceeding to review.",
+      "source_quote": "After a proposal passes an initial compliance check",
+      "source_heading": "B. Review and Selection Process",
+      "id": "R-043",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "If all else is equal after merit review, preference may be given to institutions with lower indirect cost rates.",
+      "source_quote": "all else being equal after merit review, NSF may give preference to institutions with lower indirect cost rates.",
+      "source_heading": "B. Review and Selection Process",
+      "id": "R-044",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "program_specific",
+      "text": "Recipients must adhere to pass-through entity requirements when establishing and managing subawards.",
+      "source_quote": "recipients of NSF awards must adhere to the requirements for pass-through entities in establishing and managing subawards issued ensuring alignment with Administration and NSF policies and priorities.",
+      "source_heading": "B. Award Conditions",
+      "id": "R-045",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "program_specific",
+      "text": "Proposers should be aware that awards may include termination for convenience provisions.",
+      "source_quote": "proposers should be aware that NSF awards offered under this funding opportunity may include termination for convenience provisions.",
+      "source_heading": "B. Award Conditions",
+      "id": "R-046",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "The principal investigator must submit annual project reports.",
+      "source_quote": "NSF requires the principal investigator of every grant to submit annual project reports",
+      "source_heading": "C. Reporting Requirements",
+      "id": "R-047",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "The principal investigator must submit a project outcomes report for the general public.",
+      "source_quote": "and a project outcomes report for the general public.",
+      "source_heading": "C. Reporting Requirements",
+      "id": "R-048",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Annual and final project reports must include data and sample management activities as designated in the Data Management and Sharing Plan.",
+      "source_quote": "Annual and final project reports shall include data and sample management activities as designated in the [Data Management and Sharing Plan]",
+      "source_heading": "C. Reporting Requirements",
+      "id": "R-049",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Data and sample management activities must be included in the Project Outcomes Report.",
+      "source_quote": "Data and sample management activities shall also be included in the Project Outcomes Report",
+      "source_heading": "C. Reporting Requirements",
+      "id": "R-050",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Products must be indexed in the NSF Public Access Repository (NSF-PAR).",
+      "source_quote": "products shall be indexed in the [NSF Public Access Repository (NSF-PAR)]",
+      "source_heading": "C. Reporting Requirements",
+      "id": "R-051",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    }
+  ],
+  "extraction": {
+    "sections_scanned": 21,
+    "candidates": 51,
+    "discarded_unverifiable_quote": 0,
+    "after_dedupe": 51,
+    "model": "qwen3.6:35b",
+    "prompt_version": "2"
+  },
+  "synthetic": false,
+  "budget_rules": {
+    "cap_usd": {
+      "value": null,
+      "quote": "NSF seeks proposals spanning a wide range of funding levels and project durations. (No award ceiling is stated.)",
+      "source": "https://www.nsf.gov/funding/opportunities/geo-core-geosciences-core-research-atmospheric-geospace-earth-ocean/nsf26-516/solicitation"
+    },
+    "max_years": {
+      "value": 5,
+      "quote": "\"The Foundation encourages proposers to request funding for durations of three to five years when such durations are necessary for completion of the proposed work\"",
+      "source": "https://www.nsf.gov/policies/pappg/24-1/ch-2-proposal-preparation"
+    },
+    "cost_share": {
+      "value": "prohibited",
+      "quote": "Inclusion of voluntary committed cost sharing is prohibited.",
+      "source": "https://www.nsf.gov/funding/opportunities/geo-core-geosciences-core-research-atmospheric-geospace-earth-ocean/nsf26-516/solicitation"
+    },
+    "equipment_threshold_usd": {
+      "value": 10000,
+      "quote": "revised to increase the equipment threshold from $5,000 to $10,000 to align with updates provided in Title 2 CFR \u00a7 200.",
+      "source": "https://www.nsf.gov/policies/document/pappg24-1-supplement-1"
+    },
+    "subaward_mtdc_limit_usd": {
+      "value": 50000,
+      "quote": "2 CFR 200.1: MTDC includes \"up to the first $50,000 of each subaward (regardless of the period of performance of the subawards under the award)\".",
+      "source": "https://www.ecfr.gov/current/title-2/section-200.1"
+    },
+    "requires_mentoring_plan": {
+      "value": true,
+      "quote": "\"each proposal that requests funding to support postdoctoral scholars or graduate students must upload under 'Mentoring Plan' in the supplementary documentation section\"",
+      "source": "https://www.nsf.gov/policies/pappg/24-1/ch-2-proposal-preparation"
+    }
+  },
+  "sections": [
+    {
+      "id": "project_summary",
+      "title": "Project Summary",
+      "word_target": "1 page"
+    },
+    {
+      "id": "project_description",
+      "title": "Project Description",
+      "word_target": "15 pages"
+    },
+    {
+      "id": "data_management_and_sharing_plan",
+      "title": "Data Management and Sharing Plan",
+      "word_target": "2 pages"
+    }
+  ]
+}

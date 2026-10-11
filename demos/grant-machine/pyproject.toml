@@ -1,0 +1,46 @@
+[project]
+name = "grant-machine"
+version = "0.1.0"
+description = "Local agentic AI grant-writing demo"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "fastapi>=0.141.1",
+    "httpx>=0.28.1",
+    "jsonschema>=4.26.0",
+    "markdownify>=1.2.3",
+    # Floor lowered from 3.14.1 to match the HP ZGX Nano's shared `zgx` conda env,
+    # which ships 2.29.0 and is also used by the TensorRT demos. Every API this app
+    # uses -- chat.completions.create, extra_body, stream_options,
+    # parallel_tool_calls, and the APITimeoutError/APIConnectionError/APIStatusError
+    # hierarchy -- exists in 2.x, and scripts/endpoint_check.py passes E1-E12 on it.
+    "openai>=2.29.0",
+    "psutil>=7.2.2",
+    "pydantic>=2.13.5",
+    "pypdf>=6.19.0",
+    # PDF *writing* for the run packet (app/packet.py). BSD-licensed, pure-Python
+    # wheel, so it adds no build step on aarch64 and clears license_audit.sh.
+    "reportlab>=4.0",
+    "python-multipart>=0.0.32",
+    "pyyaml>=6.0.3",
+    "rank-bm25>=0.2.2",
+    "sse-starlette>=3.4.11",
+    "uvicorn[standard]>=0.53.0",
+]
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "pip-licenses>=5.5.5",
+    "playwright>=1.63.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+asyncio_mode = "auto"

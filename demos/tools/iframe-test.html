@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Phase 3 — Iframe Compatibility Test Harness</title>
+<style>
+  :root {
+    --bg: #0b1018;
+    --panel: #131a26;
+    --border: #1e2a3d;
+    --fg: #e6edf3;
+    --muted: #8aa0b8;
+    --accent: #0096d6;
+    --ok: #4ade80;
+    --warn: #fbbf24;
+    --err: #f87171;
+    --mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 13px; }
+  header { padding: 10px 14px; border-bottom: 1px solid var(--border); background: var(--panel); }
+  header h1 { margin: 0 0 4px; font-size: 14px; font-weight: 600; color: var(--accent); }
+  header .hint { color: var(--muted); font-size: 11px; }
+  .controls { display: flex; gap: 8px; align-items: center; padding: 10px 14px;
+    border-bottom: 1px solid var(--border); background: var(--panel); flex-wrap: wrap; }
+  .controls label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+  select, button { background: #0b1018; color: var(--fg); border: 1px solid var(--border);
+    padding: 6px 10px; font-family: inherit; font-size: 12px; border-radius: 3px; cursor: pointer; }
+  select { min-width: 280px; }
+  button:hover { border-color: var(--accent); }
+  button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  button.primary:hover { background: #007ab0; }
+  .status { padding: 8px 14px; border-bottom: 1px solid var(--border); background: var(--panel);
+    font-family: var(--mono); font-size: 11px; line-height: 1.6; }
+  .status .row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .status .k { color: var(--muted); }
+  .status .v { color: var(--fg); }
+  .status .v.ok { color: var(--ok); }
+  .status .v.warn { color: var(--warn); }
+  .status .v.err { color: var(--err); }
+  .issues { margin-top: 6px; padding: 6px 8px; background: #0b1018; border: 1px solid var(--border);
+    border-radius: 3px; min-height: 22px; }
+  .issues .item { padding: 2px 0; }
+  .issues .item.warn { color: var(--warn); }
+  .issues .item.err { color: var(--err); }
+  .issues .item.ok { color: var(--ok); }
+  .iframe-wrap { padding: 10px 14px; }
+  iframe { width: 100%; height: calc(100vh - 240px); min-height: 400px;
+    border: 2px solid var(--border); background: #1a1f2e; border-radius: 3px; }
+  .footnote { padding: 6px 14px; color: var(--muted); font-size: 11px; }
+  code { font-family: var(--mono); background: #0b1018; padding: 1px 5px; border-radius: 2px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Phase 3 — Iframe Compatibility Test Harness</h1>
+  <div class="hint">
+    Tests whether each Demo Center demo can be embedded in an iframe served from the launcher's origin (port 8085).
+    <strong>Open your browser console</strong> (F12 / Cmd-Opt-I) — most diagnostic detail will surface there
+    as <code>Refused to display ... in a frame because it set 'X-Frame-Options' to ...</code>
+    or CSP <code>frame-ancestors</code> violations. This page cannot read those errors directly.
+  </div>
+</header>
+
+<div class="controls">
+  <label for="demo-select">Demo</label>
+  <select id="demo-select"></select>
+  <button id="load-btn" class="primary">Load</button>
+  <button id="reload-btn">Reload iframe</button>
+  <button id="clear-btn">Clear iframe</button>
+</div>
+
+<div class="status">
+  <div class="row">
+    <div><span class="k">URL:</span> <span class="v" id="st-url">—</span></div>
+    <div><span class="k">Load state:</span> <span class="v" id="st-loadstate">idle</span></div>
+    <div><span class="k">Time to load:</span> <span class="v" id="st-loadtime">—</span></div>
+    <div><span class="k">contentWindow:</span> <span class="v" id="st-cw">—</span></div>
+    <div><span class="k">clientHeight:</span> <span class="v" id="st-h">—</span></div>
+  </div>
+  <div class="issues" id="issues">
+    <div class="item">Select a demo and click Load.</div>
+  </div>
+</div>
+
+<div class="iframe-wrap">
+  <iframe id="demo-frame"
+          allow="microphone; camera; fullscreen; clipboard-read; clipboard-write"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<div class="footnote">
+  If the iframe is blank/gray: open the console. Browsers do not let cross-origin pages signal
+  X-Frame-Options / CSP <code>frame-ancestors</code> blocks back to the parent — they only log to console.
+  A successful cross-origin load is also detectable: <code>iframe.contentWindow</code> is non-null
+  but accessing <code>contentWindow.document</code> throws a <code>SecurityError</code> (expected).
+</div>
+
+<script>
+(function () {
+  const host = window.location.hostname || "localhost";
+  const demos = [
+    { name: "Maritime (Fed-Navy)",            url: `http://${host}:8000/` },
+    { name: "Pharmacy (Healthcare RAG)",       url: `http://${host}:8000/` },
+    { name: "PII Demo",                        url: `http://${host}:8000/app/` },
+    { name: "Construction Safety (AEC)",       url: `http://${host}:8091/` },
+    { name: "Document Translation",            url: `http://${host}:8092/` },
+    { name: "Robotic Medical Triage (needs robot)", url: `http://${host}:8090/` },
+    { name: "Pipeline Pulse",                  url: `http://${host}:8088/` },
+    { name: "AI Vision",                       url: `http://${host}:8094/` },
+    { name: "Spectrum Duel",                   url: `http://${host}:8089/` },
+    { name: "Vehicle Inspection",              url: `http://${host}:8097/` },
+  ];
+
+  const $ = (id) => document.getElementById(id);
+  const sel = $("demo-select"), frame = $("demo-frame");
+  const stUrl = $("st-url"), stLS = $("st-loadstate"), stLT = $("st-loadtime");
+  const stCW = $("st-cw"), stH = $("st-h"), issues = $("issues");
+
+  demos.forEach((d, i) => {
+    const o = document.createElement("option");
+    o.value = i; o.textContent = `${d.name}  —  ${d.url}`;
+    sel.appendChild(o);
+  });
+
+  let loadStart = 0, loadTimer = null, currentUrl = "";
+
+  function setIssues(items) {
+    issues.innerHTML = "";
+    items.forEach(({ msg, cls }) => {
+      const d = document.createElement("div");
+      d.className = "item " + (cls || "");
+      d.textContent = msg;
+      issues.appendChild(d);
+    });
+  }
+
+  function probeFrame() {
+    const items = [];
+    let cwState = "null";
+    try {
+      const cw = frame.contentWindow;
+      if (cw === null) {
+        cwState = "null";
+        items.push({ msg: "iframe.contentWindow is null — iframe failed to attach.", cls: "err" });
+      } else {
+        cwState = "non-null";
+        try {
+          // eslint-disable-next-line no-unused-expressions
+          cw.document;
+          // same-origin — we can read the document. With a different-origin demo this
+          // shouldn't happen; if it does, the demo is either same-origin or didn't render.
+          items.push({ msg: "Same-origin access succeeded (iframe is same-origin OR loaded an error page from this origin).", cls: "warn" });
+        } catch (e) {
+          // SecurityError is the expected, healthy case for a cross-origin load.
+          items.push({ msg: `Cross-origin access blocked (${e.name}) — this is the expected signal that the demo loaded successfully across origins.`, cls: "ok" });
+        }
+      }
+    } catch (e) {
+      cwState = "threw " + e.name;
+      items.push({ msg: `Reading contentWindow threw ${e.name}: ${e.message}`, cls: "err" });
+    }
+    stCW.textContent = cwState;
+    stCW.className = "v " + (cwState === "non-null" ? "ok" : "err");
+
+    const h = frame.clientHeight;
+    stH.textContent = h + "px";
+    if (h < 50) {
+      items.push({ msg: `iframe.clientHeight is ${h}px — content area collapsed. CSS issue, not a load failure.`, cls: "warn" });
+      stH.className = "v warn";
+    } else {
+      stH.className = "v ok";
+    }
+
+    items.push({ msg: "If the iframe shows blank/gray, open the browser console — look for 'Refused to display' (X-Frame-Options DENY/SAMEORIGIN) or CSP 'frame-ancestors' violations from the demo's origin.", cls: "" });
+    setIssues(items);
+  }
+
+  function loadDemo(idx) {
+    const d = demos[idx];
+    currentUrl = d.url;
+    stUrl.textContent = d.url;
+    stUrl.className = "v";
+    stLS.textContent = "loading…"; stLS.className = "v warn";
+    stLT.textContent = "—"; stLT.className = "v";
+    stCW.textContent = "—"; stCW.className = "v";
+    stH.textContent = "—"; stH.className = "v";
+    setIssues([{ msg: "Loading… watch the console for X-Frame-Options / CSP errors.", cls: "" }]);
+
+    loadStart = performance.now();
+    if (loadTimer) clearTimeout(loadTimer);
+
+    // 10s soft timeout — if the load event never fires, surface that.
+    loadTimer = setTimeout(() => {
+      if (stLS.textContent === "loading…") {
+        stLS.textContent = "no 'load' event after 10s"; stLS.className = "v err";
+        setIssues([
+          { msg: "No 'load' event fired after 10s. Common causes: X-Frame-Options blocked it (no load event is dispatched by Chrome/Firefox in that case), the demo's port is unreachable, or the demo hung mid-render.", cls: "err" },
+          { msg: "Check console for the blocking message; check Network tab to see if the request was even attempted.", cls: "" },
+        ]);
+        probeFrame();
+      }
+    }, 10000);
+
+    frame.src = d.url;
+  }
+
+  frame.addEventListener("load", () => {
+    const dt = (performance.now() - loadStart).toFixed(0);
+    stLT.textContent = dt + " ms"; stLT.className = "v ok";
+    stLS.textContent = "load event fired"; stLS.className = "v ok";
+    if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+    // Small delay so layout settles before measuring clientHeight.
+    setTimeout(probeFrame, 50);
+  });
+
+  frame.addEventListener("error", (e) => {
+    stLS.textContent = "error event"; stLS.className = "v err";
+    setIssues([{ msg: "iframe 'error' event fired. " + (e.message || ""), cls: "err" }]);
+  });
+
+  $("load-btn").addEventListener("click", () => loadDemo(parseInt(sel.value, 10)));
+  $("reload-btn").addEventListener("click", () => {
+    if (currentUrl) loadDemo(parseInt(sel.value, 10));
+  });
+  $("clear-btn").addEventListener("click", () => {
+    frame.src = "about:blank";
+    stUrl.textContent = "—"; stLS.textContent = "idle"; stLS.className = "v";
+    stLT.textContent = "—"; stCW.textContent = "—"; stH.textContent = "—";
+    setIssues([{ msg: "Cleared.", cls: "" }]);
+    currentUrl = "";
+  });
+
+  sel.value = 0;
+})();
+</script>
+</body>
+</html>

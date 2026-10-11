@@ -1,0 +1,234 @@
+{
+  "documents": [
+    {
+      "doc_id": "budget-satp-draft",
+      "path": "data/vault/budget-satp-draft.csv",
+      "title": "SATP Draft Budget (3 years)",
+      "doc_type": "csv",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "prior-outcomes-data",
+      "path": "data/vault/prior-outcomes-data.csv",
+      "title": "Outcomes Data 2021-2025",
+      "doc_type": "csv",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "rate-agreement-fy2026",
+      "path": "data/vault/rate-agreement-fy2026.md",
+      "title": "Fringe and Indirect Rate Memo FY2026",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "inst-profile-2025",
+      "path": "data/vault/inst-profile-2025.md",
+      "title": "HCCC Institutional Profile 2025",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "strategic-plan-2025-2030",
+      "path": "data/vault/strategic-plan-2025-2030.md",
+      "title": "Strategic Plan 2025-2030 (excerpt)",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "concept-note-satp",
+      "path": "data/vault/concept-note-satp.md",
+      "title": "SATP Concept Note (faculty draft)",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "prior-proposal-mpm-2021",
+      "path": "data/vault/prior-proposal-mpm-2021.md",
+      "title": "Funded Proposal: Mechatronics Pathways for Rural Manufacturers (2021)",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "prior-panel-summary-2021",
+      "path": "data/vault/prior-panel-summary-2021.md",
+      "title": "NSF Panel Summary (fictional)",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "prior-annual-report-2025",
+      "path": "data/vault/prior-annual-report-2025.md",
+      "title": "Final Outcomes Report: Mechatronics Pathways for Rural Manufacturers",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "prior-evaluation-report-2025",
+      "path": "data/vault/prior-evaluation-report-2025.md",
+      "title": "External Evaluation Report (Bluestem Evaluation Group)",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "declined-dol-2023",
+      "path": "data/vault/declined-dol-2023.md",
+      "title": "Declined Proposal: DOL Workforce Grant (2023)",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "advisory-board-2026",
+      "path": "data/vault/advisory-board-2026.md",
+      "title": "Industry Advisory Board Roster and Minutes (Aug 2026)",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "labor-market-memo-2026",
+      "path": "data/vault/labor-market-memo-2026.md",
+      "title": "Regional Labor Market Memo (synthetic figures)",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "letter-kessler-2026",
+      "path": "data/vault/letter-kessler-2026.md",
+      "title": "Letter of Collaboration: Kessler Fluid Systems",
+      "doc_type": "md",
+      "date": "2026-08-12",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "letter-tricounty-2026",
+      "path": "data/vault/letter-tricounty-2026.md",
+      "title": "Letter of Collaboration: Tri-County Packaging Cooperative",
+      "doc_type": "md",
+      "date": "2026-08-20",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "letter-northgate-2021",
+      "path": "data/vault/letter-northgate-2021.md",
+      "title": "Letter of Support: Northgate Precision Castings",
+      "doc_type": "md",
+      "date": "2021-03-15",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "budget-justification-draft",
+      "path": "data/vault/budget-justification-draft.md",
+      "title": "SATP Budget Justification (draft)",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "bio-okafor",
+      "path": "data/vault/bio-okafor.md",
+      "title": "Biographical Sketch: Dr. Renee Okafor",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "bio-lindqvist",
+      "path": "data/vault/bio-lindqvist.md",
+      "title": "Biographical Sketch: Marcus Lindqvist",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "bio-raman",
+      "path": "data/vault/bio-raman.md",
+      "title": "Biographical Sketch: Dr. Priya Raman",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "facilities-equipment",
+      "path": "data/vault/facilities-equipment.md",
+      "title": "Facilities and Equipment",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "boilerplate-dissemination",
+      "path": "data/vault/boilerplate-dissemination.md",
+      "title": "Dissemination Boilerplate",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    },
+    {
+      "doc_id": "boilerplate-data-management",
+      "path": "data/vault/boilerplate-data-management.md",
+      "title": "Data Management and Sharing Boilerplate",
+      "doc_type": "md",
+      "date": "2026-09-16",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c"
+    }
+  ]
+}

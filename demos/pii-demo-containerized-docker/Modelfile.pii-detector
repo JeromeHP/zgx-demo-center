@@ -1,0 +1,5 @@
+FROM ./models/pii_detector_Q4_K_M.gguf
+TEMPLATE """{{ .Prompt }}"""
+PARAMETER stop <|im_end|>
+PARAMETER stop <|im_start|>
+PARAMETER temperature 0.1

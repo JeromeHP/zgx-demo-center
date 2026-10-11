@@ -1,0 +1,1055 @@
+{
+  "solicitation_id": "PA-25-301",
+  "program": "NIH Research Project Grant (Parent R01 Clinical Trial Not Allowed)",
+  "source_url": "https://grants.nih.gov/grants/guide/pa-files/PA-25-301.html",
+  "retrieved_at": "2026-09-29T19:45:34.798709+00:00",
+  "source_sha256": "10ac3a88a2c53bef59eb2157c7bb63ef80c9e1763e6b464aff2ebc975b214a7a",
+  "tracks": {
+    "track_2": {
+      "name": "R01",
+      "max_total_usd": null,
+      "max_years": 5
+    }
+  },
+  "deadline_rule": "",
+  "demo_deadline": "2026-11-05",
+  "requirements": [
+    {
+      "category": "formatting",
+      "text": "Applications must be submitted by 5:00 PM local time of the applicant organization.",
+      "source_quote": "All applications are due by 5:00 PM local time of applicant organization.",
+      "source_heading": "Key Dates",
+      "id": "R-001",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Applicants must strictly follow the Research (R) Instructions in the How to Apply - Application Guide, following program-specific instructions only where they deviate from the Guide.",
+      "source_quote": "Conformance to all requirements (both in the Application Guide and the NOFO) is required and strictly enforced. Applicants must read and follow all application instructions in the Application Guide as well as any program-specific instructions noted in Section IV. When the program-specific instructions deviate from those in the Application Guide, follow the program-specific instructions.",
+      "source_heading": "Key Dates",
+      "id": "R-002",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Failure to comply with the required application instructions may result in the application being delayed or rejected.",
+      "source_quote": "**Applications that do not comply with these instructions may be delayed or not accepted for review.**",
+      "source_heading": "Key Dates",
+      "id": "R-003",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "program_specific",
+      "text": "Applications proposing clinical trials are not accepted.",
+      "source_quote": "This Notice of Funding Opportunity does not accept applications proposing clinical trial(s).",
+      "source_heading": "Section I. Notice of Funding Opportunity Description",
+      "id": "R-004",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "program_specific",
+      "text": "Applicants are encouraged to identify a participating NIH Institute or Center that supports their research area and contact its Scientific/Research staff to inquire about interest in supporting the project.",
+      "source_quote": "Applicants are encouraged to identify a participating IC that supports their area of research via the [R01 IC-Specific Scientific Interests and Contact](https://grants.nih.gov/grants/guide/contacts/IC-specific-information-PA-25-301.html) website and contact Scientific/Research staff from relevant ICs to inquire about their interest in supporting the proposed research project.",
+      "source_heading": "Section I. Notice of Funding Opportunity Description",
+      "id": "R-005",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Proposals must not propose clinical trials.",
+      "source_quote": "Only accepting applications that do not propose clinical trials.",
+      "source_heading": "Section II. Award Information",
+      "id": "R-006",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Only the specific application types listed in the solicitation are permitted.",
+      "source_quote": "Only those application types listed here are allowed for this NOFO.",
+      "source_heading": "Section II. Award Information",
+      "id": "R-007",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "budget",
+      "text": "The requested budget must accurately reflect the actual needs of the proposed project.",
+      "source_quote": "Application budgets are not limited but need to reflect the actual needs of the proposed project.",
+      "source_heading": "Section II. Award Information",
+      "id": "R-008",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "The project duration must not exceed 5 years.",
+      "source_quote": "The maximum project period is 5 years.",
+      "source_heading": "Section II. Award Information",
+      "id": "R-009",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Applicant organizations must complete and maintain SAM registration, with annual renewal, before submitting an application.",
+      "source_quote": "Applicant organizations must complete and maintain the following registrations as described in the How to Apply- Application Guide to be eligible to apply for or receive an award. All registrations must be completed prior to the application being submitted.",
+      "source_heading": "1. Eligible Applicants",
+      "id": "R-010",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Applicant organizations must register with eRA Commons and identify at least one Signing Official and at least one PD/PI account.",
+      "source_quote": "eRA Commons requires organizations to identify at least one Signing Official (SO) and at least one Program Director/Principal Investigator (PD/PI) account in order to submit an application.",
+      "source_heading": "1. Eligible Applicants",
+      "id": "R-011",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "All PDs/PIs must have an active eRA Commons account.",
+      "source_quote": "All PD(s)/PI(s) must have an eRA Commons account.",
+      "source_heading": "1. Eligible Applicants",
+      "id": "R-012",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Applications involving foreign subawards or subcontracts are noncompliant and will not be considered for funding under this NOFO.",
+      "source_quote": "Applications involving foreign subawards/subcontracts submitted in response to this NOFO will be deemed noncompliant and will not be considered for funding.",
+      "source_heading": "1. Eligible Applicants",
+      "id": "R-013",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "program_specific",
+      "text": "Foreign components are allowed, but new international collaborations resulting in foreign subawards/subcontracts require a specifically designated NOFO.",
+      "source_quote": "All NIH-funded research involving foreign subawards/subcontracts must be submitted in response to a NOFO that is specifically designated for funded international collaborations.",
+      "source_heading": "1. Eligible Applicants",
+      "id": "R-014",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "For-profit organizations without small business status are eligible applicants.",
+      "source_quote": "* For-Profit Organizations (Other than Small Businesses)",
+      "source_heading": "1. Eligible Applicants",
+      "id": "R-015",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Non-domestic (non-U.S.) entities are eligible to apply.",
+      "source_quote": "Non-domestic (non-U.S.) Entities (Foreign Organizations) **are** eligible to apply.",
+      "source_heading": "1. Eligible Applicants",
+      "id": "R-016",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Non-domestic components of U.S. organizations are eligible to apply.",
+      "source_quote": "Non-domestic (non-U.S.) components of U.S. Organizations **are** eligible to apply.",
+      "source_heading": "1. Eligible Applicants",
+      "id": "R-017",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Applicant organizations can submit multiple applications, but each one must be scientifically distinct from the others.",
+      "source_quote": "Applicant organizations may submit more than one application, provided that each application is scientifically distinct.",
+      "source_heading": "3. Additional Information on Eligibility",
+      "id": "R-018",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "The NIH will not accept a new (A0) application if it overlaps with a pending new (A0) or resubmission (A1) application that has not yet issued a summary statement.",
+      "source_quote": "This means that the NIH will not accept:\n\n* A new (A0) application that is submitted before issuance of the summary statement from the review of an overlapping new (A0) or resubmission (A1) application.",
+      "source_heading": "3. Additional Information on Eligibility",
+      "id": "R-019",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "The NIH will not accept an application that substantially overlaps with another application that is currently pending appeal of initial peer review.",
+      "source_quote": "* An application that has substantial overlap with another application pending appeal of initial peer review",
+      "source_heading": "3. Additional Information on Eligibility",
+      "id": "R-020",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "The application forms package must be accessed through ASSIST, Grants.gov Workspace, or an institutional system-to-system solution.",
+      "source_quote": "The application forms package specific to this opportunity must be accessed through ASSIST, Grants.gov Workspace or an institutional system-to-system solution.",
+      "source_heading": "1. Requesting an Application Package",
+      "id": "R-021",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Applicants intending to use an institutional system-to-system solution must consult their administrative office for instructions.",
+      "source_quote": "See your administrative office for instructions if you plan to use an institutional system-to-system solution.",
+      "source_heading": "1. Requesting an Application Package",
+      "id": "R-022",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Applicants must strictly comply with the requirements in the Application Guide, which are strictly enforced.",
+      "source_quote": "Conformance to the requirements in the Application Guide is required and strictly enforced.",
+      "source_heading": "2. Content and Form of Application Submission",
+      "id": "R-023",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Applications that do not comply with the instructions may be delayed or rejected for review.",
+      "source_quote": "Applications that are out of compliance with these instructions may be delayed or not accepted for review.",
+      "source_heading": "2. Content and Form of Application Submission",
+      "id": "R-024",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Proposers must adhere to all page limitations specified in the How to Apply- Application Guide and the Table of Page Limits.",
+      "source_quote": "All page limitations described in the [How to Apply- Application Guide](https://grants.nih.gov/grants/how-to-apply-application-guide.html) and the [Table of Page Limits](https://grants.nih.gov/grants/guide/url_redirect.php?id=61134) must be followed.",
+      "source_heading": "Page Limitations",
+      "id": "R-025",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "The instructions in the Instructions for Application Submission section supplement the general application guide and should be used to prepare the application for this specific NOFO.",
+      "source_quote": "The following section supplements the instructions found in the [How to Apply- Application Guide](https://grants.nih.gov/grants/how-to-apply-application-guide.html) and should be used for preparing an application to this NOFO.",
+      "source_heading": "Page Limitations",
+      "id": "R-026",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Proposers must follow all instructions provided in the How to Apply - Application Guide.",
+      "source_quote": "All instructions in the [How to Apply - Application Guide](https://grants.nih.gov/grants/guide/url_redirect.php?id=82400) must be followed.",
+      "source_heading": "SF424(R&R) Cover",
+      "id": "R-027",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Applicants must adhere to all instructions provided in the How to Apply- Application Guide.",
+      "source_quote": "All instructions in the [How to Apply- Application Guide](https://grants.nih.gov/grants/guide/url_redirect.php?id=82400) must be followed.",
+      "source_heading": "PHS 398 Cover Page Supplement",
+      "id": "R-028",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Applicants must include a Resource Sharing Plan as specified in the application guide.",
+      "source_quote": "Individuals are required to comply with the instructions for the Resource Sharing Plans as provided in the [How to Apply- Application Guide](https://grants.nih.gov/grants/guide/url_redirect.php?id=82400).",
+      "source_heading": "PHS 398 Research Plan",
+      "id": "R-029",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "A Data Management and Sharing Plan is required for research that will generate scientific data.",
+      "source_quote": "A Data Management and Sharing Plan (DMS Plan) is required for any NIH-funded or conducted research that will generate scientific data.",
+      "source_heading": "PHS 398 Research Plan",
+      "id": "R-030",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "The DMS Plan must address the elements in the structured format.",
+      "source_quote": "The DMS Plan must address the elements in the structured format.",
+      "source_heading": "PHS 398 Research Plan",
+      "id": "R-031",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Where the DMS Plan Format Page requires a \u201cYes or No\u201d response, no additional narrative is allowed.",
+      "source_quote": "Where the DMS Plan Format Page requires a \u201cYes or No\u201d response, no additional narrative is allowed.",
+      "source_heading": "PHS 398 Research Plan",
+      "id": "R-032",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "The Appendix is allowed only with limited materials.",
+      "source_quote": "Only limited Appendix materials are allowed.",
+      "source_heading": "PHS 398 Research Plan",
+      "id": "R-033",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Publications or other material may not be included in the Appendix, except for blank questionnaires or blank surveys.",
+      "source_quote": "No publications or other material, with the exception of blank questionnaires or blank surveys, may be included in the Appendix.",
+      "source_heading": "PHS 398 Research Plan",
+      "id": "R-034",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "If the answer to 'Are Human Subjects Involved?' on the R&R Other Project Information form is 'Yes', the applicant must include at least one human subjects study record using either the Study Record: PHS Human Subjects and Clinical Trials Information form or the Delayed Onset Study record.",
+      "source_quote": "If you answered \u201cYes\u201d to the question \u201cAre Human Subjects Involved?\u201d on the R&R Other Project Information form, you must include at least one human subjects study record using the **Study Record: PHS Human Subjects and Clinical Trials Information** form or **Delayed Onset Study** record.",
+      "source_heading": "PHS Human Subjects and Clinical Trials Information",
+      "id": "R-035",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "All instructions in the How to Apply- Application Guide must be followed for the Study Record: PHS Human Subjects and Clinical Trials Information form.",
+      "source_quote": "**Study Record: PHS Human Subjects and Clinical Trials Information**\n\nAll instructions in the [How to Apply- Application Guide](https://grants.nih.gov/grants/guide/url_redirect.php?id=82400) must be followed.",
+      "source_heading": "PHS Human Subjects and Clinical Trials Information",
+      "id": "R-036",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "All instructions in the How to Apply- Application Guide must be followed for the Delayed Onset Study record.",
+      "source_quote": "**Delayed Onset Study**\n\nNote: [Delayed onset](https://grants.nih.gov/grants/glossary.htm#DelayedOnsetStudy) does NOT apply to a study that can be described but will not start immediately (i.e., delayed start).All instructions in the [How to Apply- Application Guide](https://grants.nih.gov/grants/guide/url_redirect.php?id=82400) must be followed.",
+      "source_heading": "PHS Human Subjects and Clinical Trials Information",
+      "id": "R-037",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "program_specific",
+      "text": "The term 'Delayed onset' specifically excludes studies that can be described but will not start immediately (i.e., delayed start).",
+      "source_quote": "Note: [Delayed onset](https://grants.nih.gov/grants/glossary.htm#DelayedOnsetStudy) does NOT apply to a study that can be described but will not start immediately (i.e., delayed start).",
+      "source_heading": "PHS Human Subjects and Clinical Trials Information",
+      "id": "R-038",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Foreign organizations must adhere to the policies outlined in the NIH Grants Policy Statement.",
+      "source_quote": "Foreign (non-U.S.) organizations must follow policies described in the [NIH Grants Policy Statement]",
+      "source_heading": "Foreign Organizations",
+      "id": "R-039",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Foreign organizations must follow the specific procedures for such organizations found in the How to Apply - Application Guide.",
+      "source_quote": "procedures for foreign organizations described throughout the [How to Apply- Application Guide]",
+      "source_heading": "Foreign Organizations",
+      "id": "R-040",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Obtain a unique entity identifier.",
+      "source_quote": "obtaining a unique entity identifier",
+      "source_heading": "3. Unique Entity Identifier and System for Award Management (SAM)",
+      "id": "R-041",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Complete and maintain active registrations in the System for Award Management (SAM).",
+      "source_quote": "completing and maintaining active registrations in System for Award Management (SAM)",
+      "source_heading": "3. Unique Entity Identifier and System for Award Management (SAM)",
+      "id": "R-042",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "If applicable, complete and maintain an active NATO Commercial and Government Entity (NCAGE) Code registration.",
+      "source_quote": "NATO Commercial and Government Entity (NCAGE) Code (if applicable)",
+      "source_heading": "3. Unique Entity Identifier and System for Award Management (SAM)",
+      "id": "R-043",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Complete and maintain active registrations in eRA Commons.",
+      "source_quote": "eRA Commons",
+      "source_heading": "3. Unique Entity Identifier and System for Award Management (SAM)",
+      "id": "R-044",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Applicants should submit their applications before the due date to allow time for any necessary corrections.",
+      "source_quote": "Applicants are encouraged to submit applications before the due date to ensure they have time to make any application corrections that might be necessary for successful submission.",
+      "source_heading": "4. Submission Dates and Times",
+      "id": "R-045",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "If the submission date falls on a weekend or federal holiday, the deadline is automatically extended to the next business day.",
+      "source_quote": "When a submission date falls on a weekend or [Federal holiday](https://grants.nih.gov/grants/guide/url_redirect.php?id=82380), the application deadline is automatically extended to the next business day.",
+      "source_heading": "4. Submission Dates and Times",
+      "id": "R-046",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Applications must be submitted to Grants.gov.",
+      "source_quote": "Organizations must submit applications to [Grants.gov](//grants.nih.gov/grants/guide/url_redirect.php?id=11128) (the online portal to find and apply for grants across all Federal agencies).",
+      "source_heading": "4. Submission Dates and Times",
+      "id": "R-047",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Applicants must track the status of their application in eRA Commons.",
+      "source_quote": "Applicants must then complete the submission process by tracking the status of the application in the [eRA Commons](//grants.nih.gov/grants/guide/url_redirect.php?id=11123), NIH\u2019s electronic system for grants administration.",
+      "source_heading": "4. Submission Dates and Times",
+      "id": "R-048",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Any errors identified during the system check must be corrected and the changed/corrected application submitted to Grants.gov on or before the application due date and time.",
+      "source_quote": "Errors must be corrected and a changed/corrected application must be submitted to Grants.gov on or before the application due date and time.",
+      "source_heading": "4. Submission Dates and Times",
+      "id": "R-049",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Changed or corrected applications submitted after the deadline will be considered late.",
+      "source_quote": "If a Changed/Corrected application is submitted after the deadline, the application will be considered late.",
+      "source_heading": "4. Submission Dates and Times",
+      "id": "R-050",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Applicants are responsible for viewing their application in eRA Commons before the due date to ensure it is accurate and successfully submitted.",
+      "source_quote": "**Applicants are responsible for viewing their application before the due date in the eRA Commons to ensure accurate and successful submission.**",
+      "source_heading": "4. Submission Dates and Times",
+      "id": "R-051",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "budget",
+      "text": "Pre-award costs are only allowable if they follow the specific rules in the NIH Grants Policy Statement.",
+      "source_quote": "Pre-award costs are allowable only as described in the [NIH Grants Policy Statement Section 7.9.1 Selected Items of Cost.](//grants.nih.gov/grants/guide/url_redirect.php?id=11143)",
+      "source_heading": "6. Funding Restrictions",
+      "id": "R-052",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "Applications must be submitted electronically; paper applications are not accepted.",
+      "source_quote": "Applications must be submitted electronically following the instructions described in the [How to Apply Application Guide](https://grants.nih.gov/grants/guide/url_redirect.php?id=82400). Paper applications will not be accepted.",
+      "source_heading": "6. Funding Restrictions",
+      "id": "R-053",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Applicants must complete all required registrations before the application due date.",
+      "source_quote": "Applicants must complete all required registrations before the application due date.",
+      "source_heading": "6. Funding Restrictions",
+      "id": "R-054",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "All PDs/PIs must include their eRA Commons ID in the Credential field of the Senior/Key Person Profile form.",
+      "source_quote": "All PD(s)/PI(s) must include their eRA Commons ID in the Credential field of the Senior/Key Person Profile form**.**",
+      "source_heading": "6. Funding Restrictions",
+      "id": "R-055",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "formatting",
+      "text": "The unique entity identifier provided on the application must match the identifier used in the organization\u2019s eRA Commons profile and SAM profile.",
+      "source_quote": "The applicant organization must ensure that the unique entity identifier provided on the application is the same identifier used in the organization\u2019s profile in the eRA Commons and for the System for Award Management.",
+      "source_heading": "6. Funding Restrictions",
+      "id": "R-056",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Recipients or subrecipients must submit information regarding violations of federal criminal law involving fraud, bribery, or gratuity affecting the federal award.",
+      "source_quote": "Recipients or subrecipients must submit any information related to violations of federal criminal law involving fraud, bribery, or gratuity violations potentially affecting the federal award.",
+      "source_heading": "6. Funding Restrictions",
+      "id": "R-057",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Follow the specific instructions for post-submission materials as outlined in the referenced NIH grants guide policy.",
+      "source_quote": "Applicants are required to follow the instructions for post-submission materials, as described in [the policy](//grants.nih.gov/grants/guide/url_redirect.php?id=82299)",
+      "source_heading": "Post Submission Materials",
+      "id": "R-058",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Comply with any additional instructions provided in this section that are not already covered by the main policy.",
+      "source_quote": "Any instructions provided here are in addition to the instructions in the policy.",
+      "source_heading": "Post Submission Materials",
+      "id": "R-059",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "Reviewers will evaluate the expertise of the investigators and the appropriateness of the institutional environment (Factor 3).",
+      "source_quote": "Factor 3. Expertise and Resources (Investigator(s) and Environment)",
+      "source_heading": "1. Criteria",
+      "id": "R-060",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "Proposers must ensure feasibility by demonstrating the approach is sound and achievable, with plans to address potential challenges.",
+      "source_quote": "Evaluate whether the proposed approach is sound and achievable, including plans to address problems or new challenges that emerge in the work.",
+      "source_heading": "1. Criteria",
+      "id": "R-061",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "Investigators must have demonstrated background, training, and expertise appropriate for their career stage to conduct the proposed work.",
+      "source_quote": "Evaluate whether the investigator(s) have demonstrated background, training, and expertise, as appropriate for their career stage, to conduct the proposed work.",
+      "source_heading": "1. Criteria",
+      "id": "R-062",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "If applicable for MPI applications, the quality of the leadership plan to facilitate coordination and collaboration must be sufficient.",
+      "source_quote": "For Multiple Principal Investigator (MPI) applications, assess the quality of the leadership plan to facilitate coordination and collaboration.",
+      "source_heading": "1. Criteria",
+      "id": "R-063",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "The institutional resources must be appropriate to ensure the successful execution of the proposed work.",
+      "source_quote": "Evaluate whether the institutional resources are appropriate to ensure the successful execution of the proposed work.",
+      "source_heading": "1. Criteria",
+      "id": "R-064",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "For human subjects research (non-exempt), proposers must justify involvement, provide protections against risks, show potential benefits, state the importance of knowledge gained, and include data and safety monitoring if it is a clinical trial.",
+      "source_quote": "For research that involves human subjects but does not involve one of the categories of research that are exempt under 45 CFR Part 46, evaluate the justification for involvement of human subjects and the proposed protections from research risk relating to their participation according to the following five review criteria: 1) risk to subjects; 2) adequacy of protection against risks; 3) potential benefits to the subjects and others; 4) importance of the knowledge to be gained; and 5) data and safety monitoring for clinical trials.",
+      "source_heading": "1. Criteria",
+      "id": "R-065",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "For human subjects research (exempt), proposers must evaluate the justification for the exemption, human subjects involvement and characteristics, and sources of materials.",
+      "source_quote": "For research that involves human subjects and meets the criteria for one or more of the categories of research that are exempt under 45 CFR Part 46, evaluate: 1) the justification for the exemption; 2) human subjects involvement and characteristics; and 3) sources of materials.",
+      "source_heading": "1. Criteria",
+      "id": "R-066",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "For research involving live vertebrate animals, proposers must describe procedures (species, strains, ages, sex, number), justify animal use, detail interventions to minimize discomfort, and justify euthanasia methods if not consistent with AVMA Guidelines.",
+      "source_quote": "When the proposed research includes Vertebrate Animals, evaluate the involvement of live vertebrate animals according to the following criteria: (1) description of proposed procedures involving animals, including species, strains, ages, sex, and total number to be used; (2) justifications for the use of animals versus alternative models and for the appropriateness of the species proposed; (3) interventions to minimize discomfort, distress, pain and injury; and (4) justification for euthanasia method if NOT consistent with the AVMA Guidelines for the Euthanasia of Animals.",
+      "source_heading": "1. Criteria",
+      "id": "R-067",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "For research involving biohazards, proposers must demonstrate that specific materials or procedures are not significantly hazardous to personnel or the environment, or that adequate protection is proposed.",
+      "source_quote": "When the proposed research includes Biohazards, evaluate whether specific materials or procedures that will be used are significantly hazardous to research personnel and/or the environment, and whether adequate protection is proposed.",
+      "source_heading": "1. Criteria",
+      "id": "R-068",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "For projects involving key biological and/or chemical resources, brief plans for identifying and ensuring the validity of those resources must be included.",
+      "source_quote": "For projects involving key biological and/or chemical resources, evaluate the brief plans proposed for identifying and ensuring the validity of those resources.",
+      "source_heading": "1. Criteria",
+      "id": "R-069",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "budget",
+      "text": "The budget and the requested period of support must be fully justified and reasonable in relation to the proposed research.",
+      "source_quote": "Evaluate whether the budget and the requested period of support are fully justified and reasonable in relation to the proposed research.",
+      "source_heading": "1. Criteria",
+      "id": "R-070",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "Applications are evaluated for scientific and technical merit by Scientific Review Groups according to NIH policies.",
+      "source_quote": "Applications will be evaluated for scientific and technical merit by (an) appropriate Scientific Review Group(s) in accordance with NIH peer review policies and practices, using the stated review criteria.",
+      "source_heading": "2. Review and Selection Process",
+      "id": "R-071",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "All applications receive a written critique during peer review.",
+      "source_quote": "As part of the scientific peer review, all applications will receive a written critique.",
+      "source_heading": "2. Review and Selection Process",
+      "id": "R-072",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "Only applications with the highest scientific and technical merit are discussed and assigned an overall impact score.",
+      "source_quote": "Applications may undergo a selection process in which only those applications deemed to have the highest scientific and technical merit (generally the top half of applications under review) will be discussed and assigned an overall impact score.",
+      "source_heading": "2. Review and Selection Process",
+      "id": "R-073",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "Funding decisions are based on scientific and technical merit determined by peer review.",
+      "source_quote": "* Scientific and technical merit of the proposed project as determined by scientific peer review.",
+      "source_heading": "2. Review and Selection Process",
+      "id": "R-074",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "Funding decisions consider the availability of funds.",
+      "source_quote": "* Availability of funds.",
+      "source_heading": "2. Review and Selection Process",
+      "id": "R-075",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "Funding decisions consider the relevance of the proposed project to program priorities.",
+      "source_quote": "* Relevance of the proposed project to program priorities.",
+      "source_heading": "2. Review and Selection Process",
+      "id": "R-076",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "merit_review",
+      "text": "Applicants should review and can comment on their federal award history in SAM.gov prior to award.",
+      "source_quote": "An applicant can review and comment on any information in the Responsibility/Qualification records available in SAM.gov.",
+      "source_heading": "2. Review and Selection Process",
+      "id": "R-077",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "budget",
+      "text": "Funds must be requested from the designated HHS payment system or office after receiving the Notice of Award.",
+      "source_quote": "funds may be requested from the designated HHS payment system or office.",
+      "source_heading": "1. Award Notices",
+      "id": "R-078",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "eligibility",
+      "text": "Recipients must agree to comply with all current and future provisions, regulations, policies, and statutory requirements applicable during the award period.",
+      "source_quote": "the recipient agrees that any activities under the award are subject to all provisions currently in effect or implemented during the period of the award, other Department regulations and policies in effect at the time of the award, and applicable statutory provisions.",
+      "source_heading": "1. Award Notices",
+      "id": "R-079",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "budget",
+      "text": "Any costs incurred before the recipient receives the Notice of Award are the applicant's responsibility and risk.",
+      "source_quote": "Any pre-award costs incurred before receipt of the NoA are at the applicant's own risk.",
+      "source_heading": "1. Award Notices",
+      "id": "R-080",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Recipient institutions must ensure protocols are reviewed by their Institutional Review Board (IRB) or Independent Ethics Committee (IEC).",
+      "source_quote": "Recipient institutions must ensure that protocols are reviewed by their IRB or IEC.",
+      "source_heading": "1. Award Notices",
+      "id": "R-081",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Recipients must provide NIH with copies of documents related to all major changes in the status of ongoing protocols.",
+      "source_quote": "the recipient must provide NIH copies of documents related to all major changes in the status of ongoing protocols.",
+      "source_heading": "1. Award Notices",
+      "id": "R-082",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Submit a Data Management and Sharing (DMS) Plan using the NIH DMS Plan Format Page if the research will generate scientific data.",
+      "source_quote": "A Data Management and Sharing Plan (DMS Plan) is required for any NIH-funded or conducted research that will generate scientific data. Applicants must submit the DMS Plan at the time of application using the NIH DMS Plan Format Page.",
+      "source_heading": "2. Administrative and National Policy Requirements",
+      "id": "R-083",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "Require all staff to complete annual cybersecurity and privacy awareness training.",
+      "source_quote": "* Require all staff to complete annual cybersecurity and privacy awareness training.",
+      "source_heading": "2. Administrative and National Policy Requirements",
+      "id": "R-084",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "Regularly backup sensitive data and test those backups.",
+      "source_quote": "* Regularly backup sensitive data and test backups.",
+      "source_heading": "2. Administrative and National Policy Requirements",
+      "id": "R-085",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "Notify the relevant HHS awarding agency of any cybersecurity incident within 48 hours of discovery.",
+      "source_quote": "* Have cybersecurity incident reporting procedures that ensure the relevant HHS awarding agencies are notified of a cybersecurity incident within 48 hours of discovery.",
+      "source_heading": "2. Administrative and National Policy Requirements",
+      "id": "R-086",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "project_description",
+      "text": "Applications involving substance abuse must not support harm reduction.",
+      "source_quote": "For applications involving substance abuse, the application must not support harm reduction.",
+      "source_heading": "2. Administrative and National Policy Requirements",
+      "id": "R-087",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Recipients must submit financial statements as required by NIH Grants Policy Statement Section 8.4.1.",
+      "source_quote": "and financial statements as required in the [NIH Grants Policy Statement Section 8.4.1 Reporting.](https://grants.nih.gov/grants/policy/nihgps/HTML5/section_8/8.4.1_reporting.htm)",
+      "source_heading": "4. Reporting",
+      "id": "R-088",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "A final RPPR, invention statement, and the expenditure data portion of the Federal Financial Report are required for award closeout.",
+      "source_quote": "A final RPPR, invention statement, and the expenditure data portion of the Federal Financial Report are required for closeout of an award",
+      "source_heading": "4. Reporting",
+      "id": "R-089",
+      "applies_to_tracks": [],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": false
+    }
+  ],
+  "extraction": {
+    "sections_scanned": 33,
+    "candidates": 98,
+    "discarded_unverifiable_quote": 25,
+    "after_dedupe": 89,
+    "model": "qwen3.6:35b",
+    "prompt_version": "2"
+  },
+  "synthetic": false,
+  "budget_rules": {
+    "cap_usd": {
+      "value": null,
+      "quote": "Application budgets are not limited but need to reflect the actual needs of the proposed project.",
+      "source": "https://grants.nih.gov/grants/guide/pa-files/PA-25-301.html"
+    },
+    "max_years": {
+      "value": 5,
+      "quote": "The maximum project period is 5 years.",
+      "source": "https://grants.nih.gov/grants/guide/pa-files/PA-25-301.html"
+    },
+    "salary_cap_usd": {
+      "value": 228000,
+      "quote": "January 1, 2026 through September 30, 2026 (Executive Level II): $228,000",
+      "source": "https://grants.nih.gov/policy-and-compliance/policy-topics/nih-fiscal-policies/salary-cap-summary"
+    },
+    "subaward_mtdc_limit_usd": {
+      "value": 25000,
+      "quote": "\"for NIH, under the Consolidated Appropriations Act for FY 2026 ... the provisions relating to indirect costs in 45 CFR 75 continue to apply to NIH awards.\" 45 CFR 75.2: MTDC includes \"up to the first $25,000 of each subaward (regardless of the period of performance of the subawards under the award)\".",
+      "source": "https://www.ecfr.gov/on/2025-09-30/title-45/part-75/section-75.2"
+    },
+    "prior_approval_direct_usd": {
+      "value": 500000,
+      "quote": "\"any applicant requesting $500,000 or more in direct costs (excluding consortium F&A costs) in any one budget period within a competitive segment is required to contact the NIH Institute or Center (IC) Program Official (PO) ... as early as possible\"",
+      "source": "https://grants.nih.gov/grants/guide/notice-files/NOT-OD-17-005.html"
+    }
+  },
+  "sections": [
+    {
+      "id": "specific_aims",
+      "title": "Specific Aims",
+      "word_target": "1 page"
+    },
+    {
+      "id": "significance",
+      "title": "Significance",
+      "word_target": "1-3 pages"
+    },
+    {
+      "id": "innovation",
+      "title": "Innovation",
+      "word_target": "1-3 pages"
+    },
+    {
+      "id": "approach",
+      "title": "Approach",
+      "word_target": "10-12 pages"
+    }
+  ]
+}

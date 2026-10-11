@@ -1,0 +1,399 @@
+# Research and program field terms permitted to leave the device as search terms.
+#
+# This is an ALLOWLIST. app/egress.py default-denies: a term that does not match an
+# entry here (or in the grants.gov taxonomy files alongside it) never leaves the box.
+# Entries are public, generic field names — the kind of language that appears in a
+# funding announcement, not language specific to any institution, person or project.
+#
+# One term per line, lowercase. Blank lines and # comments ignored.
+# Regenerate the taxonomy files next to this one with scripts/build_vocabulary.py.
+
+# -- computing and information ------------------------------------------------
+artificial intelligence
+machine learning
+deep learning
+natural language processing
+computer vision
+robotics
+autonomous systems
+human computer interaction
+computer architecture
+high performance computing
+quantum computing
+quantum information science
+edge computing
+cloud computing
+distributed systems
+operating systems
+programming languages
+software engineering
+formal methods
+algorithms
+computational complexity
+data science
+data management
+databases
+information retrieval
+computer networks
+wireless networks
+network security
+cybersecurity
+cryptography
+privacy
+trustworthy computing
+digital forensics
+computer graphics
+visualization
+virtual reality
+augmented reality
+embedded systems
+cyber physical systems
+internet of things
+signal processing
+image processing
+speech recognition
+knowledge representation
+multi agent systems
+computational science
+scientific computing
+modeling and simulation
+digital twins
+
+# -- engineering ---------------------------------------------------------------
+electrical engineering
+mechanical engineering
+civil engineering
+chemical engineering
+biomedical engineering
+aerospace engineering
+industrial engineering
+systems engineering
+environmental engineering
+nuclear engineering
+materials engineering
+manufacturing
+advanced manufacturing
+additive manufacturing
+precision machining
+mechatronics
+automation
+control systems
+fluid dynamics
+thermodynamics
+heat transfer
+structural engineering
+geotechnical engineering
+transportation engineering
+water resources engineering
+power systems
+power electronics
+microelectronics
+semiconductors
+semiconductor manufacturing
+nanotechnology
+nanofabrication
+photonics
+optics
+lasers
+sensors
+instrumentation
+metrology
+microfluidics
+biomechanics
+tissue engineering
+rehabilitation engineering
+medical devices
+imaging systems
+
+# -- physical sciences ---------------------------------------------------------
+physics
+astrophysics
+astronomy
+cosmology
+particle physics
+nuclear physics
+condensed matter physics
+atomic physics
+molecular physics
+optical physics
+plasma physics
+biophysics
+chemistry
+analytical chemistry
+organic chemistry
+inorganic chemistry
+physical chemistry
+theoretical chemistry
+computational chemistry
+polymer chemistry
+electrochemistry
+catalysis
+materials science
+metallurgy
+ceramics
+composites
+crystallography
+spectroscopy
+mathematics
+applied mathematics
+pure mathematics
+statistics
+probability
+topology
+geometry
+number theory
+mathematical modeling
+operations research
+optimization
+
+# -- earth, environment, energy ------------------------------------------------
+earth science
+geoscience
+geology
+geophysics
+geochemistry
+seismology
+volcanology
+hydrology
+oceanography
+marine science
+marine biology
+atmospheric science
+meteorology
+climate science
+climate resilience
+climate adaptation
+coastal resilience
+polar science
+arctic research
+environmental science
+ecology
+conservation biology
+biodiversity
+ecosystem services
+natural resources
+forestry
+soil science
+agriculture
+agricultural science
+food science
+food security
+aquaculture
+fisheries
+water quality
+air quality
+environmental health
+sustainability
+energy
+renewable energy
+solar energy
+wind energy
+geothermal energy
+hydrogen
+fuel cells
+energy storage
+batteries
+grid modernization
+carbon capture
+decarbonization
+critical minerals
+mining
+petroleum engineering
+
+# -- life and health sciences --------------------------------------------------
+biology
+molecular biology
+cell biology
+developmental biology
+structural biology
+systems biology
+synthetic biology
+computational biology
+bioinformatics
+genomics
+proteomics
+metabolomics
+genetics
+epigenetics
+microbiology
+virology
+immunology
+neuroscience
+cognitive neuroscience
+physiology
+pharmacology
+toxicology
+biotechnology
+biomanufacturing
+plant science
+zoology
+evolutionary biology
+medicine
+clinical research
+translational research
+public health
+epidemiology
+global health
+health disparities
+health services research
+rural health
+mental health
+behavioral health
+substance use
+nursing
+allied health
+nutrition
+gerontology
+cancer research
+cardiovascular research
+infectious disease
+vaccine development
+diagnostics
+regenerative medicine
+precision medicine
+telehealth
+veterinary science
+one health
+
+# -- social, behavioral, economic ----------------------------------------------
+social science
+behavioral science
+psychology
+cognitive science
+sociology
+anthropology
+archaeology
+political science
+public policy
+public administration
+economics
+econometrics
+development economics
+labor economics
+geography
+demography
+urban studies
+regional planning
+criminology
+law and society
+communication
+media studies
+linguistics
+science of science
+science policy
+technology policy
+innovation policy
+entrepreneurship
+economic development
+workforce development
+rural development
+community development
+disaster resilience
+emergency management
+homeland security
+transportation
+supply chain
+logistics
+
+# -- education -----------------------------------------------------------------
+education
+education research
+stem education
+science education
+mathematics education
+engineering education
+computing education
+technician education
+career and technical education
+technical education
+undergraduate education
+graduate education
+k-12 education
+early childhood education
+adult education
+teacher preparation
+professional development
+curriculum development
+instructional design
+learning sciences
+educational technology
+online learning
+distance learning
+competency based education
+work based learning
+apprenticeship
+internships
+experiential learning
+student success
+student retention
+degree completion
+transfer pathways
+articulation agreements
+dual enrollment
+credentialing
+certification
+industry credentials
+assessment
+program evaluation
+broadening participation
+diversity equity and inclusion
+underrepresented groups
+first generation students
+veterans
+students with disabilities
+minority serving institutions
+historically black colleges and universities
+hispanic serving institutions
+tribal colleges and universities
+community colleges
+two year colleges
+rural institutions
+
+# -- arts and humanities -------------------------------------------------------
+humanities
+digital humanities
+history
+philosophy
+ethics
+research ethics
+literature
+languages
+cultural heritage
+preservation
+museums
+libraries
+archives
+arts
+music
+visual arts
+performing arts
+design
+
+# -- cross-cutting research infrastructure -------------------------------------
+research infrastructure
+laboratory equipment
+shared instrumentation
+core facilities
+research computing
+cyberinfrastructure
+data repositories
+open data
+open science
+reproducibility
+research security
+technology transfer
+commercialization
+small business innovation research
+university industry partnership
+industry collaboration
+regional innovation
+capacity building
+planning grant
+conference support
+fellowship
+traineeship
+scholarship
+mentoring
+outreach
+public engagement
+citizen science

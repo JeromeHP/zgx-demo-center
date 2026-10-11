@@ -1,0 +1,37 @@
+# =============================================================================
+# Maritime Surveillance — thin frontend over an EXTERNAL inference endpoint.
+#
+# The default Dockerfile builds FROM nvcr.io/nvidia/vllm:26.01-py3 and runs vLLM
+# in-container against an FP8 checkpoint. That is NVIDIA-only twice over: the
+# image is NGC and aarch64/x86-CUDA specific, and gfx1151 has no FP8 path in
+# vLLM at all.
+#
+# backend/main.py only ever speaks OpenAI-compatible /chat/completions to
+# VLLM_BASE_URL, so this image carries no inference stack and no GPU
+# requirement -- it points at host Ollama instead, exactly like the pharmacy,
+# pii and ballistics demos. python:3.12-slim is multi-arch, so this builds on
+# x86_64 and aarch64 alike.
+#
+# Used by docker-compose.amd.yml. Build:
+#   docker compose -f docker-compose.yml -f docker-compose.amd.yml build
+# =============================================================================
+FROM python:3.12-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+ENV INFERENCE_BACKEND=external
+
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY backend/requirements-docker.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+COPY backend/ /app/backend/
+COPY frontend/ /app/frontend/
+COPY backend/entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+EXPOSE 8000
+ENTRYPOINT ["/app/entrypoint.sh"]

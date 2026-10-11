@@ -1,0 +1,35 @@
+models/
+__pycache__/
+*.pyc
+.env
+*.wav
+*.tmp
+# --- Strict additions for HP GitHub push ---
+__pycache__/
+*.pyc
+*.pyo
+*.log
+*.bak.*
+.venv/
+venv/
+*-env/
+node_modules/
+
+# Model files
+*.gguf
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.engine
+*.trt
+*.ckpt
+*.h5
+*.tflite
+
+# Common model dirs
+models/
+**/models/
+huggingface_cache/
+.cache/

@@ -1,0 +1,257 @@
+# R1 public research university. The flagship scenario for Discover and Grade.
+#
+# Distinct from Calderwick (a research institute) in the ways that matter to a grants
+# office: multiple colleges, a high on-campus F&A rate, core facilities, a subaward to
+# a partner institution, effort reporting across a lab, and an NIH R01 RESUBMISSION —
+# which brings its own failure mode, ignoring the prior review.
+#
+# Fictional, like every scenario we ship. Only funder documents are real: this one
+# applies to the real NIH Parent R01 (PA-25-301), and its budget is scaled from real
+# comparable R01s (data/anchors/vantcross.json). Its planted issues come from real NIH
+# failure modes -- see data/scenarios/vantcross/solicitation/budget_rules.yaml.
+disclaimer: "Fictional institution. All people, organizations, figures, and documents are synthetic."
+
+institution:
+  name: "Vantcross State University"
+  short_name: "Vantcross"
+  type: "Public R1 doctoral university, very high research activity"
+  service_area: "Upper Midwest (fictional)"
+  colleges: 11
+  research_staff: 1840
+  graduate_students: 6200
+  annual_research_expenditure_usd: 412000000
+  president: "Dr. Ondine Falkenrath"
+
+people:
+  pi: { name: "Dr. Rurik Anselmi", title: "Professor of Molecular Physiology" }
+  co_pi: { name: "Dr. Pernille Adeyemo-Strand", title: "Associate Professor of Bioinformatics" }
+  grants_director: { name: "Corwin Blathwaite", title: "Executive Director, Sponsored Programs" }
+  evaluator: { org: "Halvorsen Research Evaluation", lead: "Dr. Mireille Tancredi" }
+
+prior_award:
+  id: "VSU-FICT-R01-2021"
+  title: "Mitochondrial Dynamics in Skeletal Muscle Insulin Resistance"
+  funder: "NIH National Institute of Diabetes and Digestive and Kidney Diseases (fictional prior award)"
+  amount_usd: 1980000
+  start: "2021-04-01"
+  end: "2026-03-31"
+  outcomes:
+    # Planted: the draft will overstate the paper count.
+    peer_reviewed_papers: 11
+    papers_claimed_in_draft: 19
+    trainees_supported: 5
+    datasets_deposited: 2
+    aims_completed: 2
+    aims_proposed: 3
+    invited_talks: 7
+
+new_project:
+  title: "Mitochondrial Quality Control as a Determinant of Muscle Insulin Sensitivity"
+  short_name: "MQC"
+  track: "track_2"
+  years: 5
+  start: "2027-07-01"
+  submission_type: "Resubmission (A1)"
+
+solicitation:
+  real: true
+  id: "PA-25-301"
+  agency: "NIH"
+  program: "NIH Research Project Grant (Parent R01 Clinical Trial Not Allowed)"
+  track: "R01"
+
+# Scaled from real comparable R01s: median about $640,000 a year in total costs over
+# five years (data/anchors/vantcross.json). Fringe is at the agreement rate -- the old
+# shared fringe-mismatch issue is gone. Two errors are planted here, both real NIH ones:
+# year-one direct costs cross $500,000 (NIH must agree to accept the application), and
+# the Drumlin subaward carries F&A on its full amount instead of its first $25,000.
+budget:
+  fringe_rate_pct: 33.8
+  salary_escalation_pct: 3.0
+  subaward_mtdc_limit_usd: 25000
+  lines:
+    - { category: senior_personnel, line_item: "PI: Dr. Rurik Anselmi (30% effort)", amount_usd: 58800, annual_salary_usd: 196000, effort_pct: 30 }
+    - { category: senior_personnel, line_item: "Co-I: Dr. Pernille Adeyemo-Strand (20% effort)", amount_usd: 31600, annual_salary_usd: 158000, effort_pct: 20 }
+    - { category: other_personnel, line_item: "Postdoctoral researcher (100%)", amount_usd: 62000 }
+    - { category: other_personnel, line_item: "Research technician (100%)", amount_usd: 52000 }
+    - { category: other_personnel, line_item: "Graduate research assistant (50%)", amount_usd: 32000 }
+    - { category: tuition_remission, line_item: "Graduate tuition remission", amount_usd: 18000 }
+    - { category: materials_supplies, line_item: "Mouse colony, reagents and assay kits", amount_usd: 45000 }
+    - { category: other_direct, line_item: "Core facility recharges (metabolic phenotyping, sequencing)", amount_usd: 36000 }
+    - { category: other_direct, line_item: "Human cohort participant compensation", amount_usd: 24000 }
+    - { category: travel, line_item: "Scientific meeting travel", amount_usd: 6000 }
+    - { category: other_direct, line_item: "Publication costs", amount_usd: 4000 }
+    - { category: subaward, line_item: "Drumlin Analytical Institute subaward", amount_usd: 75000, fa: full }
+
+rates:
+  fringe_rate_agreement_pct: 33.8
+  fringe_rate_agreement_doc: "vsu-rate-agreement-fy2026"
+  indirect_rate_pct: 58.0
+  indirect_base: "MTDC"
+
+collaborators:
+  - { name: "Pellworth Metabolic Core", letter_doc: "vsu-letter-pellworth-2026", letter_date: "2026-08-14", references_project: "MQC" }
+  - { name: "Drumlin Analytical Institute", letter_doc: "vsu-letter-drumlin-2026", letter_date: "2026-08-22", references_project: "MQC" }
+
+csv_documents:
+  budget: "vsu-budget-mqc-draft"
+  outcomes: "vsu-prior-outcomes-data"
+
+key_facts:
+  vsu-prior-outcomes-data: [11, 5, 2]
+  vsu-prior-award-final-report-2026: [11, 5]
+  vsu-rate-agreement-fy2026: ["33.8", "58.0", "25,000"]
+  vsu-nih-program-official-correspondence-2026: ["500,000", "six weeks"]
+
+must_not_contain:
+  vsu-bio-anselmi: ["has capacity", "ample availability", "no conflicts"]
+  # Planted: the agreement to accept was requested but never given.
+  # Positive phrasings only: the letter must say agreement has NOT been given.
+  vsu-nih-program-official-correspondence-2026: ["has agreed to accept", "agreement is attached", "approval granted", "has been approved", "subaward", "effort"]
+  vsu-subaward-drumlin-budget-note: ["first $25,000", "deviation", "limit"]
+  vsu-prior-summary-statement-2026: ["F&A", "facilities and administrative", "fringe"]
+
+planted_issues:
+  - "Year-one direct costs exceed $500,000, and NIH has not agreed to accept the application"
+  - "Subaward to Drumlin applies full F&A on the entire subaward rather than the first $25,000"
+  - "PI committed effort across current and pending support exceeds 100%"
+  - "Resubmission does not include an introduction responding to the prior summary statement"
+  - "Draft claims 19 papers; the outcomes record shows 11"
+
+demo_context:
+  today: "2026-09-21"
+  deadline: "2026-11-05"
+
+documents:
+  - doc_id: "vsu-institute-profile-2026"
+    title: "Vantcross State University — Research Profile 2026"
+    word_range: [700, 950]
+    brief: >
+      A research profile of a large public R1 university: eleven colleges, annual research
+      expenditure, doctoral programmes, core facility infrastructure, technology transfer
+      activity, and the Office of Sponsored Programs. Factual and plain, no marketing.
+  - doc_id: "vsu-strategic-research-plan-2026-2031"
+    title: "University Research Strategic Plan 2026-2031"
+    word_range: [650, 900]
+    brief: >
+      Five-year research priorities: metabolic and cardiovascular disease, computational
+      biology and data science, materials for energy storage, agricultural systems, and
+      research infrastructure renewal. Include a short section on graduate training capacity.
+  - doc_id: "vsu-bio-anselmi"
+    title: "Biosketch — Dr. Rurik Anselmi"
+    word_range: [500, 700]
+    brief: >
+      A biosketch for the PI: position, training, research focus in mitochondrial
+      physiology, selected publications. Then a current-and-pending-support table with
+      exactly these FIVE awards, all active or pending through at least 2028, with
+      committed effort in calendar months per year AND as a percentage:
+      (1) "Mitochondrial Quality Control as a Determinant of Muscle Insulin Sensitivity",
+      NIH R01, pending, 2027-07-01 to 2032-06-30, 3.6 months, 30%;
+      (2) "Mitophagy Signalling in Aged Skeletal Muscle", NIH R01, active, 2025-09-01 to
+      2030-08-31, 4.2 months, 35%;
+      (3) "Lipid Droplet-Mitochondria Contact Sites", NIH R21, active, 2025-04-01 to
+      2028-03-31, 2.4 months, 20%;
+      (4) "Metabolic Phenotyping Core Leadership", Vantcross internal, active, 2024-07-01
+      to 2029-06-30, 1.8 months, 15%;
+      (5) "Muscle Insulin Signalling Training Program", NIH T32 (faculty mentor), active,
+      2026-07-01 to 2031-06-30, 1.2 months, 10%.
+      These total 110%. Present the table plainly, do not add or comment on the total, and
+      do not say the investigator has capacity or availability. A reviewer is supposed to
+      notice this, not be told.
+  - doc_id: "vsu-bio-adeyemo-strand"
+    title: "Biosketch — Dr. Pernille Adeyemo-Strand"
+    word_range: [450, 650]
+    brief: >
+      A biosketch for the co-investigator: position, training, research focus in
+      bioinformatics and multi-omics integration, selected publications, and a current and
+      pending support table with committed effort.
+  - doc_id: "vsu-core-facilities"
+    title: "Core Facilities and Shared Instrumentation"
+    word_range: [600, 850]
+    brief: >
+      The university's shared research infrastructure: a metabolic phenotyping core, a
+      genomics and sequencing core, cryo-electron microscopy, a biostatistics consulting
+      service, and high-performance computing. State recharge-rate arrangements and which
+      facilities are open to external users.
+  - doc_id: "vsu-prior-award-final-report-2026"
+    title: "Final Progress Report — Mitochondrial Dynamics in Skeletal Muscle Insulin Resistance"
+    word_range: [850, 1150]
+    brief: >
+      The final progress report on the prior NIH award. Report outcomes honestly and
+      specifically, including shortfalls: 11 peer-reviewed papers, 5 trainees supported, 2
+      datasets deposited, 7 invited talks, and TWO of the THREE specific aims completed.
+      Explain why the third aim was not completed (a knockout line that failed to breed and
+      an eighteen-month delay in core instrument availability).
+  - doc_id: "vsu-prior-summary-statement-2026"
+    title: "Summary Statement — Prior Submission (for resubmission reference)"
+    word_range: [550, 750]
+    brief: >
+      A reviewer summary statement on the previous, unfunded submission of the current
+      project. Give an impact score and list the principal critiques: insufficient
+      preliminary data for the third aim, concern about the PI's available effort,
+      an underspecified statistical analysis plan, and a subaward whose role was unclear.
+      This is the document a resubmission is supposed to respond to. The subaward critique
+      is about its scientific role only: do not discuss facilities and administrative
+      costs, fringe benefit rates, or any other budget arithmetic.
+  - doc_id: "vsu-subaward-drumlin-budget-note"
+    title: "Subaward Budget Note — Drumlin Analytical Institute"
+    word_range: [400, 600]
+    brief: >
+      A budget note describing the subaward to a partner institution: scope of work
+      (targeted metabolomics and lipidomics on muscle biopsies), period (five years), and
+      cost: $75,000 a year, $375,000 in total. State plainly, as routine practice, that the
+      prime applies its 58.0% F&A rate to the full $75,000 each year, in one matter-of-fact
+      sentence, and give the resulting F&A figure. Say nothing further about how F&A on
+      subawards is or should be calculated.
+  - doc_id: "vsu-data-management-sharing-plan"
+    title: "Data Management and Sharing Plan"
+    word_range: [500, 700]
+    brief: >
+      An NIH-style data management and sharing plan: data types, standards, repository
+      deposit, timeline for sharing, access controls for human-derived data, and
+      preservation responsibilities.
+  - doc_id: "vsu-human-subjects-and-compliance-2026"
+    title: "Human Subjects, Vertebrate Animals and Compliance Status 2026"
+    word_range: [500, 700]
+    brief: >
+      A compliance summary: IRB protocol status for the human cohort component including
+      approval and expiry dates, IACUC protocol status for the rodent work, biosafety
+      registration, and conflict-of-interest disclosure. State the dates explicitly.
+  - doc_id: "vsu-rate-agreement-fy2026"
+    title: "Negotiated Indirect Cost and Fringe Benefit Rate Agreement FY2026"
+    word_range: [400, 600]
+    brief: >
+      The negotiated rate agreement. State clearly that the fringe benefit rate is 33.8%
+      and the on-campus organised research indirect cost rate is 58.0% of modified total
+      direct cost. State that subaward F&A applies only to the first $25,000 of each
+      subaward. This document is what a budget is checked against.
+  - doc_id: "vsu-letter-pellworth-2026"
+    date: "2026-08-14"
+    title: "Letter of Collaboration — Pellworth Metabolic Core"
+    word_range: [300, 450]
+    brief: >
+      A current letter of collaboration for the proposed five-year project, describing
+      guaranteed access to metabolic phenotyping instrumentation and technical support.
+  - doc_id: "vsu-letter-drumlin-2026"
+    date: "2026-08-22"
+    title: "Letter of Collaboration — Drumlin Analytical Institute"
+    word_range: [300, 450]
+    brief: >
+      A current letter from the subaward partner, describing the analytical work they will
+      perform and the personnel committed to it.
+  - doc_id: "vsu-nih-program-official-correspondence-2026"
+    title: "Correspondence with the NIDDK Program Official (September 2026)"
+    word_range: [400, 600]
+    brief: >
+      An email thread, dated 2026-09-15 to 2026-09-18, between the PI Dr. Rurik Anselmi and a
+      fictional NIDDK program official. Dr. Anselmi writes on 2026-09-15 that the MQC
+      resubmission, due 2026-11-05, will request more than $500,000 in direct costs in its
+      first year, and asks whether the institute will accept it. The program official replies
+      on 2026-09-18 that NIH policy requires the request at least six weeks before the
+      submission date (so a decision is needed by 2026-09-24), that the institute has NOT
+      yet agreed to accept the application, and asks for a one-page justification of the
+      year-one budget before any decision can be made. The thread ends there, with no
+      further reply and no agreement. Do not state or imply that agreement was given. Keep
+      the email about the $500,000 threshold only: do not discuss any individual budget
+      line, any subaward, facilities and administrative costs, investigator effort, or the
+      prior review.

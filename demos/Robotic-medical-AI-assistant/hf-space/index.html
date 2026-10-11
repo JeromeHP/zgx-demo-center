@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consent Agent for Reachy Mini</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Consent Agent</h1>
+        <p class="subtitle">Always-listening voice agent for Reachy Mini</p>
+
+        <div class="card">
+            <h2>How it works</h2>
+            <p>This app turns your Reachy Mini into a voice-interactive agent powered entirely by local hardware.</p>
+            <ol>
+                <li>Reachy listens continuously via the built-in microphone</li>
+                <li>Speech is detected using voice activity detection</li>
+                <li>Audio is transcribed locally with Whisper</li>
+                <li>A response is generated with Qwen3-14B via vLLM</li>
+                <li>Speech is synthesized with Piper TTS</li>
+                <li>Reachy speaks the response through the built-in speaker</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h2>Requirements</h2>
+            <ul>
+                <li>HP ZGX Nano (or NVIDIA GPU with 24GB+ VRAM)</li>
+                <li>ZGX AI API Docker container running on the GPU</li>
+                <li>Reachy Mini (Wireless) on the same network</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Configuration</h2>
+            <p>Set the <code>ZGX_API_URL</code> environment variable on the robot if the API is not at <code>http://localhost:8090</code>.</p>
+        </div>
+    </div>
+</body>
+</html>

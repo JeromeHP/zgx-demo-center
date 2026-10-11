@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual envs
+ballistics-env/
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+# --- Strict additions for HP GitHub push ---
+*.log
+*.bak.*
+*-env/
+node_modules/
+
+# Model files (none vendored here — inference is via host Ollama)
+*.gguf
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.engine
+*.trt
+*.ckpt
+*.h5
+*.tflite
+
+# Common model dirs
+models/
+**/models/
+huggingface_cache/
+.cache/

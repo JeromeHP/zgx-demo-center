@@ -1,0 +1,40 @@
+# Money rules for NSF 26-516 (GEO Core). The solicitation defers proposal and budget
+# preparation to the PAPPG, so the rules below come from it and from 2 CFR 200 as
+# revised in 2024, which NSF applies. Quoted so each can be checked.
+
+cap_usd:
+  value: null
+  quote: "NSF seeks proposals spanning a wide range of funding levels and project durations. (No award ceiling is stated.)"
+  source: https://www.nsf.gov/funding/opportunities/geo-core-geosciences-core-research-atmospheric-geospace-earth-ocean/nsf26-516/solicitation
+
+max_years:
+  value: 5
+  quote: >-
+    "The Foundation encourages proposers to request funding for durations of three to five years when
+    such durations are necessary for completion of the proposed work"
+  source: https://www.nsf.gov/policies/pappg/24-1/ch-2-proposal-preparation
+
+cost_share:
+  value: prohibited
+  quote: "Inclusion of voluntary committed cost sharing is prohibited."
+  source: https://www.nsf.gov/funding/opportunities/geo-core-geosciences-core-research-atmospheric-geospace-earth-ocean/nsf26-516/solicitation
+
+equipment_threshold_usd:
+  value: 10000
+  quote: "revised to increase the equipment threshold from $5,000 to $10,000 to align with updates provided in Title 2 CFR § 200."
+  source: https://www.nsf.gov/policies/document/pappg24-1-supplement-1
+
+subaward_mtdc_limit_usd:
+  value: 50000
+  quote: >-
+    2 CFR 200.1: MTDC includes "up to the first $50,000 of each subaward (regardless of the period of
+    performance of the subawards under the award)".
+  source: https://www.ecfr.gov/current/title-2/section-200.1
+
+# Not a budget arithmetic rule: the agent checks for the plan. Recorded here with its source.
+requires_mentoring_plan:
+  value: true
+  quote: >-
+    "each proposal that requests funding to support postdoctoral scholars or graduate students must
+    upload under 'Mentoring Plan' in the supplementary documentation section"
+  source: https://www.nsf.gov/policies/pappg/24-1/ch-2-proposal-preparation

@@ -1,0 +1,38 @@
+# Copy this file to config/local.yaml (gitignored) for machine-specific overrides.
+# Deep-merged over config/default.yaml. See app/settings.py for load order.
+#
+# NOTE: the HP ZGX Nano does NOT use this file. Its Demo Center launcher
+# (start_demo_8095.sh) passes the same settings as GM_* env vars instead, so that
+# starting the demo never writes to a tracked file. This file is for other machines.
+
+llm:
+  # Point at whatever OpenAI-compatible endpoint you are running. Two common shapes:
+  #   Ollama:     http://127.0.0.1:11434/v1   (model is the Ollama tag, e.g. qwen3.6:35b)
+  #   llama.cpp:  http://127.0.0.1:8080/v1    (LLM_PORT to move it if 8080 is taken)
+  base_url: "http://127.0.0.1:11434/v1"
+  model: "qwen3.6:35b"
+
+  # How to ask the server for, or suppress, thinking mode. This MUST match your server:
+  #   chat_template    -- llama-server, vLLM (they read chat_template_kwargs.enable_thinking)
+  #   reasoning_effort -- Ollama, which ignores chat_template_kwargs entirely and honours
+  #                       only reasoning_effort ("none" being the one value that disables it)
+  # Getting this wrong does not raise -- the wrong field is silently ignored, and you get an
+  # agent whose reasoning is never captured, or whose drafter/reviewer think when they must
+  # not. scripts/endpoint_check.py E3/E4 is how you confirm it; read E3's reasoning_source
+  # in the JSON report, not just PASS/FAIL.
+  thinking_control: "reasoning_effort"
+
+  # context_tokens rarely needs overriding: config/default.yaml already carries this
+  # project's Phase 2.5 context-sizing result (65536); only lower it if your hardware can't
+  # load the model at that context size (see docs/BUILD_PLAN.md Phase 2.5 for how to re-test).
+
+server:
+  port: 8095
+
+demo:
+  device_label: "HP ZBook Ultra G1a (dev)"
+
+# Read only by scripts/*, never by the app itself. Only needed for the llama.cpp path.
+model_server:
+  llama_server_bin: "/home/USER/llama.cpp/build/bin/llama-server"
+  model_path: "/home/USER/models/qwen3.6-35b-a3b/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf"

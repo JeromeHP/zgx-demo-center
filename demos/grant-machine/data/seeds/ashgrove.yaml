@@ -1,0 +1,224 @@
+# Academic medical centre on the real NIH Parent R01, Clinical Trial Required
+# (PA-25-305). Budget scaled from real comparable R01 trials (data/anchors/ashgrove.json);
+# money rules quoted in data/scenarios/ashgrove/solicitation/budget_rules.yaml.
+#
+# Compliance-dominant rather than budget-dominant. The failure modes a clinical trials
+# office actually loses sleep over are regulatory: a lapsed IRB approval, a registration
+# that was never filed, a data safety monitoring board that exists only on paper, and
+# enrolment projections the site's own history does not support.
+disclaimer: "Fictional institution. All people, organizations, figures, and documents are synthetic."
+
+institution:
+  name: "Ashgrove University Medical Center"
+  short_name: "Ashgrove"
+  type: "Academic medical centre and affiliated university health system"
+  service_area: "Mid-Atlantic, four-hospital system (fictional)"
+  hospital_beds: 1140
+  faculty_physicians: 980
+  active_clinical_trials: 412
+  annual_research_expenditure_usd: 268000000
+  chief_research_officer: "Dr. Yusuf Brandolini"
+
+people:
+  pi: { name: "Dr. Saoirse Achterberg", title: "Associate Professor of Pulmonary and Critical Care Medicine" }
+  co_pi: { name: "Dr. Vikram Ostrowski-Baird", title: "Director, Clinical Trials Biostatistics Unit" }
+  grants_director: { name: "Lenore Kasprzak", title: "Director, Office of Clinical Research Administration" }
+  evaluator: { org: "Harbrace Clinical Monitoring", lead: "Dr. Ilse Nakagawa-Reilly" }
+
+prior_award:
+  id: "AUMC-FICT-R01-2021"
+  title: "Early Mobilization Protocols in Mechanically Ventilated Patients"
+  funder: "NIH National Heart, Lung, and Blood Institute (fictional prior award)"
+  amount_usd: 2640000
+  start: "2021-07-01"
+  end: "2026-06-30"
+  # The prior trial's registry record. Fictional identifier, deliberately not in NCT
+  # format so it can never collide with a real ClinicalTrials.gov entry.
+  registry_id: "NCT-FICT-2021-014"
+  primary_completion: "2025-06-30"
+  # Planted: results were due 12 months after primary completion (2026-06-30) and have
+  # not been submitted. Deliberately not written as seed facts -- the drafting model sees
+  # the seed, and given "results_due" it wrote the deadline into the document for us.
+  outcomes:
+    participants_enrolled: 288
+    participants_target: 450
+    sites_activated: 4
+    sites_planned: 7
+    peer_reviewed_papers: 6
+    protocol_deviations_reported: 14
+
+new_project:
+  title: "Stepped Mobilization and Sedation Minimization in Critical Illness"
+  short_name: "SMSM"
+  track: "track_2"
+  years: 5
+  start: "2027-07-01"
+
+solicitation:
+  real: true
+  id: "PA-25-305"
+  agency: "NIH"
+  program: "NIH Research Project Grant (Parent R01 Clinical Trial Required)"
+  track: "R01"
+
+# Five flat years (NIH does not fund inflationary increases), about $770,000 a year in
+# total costs against a median of $781,000 for comparable real R01 trials. Year-one
+# direct costs stay under $500,000, so the prior-approval rule does not apply here.
+# One error is planted: the PI's line is budgeted on her full $260,000 salary, above the
+# $228,000 NIH salary cap.
+budget:
+  fringe_rate_pct: 31.2
+  salary_escalation_pct: 0
+  subaward_mtdc_limit_usd: 25000
+  lines:
+    - { category: senior_personnel, line_item: "PI: Dr. Saoirse Achterberg (30% effort)", amount_usd: 78000, annual_salary_usd: 260000, effort_pct: 30 }
+    - { category: senior_personnel, line_item: "Co-I: Dr. Vikram Ostrowski-Baird (15% effort)", amount_usd: 27750, annual_salary_usd: 185000, effort_pct: 15 }
+    - { category: other_personnel, line_item: "Clinical research coordinator (100%)", amount_usd: 68000 }
+    - { category: other_personnel, line_item: "ICU research nurse (50%)", amount_usd: 48000 }
+    - { category: other_personnel, line_item: "Data manager (50%)", amount_usd: 36000 }
+    - { category: other_direct, line_item: "Participant compensation", amount_usd: 26000 }
+    - { category: materials_supplies, line_item: "Mobility equipment, sedation assessment supplies", amount_usd: 10000 }
+    - { category: other_direct, line_item: "Harbrace Clinical Monitoring contract (independent monitoring)", amount_usd: 24000 }
+    - { category: travel, line_item: "Investigator meeting and site visit travel", amount_usd: 5000 }
+    - { category: subaward, line_item: "Wrenfield Regional Hospital site subaward", amount_usd: 40000 }
+    - { category: subaward, line_item: "Calloway Valley Health site subaward", amount_usd: 40000 }
+
+rates:
+  fringe_rate_agreement_pct: 31.2
+  fringe_rate_agreement_doc: "aumc-rate-agreement-fy2026"
+  indirect_rate_pct: 62.5
+  indirect_base: "MTDC"
+
+collaborators:
+  - { name: "Wrenfield Regional Hospital", letter_doc: "aumc-letter-wrenfield-2026", letter_date: "2026-08-09", references_project: "SMSM" }
+  - { name: "Calloway Valley Health", letter_doc: "aumc-letter-calloway-2026", letter_date: "2026-08-21", references_project: "SMSM" }
+
+csv_documents:
+  budget: "aumc-budget-smsm-draft"
+  outcomes: "aumc-prior-outcomes-data"
+
+key_facts:
+  aumc-prior-outcomes-data: [288, 4, 6]
+  aumc-prior-award-final-report-2026: [288, 4]
+  # Prose form, because that is how the document writes it. A date has many
+  # renderings and the check compares literal strings.
+  aumc-irb-and-regulatory-status-2026: ["March 31, 2026", "expired", "NCT-FICT-2021-014"]
+  aumc-rate-agreement-fy2026: ["31.2", "62.5"]
+  aumc-bio-achterberg: ["260,000", "30%"]
+
+must_not_contain:
+  aumc-irb-and-regulatory-status-2026: ["currently approved", "approval is active", "results have been posted", "results were posted", "results are posted", "due date", "deadline", "overdue", "past due", "late", "mandatory", "delay", "has passed"]
+  aumc-bio-achterberg: ["salary cap", "Executive Level"]
+  # Only the registry table in the regulatory status document states the results status.
+  aumc-institute-profile-2026: ["due by", "due to be posted", "not yet been posted", "not yet posted", "results are due"]
+  aumc-data-management-sharing-plan: ["due by", "due to be posted", "not yet been posted", "not yet posted", "results are due"]
+
+planted_issues:
+  - "PI salary is budgeted on a $260,000 base, above the $228,000 NIH salary cap"
+  - "IRB approval for the parent protocol expired 2026-03-31 and has not been renewed"
+  - "Draft asserts a data safety monitoring board is in place; the regulatory status document lists it as not yet constituted"
+  - "Projected accrual of 20 participants per site per month is not supported by the prior trial's actual performance"
+  - "Results of the prior trial were due on ClinicalTrials.gov by 2026-06-30 and have not been posted"
+
+demo_context:
+  today: "2026-09-21"
+  deadline: "2026-12-05"
+
+documents:
+  - doc_id: "aumc-institute-profile-2026"
+    title: "Ashgrove University Medical Center — Research Profile 2026"
+    word_range: [700, 950]
+    brief: >
+      A research profile of an academic medical centre: four-hospital system, bed count,
+      faculty physicians, active clinical trials, annual research expenditure, the clinical
+      and translational research institute, and the office of clinical research
+      administration. Factual, no marketing.
+  - doc_id: "aumc-clinical-research-capacity-2026"
+    title: "Clinical Research Capacity and Infrastructure"
+    word_range: [600, 850]
+    brief: >
+      Capacity for clinical trials: research pharmacy, clinical research coordinators,
+      a clinical research unit with inpatient beds, biospecimen processing, an electronic
+      data capture system, and the biostatistics unit. State coordinator headcount and
+      typical study start-up timelines.
+  - doc_id: "aumc-irb-and-regulatory-status-2026"
+    title: "IRB, Regulatory and Trial Registration Status 2026"
+    word_range: [550, 750]
+    brief: >
+      A regulatory status summary as of September 2026. State plainly that IRB approval
+      for the parent protocol was granted 2023-04-01 and EXPIRED on 2026-03-31, that a
+      continuing review submission is pending, and that the data safety monitoring board for
+      the proposed study is NOT YET CONSTITUTED. Include the prior trial's registry record
+      as a four-row table and nothing else -- no sentence before or after it, no comment on
+      it anywhere in the document: Record ID NCT-FICT-2021-014; Primary completion date
+      2025-06-30; Record status Completed; Results Not yet submitted. Note separately that
+      the new protocol will be registered before its first enrolment. Report these as status facts without editorialising, and
+      do not describe any approval as currently active or any results as posted.
+  - doc_id: "aumc-bio-achterberg"
+    title: "Biosketch — Dr. Saoirse Achterberg"
+    word_range: [500, 700]
+    brief: >
+      A biosketch for the PI: position in pulmonary and critical care medicine, clinical
+      trial leadership record, selected publications, and a current and pending support
+      table giving committed effort in calendar months and percentage for each award,
+      including the proposed SMSM trial at 3.6 months (30%). State her institutional base
+      salary as $260,000 in a one-line "Institutional base salary" field. Total committed
+      effort across all awards should be about 85%.
+  - doc_id: "aumc-bio-ostrowski-baird"
+    title: "Biosketch — Dr. Vikram Ostrowski-Baird"
+    word_range: [450, 650]
+    brief: >
+      A biosketch for the biostatistician co-investigator: position, training, trial design
+      and analysis experience, selected publications, and current and pending support.
+  - doc_id: "aumc-prior-award-final-report-2026"
+    title: "Final Progress Report — Early Mobilization Protocols in Mechanically Ventilated Patients"
+    word_range: [850, 1150]
+    brief: >
+      The final progress report on the prior NIH trial. Report outcomes honestly and
+      specifically, including shortfalls: 288 participants enrolled against a target of
+      450, FOUR of SEVEN planned sites activated, 6 peer-reviewed papers, and 14 reported
+      protocol deviations. Explain the enrolment shortfall (two sites withdrew during
+      start-up and screening yield was lower than projected).
+  - doc_id: "aumc-enrollment-feasibility-analysis"
+    title: "Enrollment Feasibility Analysis — Proposed Study"
+    word_range: [550, 750]
+    brief: >
+      A feasibility analysis for the proposed trial: eligible patient volume per site per
+      month drawn from the electronic health record, expected screening-to-consent ratio,
+      and a projected accrual of 20 participants per site per month across three sites.
+      Base the projection on EHR screening counts only; do not compare it with the prior
+      trial's enrolment and do not mention the prior trial's shortfall.
+  - doc_id: "aumc-data-safety-monitoring-plan"
+    title: "Data and Safety Monitoring Plan"
+    word_range: [550, 750]
+    brief: >
+      The monitoring plan for the proposed trial: monitoring frequency, stopping rules,
+      adverse event reporting pathway and timelines, and the intended composition of the
+      data safety monitoring board. State clearly that the board has not yet been convened
+      and that members are proposed rather than appointed.
+  - doc_id: "aumc-data-management-sharing-plan"
+    title: "Data Management and Sharing Plan"
+    word_range: [500, 700]
+    brief: >
+      An NIH-style data management and sharing plan for clinical data: data types,
+      de-identification approach, repository, controlled access, consent language
+      supporting sharing, and timelines.
+  - doc_id: "aumc-rate-agreement-fy2026"
+    title: "Negotiated Indirect Cost and Fringe Benefit Rate Agreement FY2026"
+    word_range: [400, 600]
+    brief: >
+      The negotiated rate agreement. State clearly that the fringe benefit rate is 31.2%
+      and the on-campus organised research indirect cost rate is 62.5% of modified total
+      direct cost. This document is what a budget is checked against.
+  - doc_id: "aumc-letter-wrenfield-2026"
+    title: "Letter of Collaboration — Wrenfield Regional Hospital"
+    word_range: [300, 450]
+    brief: >
+      A current letter from a participating site for the proposed trial, committing to
+      site activation, local coordinator support and projected enrolment.
+  - doc_id: "aumc-letter-calloway-2026"
+    title: "Letter of Collaboration — Calloway Valley Health"
+    word_range: [300, 450]
+    brief: >
+      A current letter from a second participating site for the proposed trial, describing
+      its intensive care capacity and commitment to the protocol.

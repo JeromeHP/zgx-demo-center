@@ -1,0 +1,146 @@
+{
+  "scenario": "sablecreek",
+  "comparable": "NSF EPSCoR E-CORE lead awards",
+  "retrieved_at": "2026-09-29T19:31:40Z",
+  "license": "U.S. Government work \u2014 public domain (award metadata)",
+  "note": "Scale reference for the scenario seed. Recipient and investigator names are not stored.",
+  "summary": {
+    "n": 11,
+    "median_annual_total_usd": 2000000,
+    "median_years": 4.0
+  },
+  "awards": [
+    {
+      "award_id": "2539219",
+      "title": "E-CORE: South Carolina Collaborative Academic Pathways in STEM",
+      "agency": "NSF",
+      "program": "EPSCoR RII: E-CORE",
+      "total_usd": 9999989,
+      "annual_total_usd": 2499997,
+      "start": "08/01/2026",
+      "end": "07/31/2030",
+      "years": 4.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2539219"
+    },
+    {
+      "award_id": "2539252",
+      "title": "E-CORE: Nebraska Strengthening Partnerships for Innovation, Research, and Education",
+      "agency": "NSF",
+      "program": "EPSCoR RII: E-CORE",
+      "total_usd": 10000000,
+      "annual_total_usd": 2500000,
+      "start": "07/15/2026",
+      "end": "06/30/2030",
+      "years": 4.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2539252"
+    },
+    {
+      "award_id": "2539517",
+      "title": "Collaborative Research: E-CORE: Oklahoma Research, Innovation, and Opportunity Network",
+      "agency": "NSF",
+      "program": "EPSCoR RII: E-CORE",
+      "total_usd": 5604032,
+      "annual_total_usd": 1401008,
+      "start": "07/15/2026",
+      "end": "06/30/2030",
+      "years": 4.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2539517"
+    },
+    {
+      "award_id": "2539413",
+      "title": "Research Infrastructure: E-CORE: Research Infrastructure for AI-based Sustainable STEM Technologies in Puerto Rico",
+      "agency": "NSF",
+      "program": "EPSCoR RII: E-CORE",
+      "total_usd": 10000000,
+      "annual_total_usd": 2500000,
+      "start": "07/15/2026",
+      "end": "06/30/2030",
+      "years": 4.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2539413"
+    },
+    {
+      "award_id": "2438102",
+      "title": "Collaborative Research: E-CORE RII: Sustainable Programs Advancing Research and Knowledge across North Dakota",
+      "agency": "NSF",
+      "program": "EPSCoR RII: E-CORE",
+      "total_usd": 3258486,
+      "annual_total_usd": 814622,
+      "start": "08/01/2025",
+      "end": "07/31/2029",
+      "years": 4.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2438102"
+    },
+    {
+      "award_id": "2437963",
+      "title": "E-CORE RII: Louisiana Networks of Excellence for Tomorrow",
+      "agency": "NSF",
+      "program": "EPSCoR RII: E-CORE",
+      "total_usd": 8000000,
+      "annual_total_usd": 2000000,
+      "start": "07/01/2025",
+      "end": "06/30/2029",
+      "years": 4.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2437963"
+    },
+    {
+      "award_id": "2438132",
+      "title": "E-CORE RII: Optimizing Research Infrastructure in Guam",
+      "agency": "NSF",
+      "program": "EPSCoR RII: E-CORE",
+      "total_usd": 8000000,
+      "annual_total_usd": 2000000,
+      "start": "07/01/2025",
+      "end": "06/30/2029",
+      "years": 4.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2438132"
+    },
+    {
+      "award_id": "2438206",
+      "title": "E-CORE RII: Arkansas Nexus for Excellence in Technology, Workforce, Outreach and Research Knowledge",
+      "agency": "NSF",
+      "program": "EPSCoR RII: E-CORE",
+      "total_usd": 8000000,
+      "annual_total_usd": 2000000,
+      "start": "07/01/2025",
+      "end": "06/30/2029",
+      "years": 4.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2438206"
+    },
+    {
+      "award_id": "2438168",
+      "title": "Collaborative Research:  E-CORE RII: The Science and Technology Research Initiative for the Vermont Economy",
+      "agency": "NSF",
+      "program": "EPSCoR RII: E-CORE",
+      "total_usd": 6150176,
+      "annual_total_usd": 1537544,
+      "start": "03/01/2025",
+      "end": "02/28/2029",
+      "years": 4.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2438168"
+    },
+    {
+      "award_id": "2438201",
+      "title": "E-CORE RII: Technology for Innovative Visualization, Aggregation & Training in Environmental Preparedness and Resilience for Kentucky",
+      "agency": "NSF",
+      "program": "EPSCoR RII: E-CORE",
+      "total_usd": 7974265,
+      "annual_total_usd": 1993566,
+      "start": "03/01/2025",
+      "end": "02/28/2029",
+      "years": 4.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2438201"
+    },
+    {
+      "award_id": "2438144",
+      "title": "Collaborative Research: E-CORE RII: Strengthening Partnerships for Advancing Research Capacity in Delaware",
+      "agency": "NSF",
+      "program": "EPSCoR RII: E-CORE",
+      "total_usd": 5795324,
+      "annual_total_usd": 1448831,
+      "start": "03/01/2025",
+      "end": "02/28/2029",
+      "years": 4.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2438144"
+    }
+  ]
+}

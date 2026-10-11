@@ -1,0 +1,25 @@
+# Sample images are mounted separately
+sample-images/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+vehicle-env/
+.venv/
+venv/
+
+# Git
+.git/
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.md
+*.sh
+!backend/
+!frontend/

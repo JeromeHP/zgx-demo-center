@@ -1,0 +1,134 @@
+{
+  "scenario": "vantcross",
+  "comparable": "NIH R01 on skeletal-muscle mitochondria and insulin resistance",
+  "retrieved_at": "2026-09-29T19:31:38Z",
+  "license": "U.S. Government work \u2014 public domain (award metadata)",
+  "note": "Scale reference for the scenario seed. Recipient and investigator names are not stored.",
+  "summary": {
+    "n": 10,
+    "median_annual_total_usd": 640499,
+    "median_years": 4.85
+  },
+  "awards": [
+    {
+      "award_id": "2R01DK108089-06A1",
+      "title": "Role and Regulation of Skeletal Muscle Mitochondrial Dynamics in Type 2 Diabetes",
+      "agency": "NIH NIDDK",
+      "mechanism": "R01",
+      "annual_total_usd": 749999,
+      "annual_direct_usd": 499999,
+      "start": "2015-09-30",
+      "end": "2030-04-30",
+      "years": 14.6,
+      "url": "https://reporter.nih.gov/project-details/2R01DK108089-06A1"
+    },
+    {
+      "award_id": "1R01DK138011-01",
+      "title": "Relevance of fatty acid handling in the adaptive response to mitochondrial dysfunction",
+      "agency": "NIH NIDDK",
+      "mechanism": "R01",
+      "annual_total_usd": 542156,
+      "annual_direct_usd": 397818,
+      "start": "2024-03-01",
+      "end": "2028-02-29",
+      "years": 4.0,
+      "url": "https://reporter.nih.gov/project-details/1R01DK138011-01"
+    },
+    {
+      "award_id": "1R01AG084597-01",
+      "title": "Glycemic control and frailty risk in older people at risk for type 2 diabetes: Impact of local heat therapy",
+      "agency": "NIH NIA",
+      "mechanism": "R01",
+      "annual_total_usd": 736832,
+      "annual_direct_usd": 477647,
+      "start": "2024-08-01",
+      "end": "2029-07-31",
+      "years": 5.0,
+      "url": "https://reporter.nih.gov/project-details/1R01AG084597-01"
+    },
+    {
+      "award_id": "2R01DK037175-36A1",
+      "title": "Protein Nutrition in Experimental Uremia",
+      "agency": "NIH NIDDK",
+      "mechanism": "R01",
+      "annual_total_usd": 348000,
+      "annual_direct_usd": 217500,
+      "start": "1987-09-01",
+      "end": "2028-06-30",
+      "years": 40.8,
+      "url": "https://reporter.nih.gov/project-details/2R01DK037175-36A1"
+    },
+    {
+      "award_id": "2R01AG062859-06",
+      "title": "Molecular Mechanisms of  Exercise Benefits to Insulin Resistant People",
+      "agency": "NIH NIA",
+      "mechanism": "R01",
+      "annual_total_usd": 675213,
+      "annual_direct_usd": 443276,
+      "start": "2019-09-30",
+      "end": "2029-07-31",
+      "years": 9.8,
+      "url": "https://reporter.nih.gov/project-details/2R01AG062859-06"
+    },
+    {
+      "award_id": "1R01AG084180-01A1",
+      "title": "Impacting Inflammation through Mechanistic Target of Rapamycin (imTOR)",
+      "agency": "NIH NIA",
+      "mechanism": "R01",
+      "annual_total_usd": 640068,
+      "annual_direct_usd": 450774,
+      "start": "2024-09-01",
+      "end": "2028-05-31",
+      "years": 3.7,
+      "url": "https://reporter.nih.gov/project-details/1R01AG084180-01A1"
+    },
+    {
+      "award_id": "1R01DK137889-01",
+      "title": "Molecular Mechanisms of Insulin Resistance Associated Loci",
+      "agency": "NIH NIDDK",
+      "mechanism": "R01",
+      "annual_total_usd": 640930,
+      "annual_direct_usd": 449575,
+      "start": "2024-04-01",
+      "end": "2028-03-31",
+      "years": 4.0,
+      "url": "https://reporter.nih.gov/project-details/1R01DK137889-01"
+    },
+    {
+      "award_id": "1R01CA279707-01A1",
+      "title": "Contributions of the Adipose Tissue to the Development of Pancreatic Cancer",
+      "agency": "NIH NCI",
+      "mechanism": "R01",
+      "annual_total_usd": 506842,
+      "annual_direct_usd": 327012,
+      "start": "2024-02-08",
+      "end": "2029-01-31",
+      "years": 5.0,
+      "url": "https://reporter.nih.gov/project-details/1R01CA279707-01A1"
+    },
+    {
+      "award_id": "1R01AG080184-01A1",
+      "title": "Improving sarcopenia by targeting mitochondria",
+      "agency": "NIH NIA",
+      "mechanism": "R01",
+      "annual_total_usd": 678758,
+      "annual_direct_usd": 443689,
+      "start": "2023-09-05",
+      "end": "2028-05-31",
+      "years": 4.7,
+      "url": "https://reporter.nih.gov/project-details/1R01AG080184-01A1"
+    },
+    {
+      "award_id": "1R01HL168056-01",
+      "title": "GPR75 in obesity-driven cardiovascular and metabolic complications",
+      "agency": "NIH NHLBI",
+      "mechanism": "R01",
+      "annual_total_usd": 567171,
+      "annual_direct_usd": 345836,
+      "start": "2023-04-01",
+      "end": "2027-02-28",
+      "years": 3.9,
+      "url": "https://reporter.nih.gov/project-details/1R01HL168056-01"
+    }
+  ]
+}

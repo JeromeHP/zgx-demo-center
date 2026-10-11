@@ -1,0 +1,216 @@
+# Hispanic-Serving Institution applying to an NSF capacity-building programme.
+#
+# The interesting difference from the other scenarios is WHERE the risk sits.
+# Eligibility is the whole ballgame for a designation-based programme: enrolment
+# thresholds, designation currency, and prior-award limits decide whether a proposal is
+# reviewable at all, so a grants office spends its attention there rather than on the
+# budget. The planted issues reflect that.
+#
+# It applies to the real NSF 25-514 (S-STEM), Track 2: scholarships for low-income
+# students, up to $2,000,000 over six years, at least 60% of it as scholarships, and an
+# external evaluator. Scale from real S-STEM awards (data/anchors/tierra_sandoval.json);
+# rules quoted in solicitation/budget_rules.yaml.
+disclaimer: "Fictional institution. All people, organizations, figures, and documents are synthetic."
+
+institution:
+  name: "Tierra Sandoval University"
+  short_name: "Tierra Sandoval"
+  type: "Public regional comprehensive university, Hispanic-Serving Institution"
+  service_area: "Inland Southwest (fictional)"
+  total_enrollment: 9420
+  # Planted: the draft will claim 31%. The registrar's census says otherwise, and the
+  # threshold for the designation is 25%.
+  hispanic_enrollment_pct: 26.4
+  hispanic_enrollment_pct_claimed_in_draft: 31.0
+  pell_recipient_pct: 58
+  first_generation_pct: 63
+  designation_status: "Eligible; designation confirmed for the current cycle"
+  president: "Dr. Esperanza Quintanilla-Boyd"
+
+people:
+  pi: { name: "Dr. Nayeli Arbuthnot" , title: "Associate Provost for Student Success" }
+  co_pi: { name: "Dr. Elias Vorderman", title: "Chair, Department of Computer Information Systems" }
+  grants_director: { name: "Marisela Thorncroft", title: "Director of Grants and Contracts" }
+  # No external evaluator: the planted issue is that the evaluation is in-house.
+
+prior_award:
+  id: "TSU-FICT-HSI-2022"
+  title: "Pathways to Computing Degrees for Transfer Students"
+  funder: "NSF Improving Undergraduate STEM Education: HSI Program (fictional prior award)"
+  amount_usd: 449800
+  start: "2022-09-01"
+  end: "2025-08-31"
+  outcomes:
+    students_served: 214
+    transfer_completions: 61
+    new_courses_developed: 4
+    faculty_professional_development_hours: 320
+    articulation_agreements_signed: 2
+    articulation_agreements_planned: 5
+
+new_project:
+  title: "Bridging Computing Pathways for Rural Transfer Students"
+  short_name: "BCP"
+  track: "track_2"
+  years: 6
+  start: "2027-08-01"
+  scholars_per_year: 11
+
+solicitation:
+  real: true
+  id: "NSF 25-514"
+  agency: "NSF"
+  program: "NSF Scholarships in Science, Technology, Engineering, and Mathematics Program (S-STEM)"
+  track: "Track 2 (Implementation Projects)"
+
+# Six years, about $1.75M, the size of the real S-STEM Track 2 awards in the anchors.
+# Eleven transfer scholars a year. Two errors are planted: scholarships average $16,500,
+# over the $15,000 maximum, and F&A is charged on them although participant support is
+# outside the MTDC base. Other costs are kept small on purpose, so the scholarships stay
+# above the 60% floor even with the wrong F&A -- that rule is not one of the planted ones.
+budget:
+  fringe_rate_pct: 29.6
+  salary_escalation_pct: 0
+  lines:
+    - { category: participant_support, line_item: "S-STEM scholarships (11 scholars)", amount_usd: 181500, units: 11, fa: true }
+    - { category: senior_personnel, line_item: "PI: Dr. Nayeli Arbuthnot (3% effort)", amount_usd: 4500 }
+    - { category: other_personnel, line_item: "Scholar programme coordinator (15%)", amount_usd: 9000 }
+    - { category: other_personnel, line_item: "Internal evaluation: Office of Institutional Research analyst (5%)", amount_usd: 3500 }
+    - { category: travel, line_item: "S-STEM PI meeting travel", amount_usd: 2000 }
+    - { category: materials_supplies, line_item: "Cohort activity materials", amount_usd: 1000 }
+
+rates:
+  fringe_rate_agreement_pct: 29.6
+  fringe_rate_agreement_doc: "tsu-rate-agreement-fy2026"
+  indirect_rate_pct: 41.5
+  indirect_base: "MTDC"
+
+collaborators:
+  - { name: "Cordillera Basin Community College", letter_doc: "tsu-letter-cordillera-2026", letter_date: "2026-08-11", references_project: "BCP" }
+  - { name: "Saltbush Regional Workforce Board", letter_doc: "tsu-letter-saltbush-2026", letter_date: "2026-08-19", references_project: "BCP" }
+
+csv_documents:
+  budget: "tsu-budget-bcp-draft"
+  outcomes: "tsu-prior-outcomes-data"
+
+key_facts:
+  tsu-prior-outcomes-data: [214, 61, 4]
+  tsu-prior-award-final-report-2025: [214, 61]
+  tsu-enrollment-census-2026: ["26.4"]
+  tsu-rate-agreement-fy2026: ["29.6", "41.5"]
+  tsu-evaluation-plan-framework: ["Office of Institutional Research"]
+
+must_not_contain:
+  tsu-enrollment-census-2026: ["31%", "31.0%"]
+  # Planted: the evaluation is internal, and nothing may say otherwise.
+  tsu-evaluation-plan-framework: ["external evaluator", "external evaluation", "independent evaluator", "third-party evaluator", "Pinyon", "rather than contracting", "instead of contracting"]
+  # The prior award's evaluator is history; the new programme has none (planted).
+  tsu-institute-profile-2026: ["Pinyon", "external evaluat"]
+  tsu-enrollment-census-2026: ["Pinyon", "external evaluat"]
+  tsu-strategic-plan-2026-2031: ["Pinyon", "external evaluat"]
+  tsu-facilities-and-student-support: ["Pinyon", "external evaluat"]
+  tsu-bio-arbuthnot: ["Pinyon", "external evaluat"]
+  tsu-letter-saltbush-2026: ["Pinyon", "external evaluat"]
+  tsu-transfer-articulation-inventory-2026: ["Pinyon", "external evaluat"]
+
+planted_issues:
+  - "Scholarships average $16,500 per scholar a year; the S-STEM maximum is $15,000"
+  - "F&A is charged on the scholarships, which are participant support and outside the MTDC base"
+  - "Draft claims 31% Hispanic enrolment; the registrar's census records 26.4%"
+  - "The evaluation is run internally by institutional research; S-STEM requires an external evaluator"
+
+demo_context:
+  today: "2026-09-21"
+  deadline: "2026-11-18"
+
+documents:
+  - doc_id: "tsu-institute-profile-2026"
+    title: "Tierra Sandoval University — Institutional Profile 2026"
+    word_range: [650, 900]
+    brief: >
+      An institutional profile of a public regional comprehensive university serving a
+      rural inland region: enrolment, student demographics including Pell and
+      first-generation rates, degree programmes, transfer relationships with regional
+      community colleges, and its designation as a Hispanic-Serving Institution.
+  - doc_id: "tsu-enrollment-census-2026"
+    title: "Official Enrollment Census — Fall 2026"
+    word_range: [400, 600]
+    brief: >
+      The registrar's official census. Report total enrolment of 9,420 and give a
+      demographic breakdown. State the Hispanic or Latino full-time-equivalent enrolment
+      as 26.4 percent, plainly and exactly, and note the 25 percent threshold required for
+      the institution's designation. Do not round the figure or present any other value
+      for it. This is the document an eligibility claim is checked against.
+  - doc_id: "tsu-strategic-plan-2026-2031"
+    title: "Strategic Plan 2026-2031"
+    word_range: [600, 850]
+    brief: >
+      Institutional priorities: transfer student success, expanding computing and health
+      sciences programmes, closing completion gaps, regional workforce alignment, and
+      faculty development. Keep it concrete about measures.
+  - doc_id: "tsu-bio-arbuthnot"
+    title: "Biosketch — Dr. Nayeli Arbuthnot"
+    word_range: [450, 650]
+    brief: >
+      A biosketch for the PI: position as Associate Provost, background in student success
+      research, selected publications and project leadership, and a current and pending
+      support table giving committed effort per award.
+  - doc_id: "tsu-bio-vorderman"
+    title: "Biosketch — Dr. Elias Vorderman"
+    word_range: [400, 600]
+    brief: >
+      A biosketch for the co-investigator: department chair in computer information
+      systems, teaching and curriculum development record, and current and pending support.
+  - doc_id: "tsu-facilities-and-student-support"
+    title: "Facilities, Instructional Resources and Student Support Services"
+    word_range: [550, 800]
+    brief: >
+      Teaching laboratories, a computing commons, tutoring and advising services, a
+      transfer centre, and the institutional research office. Describe what exists now
+      rather than what is planned.
+  - doc_id: "tsu-prior-award-final-report-2025"
+    title: "Final Report — Pathways to Computing Degrees for Transfer Students (2022-2025)"
+    word_range: [800, 1100]
+    brief: >
+      The final report on the prior NSF award. Report outcomes honestly and specifically,
+      including shortfalls: 214 students served, 61 transfer completions, 4 new courses
+      developed, 320 hours of faculty professional development, and TWO of FIVE planned
+      articulation agreements signed. Explain the shortfall in articulation agreements
+      (two partner institutions underwent curriculum revision and one merged).
+  - doc_id: "tsu-transfer-articulation-inventory-2026"
+    title: "Transfer and Articulation Agreement Inventory 2026"
+    word_range: [450, 650]
+    brief: >
+      An inventory of current articulation agreements with regional community colleges:
+      partner, programme, date signed, and status. Include agreements that are in
+      negotiation and mark them clearly as unsigned.
+  - doc_id: "tsu-evaluation-plan-framework"
+    title: "Programme Evaluation Framework"
+    word_range: [500, 700]
+    brief: >
+      The Office of Institutional Research's own work plan for evaluating the proposed BCP
+      scholarship programme, written by that office in the first person plural ("we"):
+      the analyst assigned (5% effort), the formative and summative measures it will track
+      (retention, transfer completion, time to degree), the student records it will draw
+      on, its reporting calendar to the provost and programme team, and its FERPA data
+      handling. Keep it a plain description of the office's own planned work; do not
+      discuss costs, alternatives, or how else the evaluation could have been organised.
+  - doc_id: "tsu-rate-agreement-fy2026"
+    title: "Negotiated Indirect Cost and Fringe Benefit Rate Agreement FY2026"
+    word_range: [400, 600]
+    brief: >
+      The negotiated rate agreement. State clearly that the fringe benefit rate is 29.6%
+      and the on-campus indirect cost rate is 41.5% of modified total direct cost. This
+      document is what a budget is checked against.
+  - doc_id: "tsu-letter-cordillera-2026"
+    title: "Letter of Collaboration — Cordillera Basin Community College"
+    word_range: [300, 450]
+    brief: >
+      A current letter of collaboration from a partner community college for the proposed
+      project, describing the transfer pathway and advising coordination they will support.
+  - doc_id: "tsu-letter-saltbush-2026"
+    title: "Letter of Collaboration — Saltbush Regional Workforce Board"
+    word_range: [300, 450]
+    brief: >
+      A current letter from a regional workforce board describing employer connections and
+      internship placement support for the proposed project.

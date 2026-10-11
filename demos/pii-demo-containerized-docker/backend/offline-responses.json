@@ -1,0 +1,11 @@
+{
+    "name": "Names should be replaced with [NAME] to protect identity",
+    "phone": "Phone numbers should be replaced with [PHONE]",
+    "email": "Email addresses should be replaced with [EMAIL]",
+    "ssn": "Social Security Numbers should be replaced with [SSN]",
+    "address": "Physical addresses should be replaced with [ADDRESS]",
+    "date": "Dates of birth should be replaced with [DATE]",
+    "credit": "Credit card numbers should be replaced with [CREDIT_CARD]",
+    "id": "ID numbers should be replaced with [ID]",
+    "default": "This text contains PII that should be masked for privacy protection"
+}

@@ -1,0 +1,50 @@
+# captured 2026-09-21T13:04:37-05:00 on gandalf -- Linux 7.0.0-1019-nvidia aarch64
+
+### $ uname -m
+aarch64
+
+### $ nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader
+NVIDIA GB10, [N/A], 580.173.02
+
+### $ nvidia-ctk --version
+NVIDIA Container Toolkit CLI version 1.20.0
+commit: 5505e2f94d9aaa08561490db974ba3cd676af209
+
+### $ rocminfo
+scripts/capture_hw_fixture.sh: line 16: rocminfo: command not found
+(exit 127)
+
+### $ rocm-smi --showproductname --csv
+scripts/capture_hw_fixture.sh: line 16: rocm-smi: command not found
+(exit 127)
+
+### $ rocm-smi --showmeminfo vram
+scripts/capture_hw_fixture.sh: line 16: rocm-smi: command not found
+(exit 127)
+
+### $ hipconfig --version
+scripts/capture_hw_fixture.sh: line 16: hipconfig: command not found
+(exit 127)
+
+### $ cat /opt/rocm/.info/version
+cat: /opt/rocm/.info/version: No such file or directory
+(exit 1)
+
+### $ head -1 /proc/meminfo
+MemTotal:       127533360 kB
+
+### $ ls -la /dev/kfd
+ls: cannot access '/dev/kfd': No such file or directory
+(exit 2)
+
+### $ ls -la /dev/dri
+total 0
+drwxr-xr-x   3 root root        100 Sep 18 09:35 .
+drwxr-xr-x  19 root root       4700 Sep 18 09:35 ..
+drwxr-xr-x   2 root root         80 Sep 18 09:35 by-path
+crw-rw----+  1 root video  226,   0 Sep 18 09:35 card0
+crw-rw----+  1 root render 226, 128 Sep 18 09:35 renderD128
+
+### $ id -nG
+demo adm sudo audio dip plugdev users lpadmin ollama docker zrt
+

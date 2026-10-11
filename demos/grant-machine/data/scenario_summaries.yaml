@@ -1,0 +1,100 @@
+# Presenter-facing overview of each scenario, shown as "Scenario overview" at the top
+# of the Documents panel and the institution brief.
+#
+# Kept here rather than in data/seeds/: every generated document records its seed's
+# sha256 as provenance, so editing a seed to add prose would silently break that link.
+# Kept outside every vault directory so the agent can never retrieve or cite it -- it
+# is an introduction for the audience, not evidence.
+#
+# Written from the seeds and vault documents. Deliberately says nothing about the
+# planted issues (see each vault's _planted_issues.json): the audience should watch
+# the agent find them. Ten sentences or fewer each.
+
+harrow-creek: >-
+  Harrow Creek Community College is a public two-year college serving four rural
+  counties in the Mid-South, with about 6,840 credit students. Just over half receive
+  Pell grants, and 41% are the first in their family to attend college. The college
+  trains technicians for the small and mid-sized manufacturers that anchor its
+  regional economy. It is applying to the real NSF Advanced Technological Education
+  program (NSF 24-584, Track 2) for the Smart Automation Technician Pathway (SATP).
+  SATP is a three-year project, starting July 2027, to prepare rural students for
+  automation and mechatronics technician jobs, with a target of 150 completers. It
+  builds on a prior NSF ATE award, Mechatronics Pathways for Rural Manufacturers
+  (2021–2025). Dr. Renee Okafor, Dean of Workforce and Technical Programs, leads the
+  project with Marcus Lindqvist, chair of Mechatronics and Industrial Automation.
+  Regional employers including Kessler Fluid Systems and the Tri-County Packaging
+  Cooperative support it, and the proposal is due October 1, 2026.
+
+ashgrove: >-
+  Ashgrove University Medical Center is an academic medical centre anchoring a
+  four-hospital health system in the Mid-Atlantic, with 1,140 beds and 980 faculty
+  physicians. It runs more than 400 concurrent clinical trials and spends about $268
+  million a year on research. It is proposing Stepped Mobilization and Sedation
+  Minimization in Critical Illness (SMSM), a five-year multi-site clinical trial starting
+  July 2027, to the real NIH Parent R01 Clinical Trial Required announcement (PA-25-305).
+  The trial tests whether getting ventilated ICU patients moving
+  sooner, while reducing sedation step by step, improves their recovery. It follows a
+  prior NIH-funded study of early mobilization in mechanically ventilated patients
+  (2021–2026). Dr. Saoirse Achterberg of Pulmonary and Critical Care Medicine leads
+  the trial, with biostatistics led by Dr. Vikram Ostrowski-Baird. Wrenfield Regional
+  Hospital and Calloway Valley Health join as subaward sites, widening recruitment into
+  underserved communities, and the proposal is due December 5, 2026.
+
+meridian: >-
+  The Calderwick Institute for Coastal Systems is a research institute within
+  Alderbrook State University that studies Mid-Atlantic estuaries and coastlines. It
+  has 41 research staff and 28 graduate students, and spends about $9.4 million a
+  year on research. Its proposal, Compound Flood Forecasting for Under-Instrumented
+  Estuaries (CFFUE), is a three-year project starting July 2027, submitted to the real
+  NSF Geosciences Core Research solicitation (NSF 26-516, Ocean Sciences). CFFUE aims to
+  forecast floods caused by storm surge, heavy rain and river flow arriving together,
+  in estuaries that have too few gauges to forecast them today. It builds on a prior
+  NSF Ocean Sciences award on sediment transport under compound flooding (2021–2025).
+  Dr. Imogen Sarkissian, Associate Director for Coastal Process Modelling, leads the
+  work with Dr. Toma Weyland. The Rowan Tidal Observatory and Quillon County Emergency
+  Management are partners, so forecasts reach the people who act on them, and the team
+  is targeting submission by November 5, 2026.
+
+sablecreek: >-
+  The Sablecreek State University System coordinates four public campuses across the
+  northern plains, from a research university to a community and technical college.
+  Together they enrol about 47,500 students and spend about $96 million a year on
+  research. The system office is proposing Shared Sensing Infrastructure for Working
+  Lands Across the System (SSI), a four-year project starting September 2027, to the
+  real NSF EPSCoR E-CORE programme (NSF 25-523). SSI
+  would build a shared network of environmental and agricultural sensors on working
+  farms and rangeland that researchers on every campus can use. It extends a prior
+  NSF EPSCoR award that built statewide research infrastructure for precision
+  agriculture (2021–2026). Dr. Augustin Rieckhoff, System Vice Chancellor for
+  Research, leads the project with Dr. Marlowe Sandoval-Teague at the Grier Falls
+  campus. All four campuses take part through subawards, and the proposal is due
+  January 14, 2027.
+
+tierra-sandoval: >-
+  Tierra Sandoval University is a public regional university and Hispanic-Serving
+  Institution in the inland Southwest, enrolling about 9,420 students. Its students
+  are largely rural: 58% receive Pell grants, and 63% are the first in their family
+  to attend college. Its proposal, Bridging Computing Pathways for Rural Transfer
+  Students (BCP), is a six-year scholarship programme starting August 2027, submitted to
+  the real NSF S-STEM programme (NSF 25-514, Track 2). BCP would fund eleven low-income
+  transfer students a year in computing degrees, with cohort mentoring, advising and
+  transfer support. It follows a prior NSF HSI
+  award, Pathways to Computing Degrees for Transfer Students (2022–2025), which
+  created four new courses. Dr. Nayeli Arbuthnot, Associate Provost for Student
+  Success, leads the project with Dr. Elias Vorderman, chair of Computer Information
+  Systems. Cordillera Basin Community College and the Saltbush Regional Workforce
+  Board are partners, and the proposal is due November 18, 2026.
+
+vantcross: >-
+  Vantcross State University is a public R1 research university in the Upper Midwest,
+  with 11 colleges, 6,200 graduate students and about $412 million a year in research
+  spending. It is resubmitting a biomedical research project, Mitochondrial Quality
+  Control as a Determinant of Muscle Insulin Sensitivity (MQC), to the real NIH Parent
+  R01 announcement (PA-25-301). MQC asks how the way muscle cells maintain and recycle
+  their mitochondria affects insulin resistance, a central question in type 2 diabetes.
+  It combines laboratory studies with a human cohort, using metabolic testing, gene and
+  protein profiling, and high-resolution imaging. It builds on a prior NIH award studying
+  mitochondrial dynamics in skeletal muscle insulin resistance (2021–2026). Dr. Rurik
+  Anselmi, Professor of Molecular Physiology, leads it with bioinformatician Dr. Pernille
+  Adeyemo-Strand, and the Drumlin Analytical Institute joins through a subaward. The
+  five-year project would start July 2027, with the resubmission due November 5, 2026.

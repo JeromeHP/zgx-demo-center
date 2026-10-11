@@ -1,0 +1,57 @@
+# ── Sensitive / internal — do NOT publish ───────────────────────────────────
+# Internal project source-of-truth: S3 buckets, HP-SSO/SharePoint notes, CWC
+# rollout plans, roadmap, internal names. Not needed to run the demos.
+demos/STATE.md
+CLAUDE.md
+
+# ── Model weights (downloaded at install time into each demo's models/) ──────
+# These are large (tens of GB) and pulled fresh by the installers — never commit.
+models/
+**/models/
+*.gguf
+*.safetensors
+*.onnx
+*.engine
+*.trt
+*.bin
+*.pt
+*.pth
+*.incomplete
+
+# Hugging Face / pip caches that land under the tree
+**/.cache/
+.cache/
+
+# ── Bundled native-asset tarballs (shipped via the delivery bundle) ──────────
+demos/assets/zgx-videos.tar.gz
+demos/assets/yolov8s-onnx.tar.gz
+
+# ── Runtime / logs / scratch ─────────────────────────────────────────────────
+*.log
+nohup.out
+demos/zgx-demo-center-chrome/
+*.bak
+*.bak.*
+
+# ── Python / virtualenv ──────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+venv/
+.venv/
+env/
+*-env/
+
+# ── Local env / secrets files ────────────────────────────────────────────────
+.env
+.env.local
+
+# ── Editor / OS cruft ────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

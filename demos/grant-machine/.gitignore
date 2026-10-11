@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+runtime/
+reports/*
+!reports/.gitkeep
+!reports/baseline_zbook.json
+!reports/baseline_nano.json
+!reports/e2e_baseline_nano.json
+config/local.yaml
+*.gguf
+.pytest_cache/
+.claude/

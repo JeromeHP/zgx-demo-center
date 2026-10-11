@@ -1,0 +1,14 @@
+[
+  { "id": "M1", "code": "EQUIPMENT_BELOW_THRESHOLD", "detection": "deterministic",
+    "detail": "Six pressure loggers at $4,200 each are budgeted as equipment. NSF's equipment threshold is $10,000 a unit (PAPPG 24-1 Supplement 1), so they are supplies, and belong in the F&A base.",
+    "evidence": ["cics-budget-cffue-draft"] },
+  { "id": "M2", "code": "MENTORING_PLAN_MISSING", "detection": "agent",
+    "detail": "The budget supports a postdoctoral researcher and a graduate student. The PAPPG requires a one-page Mentoring Plan for any proposal that does, and the submission checklist has none.",
+    "evidence": ["cics-budget-cffue-draft", "cics-proposal-document-checklist-2026"] },
+  { "id": "M3", "code": "CLAIM_CONTRADICTED", "detection": "agent",
+    "detail": "Draft claims all 8 planned field campaigns under the prior award; the outcomes record and final report show 5 completed.",
+    "evidence": ["cics-prior-outcomes-data", "cics-prior-award-final-report-2025"] },
+  { "id": "M4", "code": "EFFORT_OVER_COMMITMENT", "detection": "agent",
+    "detail": "The PI's committed effort across current and pending support, including this project at 8%, totals 115%.",
+    "evidence": ["cics-bio-sarkissian"] }
+]

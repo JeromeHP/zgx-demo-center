@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Grant Machine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="dark">
+
+<div id="replay-banner" class="banner banner-replay" hidden>
+  REPLAY &mdash; recorded <span id="replay-date">&mdash;</span> on <span id="replay-device">&mdash;</span>. Not live.
+</div>
+<div id="endpoint-banner" class="banner banner-danger" hidden>
+  Model endpoint is not local
+</div>
+
+<header id="header">
+  <div id="header-title">
+    <span class="app-name">Grant Machine</span>
+    <span class="sep">&middot;</span>
+    <span id="device-label">Harrow Creek CC (fictional)</span>
+    <span class="sep">&middot;</span>
+    <span>Model: <span id="model-name">&mdash;</span></span>
+  </div>
+
+  <div id="meters" role="group" aria-label="Run meters">
+    <div class="meter" id="meter-elapsed">
+      <span class="meter-label">Agent</span>
+      <span class="meter-value" id="meter-elapsed-value">&mdash;</span>
+      <span class="meter-sub">Human est. <span id="meter-baseline-value">&mdash;</span></span>
+    </div>
+    <!-- The Tokens meter moved to the shared Demo Center chrome (demos/ui/),
+         which now carries tokens and tok/s for every demo in the suite. Keeping
+         a second one here stacked two token counters directly above each other,
+         showing different numbers -- the chrome's session total and this run's.
+         Agent and Cloud equiv. stay: nothing else in the suite has them. -->
+    <div class="meter" id="meter-cost" title="Not configured in config/default.yaml">
+      <span class="meter-label">Cloud equiv.</span>
+      <span class="meter-value" id="meter-cost-value">&mdash;</span>
+      <span class="meter-sub" id="meter-cost-label"></span>
+    </div>
+    <div class="pill" id="pill-internet" data-state="unknown">
+      <span class="pill-dot" aria-hidden="true"></span>
+      <span id="pill-internet-text">Internet: &mdash;</span>
+    </div>
+    <div class="pill" id="pill-model" data-state="unknown">
+      <span class="pill-dot" aria-hidden="true"></span>
+      <span id="pill-model-text">Model: &mdash;</span>
+    </div>
+    <!-- This used to read "App connections to the internet: 0", which was a proof of
+         zero egress. Find Funding deliberately reaches the public funding catalogue, so a
+         counter that used to mean "clean" would now mean nothing. The claim that
+         carries the weight is about the institution's documents, and the counter next
+         to it is auditable rather than reassuring. -->
+    <div class="pill" id="pill-data" data-state="ok">
+      <span class="pill-dot" aria-hidden="true"></span>
+      <span id="pill-data-text">Your documents: on this device only</span>
+    </div>
+    <button class="pill pill-button" id="pill-egress" data-state="ok" title="Show exactly what left this device">
+      <span class="pill-dot" aria-hidden="true"></span>
+      <span id="pill-egress-text">Agent web access: 0 requests</span>
+    </button>
+  </div>
+</header>
+
+<main id="layout">
+
+  <section id="control" aria-label="Run controls">
+    <div class="control-group">
+      <label for="mode-select">Mode</label>
+      <select id="mode-select">
+        <!-- Draft replaced Story and Explore, which were one drafting pipeline with a
+             different solicitation. Find Funding keeps the API value "discover". -->
+        <option value="draft">Draft</option>
+        <option value="discover">Find Funding</option>
+        <option value="grade">Grade</option>
+        <option value="replay">Replay</option>
+      </select>
+    </div>
+
+    <!-- Which institution the run is for. Drafting once had no way to choose, so five
+         of the six scenarios could only be reached as upload samples. -->
+    <div class="control-group" id="scenario-group">
+      <label for="scenario-select">Institution</label>
+      <select id="scenario-select"></select>
+      <div class="scenario-note" id="scenario-note"></div>
+      <!-- What the institution's runs actually work from. A count alone ("15
+           documents") gave an audience nothing to look at. -->
+      <details id="scenario-docs">
+        <summary><span id="scenario-docs-summary">Documents</span></summary>
+        <div class="scenario-docs-tools">
+          <button type="button" class="btn" id="btn-open-brief">Open brief</button>
+          <label class="checkbox-label" title="Flag the issues planted in this scenario for the agent to find">
+            <input type="checkbox" id="presenter-notes"> Presenter notes
+          </label>
+        </div>
+        <div id="scenario-docs-list"></div>
+      </details>
+    </div>
+
+    <div class="control-group" id="scope-group">
+      <label for="scope-select">Scope</label>
+      <select id="scope-select">
+        <option value="quick">Quick</option>
+        <option value="full">Full</option>
+      </select>
+    </div>
+
+    <div class="control-buttons">
+      <button id="btn-start" class="btn btn-primary" accesskey="s">Start (S)</button>
+      <button id="btn-stop" class="btn" accesskey="x" disabled>Stop (X)</button>
+      <button id="btn-reset" class="btn" accesskey="r">Reset (R)</button>
+    </div>
+
+    <div class="control-group">
+      <label class="checkbox-label">
+        <input type="checkbox" id="show-reasoning" checked>
+        Show reasoning
+      </label>
+    </div>
+
+    <!-- Draft: two independent choices, each defaulting to the selected institution's
+         own material. What used to be Explore is "upload your own solicitation". -->
+    <div class="control-group" id="draft-group">
+      <fieldset class="source-choice">
+        <legend>Solicitation</legend>
+        <label><input type="radio" name="draft-sol" value="scenario" checked> <span id="draft-sol-scenario-label">This institution's</span></label>
+        <label><input type="radio" name="draft-sol" value="upload"> Upload your own&hellip;</label>
+      </fieldset>
+      <div class="source-upload" id="draft-sol-upload" hidden>
+        <div id="upload-zone" tabindex="0">
+          <input type="file" id="draft-sol-input" accept=".pdf,.html,.htm,.md,.txt" hidden>
+          <span>Drop a solicitation or click to upload</span>
+        </div>
+        <div id="upload-status" role="status"></div>
+        <div id="intake-progress" hidden>
+          <div class="intake-bar"><div class="intake-bar-fill" id="intake-bar-fill"></div></div>
+          <div class="intake-label" id="intake-label"></div>
+        </div>
+        <div class="sample-picker" data-sample-mode="draft-sol">
+          <label for="sample-select-draft-sol">Or load a sample</label>
+          <select id="sample-select-draft-sol"></select>
+          <button type="button" class="btn btn-load-sample" data-mode="draft-sol">Load</button>
+          <div class="sample-status" data-sample-status="draft-sol" role="status"></div>
+        </div>
+        <p class="privacy-note">
+          The agent reads the solicitation and extracts its requirements, keeping only those it can
+          quote verbatim from your document, then works to <em>those</em>. Takes a couple of
+          minutes the first time; instant if re-run.
+        </p>
+      </div>
+
+      <fieldset class="source-choice">
+        <legend>Evidence</legend>
+        <label><input type="radio" name="draft-docs" value="scenario" checked> <span id="draft-docs-scenario-label">This institution's documents</span></label>
+        <label><input type="radio" name="draft-docs" value="upload"> Upload your own&hellip;</label>
+      </fieldset>
+      <div class="source-upload" id="draft-docs-upload" hidden>
+        <div id="draft-docs-zone" tabindex="0">
+          <input type="file" id="draft-docs-input" accept=".pdf,.html,.htm,.md,.txt,.csv" multiple hidden>
+          <span>Strategic plans, CVs, prior awards, letters, budgets</span>
+        </div>
+        <div id="draft-docs-status" role="status"></div>
+        <div class="sample-picker" data-sample-mode="draft-docs">
+          <label for="sample-select-draft-docs">Or load a sample</label>
+          <select id="sample-select-draft-docs"></select>
+          <button type="button" class="btn btn-load-sample" data-mode="draft-docs">Load</button>
+          <div class="sample-status" data-sample-status="draft-docs" role="status"></div>
+        </div>
+        <details class="profile-form" id="profile-form-draft">
+          <summary>Or type your institution's details</summary>
+          <p class="privacy-note">
+            Real names are fine here. This text is saved on this device as a document the agent can
+            cite &mdash; and like an uploaded file, it can never leave as a search term.
+          </p>
+        <label>Institution<input type="text" data-profile="institution" placeholder="e.g. Midland State University"></label>
+        <label>Type<input type="text" data-profile="institution_type" placeholder="e.g. Public R1 research university"></label>
+        <label>Department, centre or unit<input type="text" data-profile="unit"></label>
+        <label>Research and programme areas<textarea data-profile="research_areas" rows="2" placeholder="e.g. coastal resilience, remote sensing, hydrology"></textarea></label>
+        <label>Lead investigators<textarea data-profile="investigators" rows="2"></textarea></label>
+        <label>Prior awards and outcomes<textarea data-profile="prior_awards" rows="2"></textarea></label>
+        <label>Facilities and instrumentation<textarea data-profile="facilities" rows="2"></textarea></label>
+        <label>Capacity and staffing<textarea data-profile="capacity" rows="2"></textarea></label>
+        <label>Constraints and eligibility notes<textarea data-profile="constraints" rows="2"></textarea></label>
+          <button type="button" class="btn btn-save-profile" data-mode="draft">Save profile</button>
+          <div class="profile-status" data-profile-status="draft" role="status"></div>
+        </details>
+      </div>
+    </div>
+
+    <div class="control-group" id="discover-group" hidden>
+      <label for="discover-upload">Find Funding: upload institution documents</label>
+      <div id="discover-upload-zone" tabindex="0">
+        <input type="file" id="discover-upload" accept=".pdf,.html,.htm,.md,.txt,.csv" multiple hidden>
+        <span>Strategic plans, CVs, prior awards, capability statements</span>
+      </div>
+      <div id="discover-upload-status" role="status"></div>
+      <div class="sample-picker" data-sample-mode="discover">
+        <label for="sample-select-discover">Or load a sample</label>
+        <select id="sample-select-discover"></select>
+        <button type="button" class="btn btn-load-sample" data-mode="discover">Load</button>
+        <div class="sample-status" data-sample-status="discover" role="status"></div>
+      </div>
+      <details class="profile-form" id="profile-form-discover">
+        <summary>Or type your institution's details</summary>
+        <p class="privacy-note">
+          Real names are fine here. This text is saved on this device as a document the agent can
+          cite &mdash; and like an uploaded file, it can never leave as a search term.
+        </p>
+        <label>Institution<input type="text" data-profile="institution" placeholder="e.g. Midland State University"></label>
+        <label>Type<input type="text" data-profile="institution_type" placeholder="e.g. Public R1 research university"></label>
+        <label>Department, centre or unit<input type="text" data-profile="unit"></label>
+        <label>Research and programme areas<textarea data-profile="research_areas" rows="2" placeholder="e.g. coastal resilience, remote sensing, hydrology"></textarea></label>
+        <label>Lead investigators<textarea data-profile="investigators" rows="2"></textarea></label>
+        <label>Prior awards and outcomes<textarea data-profile="prior_awards" rows="2"></textarea></label>
+        <label>Facilities and instrumentation<textarea data-profile="facilities" rows="2"></textarea></label>
+        <label>Capacity and staffing<textarea data-profile="capacity" rows="2"></textarea></label>
+        <label>Constraints and eligibility notes<textarea data-profile="constraints" rows="2"></textarea></label>
+        <button type="button" class="btn btn-save-profile" data-mode="discover">Save profile</button>
+        <div class="profile-status" data-profile-status="discover" role="status"></div>
+      </details>
+      <p class="privacy-note">
+        These files stay on this device. They are deleted when the session is reset, are never
+        added to the shipped vault, and are never sent anywhere &mdash; only generic published
+        field names are ever used as search terms. Watch the <strong>Egress</strong> tab to see
+        exactly what leaves.
+      </p>
+    </div>
+
+    <div class="control-group" id="grade-group" hidden>
+      <label for="grade-upload">Grade: upload a drafted proposal</label>
+      <div id="grade-upload-zone" tabindex="0">
+        <input type="file" id="grade-upload" accept=".pdf,.html,.htm,.md,.txt" hidden>
+        <span>The proposal to assess</span>
+      </div>
+      <div id="grade-upload-status" role="status"></div>
+      <label for="grade-solicitation-upload">Optional: the solicitation to assess it against</label>
+      <div id="grade-sol-zone" tabindex="0">
+        <input type="file" id="grade-solicitation-upload" accept=".pdf,.html,.htm,.md,.txt" hidden>
+        <span>Otherwise the built-in NSF 24-584 requirements are used</span>
+      </div>
+      <div id="grade-sol-status" role="status"></div>
+      <div class="sample-picker" data-sample-mode="grade">
+        <label for="sample-select-grade">Or load a sample</label>
+        <select id="sample-select-grade"></select>
+        <button type="button" class="btn btn-load-sample" data-mode="grade">Load</button>
+        <div class="sample-status" data-sample-status="grade" role="status"></div>
+      </div>
+      <p class="privacy-note">
+        The agent scores each section as a panel would, and rules on every requirement &mdash;
+        it cannot finish leaving any unruled, because a skipped requirement reads as compliant.
+        It has no ability to edit your proposal.
+      </p>
+    </div>
+
+    <div id="replay-group" class="control-group" hidden>
+      <label for="replay-select">Saved replays</label>
+      <select id="replay-select"></select>
+      <label for="replay-speed">Speed</label>
+      <select id="replay-speed">
+        <option value="1">1x</option>
+        <option value="2">2x</option>
+        <option value="4">4x</option>
+      </select>
+    </div>
+
+  </section>
+
+  <section id="trace" aria-label="Agent trace">
+    <div id="trace-feed" role="log" aria-live="polite"></div>
+    <button id="jump-to-live" class="btn" hidden>Jump to live</button>
+  </section>
+
+  <section id="outputs" aria-label="Outputs">
+    <div id="output-tabs" role="tablist">
+      <button class="tab" data-tab="compliance" role="tab" aria-selected="true" accesskey="1">Compliance</button>
+      <button class="tab" data-tab="issues" role="tab" aria-selected="false" accesskey="2">Issues <span id="issues-badge" class="badge" hidden>0</span></button>
+      <button class="tab" data-tab="budget" role="tab" aria-selected="false" accesskey="3">Budget</button>
+      <button class="tab" data-tab="drafts" role="tab" aria-selected="false" accesskey="4">Drafts</button>
+      <button class="tab" data-tab="scores" role="tab" aria-selected="false" accesskey="5">Scores</button>
+      <button class="tab" data-tab="opportunities" role="tab" aria-selected="false" accesskey="6">Opportunities <span id="opps-badge" class="badge" hidden>0</span></button>
+      <button class="tab" data-tab="egress" role="tab" aria-selected="false" accesskey="7">Egress <span id="egress-badge" class="badge" hidden>0</span></button>
+    </div>
+
+    <div class="tab-panel" id="panel-compliance" role="tabpanel">
+      <table id="compliance-table">
+        <thead><tr><th>Requirement</th><th>Status</th><th>Evidence</th><th>Note</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="empty-state" id="compliance-empty">No requirements loaded yet.</p>
+    </div>
+
+    <div class="tab-panel" id="panel-issues" hidden role="tabpanel">
+      <div id="issues-list"></div>
+      <p class="empty-state" id="issues-empty">No issues flagged yet.</p>
+    </div>
+
+    <div class="tab-panel" id="panel-budget" hidden role="tabpanel">
+      <div id="budget-summary"></div>
+      <p class="empty-state" id="budget-empty">Budget check has not run yet.</p>
+    </div>
+
+    <div class="tab-panel" id="panel-drafts" hidden role="tabpanel">
+      <div id="drafts-list"></div>
+      <p class="empty-state" id="drafts-empty">No drafts yet.</p>
+    </div>
+
+    <div class="tab-panel" id="panel-scores" hidden role="tabpanel">
+      <div id="scores-list"></div>
+      <p class="empty-state" id="scores-empty">No reviews yet.</p>
+    </div>
+
+    <div class="tab-panel" id="panel-opportunities" hidden role="tabpanel">
+      <div id="opps-list"></div>
+      <p class="empty-state" id="opps-empty">No opportunities proposed yet. Run Find Funding mode.</p>
+      <button type="button" class="btn" id="btn-open-funding-report" hidden>Open funding report</button>
+    </div>
+
+    <div class="tab-panel" id="panel-egress" hidden role="tabpanel">
+      <p class="panel-note">
+        Every request this device made, and every term it was allowed &mdash; or refused &mdash;
+        to send. Refusals are the boundary working.
+      </p>
+      <div id="egress-list"></div>
+      <p class="empty-state" id="egress-empty">Nothing has left this device.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="footer">
+  <!-- The attribution follows the chosen scenario: only Harrow Creek applies to the
+       real NSF 24-584, and leaving NSF named under a synthetic solicitation would be
+       a false attribution, not just a stale string. -->
+  Fictional institution &middot; Synthetic data &middot;
+  <span id="footer-solicitation">Solicitation text: NSF 24-584 (U.S. Government work) &middot;
+  Not affiliated with or endorsed by NSF</span> &middot; AI output is a draft
+  <!-- Which build this browser is actually running. A cached app.js once made the
+       page and the server disagree for an hour with no way to see it. -->
+  &middot; <span id="footer-build" title="UI build loaded in this browser">build —</span>
+</footer>
+
+<div id="toast-container" aria-live="assertive"></div>
+
+<div id="run-summary-overlay" class="overlay" hidden>
+  <div class="overlay-card">
+    <div class="overlay-card-header">
+      <h2>Run complete</h2>
+      <button id="btn-summary-close" class="btn" aria-label="Close (keep results on screen)">&times;</button>
+    </div>
+    <p id="run-summary-text"></p>
+    <div class="overlay-actions">
+      <button id="btn-download-packet" class="btn">Download packet (PDF)</button>
+      <button id="btn-save-replay" class="btn">Save as replay</button>
+      <button id="btn-summary-reset" class="btn btn-primary">Reset</button>
+    </div>
+  </div>
+</div>
+
+<!-- The document reader. It was a 420px drawer on the right, which is fine for a
+     one-line citation and miserable for reading a whole document. Ids kept. -->
+<div id="source-drawer" class="overlay source-overlay" hidden>
+  <div class="overlay-card source-card" role="dialog" aria-modal="true" aria-labelledby="source-drawer-title">
+    <div class="drawer-header">
+      <span id="source-drawer-title"></span>
+      <button id="source-drawer-close" class="btn" aria-label="Close">&times;</button>
+    </div>
+    <div id="source-drawer-body"></div>
+  </div>
+</div>
+
+<!-- The Find Funding report: what a research office takes away from a run. Each
+     opportunity says why it fits and what it would serve, cites its evidence, lists what
+     a human must check, and links out so that person can check it. -->
+<div id="funding-report" class="overlay" hidden>
+  <div class="overlay-card report-card" role="dialog" aria-modal="true" aria-labelledby="funding-report-title">
+    <div class="brief-head">
+      <div>
+        <h2 id="funding-report-title">Funding opportunities report</h2>
+        <div class="brief-sub" id="funding-report-sub"></div>
+      </div>
+      <div class="brief-actions report-actions">
+        <button type="button" class="btn" id="btn-report-print">Print</button>
+        <button type="button" class="btn" id="btn-report-packet">Download packet (PDF)</button>
+        <button type="button" id="funding-report-close" class="btn" aria-label="Close">&times;</button>
+      </div>
+    </div>
+    <div id="funding-report-body"></div>
+  </div>
+</div>
+
+<!-- The institution brief: the same documents as the panel, laid out for walking an
+     audience through them before a run. -->
+<div id="brief-overlay" class="overlay" hidden>
+  <div class="overlay-card brief-card" role="dialog" aria-modal="true" aria-labelledby="brief-title">
+    <div class="brief-head">
+      <div>
+        <h2 id="brief-title"></h2>
+        <div class="brief-sub" id="brief-sub"></div>
+      </div>
+      <div class="brief-actions">
+        <label class="checkbox-label" title="Flag the issues planted in this scenario for the agent to find">
+          <input type="checkbox" id="brief-presenter-notes"> Presenter notes
+        </label>
+        <button type="button" id="brief-close" class="btn" aria-label="Close">&times;</button>
+      </div>
+    </div>
+    <div id="brief-body"></div>
+  </div>
+</div>
+
+<div id="shortcut-help" class="overlay" hidden>
+  <div class="overlay-card">
+    <h2>Keyboard shortcuts</h2>
+    <ul>
+      <li><kbd>S</kbd> Start</li>
+      <li><kbd>X</kbd> Stop</li>
+      <li><kbd>R</kbd> Reset (with confirm)</li>
+      <li><kbd>T</kbd> Toggle reasoning</li>
+      <li><kbd>F</kbd> Fullscreen</li>
+      <li><kbd>1</kbd>&ndash;<kbd>5</kbd> Output tabs</li>
+      <li><kbd>?</kbd> This help</li>
+    </ul>
+    <button id="shortcut-help-close" class="btn btn-primary">Close</button>
+  </div>
+</div>
+
+<script type="module" src="app.js"></script>
+<!-- zgx-ui:begin (generated by scripts/sync_ui.py — edit demos/ui/, not this) -->
+<style>
+/* ZGX demo chrome — the shared frame every demo wears.
+ *
+ * Fixed: the bar, the meter strip, the footer. Free: everything between them.
+ * Tokens live on :root so a demo can match its own palette without forking the
+ * layout; scripts/audit_ui_standard.sh checks nobody forks the layout anyway.
+ *
+ * The meter vocabulary (.zgx-meter / -label / -value / -sub) is lifted from
+ * grant-machine's web/styles.css, which already had it working — including
+ * font-variant-numeric: tabular-nums, the detail that stops a climbing counter
+ * jittering as its digits change width.
+ */
+
+:root {
+  --zgx-bar-bg: #0e1420;
+  --zgx-bar-fg: #e6edf6;
+  --zgx-bar-dim: #8fa3bd;
+  --zgx-bar-line: #1f2b3d;
+  --zgx-accent: #0096d6;         /* HP blue */
+  --zgx-ok: #35c46b;
+  --zgx-warn: #d9a441;
+  --zgx-bar-h: 56px;
+}
+
+#zgx-chrome { display: none; }   /* the marker element itself is never shown */
+
+.zgx-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--zgx-bar-h);
+  z-index: 2147483000;           /* above demo overlays, below nothing */
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 16px;
+  background: var(--zgx-bar-bg);
+  color: var(--zgx-bar-fg);
+  border-bottom: 1px solid var(--zgx-bar-line);
+  font: 500 13px/1.2 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+.zgx-bar *, .zgx-bar *::before, .zgx-bar *::after { box-sizing: border-box; }
+
+/* The approved logo artwork has an opaque white background, so it sits on a
+ * light plate rather than being alpha-keyed. */
+.zgx-logo-plate {
+  flex: 0 0 auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 4px 7px;
+  display: flex;
+  align-items: center;
+}
+.zgx-logo-plate img { display: block; height: 30px; width: auto; }
+
+.zgx-titles { flex: 0 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.zgx-title { font-size: 14px; font-weight: 650; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.zgx-subtitle { font-size: 11px; color: var(--zgx-bar-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.zgx-meters { flex: 1 1 auto; display: flex; gap: 14px; justify-content: flex-end; align-items: center; overflow: hidden; }
+
+.zgx-meter { display: flex; flex-direction: column; align-items: flex-end; min-width: 62px; }
+.zgx-meter-label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--zgx-bar-dim); white-space: nowrap; }
+.zgx-meter-value {
+  font-size: 17px; font-weight: 700; line-height: 1.15;
+  font-variant-numeric: tabular-nums;   /* keeps a counting number from jittering */
+  white-space: nowrap;
+}
+.zgx-meter-sub { font-size: 10px; color: var(--zgx-bar-dim); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.zgx-meter-value.zgx-unknown { color: var(--zgx-bar-dim); font-weight: 500; }
+.zgx-meter-value.zgx-accent { color: var(--zgx-accent); }
+
+.zgx-sep { width: 1px; align-self: stretch; margin: 10px 0; background: var(--zgx-bar-line); flex: 0 0 auto; }
+
+.zgx-device { flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; max-width: 210px; }
+.zgx-device-label { font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
+.zgx-device-sub { font-size: 10px; color: var(--zgx-bar-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
+
+/* The chrome is fixed, so the page is pushed down by exactly its height. */
+body.zgx-chromed { padding-top: var(--zgx-bar-h) !important; }
+
+/* The chrome owns the logo, so a demo's own copy is hidden rather than shown
+ * twice. Five demos shipped their own hp_logo.png (three DIFFERENT files under
+ * the same name), and stacking the canonical one above a divergent one is the
+ * opposite of a standard.
+ *
+ * Safe to match this broadly: the chrome's own logo is a data: URI, so it can
+ * never match src*="hp_logo". Rule removed and the demo's logo returns. */
+body.zgx-chromed img[src*="hp_logo"] { display: none !important; }
+
+.zgx-foot {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  z-index: 2147482999;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; padding: 4px 14px;
+  background: var(--zgx-bar-bg); color: var(--zgx-bar-dim);
+  border-top: 1px solid var(--zgx-bar-line);
+  font: 500 11px/1.3 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+body.zgx-chromed-foot { padding-bottom: 26px !important; }
+.zgx-foot .zgx-local { color: var(--zgx-ok); }
+
+@media (max-width: 1100px) {
+  .zgx-meter:nth-child(n+5) { display: none; }   /* shed the least critical meters first */
+  .zgx-subtitle { display: none; }
+}
+@media (max-width: 760px) {
+  .zgx-meters { display: none; }
+}
+</style>
+<div id="zgx-chrome" data-demo="grant" data-title="Grant Machine — Agentic Grant Writing" data-subtitle="Public Sector / Research Funding" data-logo="data:image/png;base64,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"></div>
+<script>
+/* ZGX demo chrome — builds the shared bar and owns every poll.
+ *
+ * One rule this file will not bend: a value that was not received renders as an
+ * em-dash, never as 0. Zero watts, zero degrees and zero tokens are all readings
+ * an audience will believe. This project has repeatedly found meters that showed
+ * a plausible number while measuring nothing — a hardcoded "102 GB / 128 GB"
+ * captioned as live NVML, a launcher bar of typed-in green ticks, a token count
+ * that was a chars/4 guess. The chrome does not add to that list.
+ *
+ * Data sources, both optional:
+ *   GET  {launcher}/telemetry   host GPU/CPU — read by the BROWSER, not the
+ *                               demo's backend, so containerised demos with no
+ *                               GPU tooling and no host route still show it.
+ *   GET  ./api/metrics          the demo's own tokens. 404 = no LLM, panel hidden.
+ *   GET  {launcher}/sysinfo     device identity.
+ */
+(function () {
+  "use strict";
+
+  var mount = document.getElementById("zgx-chrome");
+  if (!mount || window.__zgxChromeLoaded) return;
+  window.__zgxChromeLoaded = true;
+
+  var LAUNCHER = "http://" + location.hostname + ":8086";
+  var DASH = "—";
+
+  var cfg = {
+    title: mount.getAttribute("data-title") || document.title || "ZGX Demo",
+    subtitle: mount.getAttribute("data-subtitle") || "",
+    logo: mount.getAttribute("data-logo") || "hp_logo.png",
+    metrics: mount.getAttribute("data-metrics") || "/api/metrics",
+    foot: mount.getAttribute("data-foot") !== "off"
+  };
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function meter(id, label, sub) {
+    var m = el("div", "zgx-meter");
+    m.appendChild(el("span", "zgx-meter-label", label));
+    var v = el("span", "zgx-meter-value zgx-unknown", DASH);
+    v.id = "zgx-" + id;
+    m.appendChild(v);
+    var s = el("span", "zgx-meter-sub", sub || "");
+    s.id = "zgx-" + id + "-sub";
+    m.appendChild(s);
+    return m;
+  }
+
+  // ── build ────────────────────────────────────────────────────────────────
+  var bar = el("div", "zgx-bar");
+
+  var plate = el("div", "zgx-logo-plate");
+  var img = document.createElement("img");
+  img.src = cfg.logo;
+  img.alt = "HP";
+  // A demo served from a subpath may not resolve the relative logo; fall back
+  // to the launcher's copy rather than showing a broken-image glyph on stage.
+  img.onerror = function () {
+    if (img.dataset.fellBack) { plate.style.display = "none"; return; }
+    img.dataset.fellBack = "1";
+    img.src = LAUNCHER + "/ui/brand/hp_logo.png";
+  };
+  plate.appendChild(img);
+  bar.appendChild(plate);
+
+  var titles = el("div", "zgx-titles");
+  titles.appendChild(el("div", "zgx-title", cfg.title));
+  if (cfg.subtitle) titles.appendChild(el("div", "zgx-subtitle", cfg.subtitle));
+  bar.appendChild(titles);
+
+  var meters = el("div", "zgx-meters");
+  var tokenPanel = el("div", "zgx-meters");          // hidden until /api/metrics answers
+  tokenPanel.style.display = "none";
+  tokenPanel.style.flex = "0 0 auto";
+  tokenPanel.appendChild(meter("tokens", "Tokens", "this session"));
+  tokenPanel.appendChild(meter("tps", "Tok/s", ""));
+  meters.appendChild(tokenPanel);
+  meters.appendChild(el("div", "zgx-sep"));
+  meters.appendChild(meter("gpu", "GPU", ""));
+  meters.appendChild(meter("power", "Power", ""));
+  meters.appendChild(meter("temp", "Temp", ""));
+  meters.appendChild(meter("mem", "Memory", ""));
+  meters.appendChild(meter("cpu", "CPU", ""));
+  bar.appendChild(meters);
+
+  bar.appendChild(el("div", "zgx-sep"));
+  var dev = el("div", "zgx-device");
+  var devLabel = el("div", "zgx-device-label", DASH);
+  devLabel.id = "zgx-device-label";
+  var devSub = el("div", "zgx-device-sub", "");
+  devSub.id = "zgx-device-sub";
+  dev.appendChild(devLabel);
+  dev.appendChild(devSub);
+  bar.appendChild(dev);
+
+  document.body.appendChild(bar);
+  document.body.classList.add("zgx-chromed");
+
+  if (cfg.foot) {
+    var foot = el("div", "zgx-foot");
+    var left = el("span", "zgx-local", "All inference on this device · no cloud");
+    var right = el("span", null, "");
+    right.id = "zgx-foot-right";
+    foot.appendChild(left);
+    foot.appendChild(right);
+    document.body.appendChild(foot);
+    document.body.classList.add("zgx-chromed-foot");
+  }
+
+  // ── render helpers ───────────────────────────────────────────────────────
+  function set(id, value, unit, digits) {
+    var n = document.getElementById("zgx-" + id);
+    if (!n) return;
+    if (value === null || value === undefined || value === "" || Number.isNaN(value)) {
+      n.textContent = DASH;
+      n.classList.add("zgx-unknown");
+      return;
+    }
+    var shown = (typeof value === "number" && digits !== undefined) ? value.toFixed(digits) : value;
+    n.textContent = shown + (unit || "");
+    n.classList.remove("zgx-unknown");
+  }
+  function setSub(id, text) {
+    var n = document.getElementById("zgx-" + id + "-sub");
+    if (n) n.textContent = text == null ? "" : text;
+  }
+
+  // ── hardware, from the launcher ──────────────────────────────────────────
+  function pollTelemetry() {
+    fetch(LAUNCHER + "/telemetry", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (t) {
+        if (!t) throw new Error("no telemetry");
+        set("gpu", t.util_pct, "%");
+        set("power", t.power_w, " W", 0);
+        set("temp", t.temp_c, "°C");
+        set("mem", t.mem_used_gb, " GB", 1);
+        setSub("mem", t.mem_total_gb ? "of " + t.mem_total_gb + " GB" : "");
+        set("cpu", t.cpu_pct, "%", 0);
+        setSub("cpu", t.ram_pct != null ? "RAM " + Math.round(t.ram_pct) + "%" : "");
+        setSub("gpu", t.source && t.source !== "none" ? t.source : "");
+        var fr = document.getElementById("zgx-foot-right");
+        if (fr) {
+          fr.textContent = [t.vendor && t.vendor !== "unknown" ? t.vendor : null,
+                            t.source && t.source !== "none" ? t.source : null]
+                           .filter(Boolean).join(" · ");
+        }
+      })
+      .catch(function () {
+        // Launcher down: clear every hardware meter. Leaving the last reading
+        // on screen would be a stale number presented as live.
+        ["gpu", "power", "temp", "mem", "cpu"].forEach(function (k) { set(k, null); setSub(k, ""); });
+      });
+  }
+
+  // ── tokens, from the demo itself ─────────────────────────────────────────
+  var tokensSupported = null;
+  function pollMetrics() {
+    if (tokensSupported === false) return;
+    fetch(cfg.metrics, { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (m) {
+        if (!m || typeof m.total_tokens !== "number") throw new Error("no metrics");
+        tokensSupported = true;
+        tokenPanel.style.display = "";
+        var approx = m.estimated ? "≈" : "";
+        set("tokens", approx + m.total_tokens.toLocaleString());
+        setSub("tokens", m.requests != null ? m.requests + " request" + (m.requests === 1 ? "" : "s") : "this session");
+        set("tps", m.tps, "", 1);
+      })
+      .catch(function () {
+        // A demo with no LLM serves no /api/metrics. Hide the panel rather than
+        // show a zero that would read as "this demo processed nothing".
+        if (tokensSupported === null) { tokensSupported = false; tokenPanel.style.display = "none"; }
+      });
+  }
+
+  function loadIdentity() {
+    fetch(LAUNCHER + "/sysinfo", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (hw) {
+        if (!hw) return;
+        var label = document.getElementById("zgx-device-label");
+        var sub = document.getElementById("zgx-device-sub");
+        label.textContent = label.title = hw.device_label || DASH;
+        // Some vendors' device names run long (marketing name plus arch id); the CSS
+        // ellipsizes both lines and the title keeps the full text on hover.
+        sub.textContent = sub.title =
+          [hw.accelerator !== "unknown" ? hw.accelerator : null, hw.arch].filter(Boolean).join(" · ");
+      })
+      .catch(function () {
+        document.getElementById("zgx-device-label").textContent = "hardware unknown";
+      });
+  }
+
+  loadIdentity();
+  pollTelemetry();
+  pollMetrics();
+  setInterval(pollTelemetry, 2000);
+  setInterval(pollMetrics, 2000);
+})();
+</script>
+<!-- zgx-ui:end -->
+</body>
+</html>

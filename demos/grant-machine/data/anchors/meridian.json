@@ -1,0 +1,62 @@
+{
+  "scenario": "meridian",
+  "comparable": "NSF Physical Oceanography research awards",
+  "retrieved_at": "2026-09-29T19:31:39Z",
+  "license": "U.S. Government work \u2014 public domain (award metadata)",
+  "note": "Scale reference for the scenario seed. Recipient and investigator names are not stored.",
+  "summary": {
+    "n": 4,
+    "median_annual_total_usd": 124920,
+    "median_years": 3.0
+  },
+  "awards": [
+    {
+      "award_id": "2618487",
+      "title": "Collaborative Research: Towards the closure of a classic problem: The role of vertical and lateral transport in driving estuarine exchange flow and salt flux",
+      "agency": "NSF",
+      "program": "PHYSICAL OCEANOGRAPHY",
+      "total_usd": 439959,
+      "annual_total_usd": 146653,
+      "start": "09/01/2026",
+      "end": "08/31/2029",
+      "years": 3.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2618487"
+    },
+    {
+      "award_id": "2618486",
+      "title": "Collaborative Research: Towards the closure of a classic problem: The role of vertical and lateral transport in driving estuarine exchange flow and salt flux",
+      "agency": "NSF",
+      "program": "PHYSICAL OCEANOGRAPHY",
+      "total_usd": 501223,
+      "annual_total_usd": 167074,
+      "start": "09/01/2026",
+      "end": "08/31/2029",
+      "years": 3.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2618486"
+    },
+    {
+      "award_id": "2421659",
+      "title": "Collaborative Research: Effects of wind events on circulation and salinity dynamics in a curved estuary",
+      "agency": "NSF",
+      "program": "PHYSICAL OCEANOGRAPHY",
+      "total_usd": 309560,
+      "annual_total_usd": 103187,
+      "start": "08/15/2024",
+      "end": "07/31/2027",
+      "years": 3.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2421659"
+    },
+    {
+      "award_id": "2421660",
+      "title": "Collaborative Research: Effects of wind events on circulation and salinity dynamics in a curved estuary",
+      "agency": "NSF",
+      "program": "PHYSICAL OCEANOGRAPHY",
+      "total_usd": 68375,
+      "annual_total_usd": 22792,
+      "start": "08/15/2024",
+      "end": "07/31/2027",
+      "years": 3.0,
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2421660"
+    }
+  ]
+}

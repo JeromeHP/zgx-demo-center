@@ -1,0 +1,14 @@
+[
+  { "id": "S1", "code": "COST_SHARE_PROHIBITED", "detection": "deterministic",
+    "detail": "The budget commits $250,000 of campus cost share ($62,500 a year). NSF 25-523: \"Committed cost sharing is not allowed for the new E-CORE awards\".",
+    "evidence": ["ssus-budget-ssi-draft", "ssus-cost-share-commitment-register"] },
+  { "id": "S2", "code": "INDIRECT_ON_EQUIPMENT", "detection": "deterministic",
+    "detail": "F&A is charged on $560,000 of sensor-network base stations and towers. Equipment is excluded from the MTDC base.",
+    "evidence": ["ssus-budget-ssi-draft"] },
+  { "id": "S3", "code": "LETTER_OF_SUPPORT_NOT_ALLOWED", "detection": "agent",
+    "detail": "The Northern Plains Agricultural Commission letter is a letter of support. E-CORE: \"Letters of support are not allowed\"; only up to ten letters of collaboration may be included.",
+    "evidence": ["ssus-letter-support-agcommission-2026"] },
+  { "id": "S4", "code": "MISSING_CAMPUS_COMMITMENT", "detection": "agent",
+    "detail": "The budget funds subawards to all four campuses, but only Harlow Bend and Grier Falls have a current letter of commitment; Pellamy and Ondrak have none.",
+    "evidence": ["ssus-budget-ssi-draft", "ssus-letter-harlow-2026", "ssus-letter-grier-2026"] }
+]

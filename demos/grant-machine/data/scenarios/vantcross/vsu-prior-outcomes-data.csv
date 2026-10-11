@@ -1,0 +1,14 @@
+# doc_id: vsu-prior-outcomes-data
+# title: Outcomes Data — Mitochondrial Dynamics in Skeletal Muscle Insulin Resistance
+# doc_type: csv
+# date: 2026-09-21
+# synthetic: true
+# generator: generate_vault.py
+# seed_sha256: 53ac3e1f7b82a7ea8331974c82160a40e16e25301e5d2eee6e50ba580ecd9b90
+metric,value,notes
+peer reviewed papers,11,
+trainees supported,5,
+datasets deposited,2,
+aims completed,2,
+aims proposed,3,
+invited talks,7,

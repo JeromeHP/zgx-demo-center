@@ -1,0 +1,144 @@
+{
+  "documents": [
+    {
+      "doc_id": "tsu-budget-bcp-draft",
+      "path": "data/scenarios/tierra_sandoval/tsu-budget-bcp-draft.csv",
+      "title": "BCP Draft Budget (6 years)",
+      "doc_type": "csv",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "5d1f08a8eaec00a36446718899d0bb1efb7a04187cd926953fdf373eba30db15"
+    },
+    {
+      "doc_id": "tsu-prior-outcomes-data",
+      "path": "data/scenarios/tierra_sandoval/tsu-prior-outcomes-data.csv",
+      "title": "Outcomes Data \u2014 Pathways to Computing Degrees for Transfer Students",
+      "doc_type": "csv",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "5d1f08a8eaec00a36446718899d0bb1efb7a04187cd926953fdf373eba30db15"
+    },
+    {
+      "doc_id": "tsu-institute-profile-2026",
+      "path": "data/scenarios/tierra_sandoval/tsu-institute-profile-2026.md",
+      "title": "Tierra Sandoval University \u2014 Institutional Profile 2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "3280cd85a3e7ef5cf2d1f04d1d7ddb3452efaa56671bd206123038a5da26ef05"
+    },
+    {
+      "doc_id": "tsu-enrollment-census-2026",
+      "path": "data/scenarios/tierra_sandoval/tsu-enrollment-census-2026.md",
+      "title": "Official Enrollment Census \u2014 Fall 2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "3280cd85a3e7ef5cf2d1f04d1d7ddb3452efaa56671bd206123038a5da26ef05"
+    },
+    {
+      "doc_id": "tsu-strategic-plan-2026-2031",
+      "path": "data/scenarios/tierra_sandoval/tsu-strategic-plan-2026-2031.md",
+      "title": "Strategic Plan 2026-2031",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "3280cd85a3e7ef5cf2d1f04d1d7ddb3452efaa56671bd206123038a5da26ef05"
+    },
+    {
+      "doc_id": "tsu-bio-arbuthnot",
+      "path": "data/scenarios/tierra_sandoval/tsu-bio-arbuthnot.md",
+      "title": "Biosketch \u2014 Dr. Nayeli Arbuthnot",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "3280cd85a3e7ef5cf2d1f04d1d7ddb3452efaa56671bd206123038a5da26ef05"
+    },
+    {
+      "doc_id": "tsu-bio-vorderman",
+      "path": "data/scenarios/tierra_sandoval/tsu-bio-vorderman.md",
+      "title": "Biosketch \u2014 Dr. Elias Vorderman",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "5d1f08a8eaec00a36446718899d0bb1efb7a04187cd926953fdf373eba30db15"
+    },
+    {
+      "doc_id": "tsu-facilities-and-student-support",
+      "path": "data/scenarios/tierra_sandoval/tsu-facilities-and-student-support.md",
+      "title": "Facilities, Instructional Resources and Student Support Services",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "3280cd85a3e7ef5cf2d1f04d1d7ddb3452efaa56671bd206123038a5da26ef05"
+    },
+    {
+      "doc_id": "tsu-prior-award-final-report-2025",
+      "path": "data/scenarios/tierra_sandoval/tsu-prior-award-final-report-2025.md",
+      "title": "Final Report \u2014 Pathways to Computing Degrees for Transfer Students (2022-2025)",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "5d1f08a8eaec00a36446718899d0bb1efb7a04187cd926953fdf373eba30db15"
+    },
+    {
+      "doc_id": "tsu-transfer-articulation-inventory-2026",
+      "path": "data/scenarios/tierra_sandoval/tsu-transfer-articulation-inventory-2026.md",
+      "title": "Transfer and Articulation Agreement Inventory 2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "3280cd85a3e7ef5cf2d1f04d1d7ddb3452efaa56671bd206123038a5da26ef05"
+    },
+    {
+      "doc_id": "tsu-evaluation-plan-framework",
+      "path": "data/scenarios/tierra_sandoval/tsu-evaluation-plan-framework.md",
+      "title": "Programme Evaluation Framework",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "73bf724092d8004aa087e3aefecfe7d8fd6b54b1fbc9651b57499fe14e8861b4"
+    },
+    {
+      "doc_id": "tsu-rate-agreement-fy2026",
+      "path": "data/scenarios/tierra_sandoval/tsu-rate-agreement-fy2026.md",
+      "title": "Negotiated Indirect Cost and Fringe Benefit Rate Agreement FY2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "5d1f08a8eaec00a36446718899d0bb1efb7a04187cd926953fdf373eba30db15"
+    },
+    {
+      "doc_id": "tsu-letter-cordillera-2026",
+      "path": "data/scenarios/tierra_sandoval/tsu-letter-cordillera-2026.md",
+      "title": "Letter of Collaboration \u2014 Cordillera Basin Community College",
+      "doc_type": "md",
+      "date": "2026-08-11",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "5d1f08a8eaec00a36446718899d0bb1efb7a04187cd926953fdf373eba30db15"
+    },
+    {
+      "doc_id": "tsu-letter-saltbush-2026",
+      "path": "data/scenarios/tierra_sandoval/tsu-letter-saltbush-2026.md",
+      "title": "Letter of Collaboration \u2014 Saltbush Regional Workforce Board",
+      "doc_type": "md",
+      "date": "2026-08-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "3280cd85a3e7ef5cf2d1f04d1d7ddb3452efaa56671bd206123038a5da26ef05"
+    }
+  ]
+}

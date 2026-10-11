@@ -1,0 +1,74 @@
+# =============================================================================
+# Maritime Surveillance Intelligence Generator - Docker Compose
+#
+# Usage:
+#   ./start.sh                     # Start (auto-builds first time)
+#   docker compose down            # Stop
+#
+# Prerequisites:
+#   - NVIDIA Container Toolkit installed
+#   - Model downloaded to ./models/ via download_models.sh
+# =============================================================================
+
+services:
+  navy-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Pinned so the two stacks cannot clobber each other. Without an explicit
+    # image:, both resolve to fed-navy-containerized-docker-navy-demo:latest,
+    # and `up` (which launch_cmd runs without --build) silently reuses whatever
+    # image happens to hold that tag -- so a CUDA image could serve the AMD
+    # stack, or the base build step could overwrite a good slim image.
+    image: fed-navy-navy-demo:cuda
+    # Build when the tag is absent locally instead of trying to PULL it.
+    # Pinning image: without this turns `up` (launch_cmd passes no --build)
+    # into a registry pull for a tag that only ever exists locally, which
+    # fails -- so pinning the tag would have broken the working NVIDIA box.
+    pull_policy: build
+    container_name: maritime-surveillance-demo
+    ports:
+      - "8000:8000"
+    volumes:
+      # Frontend bind-mounted read-only so UI changes take effect on a
+      # container restart instead of an image rebuild. Without this the shared
+      # ZGX chrome (scripts/sync_ui.py) silently did not appear on this demo
+      # until someone happened to rebuild -- and nothing anywhere said why.
+      - ./frontend:/app/frontend:ro
+      # Mount models from host — keeps Docker image small
+      - ./models:/models:ro
+      # Mount sample images for easy access
+      - ./sample-images:/app/sample-images:ro
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - MODEL_PATH=/models/Qwen3-VL-8B-Instruct-FP8
+      - VLLM_MODEL=/models/Qwen3-VL-8B-Instruct-FP8
+      - VLLM_BASE_URL=http://localhost:8090/v1
+      #- VLLM_MODEL/models/Qwen3-VL-8B-Instruct
+      - VLLM_PORT=8090
+      - VLLM_MAX_MODEL_LEN=4096
+      - HOST_IP=${HOST_IP:-}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # NOT on-failure. backend/entrypoint.sh waits up to 300s for vLLM and then
+    # exits 1, so a restart policy turns one failure into an endless 5-minute
+    # cycle — the operator sees "10+ minutes, then nothing" and the real error
+    # scrolls away with each restart. Failing once leaves the logs readable and
+    # lets the launcher's health poll report the failure.
+    restart: "no"
+    stop_grace_period: 30s
+    healthcheck:
+      # Greps for this service's own marker. A bare `curl -f` on port 8000 is
+      # not proof of life for THIS container: pharmacy and pii use the same
+      # port, and under host networking a passing probe could be theirs.
+      test: ["CMD-SHELL", "curl -fs http://localhost:8000/api/health | grep -q maritime-surveillance"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 180s

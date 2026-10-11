@@ -1,0 +1,17 @@
+[
+  { "id": "A1", "code": "SALARY_OVER_CAP", "detection": "deterministic",
+    "detail": "The PI's line requests $78,000: 30% of a $260,000 base salary. NIH caps salary at $228,000 (Executive Level II, 2026), so at most $68,400 can be charged.",
+    "evidence": ["aumc-budget-smsm-draft", "aumc-bio-achterberg"] },
+  { "id": "A2", "code": "IRB_APPROVAL_LAPSED", "detection": "agent",
+    "detail": "IRB approval for the parent protocol expired 2026-03-31; continuing review is still pending.",
+    "evidence": ["aumc-irb-and-regulatory-status-2026"] },
+  { "id": "A3", "code": "DSMB_NOT_CONSTITUTED", "detection": "agent",
+    "detail": "PA-25-305 requires data and safety monitoring for the trial; the board is proposed, not constituted.",
+    "evidence": ["aumc-irb-and-regulatory-status-2026", "aumc-data-safety-monitoring-plan"] },
+  { "id": "A4", "code": "ENROLLMENT_PROJECTION_UNSUPPORTED", "detection": "agent",
+    "detail": "The feasibility analysis projects 20 participants per site per month; the prior trial enrolled 288 across 4 sites over five years, about 1.2 per site per month.",
+    "evidence": ["aumc-enrollment-feasibility-analysis", "aumc-prior-award-final-report-2026", "aumc-prior-outcomes-data"] },
+  { "id": "A5", "code": "CTGOV_RESULTS_OVERDUE", "detection": "agent",
+    "detail": "The prior trial (NCT-FICT-2021-014) reached primary completion 2025-06-30; results were due on ClinicalTrials.gov within 12 months and have not been submitted. PA-25-305 applies the ClinicalTrials.gov reporting terms.",
+    "evidence": ["aumc-irb-and-regulatory-status-2026"] }
+]

@@ -1,0 +1,154 @@
+{
+  "documents": [
+    {
+      "doc_id": "ssus-budget-ssi-draft",
+      "path": "data/scenarios/sablecreek/ssus-budget-ssi-draft.csv",
+      "title": "SSI Draft Budget (4 years)",
+      "doc_type": "csv",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-prior-outcomes-data",
+      "path": "data/scenarios/sablecreek/ssus-prior-outcomes-data.csv",
+      "title": "Outcomes Data \u2014 Statewide Research Infrastructure for Precision Agriculture",
+      "doc_type": "csv",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-system-profile-2026",
+      "path": "data/scenarios/sablecreek/ssus-system-profile-2026.md",
+      "title": "Sablecreek State University System \u2014 System Profile 2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-research-strategy-2026-2031",
+      "path": "data/scenarios/sablecreek/ssus-research-strategy-2026-2031.md",
+      "title": "System Research Strategy 2026-2031",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-bio-rieckhoff",
+      "path": "data/scenarios/sablecreek/ssus-bio-rieckhoff.md",
+      "title": "Biosketch \u2014 Dr. Augustin Rieckhoff",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-bio-sandoval-teague",
+      "path": "data/scenarios/sablecreek/ssus-bio-sandoval-teague.md",
+      "title": "Biosketch \u2014 Dr. Marlowe Sandoval-Teague",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-shared-infrastructure-inventory",
+      "path": "data/scenarios/sablecreek/ssus-shared-infrastructure-inventory.md",
+      "title": "Shared Research Infrastructure Inventory",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-prior-award-final-report-2026",
+      "path": "data/scenarios/sablecreek/ssus-prior-award-final-report-2026.md",
+      "title": "Final Report \u2014 Statewide Research Infrastructure for Precision Agriculture",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-cost-share-commitment-register",
+      "path": "data/scenarios/sablecreek/ssus-cost-share-commitment-register.md",
+      "title": "Cost Share Commitment Register",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-subaward-structure-note",
+      "path": "data/scenarios/sablecreek/ssus-subaward-structure-note.md",
+      "title": "Consortium Subaward Structure Note",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-governance-and-data-plan",
+      "path": "data/scenarios/sablecreek/ssus-governance-and-data-plan.md",
+      "title": "Consortium Governance and Data Management Plan",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-rate-agreement-fy2026",
+      "path": "data/scenarios/sablecreek/ssus-rate-agreement-fy2026.md",
+      "title": "Negotiated Indirect Cost and Fringe Benefit Rate Agreement FY2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-letter-harlow-2026",
+      "path": "data/scenarios/sablecreek/ssus-letter-harlow-2026.md",
+      "title": "Letter of Commitment \u2014 Harlow Bend Campus",
+      "doc_type": "md",
+      "date": "2026-08-07",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-letter-grier-2026",
+      "path": "data/scenarios/sablecreek/ssus-letter-grier-2026.md",
+      "title": "Letter of Commitment \u2014 Grier Falls Campus",
+      "doc_type": "md",
+      "date": "2026-08-15",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    },
+    {
+      "doc_id": "ssus-letter-support-agcommission-2026",
+      "path": "data/scenarios/sablecreek/ssus-letter-support-agcommission-2026.md",
+      "title": "Letter of Support \u2014 Northern Plains Agricultural Commission",
+      "doc_type": "md",
+      "date": "2026-08-26",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2"
+    }
+  ]
+}

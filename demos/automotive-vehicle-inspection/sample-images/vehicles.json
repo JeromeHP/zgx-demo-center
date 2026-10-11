@@ -1,0 +1,1814 @@
+{
+ "_comment": "Vehicles on the simulated vessel. Each has 2-4 views of the SAME physical car (one folder per vehicle). Every view is openly licensed (CC0, public domain, CC BY or CC BY-SA - never NC or ND) and publicly available at `source`. Images were resized to 1024 px on the long edge; nothing else was altered. CC BY and CC BY-SA require attribution: the demo shows it and CREDITS.md lists it. observed_lane is refreshed by scripts/record_vessel_replay.py and is used only to balance a live run.",
+ "vehicles": [
+  {
+   "id": "abarth-500e",
+   "brand": "Abarth",
+   "vehicle": "Abarth 500e",
+   "model_year": 2023,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "abarth-500e/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Abarth_500e_Cabrio_Automesse_Ludwigsburg_2023_1X7A0024.jpg",
+     "source_title": "Abarth 500e Cabrio Automesse Ludwigsburg 2023 1X7A0024.jpg"
+    },
+    {
+     "file": "abarth-500e/front_right.jpg",
+     "angle": "front_right",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Abarth_500e_Cabrio_Automesse_Ludwigsburg_2023_1X7A0025.jpg",
+     "source_title": "Abarth 500e Cabrio Automesse Ludwigsburg 2023 1X7A0025.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "ds-7-crossback",
+   "brand": "DS",
+   "vehicle": "DS 7 Crossback",
+   "model_year": 2019,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "ds-7-crossback/front_right.jpg",
+     "angle": "front_right",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:DS_7_Crossback_1X7A7254.jpg",
+     "source_title": "DS 7 Crossback 1X7A7254.jpg"
+    },
+    {
+     "file": "ds-7-crossback/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:DS_7_Crossback_1X7A7255.jpg",
+     "source_title": "DS 7 Crossback 1X7A7255.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "jeep-grand-cherokee-l",
+   "brand": "Jeep",
+   "vehicle": "Jeep Grand Cherokee L",
+   "model_year": 2022,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "jeep-grand-cherokee-l/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Jeep_Grand_Cherokee_L_Overland_Automesse_Ludwigsburg_2022_1X7A5918.jpg",
+     "source_title": "Jeep Grand Cherokee L Overland Automesse Ludwigsburg 2022 1X7A5918.jpg"
+    },
+    {
+     "file": "jeep-grand-cherokee-l/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Jeep_Grand_Cherokee_L_Overland_Automesse_Ludwigsburg_2022_1X7A5919.jpg",
+     "source_title": "Jeep Grand Cherokee L Overland Automesse Ludwigsburg 2022 1X7A5919.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "maserati-grecale",
+   "brand": "Maserati",
+   "vehicle": "Maserati Grecale GT",
+   "model_year": 2022,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "maserati-grecale/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Maserati_Grecale_GT_1X7A6371.jpg",
+     "source_title": "Maserati Grecale GT 1X7A6371.jpg"
+    },
+    {
+     "file": "maserati-grecale/front_right.jpg",
+     "angle": "front_right",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Maserati_Grecale_GT_1X7A6373.jpg",
+     "source_title": "Maserati Grecale GT 1X7A6373.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "peugeot-3008",
+   "brand": "Peugeot",
+   "vehicle": "Peugeot 3008 (2021)",
+   "model_year": 2021,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "peugeot-3008/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Peugeot_3008_B_Hybrid_IMG_4839.jpg",
+     "source_title": "2021 Peugeot 3008 B Hybrid IMG 4839.jpg"
+    },
+    {
+     "file": "peugeot-3008/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Peugeot_3008_B_Hybrid_IMG_4840.jpg",
+     "source_title": "2021 Peugeot 3008 B Hybrid IMG 4840.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "jeep-wrangler-jl",
+   "brand": "Jeep",
+   "vehicle": "Jeep Wrangler Rubicon 4xe (JL)",
+   "model_year": 2022,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "jeep-wrangler-jl/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Jeep_Wrangler_Rubicon_(JL)_4xe_1X7A0285.jpg",
+     "source_title": "Jeep Wrangler Rubicon (JL) 4xe 1X7A0285.jpg"
+    },
+    {
+     "file": "jeep-wrangler-jl/left.jpg",
+     "angle": "left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Jeep_Wrangler_Rubicon_(JL)_4xe_1X7A0287.jpg",
+     "source_title": "Jeep Wrangler Rubicon (JL) 4xe 1X7A0287.jpg"
+    },
+    {
+     "file": "jeep-wrangler-jl/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Jeep_Wrangler_Rubicon_(JL)_4xe_1X7A0288.jpg",
+     "source_title": "Jeep Wrangler Rubicon (JL) 4xe 1X7A0288.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "jeep-avenger",
+   "brand": "Jeep",
+   "vehicle": "Jeep Avenger",
+   "model_year": 2023,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "jeep-avenger/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Jeep_Avenger_IMG_7815.jpg",
+     "source_title": "Jeep Avenger IMG 7815.jpg"
+    },
+    {
+     "file": "jeep-avenger/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Jeep_Avenger_IMG_7809.jpg",
+     "source_title": "Jeep Avenger IMG 7809.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "fiat-600e",
+   "brand": "Fiat",
+   "vehicle": "Fiat 600e",
+   "model_year": 2023,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "fiat-600e/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Fiat_600e_1X7A1764.jpg",
+     "source_title": "Fiat 600e 1X7A1764.jpg"
+    },
+    {
+     "file": "fiat-600e/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Fiat_600e_1X7A1770.jpg",
+     "source_title": "Fiat 600e 1X7A1770.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "fiat-doblo",
+   "brand": "Fiat",
+   "vehicle": "Fiat Doblò Cargo",
+   "model_year": 2006,
+   "group": "clean",
+   "consignment": "used",
+   "views": [
+    {
+     "file": "fiat-doblo/front_left.jpg",
+     "angle": "front_left",
+     "author": "DieselFordMondeo",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2006_FIAT_Dobl%C3%B2_Cargo_SWB_1.3_JTD_(Front).jpg",
+     "source_title": "2006 FIAT Doblò Cargo SWB 1.3 JTD (Front).jpg"
+    },
+    {
+     "file": "fiat-doblo/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "DieselFordMondeo",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2006_FIAT_Dobl%C3%B2_Cargo_SWB_1.3_JTD_(Rear).jpg",
+     "source_title": "2006 FIAT Doblò Cargo SWB 1.3 JTD (Rear).jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "fiat-grande-panda",
+   "brand": "Fiat",
+   "vehicle": "Fiat Grande Panda Electric",
+   "model_year": 2024,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "fiat-grande-panda/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Fiat_Grande_Panda_Electric_Auto_Zuerich_2024_DSC_6260.jpg",
+     "source_title": "Fiat Grande Panda Electric Auto Zuerich 2024 DSC 6260.jpg"
+    },
+    {
+     "file": "fiat-grande-panda/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Fiat_Grande_Panda_Electric_Auto_Zuerich_2024_DSC_6264.jpg",
+     "source_title": "Fiat Grande Panda Electric Auto Zuerich 2024 DSC 6264.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "alfa-romeo-junior",
+   "brand": "Alfa Romeo",
+   "vehicle": "Alfa Romeo Junior",
+   "model_year": 2024,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "alfa-romeo-junior/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_Junior_IMG_0462_(cropped).jpg",
+     "source_title": "Alfa Romeo Junior IMG 0462 (cropped).jpg"
+    },
+    {
+     "file": "alfa-romeo-junior/left.jpg",
+     "angle": "left",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_Junior_IMG_0471.jpg",
+     "source_title": "Alfa Romeo Junior IMG 0471.jpg"
+    },
+    {
+     "file": "alfa-romeo-junior/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_Junior_IMG_0474_(cropped).jpg",
+     "source_title": "Alfa Romeo Junior IMG 0474 (cropped).jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "maserati-mc20",
+   "brand": "Maserati",
+   "vehicle": "Maserati MC20",
+   "model_year": 2021,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "maserati-mc20/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Maserati_MC20_IAA_2021_1X7A0087.jpg",
+     "source_title": "Maserati MC20 IAA 2021 1X7A0087.jpg"
+    },
+    {
+     "file": "maserati-mc20/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Maserati_MC20_IAA_2021_1X7A0088.jpg",
+     "source_title": "Maserati MC20 IAA 2021 1X7A0088.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "peugeot-208",
+   "brand": "Peugeot",
+   "vehicle": "Peugeot 208 GT Line",
+   "model_year": 2020,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "peugeot-208/front_left.jpg",
+     "angle": "front_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2020_Peugeot_208_GT_Line_PureTech_1.2_Front.jpg",
+     "source_title": "2020 Peugeot 208 GT Line PureTech 1.2 Front.jpg"
+    },
+    {
+     "file": "peugeot-208/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2020_Peugeot_208_GT_Line_PureTech_1.2_Rear.jpg",
+     "source_title": "2020 Peugeot 208 GT Line PureTech 1.2 Rear.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "peugeot-2008",
+   "brand": "Peugeot",
+   "vehicle": "Peugeot 2008 Allure",
+   "model_year": 2020,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "peugeot-2008/front_left.jpg",
+     "angle": "front_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2020_Peugeot_2008_Allure_Front.jpg",
+     "source_title": "2020 Peugeot 2008 Allure Front.jpg"
+    },
+    {
+     "file": "peugeot-2008/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2020_Peugeot_2008_Allure_Rear.jpg",
+     "source_title": "2020 Peugeot 2008 Allure Rear.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "peugeot-408",
+   "brand": "Peugeot",
+   "vehicle": "Peugeot 408",
+   "model_year": 2022,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "peugeot-408/front_left.jpg",
+     "angle": "front_left",
+     "author": "Zotyefan",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Peugeot_408_II_2022_facelift_IMG003.jpg",
+     "source_title": "Peugeot 408 II 2022 facelift IMG003.jpg"
+    },
+    {
+     "file": "peugeot-408/front_right.jpg",
+     "angle": "front_right",
+     "author": "Zotyefan",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Peugeot_408_II_2022_facelift_IMG001_(cropped).jpg",
+     "source_title": "Peugeot 408 II 2022 facelift IMG001 (cropped).jpg"
+    },
+    {
+     "file": "peugeot-408/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Zotyefan",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Peugeot_408_II_2022_facelift_IMG004.jpg",
+     "source_title": "Peugeot 408 II 2022 facelift IMG004.jpg"
+    },
+    {
+     "file": "peugeot-408/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Zotyefan",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Peugeot_408_II_2022_facelift_IMG002.jpg",
+     "source_title": "Peugeot 408 II 2022 facelift IMG002.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "citroen-c3",
+   "brand": "Citroën",
+   "vehicle": "Citroën C3 (2024)",
+   "model_year": 2024,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "citroen-c3/front_right.jpg",
+     "angle": "front_right",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Citro%C3%ABn_C3_(4th_generation)_DSC_7101.jpg",
+     "source_title": "Citroën C3 (4th generation) DSC 7101.jpg"
+    },
+    {
+     "file": "citroen-c3/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Original photo by Alexander Migl, retouched by NearEMPTiness",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Citro%C3%ABn_C3_(4th_generation)_DSC_7106_(retouched).jpg",
+     "source_title": "Citroën C3 (4th generation) DSC 7106 (retouched).jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "citroen-berlingo",
+   "brand": "Citroën",
+   "vehicle": "Citroën Berlingo",
+   "model_year": 2019,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "citroen-berlingo/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Citro%C3%ABn_Berlingo_III_IMG_9227.jpg",
+     "source_title": "Citroën Berlingo III IMG 9227.jpg"
+    },
+    {
+     "file": "citroen-berlingo/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Alexander-93",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Citro%C3%ABn_Berlingo_III_IMG_9223.jpg",
+     "source_title": "Citroën Berlingo III IMG 9223.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "opel-corsa-e",
+   "brand": "Opel",
+   "vehicle": "Opel Corsa-e (F)",
+   "model_year": 2020,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "opel-corsa-e/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Opel_Corsa_F_IMG_5816.jpg",
+     "source_title": "Opel Corsa F IMG 5816.jpg"
+    },
+    {
+     "file": "opel-corsa-e/front_right.jpg",
+     "angle": "front_right",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Opel_Corsa_F_IMG_5815.jpg",
+     "source_title": "Opel Corsa F IMG 5815.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "opel-mokka",
+   "brand": "Opel",
+   "vehicle": "Opel Mokka (B)",
+   "model_year": 2021,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "opel-mokka/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Opel_Mokka_B_IMG_3996.jpg",
+     "source_title": "Opel Mokka B IMG 3996.jpg"
+    },
+    {
+     "file": "opel-mokka/right.jpg",
+     "angle": "right",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Opel_Mokka_B_IMG_3997.jpg",
+     "source_title": "Opel Mokka B IMG 3997.jpg"
+    },
+    {
+     "file": "opel-mokka/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Opel_Mokka_B_IMG_3995.jpg",
+     "source_title": "Opel Mokka B IMG 3995.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "citroen-c5-aircross-phev",
+   "brand": "Citroën",
+   "vehicle": "Citroën C5 Aircross Plug-in Hybrid",
+   "model_year": 2021,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "citroen-c5-aircross-phev/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Citroen_C5_Aircross_Plug-in-Hybrid_IMG_5338.jpg",
+     "source_title": "Citroen C5 Aircross Plug-in-Hybrid IMG 5338.jpg"
+    },
+    {
+     "file": "citroen-c5-aircross-phev/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Citroen_C5_Aircross_Plug-in-Hybrid_IMG_5339.jpg",
+     "source_title": "Citroen C5 Aircross Plug-in-Hybrid IMG 5339.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "ds-7-crossback-performance-line",
+   "brand": "DS",
+   "vehicle": "DS 7 Crossback Performance Line",
+   "model_year": 2018,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "ds-7-crossback-performance-line/front_right.jpg",
+     "angle": "front_right",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2018_DS_7_Crossback_PERFORMANCE_Line_PureTech_1.6_Front.jpg",
+     "source_title": "2018 DS 7 Crossback PERFORMANCE Line PureTech 1.6 Front.jpg"
+    },
+    {
+     "file": "ds-7-crossback-performance-line/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2018_DS_7_Crossback_PERFORMANCE_Line_PureTech_1.6_Rear.jpg",
+     "source_title": "2018 DS 7 Crossback PERFORMANCE Line PureTech 1.6 Rear.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "opel-astra-l-phev",
+   "brand": "Opel",
+   "vehicle": "Opel Astra L PHEV (front)",
+   "model_year": 2022,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "opel-astra-l-phev/front_right.jpg",
+     "angle": "front_right",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Opel_Astra_L_PHEV_1X7A0371.jpg",
+     "source_title": "Opel Astra L PHEV 1X7A0371.jpg"
+    },
+    {
+     "file": "opel-astra-l-phev/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Opel_Astra_L_PHEV_1X7A0380.jpg",
+     "source_title": "Opel Astra L PHEV 1X7A0380.jpg"
+    },
+    {
+     "file": "opel-astra-l-phev/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Alexander Migl",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Opel_Astra_L_PHEV_1X7A0370.jpg",
+     "source_title": "Opel Astra L PHEV 1X7A0370.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "dodge-charger-sxt-2019",
+   "brand": "Dodge",
+   "vehicle": "Dodge Charger SXT (2019)",
+   "model_year": 2019,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "dodge-charger-sxt-2019/front_left.jpg",
+     "angle": "front_left",
+     "author": "Elise240SX",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2019_Dodge_Charger_SXT_in_B5_Blue_Pearl,_Front_Right,_05-21-2022.jpg",
+     "source_title": "2019 Dodge Charger SXT in B5 Blue Pearl, Front Right, 05-21-2022.jpg"
+    },
+    {
+     "file": "dodge-charger-sxt-2019/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Elise240SX",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2019_Dodge_Charger_SXT_in_B5_Blue_Pearl,_Rear_Right,_05-21-2022.jpg",
+     "source_title": "2019 Dodge Charger SXT in B5 Blue Pearl, Rear Right, 05-21-2022.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "dodge-charger-scat-pack-2021",
+   "brand": "Dodge",
+   "vehicle": "Dodge Charger Scat Pack (2021)",
+   "model_year": 2021,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "dodge-charger-scat-pack-2021/front_right.jpg",
+     "angle": "front_right",
+     "author": "MercurySable99",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Dodge_Charger_Scat_Pack,_front_right_(Cruisin%27_the_River_Lowellville_Car_Show,_June_19th,_2023).jpg",
+     "source_title": "2021 Dodge Charger Scat Pack, front right (Cruisin' the River Lowellville Car Show, June 19th, 2023).jpg"
+    },
+    {
+     "file": "dodge-charger-scat-pack-2021/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "MercurySable99",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Dodge_Charger_Scat_Pack,_rear_right_(Cruisin%27_the_River_Lowellville_Car_Show,_June_19th,_2023).jpg",
+     "source_title": "2021 Dodge Charger Scat Pack, rear right (Cruisin' the River Lowellville Car Show, June 19th, 2023).jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "dodge-charger-daytona-r-t-2024",
+   "brand": "Dodge",
+   "vehicle": "Dodge Charger Daytona R/T (2024)",
+   "model_year": 2024,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "dodge-charger-daytona-r-t-2024/front_left.jpg",
+     "angle": "front_left",
+     "author": "Kevauto",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2024_Dodge_Charger_Daytona_RT,_front_4.14.25.jpg",
+     "source_title": "2024 Dodge Charger Daytona RT, front 4.14.25.jpg"
+    },
+    {
+     "file": "dodge-charger-daytona-r-t-2024/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Kevauto",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2024_Dodge_Charger_Daytona_RT,_rear_4.14.25.jpg",
+     "source_title": "2024 Dodge Charger Daytona RT, rear 4.14.25.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "dodge-challenger-r-t-2018",
+   "brand": "Dodge",
+   "vehicle": "Dodge Challenger R/T (2018)",
+   "model_year": 2018,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "dodge-challenger-r-t-2018/front_left.jpg",
+     "angle": "front_left",
+     "author": "Elise240SX",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2018_Dodge_Challenger_RT,_Front_Left,_09-25-2021.jpg",
+     "source_title": "2018 Dodge Challenger RT, Front Left, 09-25-2021.jpg"
+    },
+    {
+     "file": "dodge-challenger-r-t-2018/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Elise240SX",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2018_Dodge_Challenger_RT,_Rear_Left,_09-25-2021.jpg",
+     "source_title": "2018 Dodge Challenger RT, Rear Left, 09-25-2021.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "dodge-challenger-r-t-scat-pack-widebody-2020",
+   "brand": "Dodge",
+   "vehicle": "Dodge Challenger R/T Scat Pack Widebody (2020)",
+   "model_year": 2020,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "dodge-challenger-r-t-scat-pack-widebody-2020/front_left.jpg",
+     "angle": "front_left",
+     "author": "MercurySable99",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2020_Dodge_Challenger_R_T_Scat_Pack_Widebody,_front_left,_06-24-2024.jpg",
+     "source_title": "2020 Dodge Challenger R T Scat Pack Widebody, front left, 06-24-2024.jpg"
+    },
+    {
+     "file": "dodge-challenger-r-t-scat-pack-widebody-2020/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "MercurySable99",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2020_Dodge_Challenger_R_T_Scat_Pack_Widebody,_rear_left,_06-24-2024.jpg",
+     "source_title": "2020 Dodge Challenger R T Scat Pack Widebody, rear left, 06-24-2024.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "dodge-hornet-gt-2023",
+   "brand": "Dodge",
+   "vehicle": "Dodge Hornet GT (2023)",
+   "model_year": 2023,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "dodge-hornet-gt-2023/front_left.jpg",
+     "angle": "front_left",
+     "author": "Elise240SX",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2023_Dodge_Hornet_GT_in_Blu_Bayou,_Front_Left,_05-17-2023.jpg",
+     "source_title": "2023 Dodge Hornet GT in Blu Bayou, Front Left, 05-17-2023.jpg"
+    },
+    {
+     "file": "dodge-hornet-gt-2023/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Elise240SX",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2023_Dodge_Hornet_GT_in_Blu_Bayou,_Rear_Left,_05-17-2023.jpg",
+     "source_title": "2023 Dodge Hornet GT in Blu Bayou, Rear Left, 05-17-2023.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "dodge-durango-sxt-blacktop-2021",
+   "brand": "Dodge",
+   "vehicle": "Dodge Durango SXT Blacktop (2021)",
+   "model_year": 2021,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "dodge-durango-sxt-blacktop-2021/front_left.jpg",
+     "angle": "front_left",
+     "author": "Elise240SX",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Dodge_Durango_SXT_Blacktop_Package_in_Destroyer_Grey,_front_right,_2026-05-24.jpg",
+     "source_title": "2021 Dodge Durango SXT Blacktop Package in Destroyer Grey, front right, 2026-05-24.jpg"
+    },
+    {
+     "file": "dodge-durango-sxt-blacktop-2021/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Elise240SX",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Dodge_Durango_SXT_Blacktop_Package_in_Destroyer_Grey,_rear_right,_2026-05-24.jpg",
+     "source_title": "2021 Dodge Durango SXT Blacktop Package in Destroyer Grey, rear right, 2026-05-24.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "dodge-charger-r-t-1968",
+   "brand": "Dodge",
+   "vehicle": "Dodge Charger R/T (1968)",
+   "model_year": 1968,
+   "group": "clean",
+   "consignment": "classic",
+   "views": [
+    {
+     "file": "dodge-charger-r-t-1968/front_left.jpg",
+     "angle": "front_left",
+     "author": "Hannes Drexl",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:1968_Dodge_Charger_RT_front_3q_cropped.jpg",
+     "source_title": "1968 Dodge Charger RT front 3q cropped.jpg"
+    },
+    {
+     "file": "dodge-charger-r-t-1968/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Hannes Drexl",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:1968_Dodge_Charger_RT_rear_3q_cropped.jpg",
+     "source_title": "1968 Dodge Charger RT rear 3q cropped.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "dodge-charger-r-t-1969",
+   "brand": "Dodge",
+   "vehicle": "Dodge Charger R/T (1969)",
+   "model_year": 1969,
+   "group": "clean",
+   "consignment": "classic",
+   "views": [
+    {
+     "file": "dodge-charger-r-t-1969/front_right.jpg",
+     "angle": "front_right",
+     "author": "MercurySable99",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:1969_Dodge_Charger_R-T,_front_right_(2022_Ellwood_City_Fall_Fest_%26_Car_Cruise).jpg",
+     "source_title": "1969 Dodge Charger R-T, front right (2022 Ellwood City Fall Fest & Car Cruise).jpg"
+    },
+    {
+     "file": "dodge-charger-r-t-1969/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "MercurySable99",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:1969_Dodge_Charger_R-T,_rear_left_(2022_Ellwood_City_Fall_Fest_%26_Car_Cruise).jpg",
+     "source_title": "1969 Dodge Charger R-T, rear left (2022 Ellwood City Fall Fest & Car Cruise).jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "chrysler-pacifica-touring-l-2021",
+   "brand": "Chrysler",
+   "vehicle": "Chrysler Pacifica Touring L (2021)",
+   "model_year": 2021,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "chrysler-pacifica-touring-l-2021/front_left.jpg",
+     "angle": "front_left",
+     "author": "Kevauto",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Chrysler_Pacifica_Touring-L,_front_7.11.21.jpg",
+     "source_title": "2021 Chrysler Pacifica Touring-L, front 7.11.21.jpg"
+    },
+    {
+     "file": "chrysler-pacifica-touring-l-2021/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Kevauto",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Chrysler_Pacifica_Touring-L,_rear_7.11.21.jpg",
+     "source_title": "2021 Chrysler Pacifica Touring-L, rear 7.11.21.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "ram-1500-rebel-4x4-2019",
+   "brand": "Ram",
+   "vehicle": "Ram 1500 Rebel 4x4 (2019)",
+   "model_year": 2019,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "ram-1500-rebel-4x4-2019/front_left.jpg",
+     "angle": "front_left",
+     "author": "Kevauto",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2019_Ram_1500_Rebel_4x4,_front_11.10.19.jpg",
+     "source_title": "2019 Ram 1500 Rebel 4x4, front 11.10.19.jpg"
+    },
+    {
+     "file": "ram-1500-rebel-4x4-2019/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Kevauto",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2019_Ram_1500_Rebel_4x4,_rear_11.10.19.jpg",
+     "source_title": "2019 Ram 1500 Rebel 4x4, rear 11.10.19.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "ram-1500-tradesman-2019",
+   "brand": "Ram",
+   "vehicle": "Ram 1500 Tradesman (2019)",
+   "model_year": 2019,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "ram-1500-tradesman-2019/front_left.jpg",
+     "angle": "front_left",
+     "author": "Mr.choppers",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2019_Ram_1500_Tradesman_in_White,_front_left.jpg",
+     "source_title": "2019 Ram 1500 Tradesman in White, front left.jpg"
+    },
+    {
+     "file": "ram-1500-tradesman-2019/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Mr.choppers",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2019_Ram_1500_Tradesman_in_White,_rear_left.jpg",
+     "source_title": "2019 Ram 1500 Tradesman in White, rear left.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "vauxhall-corsa-se-2019",
+   "brand": "Vauxhall",
+   "vehicle": "Vauxhall Corsa SE (2019)",
+   "model_year": 2019,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "vauxhall-corsa-se-2019/front_left.jpg",
+     "angle": "front_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2019_Vauxhall_Corsa_SE_NAV_1.2_Front.jpg",
+     "source_title": "2019 Vauxhall Corsa SE NAV 1.2 Front.jpg"
+    },
+    {
+     "file": "vauxhall-corsa-se-2019/right.jpg",
+     "angle": "right",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2019_Vauxhall_Corsa_SE_NAV_1.2_Side.jpg",
+     "source_title": "2019 Vauxhall Corsa SE NAV 1.2 Side.jpg"
+    },
+    {
+     "file": "vauxhall-corsa-se-2019/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2019_Vauxhall_Corsa_SE_NAV_1.2_Rear.jpg",
+     "source_title": "2019 Vauxhall Corsa SE NAV 1.2 Rear.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "vauxhall-mokka-e-launch-edition-2021",
+   "brand": "Vauxhall",
+   "vehicle": "Vauxhall Mokka-e Launch Edition (2021)",
+   "model_year": 2021,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "vauxhall-mokka-e-launch-edition-2021/front_left.jpg",
+     "angle": "front_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Vauxhall_Mokka-e_Launch_Edition_Front.jpg",
+     "source_title": "2021 Vauxhall Mokka-e Launch Edition Front.jpg"
+    },
+    {
+     "file": "vauxhall-mokka-e-launch-edition-2021/right.jpg",
+     "angle": "right",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Vauxhall_Mokka-e_Launch_Edition_Side.jpg",
+     "source_title": "2021 Vauxhall Mokka-e Launch Edition Side.jpg"
+    },
+    {
+     "file": "vauxhall-mokka-e-launch-edition-2021/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Vauxhall_Mokka-e_Launch_Edition_Rear.jpg",
+     "source_title": "2021 Vauxhall Mokka-e Launch Edition Rear.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "vauxhall-grandland-ultimate-2023",
+   "brand": "Vauxhall",
+   "vehicle": "Vauxhall Grandland Ultimate (2023)",
+   "model_year": 2023,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "vauxhall-grandland-ultimate-2023/front_left.jpg",
+     "angle": "front_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2023_Vauxhall_Grandland_Ultimate_Turbo_facelift_1.2_Front_(2).jpg",
+     "source_title": "2023 Vauxhall Grandland Ultimate Turbo facelift 1.2 Front (2).jpg"
+    },
+    {
+     "file": "vauxhall-grandland-ultimate-2023/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2023_Vauxhall_Grandland_Ultimate_Turbo_facelift_1.2_Rear.jpg",
+     "source_title": "2023 Vauxhall Grandland Ultimate Turbo facelift 1.2 Rear.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "alfa-romeo-giulia-quadrifoglio-2020",
+   "brand": "Alfa Romeo",
+   "vehicle": "Alfa Romeo Giulia Quadrifoglio (2020)",
+   "model_year": 2020,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "alfa-romeo-giulia-quadrifoglio-2020/front_left.jpg",
+     "angle": "front_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2020_Alfa_Romeo_Giulia_Quadrifoglio_V6_Biturbo_2.9_Front.jpg",
+     "source_title": "2020 Alfa Romeo Giulia Quadrifoglio V6 Biturbo 2.9 Front.jpg"
+    },
+    {
+     "file": "alfa-romeo-giulia-quadrifoglio-2020/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2020_Alfa_Romeo_Giulia_Quadrifoglio_V6_Biturbo_2.9_Rear.jpg",
+     "source_title": "2020 Alfa Romeo Giulia Quadrifoglio V6 Biturbo 2.9 Rear.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "alfa-romeo-stelvio-quadrifoglio-2019",
+   "brand": "Alfa Romeo",
+   "vehicle": "Alfa Romeo Stelvio Quadrifoglio (2019)",
+   "model_year": 2019,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "alfa-romeo-stelvio-quadrifoglio-2019/front_left.jpg",
+     "angle": "front_left",
+     "author": "Mr.choppers",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2019_Alfa_Romeo_Stelvio_Quadrifoglio_4WD_(Vesuvio_Gray),_front_right.jpg",
+     "source_title": "2019 Alfa Romeo Stelvio Quadrifoglio 4WD (Vesuvio Gray), front right.jpg"
+    },
+    {
+     "file": "alfa-romeo-stelvio-quadrifoglio-2019/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Mr.choppers",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2019_Alfa_Romeo_Stelvio_Quadrifoglio_4WD_(Vesuvio_Gray),_rear_left.jpg",
+     "source_title": "2019 Alfa Romeo Stelvio Quadrifoglio 4WD (Vesuvio Gray), rear left.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "jeep-gladiator-sport-2021",
+   "brand": "Jeep",
+   "vehicle": "Jeep Gladiator Sport (2021)",
+   "model_year": 2021,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "jeep-gladiator-sport-2021/front_left.jpg",
+     "angle": "front_left",
+     "author": "Mr.choppers",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Jeep_Gladiator_Sport_in_Bright_White,_front_left.jpg",
+     "source_title": "2021 Jeep Gladiator Sport in Bright White, front left.jpg"
+    },
+    {
+     "file": "jeep-gladiator-sport-2021/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Mr.choppers",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2021_Jeep_Gladiator_Sport_in_Bright_White,_rear_right.jpg",
+     "source_title": "2021 Jeep Gladiator Sport in Bright White, rear right.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "jeep-grand-cherokee-summit-reserve-2022",
+   "brand": "Jeep",
+   "vehicle": "Jeep Grand Cherokee Summit Reserve (2022)",
+   "model_year": 2022,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "jeep-grand-cherokee-summit-reserve-2022/front_left.jpg",
+     "angle": "front_left",
+     "author": "Elise240SX",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2022_Jeep_Grand_Cherokee_Summit_Reserve_4x4_in_Bright_White,_Front_Left,_01-16-2022.jpg",
+     "source_title": "2022 Jeep Grand Cherokee Summit Reserve 4x4 in Bright White, Front Left, 01-16-2022.jpg"
+    },
+    {
+     "file": "jeep-grand-cherokee-summit-reserve-2022/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Elise240SX",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2022_Jeep_Grand_Cherokee_Summit_Reserve_4x4_in_Bright_White,_Rear_Left,_01-16-2022.jpg",
+     "source_title": "2022 Jeep Grand Cherokee Summit Reserve 4x4 in Bright White, Rear Left, 01-16-2022.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "maserati-levante-gt-2022",
+   "brand": "Maserati",
+   "vehicle": "Maserati Levante GT (2022)",
+   "model_year": 2022,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "maserati-levante-gt-2022/front_right.jpg",
+     "angle": "front_right",
+     "author": "LuvsMG481",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2022_Maserati_Levante_GT_front.jpg",
+     "source_title": "2022 Maserati Levante GT front.jpg"
+    },
+    {
+     "file": "maserati-levante-gt-2022/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "LuvsMG481",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:2022_Maserati_Levante_GT_rear.jpg",
+     "source_title": "2022 Maserati Levante GT rear.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "lancia-ypsilon-2024",
+   "brand": "Lancia",
+   "vehicle": "Lancia Ypsilon (2024)",
+   "model_year": 2024,
+   "group": "clean",
+   "consignment": "new",
+   "views": [
+    {
+     "file": "lancia-ypsilon-2024/front_left.jpg",
+     "angle": "front_left",
+     "author": "Mihnea Lazăr",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Lancia_Ypsilon_(2024)_Front_1_(cropped).jpg",
+     "source_title": "Lancia Ypsilon (2024) Front 1 (cropped).jpg"
+    },
+    {
+     "file": "lancia-ypsilon-2024/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Mihnea Lazăr",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Lancia_Ypsilon_(2024)_Rear_1_(cropped).jpg",
+     "source_title": "Lancia Ypsilon (2024) Rear 1 (cropped).jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "alfa-romeo-spider-series-1-1969",
+   "brand": "Alfa Romeo",
+   "vehicle": "Alfa Romeo Spider Series 1 (1969)",
+   "model_year": 1969,
+   "group": "clean",
+   "consignment": "classic",
+   "views": [
+    {
+     "file": "alfa-romeo-spider-series-1-1969/front_left.jpg",
+     "angle": "front_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:1969_Alfa_Romeo_Spider_Series_1_1.8_Front.jpg",
+     "source_title": "1969 Alfa Romeo Spider Series 1 1.8 Front.jpg"
+    },
+    {
+     "file": "alfa-romeo-spider-series-1-1969/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:1969_Alfa_Romeo_Spider_Series_1_1.8_Rear.jpg",
+     "source_title": "1969 Alfa Romeo Spider Series 1 1.8 Rear.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "alfa-romeo-gt-1300-junior-1969",
+   "brand": "Alfa Romeo",
+   "vehicle": "Alfa Romeo GT 1300 Junior (1969)",
+   "model_year": 1969,
+   "group": "clean",
+   "consignment": "classic",
+   "views": [
+    {
+     "file": "alfa-romeo-gt-1300-junior-1969/front_left.jpg",
+     "angle": "front_left",
+     "author": "Rutger van der Maar",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0",
+     "source": "https://commons.wikimedia.org/wiki/File:1969_Alfa_Romeo_GT_1300_Junior_front.jpg",
+     "source_title": "1969 Alfa Romeo GT 1300 Junior front.jpg"
+    },
+    {
+     "file": "alfa-romeo-gt-1300-junior-1969/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Rutger van der Maar",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0",
+     "source": "https://commons.wikimedia.org/wiki/File:1969_Alfa_Romeo_GT_1300_Junior_rear.jpg",
+     "source_title": "1969 Alfa Romeo GT 1300 Junior rear.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "peugeot-205-gl-1986",
+   "brand": "Peugeot",
+   "vehicle": "Peugeot 205 GL (1986)",
+   "model_year": 1986,
+   "group": "clean",
+   "consignment": "classic",
+   "views": [
+    {
+     "file": "peugeot-205-gl-1986/front_left.jpg",
+     "angle": "front_left",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:1986_Peugeot_205_GL_1.1_Front.jpg",
+     "source_title": "1986 Peugeot 205 GL 1.1 Front.jpg"
+    },
+    {
+     "file": "peugeot-205-gl-1986/rear_right.jpg",
+     "angle": "rear_right",
+     "author": "Vauxford",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "source": "https://commons.wikimedia.org/wiki/File:1986_Peugeot_205_GL_1.1_Rear.jpg",
+     "source_title": "1986 Peugeot 205 GL 1.1 Rear.jpg"
+    }
+   ],
+   "observed_lane": "cleared",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "fiat-uno-damaged",
+   "brand": "Fiat",
+   "vehicle": "Fiat Uno",
+   "model_year": 1989,
+   "group": "damage",
+   "consignment": "used",
+   "views": [
+    {
+     "file": "fiat-uno-damaged/front_left.jpg",
+     "angle": "front_left",
+     "author": "markhillary",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0/",
+     "source": "https://www.flickr.com/photos/56087830@N00/4599691764",
+     "source_title": "Crashed Fiat Uno in 1990"
+    },
+    {
+     "file": "fiat-uno-damaged/front_right.jpg",
+     "angle": "front_right",
+     "author": "markhillary",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0/",
+     "source": "https://www.flickr.com/photos/56087830@N00/4599077867",
+     "source_title": "Crashed Fiat Uno in 1990"
+    },
+    {
+     "file": "fiat-uno-damaged/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "markhillary",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0/",
+     "source": "https://www.flickr.com/photos/56087830@N00/4599077307",
+     "source_title": "Crashed Fiat Uno in 1990"
+    }
+   ],
+   "observed_lane": "hold",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "abarth-1000tc-damaged",
+   "brand": "Abarth",
+   "vehicle": "Fiat Abarth 1000 TC (race car)",
+   "model_year": 1968,
+   "group": "damage",
+   "consignment": "classic",
+   "views": [
+    {
+     "file": "abarth-1000tc-damaged/front_right.jpg",
+     "angle": "front_right",
+     "author": "Lav Ulv",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0/",
+     "source": "https://www.flickr.com/photos/99460566@N06/37668742956",
+     "source_title": "L19.25.14 - 71-klassen - 9 - Fiat Abarth 1000 TC - Mikael Moeslund - skadet, ryttergård - DSC_0756_Balancer"
+    },
+    {
+     "file": "abarth-1000tc-damaged/front.jpg",
+     "angle": "front",
+     "author": "Lav Ulv",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0/",
+     "source": "https://www.flickr.com/photos/99460566@N06/37007512424",
+     "source_title": "L19.21.36 - 71-klassen - 9 - Fiat Abarth 1000 TC - Mikael Moeslund - skadet, ryttergård - DSC_0748_Balancer"
+    },
+    {
+     "file": "abarth-1000tc-damaged/right.jpg",
+     "angle": "right",
+     "author": "Lav Ulv",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0/",
+     "source": "https://www.flickr.com/photos/99460566@N06/37007510984",
+     "source_title": "L19.21.48 - 71-klassen - 9 - Fiat Abarth 1000 TC - Mikael Moeslund - skadet, ryttergård - DSC_0749_Balancer"
+    }
+   ],
+   "observed_lane": "hold",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "opel-kadett-race-damaged",
+   "brand": "Opel",
+   "vehicle": "Opel Kadett C (race-prepared)",
+   "model_year": 1975,
+   "group": "damage",
+   "consignment": "classic",
+   "views": [
+    {
+     "file": "opel-kadett-race-damaged/front_left.jpg",
+     "angle": "front_left",
+     "author": "Lav Ulv",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0/",
+     "source": "https://www.flickr.com/photos/99460566@N06/37459490860",
+     "source_title": "L19.23.28 - 71-klassen - 155 - Opel Kadett B Rallye 1,9 Coupé - Mikkel Mikkelsen - skadet, ryttergård - DSC_0753_Balancer"
+    },
+    {
+     "file": "opel-kadett-race-damaged/front_right.jpg",
+     "angle": "front_right",
+     "author": "Lav Ulv",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0/",
+     "source": "https://www.flickr.com/photos/99460566@N06/23863756958",
+     "source_title": "L19.23.16 - 71-klassen - 155 - Opel Kadett B Rallye 1,9 Coupé - Mikkel Mikkelsen - skadet, ryttergård - DSC_0752_Balancer"
+    }
+   ],
+   "observed_lane": "hold",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "citroen-saxo-damaged",
+   "brand": "Citroën",
+   "vehicle": "Citroën Saxo",
+   "model_year": 1998,
+   "group": "damage",
+   "consignment": "used",
+   "views": [
+    {
+     "file": "citroen-saxo-damaged/front_right.jpg",
+     "angle": "front_right",
+     "author": "cosmic_spanner",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+     "source": "https://www.flickr.com/photos/76842350@N00/146514537",
+     "source_title": "Crossie's Saxo - remains"
+    },
+    {
+     "file": "citroen-saxo-damaged/left.jpg",
+     "angle": "left",
+     "author": "cosmic_spanner",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+     "source": "https://www.flickr.com/photos/76842350@N00/130119811",
+     "source_title": "Crossie's Crash"
+    }
+   ],
+   "observed_lane": "hold",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "peugeot-205-gti-damaged",
+   "brand": "Peugeot",
+   "vehicle": "Peugeot 205 GTi",
+   "model_year": 1988,
+   "group": "damage",
+   "consignment": "used",
+   "views": [
+    {
+     "file": "peugeot-205-gti-damaged/front_left.jpg",
+     "angle": "front_left",
+     "author": "anderoo",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+     "source": "https://www.flickr.com/photos/51609867@N00/125301399",
+     "source_title": "Peugeot 205 1.9 GTi Crash"
+    },
+    {
+     "file": "peugeot-205-gti-damaged/rear_left.jpg",
+     "angle": "rear_left",
+     "author": "anderoo",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+     "source": "https://www.flickr.com/photos/51609867@N00/125301341",
+     "source_title": "Peugeot 205 1.9 GTi Crash Rear"
+    }
+   ],
+   "observed_lane": "hold",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "ram-1500-tree-damaged",
+   "brand": "Ram",
+   "vehicle": "Ram 1500",
+   "model_year": 2011,
+   "group": "damage",
+   "consignment": "used",
+   "views": [
+    {
+     "file": "ram-1500-tree-damaged/front_right.jpg",
+     "angle": "front_right",
+     "author": "DiamondBack Truck Covers",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+     "source": "https://www.flickr.com/photos/48067004@N04/6096579531",
+     "source_title": ""
+    },
+    {
+     "file": "ram-1500-tree-damaged/front.jpg",
+     "angle": "front",
+     "author": "DiamondBack Truck Covers",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+     "source": "https://www.flickr.com/photos/48067004@N04/6138705034",
+     "source_title": ""
+    }
+   ],
+   "observed_lane": "hold",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "fiat-500-crash-test-damaged",
+   "brand": "Fiat",
+   "vehicle": "Fiat 500 (crash-tested)",
+   "model_year": 2008,
+   "group": "damage",
+   "consignment": "used",
+   "views": [
+    {
+     "file": "fiat-500-crash-test-damaged/front_left.jpg",
+     "angle": "front_left",
+     "author": "Pava",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0/it/deed.en",
+     "source": "https://commons.wikimedia.org/w/index.php?curid=17402252",
+     "source_title": "-01 Fiat 500 Security - crash test - Museo automobile Torino.jpg"
+    },
+    {
+     "file": "fiat-500-crash-test-damaged/front_right.jpg",
+     "angle": "front_right",
+     "author": "Pava",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0/it/deed.en",
+     "source": "https://commons.wikimedia.org/w/index.php?curid=17402255",
+     "source_title": "Crash test fiat 500 Museo Automobile Torino 1.jpg"
+    },
+    {
+     "file": "fiat-500-crash-test-damaged/front.jpg",
+     "angle": "front",
+     "author": "Pava",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0/it/deed.en",
+     "source": "https://commons.wikimedia.org/w/index.php?curid=17402256",
+     "source_title": "Fiat 500 Crash Test (Torino Museo Nazionale Automobile ).jpg"
+    }
+   ],
+   "observed_lane": "hold",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "peugeot-hatchback-damaged",
+   "brand": "Peugeot",
+   "vehicle": "Peugeot hatchback",
+   "model_year": 2004,
+   "group": "damage",
+   "consignment": "used",
+   "views": [
+    {
+     "file": "peugeot-hatchback-damaged/front_right.jpg",
+     "angle": "front_right",
+     "author": "sylvar",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0/",
+     "source": "https://www.flickr.com/photos/44124401501@N01/361089269",
+     "source_title": "Car crash - Picture 005"
+    },
+    {
+     "file": "peugeot-hatchback-damaged/front.jpg",
+     "angle": "front",
+     "author": "sylvar",
+     "license": "CC BY 2.0",
+     "license_url": "https://creativecommons.org/licenses/by/2.0/",
+     "source": "https://www.flickr.com/photos/44124401501@N01/361088500",
+     "source_title": "Car crash - Picture 004"
+    }
+   ],
+   "observed_lane": "hold",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "peugeot-206-rollover-damaged",
+   "brand": "Peugeot",
+   "vehicle": "Peugeot 206",
+   "model_year": 2005,
+   "group": "damage",
+   "consignment": "used",
+   "views": [
+    {
+     "file": "peugeot-206-rollover-damaged/front_left.jpg",
+     "angle": "front_left",
+     "author": "Alipir",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:206_rollover5.jpg",
+     "source_title": "206 rollover5.jpg"
+    },
+    {
+     "file": "peugeot-206-rollover-damaged/rear.jpg",
+     "angle": "rear",
+     "author": "Alipir",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:206_rollover2.jpg",
+     "source_title": "206 rollover2.jpg"
+    }
+   ],
+   "observed_lane": "hold",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "citroen-c3-tree-damaged",
+   "brand": "Citroën",
+   "vehicle": "Citroën C3",
+   "model_year": 2005,
+   "group": "damage",
+   "consignment": "used",
+   "views": [
+    {
+     "file": "citroen-c3-tree-damaged/front_left.jpg",
+     "angle": "front_left",
+     "author": "Tommi Nummelin",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Crashed_Citro%C3%ABn_C3_(2).jpg",
+     "source_title": "Crashed Citroën C3 (2).jpg"
+    },
+    {
+     "file": "citroen-c3-tree-damaged/front.jpg",
+     "angle": "front",
+     "author": "Tommi Nummelin",
+     "license": "CC BY-SA 3.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Crashed_Citro%C3%ABn_C3.jpg",
+     "source_title": "Crashed Citroën C3.jpg"
+    }
+   ],
+   "observed_lane": "hold",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  },
+  {
+   "id": "peugeot-205-ventnor-damaged",
+   "brand": "Peugeot",
+   "vehicle": "Peugeot 205",
+   "model_year": 1990,
+   "group": "damage",
+   "consignment": "used",
+   "views": [
+    {
+     "file": "peugeot-205-ventnor-damaged/front_right.jpg",
+     "angle": "front_right",
+     "author": "Editor5807",
+     "license": "CC BY 3.0",
+     "license_url": "https://creativecommons.org/licenses/by/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Peugeot_205_after_Ventnor_Park_Avenue_tree_fall_2.JPG",
+     "source_title": "Peugeot 205 after Ventnor Park Avenue tree fall 2.JPG"
+    },
+    {
+     "file": "peugeot-205-ventnor-damaged/front.jpg",
+     "angle": "front",
+     "author": "Editor5807",
+     "license": "CC BY 3.0",
+     "license_url": "https://creativecommons.org/licenses/by/3.0",
+     "source": "https://commons.wikimedia.org/wiki/File:Peugeot_205_after_Ventnor_Park_Avenue_tree_fall.JPG",
+     "source_title": "Peugeot 205 after Ventnor Park Avenue tree fall.JPG"
+    }
+   ],
+   "observed_lane": "hold",
+   "observed_with": "vehicle-inspector · 2026-10-07"
+  }
+ ]
+}

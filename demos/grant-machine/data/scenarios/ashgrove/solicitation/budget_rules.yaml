@@ -1,0 +1,33 @@
+# Money rules for PA-25-305 (NIH Parent R01, Clinical Trial Required), curated by hand
+# from the real sources and quoted so each can be checked against them. Merged into
+# requirements.json by scripts/build_scenario_solicitation.py --real.
+
+cap_usd:
+  value: null
+  quote: "Application budgets are not limited but need to reflect the actual needs of the proposed project."
+  source: https://grants.nih.gov/grants/guide/pa-files/PA-25-305.html
+
+max_years:
+  value: 5
+  quote: "The maximum project period is 5 years."
+  source: https://grants.nih.gov/grants/guide/pa-files/PA-25-305.html
+
+salary_cap_usd:
+  value: 228000
+  quote: "January 1, 2026 through September 30, 2026 (Executive Level II): $228,000"
+  source: https://grants.nih.gov/policy-and-compliance/policy-topics/nih-fiscal-policies/salary-cap-summary
+
+# NIH keeps the 45 CFR 75 indirect-cost thresholds (see the NOFO and vantcross's rules).
+subaward_mtdc_limit_usd:
+  value: 25000
+  quote: >-
+    "the provisions relating to indirect costs in 45 CFR 75 continue to apply to NIH awards."
+    45 CFR 75.2: MTDC includes "up to the first $25,000 of each subaward".
+  source: https://www.ecfr.gov/on/2025-09-30/title-45/part-75/section-75.2
+
+prior_approval_direct_usd:
+  value: 500000
+  quote: >-
+    "any applicant requesting $500,000 or more in direct costs (excluding consortium F&A costs) in
+    any one budget period ... is required to contact the NIH Institute or Center (IC) Program Official"
+  source: https://grants.nih.gov/grants/guide/notice-files/NOT-OD-17-005.html

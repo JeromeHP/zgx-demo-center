@@ -1,0 +1,29 @@
+# Don't copy models into the Docker image (mounted at runtime)
+models/
+*.gguf
+
+# Sample images are mounted separately
+sample-images/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+navy-env/
+.venv/
+venv/
+
+# Git
+.git/
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.md
+*.sh
+!backend/
+!frontend/

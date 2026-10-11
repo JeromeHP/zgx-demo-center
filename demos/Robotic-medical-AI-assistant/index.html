@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Triage — Patient Record</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-card: #111827;
+            --bg-card-hover: #1a2234;
+            --border: #1e293b;
+            --border-accent: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-blue: #38bdf8;
+            --accent-green: #4ade80;
+            --accent-red: #f87171;
+            --accent-amber: #fbbf24;
+            --accent-purple: #a78bfa;
+            --patient-bg: #0c1a2e;
+            --patient-border: #1e3a5f;
+            --assistant-bg: #0a1f12;
+            --assistant-border: #1a3d2a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ---- Top Bar ---- */
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 56px;
+            background: rgba(10, 15, 26, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .topbar-logo {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .topbar-title {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+        }
+
+        .topbar-title span {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .topbar-subtitle {
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: 0.03em;
+            margin-top: 1px;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-family: 'IBM Plex Mono', monospace;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        .status-dot.disconnected {
+            background: var(--accent-red);
+            animation: none;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* ---- Layout ---- */
+        .layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            margin-top: 56px;
+            min-height: calc(100vh - 56px);
+        }
+
+        /* ---- Sidebar ---- */
+        .sidebar {
+            position: sticky;
+            top: 56px;
+            height: calc(100vh - 56px);
+            overflow-y: auto;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        .stat-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent-blue);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .system-info {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .system-info .label {
+            color: var(--text-secondary);
+        }
+
+        .system-info .value {
+            color: var(--accent-blue);
+        }
+
+        .system-info .value.active {
+            color: var(--accent-green);
+        }
+
+        .system-info .value.warning {
+            color: var(--accent-amber);
+        }
+
+        .token-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .token-item {
+            text-align: center;
+            padding: 8px 4px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .token-item.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .token-item .token-value {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent-blue);
+            line-height: 1;
+        }
+
+        .token-item .token-value.highlight {
+            color: var(--accent-green);
+        }
+
+        .token-item .token-label {
+            font-size: 9px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .export-btn {
+            background: transparent;
+            border: 1px solid var(--border-accent);
+            color: var(--text-secondary);
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        .export-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        /* ---- Main Content ---- */
+        .main {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .main-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .main-header h2 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .main-header h2 span {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .auto-scroll-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--text-muted);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .auto-scroll-toggle input {
+            accent-color: var(--accent-blue);
+        }
+
+        /* ---- Transcript Feed ---- */
+        .transcript-feed {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 24px;
+            scroll-behavior: smooth;
+        }
+
+        .transcript-feed::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .transcript-feed::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .transcript-feed::-webkit-scrollbar-thumb {
+            background: var(--border-accent);
+            border-radius: 3px;
+        }
+
+        .exchange {
+            margin-bottom: 16px;
+            animation: fade-in 0.4s ease;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .exchange-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .exchange-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            padding: 2px 8px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .exchange-time {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .exchange-latency {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            color: var(--accent-purple);
+            margin-left: auto;
+        }
+
+        .bubble {
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 6px;
+            border: 1px solid;
+            position: relative;
+        }
+
+        .bubble.patient {
+            background: var(--patient-bg);
+            border-color: var(--patient-border);
+            margin-right: 48px;
+        }
+
+        .bubble.assistant {
+            background: var(--assistant-bg);
+            border-color: var(--assistant-border);
+            margin-left: 48px;
+        }
+
+        .bubble-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+        }
+
+        .bubble.patient .bubble-label { color: var(--accent-blue); }
+        .bubble.assistant .bubble-label { color: var(--accent-green); }
+
+        .bubble-text {
+            color: var(--text-primary);
+        }
+
+        /* ---- Empty State ---- */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-muted);
+            gap: 12px;
+            padding: 40px;
+        }
+
+        .empty-icon {
+            font-size: 48px;
+            opacity: 0.3;
+        }
+
+        .empty-state p {
+            font-size: 14px;
+            text-align: center;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        .waiting-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        .waiting-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            animation: waiting 1.4s ease-in-out infinite;
+        }
+
+        .waiting-dot:nth-child(2) { animation-delay: 0.2s; }
+        .waiting-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes waiting {
+            0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+            40% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 768px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+            position: sticky;
+            top: 56px;
+            height: calc(100vh - 56px);
+            overflow-y: auto;
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <div class="topbar-left">
+            <div class="topbar-logo">+</div>
+            <div class="topbar-title">
+                HP ZGX Medical Triage <span>/ Patient Record Dashboard</span>
+                <div class="topbar-subtitle">Powered by the HP ZGX Nano in partnership with NVIDIA, HuggingFace and Pollen Robotics</div>
+            </div>
+        </div>
+        <div class="topbar-right">
+            <div class="status-badge">
+                <div class="status-dot" id="statusDot"></div>
+                <span id="statusText">Connecting...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Layout -->
+    <div class="layout">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-label">Session</div>
+                <div class="stat-card">
+                    <div class="stat-value" id="exchangeCount">0</div>
+                    <div class="stat-label">Exchanges recorded</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-label">Session Info</div>
+                <div class="stat-card">
+                    <div class="system-info">
+                        <div><span class="label">Started:</span> <span class="value" id="sessionStart">—</span></div>
+                        <div><span class="label">Duration:</span> <span class="value" id="sessionDuration">—</span></div>
+                        <div><span class="label">Patient ID:</span> <span class="value" id="patientId">—</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-label">Token Consumption</div>
+                <div class="stat-card">
+                    <div class="token-grid">
+                        <div class="token-item">
+                            <div class="token-value" id="promptTokens">0</div>
+                            <div class="token-label">Prompt</div>
+                        </div>
+                        <div class="token-item">
+                            <div class="token-value" id="completionTokens">0</div>
+                            <div class="token-label">Completion</div>
+                        </div>
+                        <div class="token-item full-width">
+                            <div class="token-value highlight" id="totalTokens">0</div>
+                            <div class="token-label">Total Tokens</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-label">System Status</div>
+                <div class="stat-card">
+                    <div class="system-info">
+                        <div><span class="label">Whisper:</span> <span class="value active" id="whisperStatus">—</span></div>
+                        <div><span class="label">LLM:</span> <span class="value active" id="llmStatus">—</span></div>
+                        <div><span class="label">TTS:</span> <span class="value active" id="ttsStatus">—</span></div>
+                        <div><span class="label">Robot:</span> <span class="value active" id="robotStatus">—</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section" style="margin-top: auto;">
+                <button class="export-btn" onclick="exportRecord()">
+                    <span>📋</span> Export as Medical Record
+                </button>
+                <button class="export-btn" onclick="exportJSON()">
+                    <span>💾</span> Export JSON
+                </button>
+                <button class="export-btn" onclick="clearSession()">
+                    <span>🔄</span> New Session
+                </button>
+            </div>
+        </div>
+
+        <!-- Main -->
+        <div class="main">
+            <div class="main-header">
+                <h2>Live Transcript <span id="liveIndicator"></span></h2>
+                <label class="auto-scroll-toggle">
+                    <input type="checkbox" id="autoScroll" checked>
+                    Auto-scroll
+                </label>
+            </div>
+
+            <div class="transcript-feed" id="transcriptFeed">
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">🩺</div>
+                    <p>Waiting for patient interaction. The transcript will appear here in real time as the patient speaks with the Reachy Mini triage assistant.</p>
+                    <div class="waiting-indicator">
+                        <div class="waiting-dot"></div>
+                        <div class="waiting-dot"></div>
+                        <div class="waiting-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ---- Config ----
+        const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            ? 'http://localhost:8090'
+            : `http://${window.location.hostname}:8090`;
+
+        let lastCount = 0;
+        let sessionStartTime = null;
+        let durationInterval = null;
+        let totalPromptTokens = 0;
+        let totalCompletionTokens = 0;
+
+        // Generate a random patient ID for the session
+        const patientId = 'PT-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+        document.getElementById('patientId').textContent = patientId;
+
+        // ---- Connection & Polling ----
+        async function checkHealth() {
+            try {
+                const res = await fetch(`${API_URL}/health`);
+                const data = await res.json();
+
+                document.getElementById('statusDot').classList.remove('disconnected');
+                document.getElementById('statusText').textContent = 'System Online';
+                document.getElementById('whisperStatus').textContent = data.whisper ? `✓ ${data.whisper_model}` : '✗ offline';
+                document.getElementById('llmStatus').textContent = data.llm ? '✓ online' : '✗ offline';
+                document.getElementById('ttsStatus').textContent = data.tts ? '✓ online' : '✗ offline';
+                document.getElementById('robotStatus').textContent = '✓ connected';
+
+                document.getElementById('whisperStatus').className = `value ${data.whisper ? 'active' : 'warning'}`;
+                document.getElementById('llmStatus').className = `value ${data.llm ? 'active' : 'warning'}`;
+                document.getElementById('ttsStatus').className = `value ${data.tts ? 'active' : 'warning'}`;
+
+                return true;
+            } catch (e) {
+                document.getElementById('statusDot').classList.add('disconnected');
+                document.getElementById('statusText').textContent = 'Disconnected';
+                document.getElementById('whisperStatus').textContent = '—';
+                document.getElementById('llmStatus').textContent = '—';
+                document.getElementById('ttsStatus').textContent = '—';
+                document.getElementById('robotStatus').textContent = '—';
+                return false;
+            }
+        }
+
+        async function pollConversations() {
+            try {
+                const res = await fetch(`${API_URL}/conversations`);
+                const data = await res.json();
+
+                const count = data.conversations ? data.conversations.length : 0;
+
+                // Set session start from first conversation timestamp
+                if (!sessionStartTime && count > 0 && data.conversations[0].timestamp) {
+                    sessionStartTime = new Date(data.conversations[0].timestamp);
+                    document.getElementById('sessionStart').textContent =
+                        sessionStartTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                    if (!durationInterval) {
+                        durationInterval = setInterval(updateDuration, 1000);
+                    }
+                }
+
+                if (count > lastCount) {
+                    const newEntries = data.conversations.slice(lastCount);
+                    newEntries.forEach(entry => addExchange(entry));
+                    lastCount = count;
+                    document.getElementById('exchangeCount').textContent = count;
+
+                    // Update token totals from all conversations
+                    totalPromptTokens = 0;
+                    totalCompletionTokens = 0;
+                    data.conversations.forEach(conv => {
+                        if (conv.usage) {
+                            totalPromptTokens += conv.usage.prompt_tokens || 0;
+                            totalCompletionTokens += conv.usage.completion_tokens || 0;
+                        }
+                    });
+                    document.getElementById('promptTokens').textContent = totalPromptTokens.toLocaleString();
+                    document.getElementById('completionTokens').textContent = totalCompletionTokens.toLocaleString();
+                    document.getElementById('totalTokens').textContent = (totalPromptTokens + totalCompletionTokens).toLocaleString();
+                }
+            } catch (e) {
+                // Silently retry
+            }
+        }
+
+        function updateDuration() {
+            if (!sessionStartTime) return;
+            const elapsed = Math.floor((Date.now() - sessionStartTime.getTime()) / 1000);
+            const mins = Math.floor(elapsed / 60);
+            const secs = elapsed % 60;
+            document.getElementById('sessionDuration').textContent =
+                `${mins}m ${secs.toString().padStart(2, '0')}s`;
+        }
+
+        // ---- Transcript Rendering ----
+        function addExchange(entry) {
+            const emptyState = document.getElementById('emptyState');
+            if (emptyState) emptyState.remove();
+
+            const feed = document.getElementById('transcriptFeed');
+
+            const time = new Date(entry.timestamp);
+            const timeStr = time.toLocaleTimeString('en-US', {
+                hour: '2-digit', minute: '2-digit', second: '2-digit'
+            });
+
+            // Use entry.user or entry.patient (support both field names)
+            const patientText = entry.patient || entry.user || '';
+            const assistantText = entry.assistant || '';
+
+            // Calculate total latency if timing data available
+            const latency = (entry.stt_time || 0) + (entry.llm_time || 0);
+            const latencyStr = latency > 0 ? `${latency.toFixed(1)}s` : '';
+
+            const html = `
+                <div class="exchange">
+                    <div class="exchange-header">
+                        <span class="exchange-number">#${lastCount + 1}</span>
+                        <span class="exchange-time">${timeStr}</span>
+                        ${latencyStr ? `<span class="exchange-latency">⚡ ${latencyStr}</span>` : ''}
+                    </div>
+                    <div class="bubble patient">
+                        <div class="bubble-label">Patient</div>
+                        <div class="bubble-text">${escapeHtml(patientText)}</div>
+                    </div>
+                    <div class="bubble assistant">
+                        <div class="bubble-label">Triage Assistant</div>
+                        <div class="bubble-text">${escapeHtml(assistantText)}</div>
+                    </div>
+                </div>
+            `;
+
+            feed.insertAdjacentHTML('beforeend', html);
+
+            // Auto-scroll
+            if (document.getElementById('autoScroll').checked) {
+                feed.scrollTop = feed.scrollHeight;
+            }
+
+            // Update live indicator
+            document.getElementById('liveIndicator').textContent = `· Last update ${timeStr}`;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // ---- Export Functions ----
+        function exportRecord() {
+            let text = `MEDICAL TRIAGE RECORD\n`;
+            text += `${'='.repeat(50)}\n\n`;
+            text += `Patient ID:    ${patientId}\n`;
+            text += `Session Date:  ${new Date().toLocaleDateString()}\n`;
+            text += `Session Start: ${sessionStartTime ? sessionStartTime.toLocaleTimeString() : 'N/A'}\n`;
+            text += `Exchanges:     ${lastCount}\n`;
+            text += `Total Tokens:  ${(totalPromptTokens + totalCompletionTokens).toLocaleString()}\n`;
+            text += `\nDISCLAIMER: This record was generated by an AI-assisted\n`;
+            text += `triage system and is NOT a substitute for professional\n`;
+            text += `medical diagnosis. All information should be verified by\n`;
+            text += `a licensed healthcare provider.\n`;
+            text += `\n${'─'.repeat(50)}\n\n`;
+
+            const exchanges = document.querySelectorAll('.exchange');
+            exchanges.forEach((ex, i) => {
+                const time = ex.querySelector('.exchange-time')?.textContent || '';
+                const patient = ex.querySelector('.bubble.patient .bubble-text')?.textContent || '';
+                const assistant = ex.querySelector('.bubble.assistant .bubble-text')?.textContent || '';
+
+                text += `[${time}] Exchange #${i + 1}\n`;
+                text += `  PATIENT:   ${patient}\n`;
+                text += `  ASSISTANT: ${assistant}\n\n`;
+            });
+
+            text += `${'─'.repeat(50)}\n`;
+            text += `End of record — Generated ${new Date().toISOString()}\n`;
+            text += `System: HP ZGX Nano / Reachy Mini / Llama-3.1-8B\n`;
+
+            downloadFile(`triage-record-${patientId}.txt`, text, 'text/plain');
+        }
+
+        async function exportJSON() {
+            try {
+                const res = await fetch(`${API_URL}/conversations`);
+                const data = await res.json();
+                data.patient_id = patientId;
+                data.export_time = new Date().toISOString();
+                data.system = 'HP ZGX Nano / Reachy Mini / Llama-3.1-8B';
+                data.token_totals = {
+                    prompt_tokens: totalPromptTokens,
+                    completion_tokens: totalCompletionTokens,
+                    total_tokens: totalPromptTokens + totalCompletionTokens
+                };
+
+                const json = JSON.stringify(data, null, 2);
+                downloadFile(`triage-${patientId}.json`, json, 'application/json');
+            } catch (e) {
+                alert('Could not export — API not reachable.');
+            }
+        }
+
+        function downloadFile(filename, content, type) {
+            const blob = new Blob([content], { type });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function clearSession() {
+            if (!confirm('Start a new session? This will clear the current transcript display.')) return;
+            document.getElementById('transcriptFeed').innerHTML = `
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">🩺</div>
+                    <p>Waiting for patient interaction.</p>
+                    <div class="waiting-indicator">
+                        <div class="waiting-dot"></div>
+                        <div class="waiting-dot"></div>
+                        <div class="waiting-dot"></div>
+                    </div>
+                </div>
+            `;
+            lastCount = 0;
+            totalPromptTokens = 0;
+            totalCompletionTokens = 0;
+            document.getElementById('exchangeCount').textContent = '0';
+            document.getElementById('promptTokens').textContent = '0';
+            document.getElementById('completionTokens').textContent = '0';
+            document.getElementById('totalTokens').textContent = '0';
+            document.getElementById('patientId').textContent =
+                'PT-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+        }
+
+        // ---- Init ----
+        (async function init() {
+            await checkHealth();
+            await pollConversations();
+
+            // Poll for new conversations every 1 second
+            setInterval(pollConversations, 1000);
+            // Health check every 10 seconds
+            setInterval(checkHealth, 10000);
+        })();
+    </script>
+<script>
+// Demo Center iframe escape relay
+(function() {
+  if (window.parent === window) return; // not iframed, do nothing
+  window.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      window.parent.postMessage({ type: 'demo-shell-return' }, '*');
+    }
+  });
+})();
+</script>
+</body>
+</html>

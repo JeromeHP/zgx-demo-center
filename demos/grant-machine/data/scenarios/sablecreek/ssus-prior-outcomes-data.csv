@@ -1,0 +1,14 @@
+# doc_id: ssus-prior-outcomes-data
+# title: Outcomes Data — Statewide Research Infrastructure for Precision Agriculture
+# doc_type: csv
+# date: 2026-09-21
+# synthetic: true
+# generator: generate_vault.py
+# seed_sha256: 7d9981293c97085141c474296487cb2841330da8fd0e74742d170279455a55c2
+metric,value,notes
+campuses participating,3,
+campuses planned,4,
+faculty engaged,47,
+shared instruments deployed,6,
+graduate students supported,22,
+external followon awards,5,

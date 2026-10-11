@@ -1,0 +1,20 @@
+name: grant-machine
+services:
+  grant-machine:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: grant-machine:local
+    network_mode: host
+    environment:
+      GM_LLM__BASE_URL: ${GM_LLM__BASE_URL:-http://127.0.0.1:8080/v1}
+      GM_LLM__MODEL: ${GM_LLM__MODEL:-qwen3.6-35b-a3b}
+      GM_SERVER__PORT: ${GM_SERVER__PORT:-8095}
+      # Forwarded so a containerised run reports the machine it is on. Without
+      # this it fell through to config/default.yaml and named whatever that said.
+      GM_DEMO__DEVICE_LABEL: ${GM_DEMO__DEVICE_LABEL:-this AI Station}
+    volumes:
+      - grant-machine-runtime:/opt/grant-machine/runtime
+    restart: unless-stopped
+volumes:
+  grant-machine-runtime:

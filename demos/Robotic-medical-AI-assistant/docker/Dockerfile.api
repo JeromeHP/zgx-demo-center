@@ -1,0 +1,115 @@
+# ===========================================================================
+# ZGX AI API Container — Medical Triage Voice Agent
+# ===========================================================================
+# Runs whisper.cpp (STT, GPU) + vLLM (LLM, GPU) + Piper (TTS) in one container.
+#
+# Build:
+#   cd $HOME/demos/Robotic-medical-AI-assistant/docker
+#   docker build -t consent-agent:latest -f Dockerfile.api .
+#
+# Run:
+#   docker run --rm -d --name zgx-ai-api --gpus all --network host \
+#     -v $HOME/demos/Robotic-medical-AI-assistant/models:/models \
+#     consent-agent:latest
+# ===========================================================================
+
+FROM nvcr.io/nvidia/vllm:26.01-py3
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+
+# ----- System dependencies -----
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    ffmpeg \
+    cmake \
+    git \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# ----- Build whisper.cpp with CUDA (GPU-accelerated STT) -----
+# GB10 Grace Blackwell = compute capability 12.1 = sm_121
+RUN git clone https://github.com/ggml-org/whisper.cpp.git /opt/whisper.cpp && \
+    cd /opt/whisper.cpp && \
+    cmake -B build \
+        -DGGML_CUDA=1 \
+        -DCMAKE_CUDA_ARCHITECTURES="121" \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_EXE_LINKER_FLAGS="-Wl,--allow-shlib-undefined" \
+        -DCMAKE_SHARED_LINKER_FLAGS="-Wl,--allow-shlib-undefined" \
+        -DWHISPER_BUILD_TESTS=OFF \
+        -DWHISPER_BUILD_EXAMPLES=ON && \
+    cmake --build build -j$(nproc) --config Release && \
+    ln -s /opt/whisper.cpp/build/bin/whisper-cli /usr/local/bin/whisper-cli && \
+    ln -s /opt/whisper.cpp/build/bin/whisper-server /usr/local/bin/whisper-server
+
+# ----- Download Whisper GGML models -----
+RUN cd /opt/whisper.cpp && \
+    bash models/download-ggml-model.sh small && \
+    bash models/download-ggml-model.sh base
+
+# ----- Python dependencies -----
+RUN pip install --no-cache-dir --break-system-packages \
+    fastapi \
+    uvicorn[standard] \
+    requests \
+    python-multipart \
+    numpy
+
+# ----- Piper TTS -----
+ARG PIPER_ARCH=aarch64
+ARG PIPER_VERSION=2023.11.14-2
+RUN mkdir -p /opt/piper && \
+    wget -q "https://github.com/rhasspy/piper/releases/download/${PIPER_VERSION}/piper_linux_${PIPER_ARCH}.tar.gz" \
+    -O /tmp/piper.tar.gz && \
+    tar xzf /tmp/piper.tar.gz -C /opt/piper --strip-components=1 && \
+    rm /tmp/piper.tar.gz && \
+    ln -s /opt/piper/piper /usr/local/bin/piper
+
+# ----- App code -----
+WORKDIR /app
+COPY zgx_ai_api.py /app/zgx_ai_api.py
+
+# ----- Default env vars -----
+ENV WHISPER_MODEL=/opt/whisper.cpp/models/ggml-small.bin
+ENV WHISPER_SERVER_URL=http://localhost:8178
+ENV VLLM_URL=http://localhost:8001/v1/chat/completions
+ENV VLLM_MODEL=/models/Llama-3.1-8B-Instruct-AWQ-INT4
+ENV PIPER_MODEL=/models/piper-tts/en_US-lessac-medium.onnx
+
+EXPOSE 8090 8001 8178
+
+# ----- Health check -----
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+    CMD curl -f http://localhost:8090/health || exit 1
+
+# Default: run whisper-server + vLLM + API together
+CMD ["bash", "-c", "\
+    echo 'Starting whisper.cpp server on port 8178...' && \
+    whisper-server \
+        --model ${WHISPER_MODEL} \
+        --host 0.0.0.0 \
+        --port 8178 \
+        --language en \
+        --no-timestamps &\
+    echo 'Starting vLLM on port 8001...' && \
+    python3 -m vllm.entrypoints.openai.api_server \
+        --model ${VLLM_MODEL} \
+        --port 8001 \
+        --dtype auto \
+        --quantization awq_marlin \
+        --max-model-len 4096 \
+        --gpu-memory-utilization 0.70 &\
+    echo 'Waiting for whisper-server...' && \
+    for i in $(seq 1 30); do \
+        curl -sf http://localhost:8178/health > /dev/null 2>&1 && break; \
+        sleep 1; \
+    done && \
+    echo 'Waiting for vLLM...' && \
+    for i in $(seq 1 120); do \
+        curl -sf http://localhost:8001/v1/models > /dev/null 2>&1 && break; \
+        sleep 5; \
+    done && \
+    echo 'All services ready. Starting API server...' && \
+    python3 /app/zgx_ai_api.py \
+"]

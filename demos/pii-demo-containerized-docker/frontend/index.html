@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PII Masking Demo - Model Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(180deg, #024AD8 0%, #0356E8 40%, #4A90E2 70%, #87CEEB 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .status-bar {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+        
+        .status-dot.connected {
+            background: #4CAF50;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-dot.loading {
+            background: #FFC107;
+            animation: pulse 1s infinite;
+        }
+        
+        .status-dot.error {
+            background: #f44336;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .load-models-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .load-models-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .load-models-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .input-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .input-section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .sample-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .sample-btn {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        
+        .sample-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .upload-zone {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .upload-zone:hover, .upload-zone.dragover {
+            border-color: #667eea;
+            background: #f5f6ff;
+            color: #333;
+        }
+
+        .upload-zone.has-file {
+            border-style: solid;
+            border-color: #4CAF50;
+            background: #f0fff0;
+        }
+
+        .upload-status {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 1rem;
+        }
+
+        .download-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .download-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            min-height: 150px;
+            resize: vertical;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .text-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            align-items: center;
+        }
+        
+        .process-btn {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .process-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .process-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .settings {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .setting-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .setting-group label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .setting-group input {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 80px;
+        }
+        
+        .comparison-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .model-output {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            min-height: 300px;
+        }
+        
+        .model-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .model-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .base-model .model-title {
+            color: #FF6B00;
+        }
+        
+        .finetuned-model .model-title {
+            color: #4CAF50;
+        }
+        
+        .model-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .base-model .model-badge {
+            background: #FFF3E0;
+            color: #FF6B00;
+        }
+        
+        .finetuned-model .model-badge {
+            background: #E8F5E9;
+            color: #4CAF50;
+        }
+        
+        .output-text {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            min-height: 150px;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .output-placeholder {
+            color: #999;
+            font-style: italic;
+        }
+        
+        .performance-metrics {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+        
+        .metric {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .metric-label {
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+        
+        .metric-value {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            display: none;
+        }
+        
+        .loading-overlay.active {
+            display: flex;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .highlight {
+            background: yellow;
+            padding: 2px;
+            border-radius: 3px;
+        }
+        
+        .pii-tag {
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin: 0 2px;
+        }
+        
+        .pii-tag.name { background: #2196F3; }
+        .pii-tag.phone { background: #FF9800; }
+        .pii-tag.email { background: #9C27B0; }
+        .pii-tag.ssn { background: #f44336; }
+        .pii-tag.address { background: #4CAF50; }
+        .pii-tag.date { background: #795548; }
+        .pii-tag.credit_card { background: #E91E63; }
+        .pii-tag.id { background: #00BCD4; }
+        
+        @media (max-width: 768px) {
+            .comparison-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><img src="hp_logo.png" alt="HP Logo" class="logo">PII Masking Model Comparison<img src="hp_logo.png" alt="HP Logo" class="logo"></h1>
+            <h2 data-zgx-device="Powered by {}"> Powered by this AI Station</h2>
+            
+            
+        </div>
+        
+        <div class="status-bar">
+            <div class="status-indicator">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Checking connection...</span>
+            </div>
+            <div style="color: #666; font-size: 0.9rem;">
+                Models load on-demand
+            </div>
+        </div>
+        
+        <div class="input-section">
+            <h2>Input Text with PII</h2>
+            <div class="sample-buttons">
+                <button class="sample-btn" onclick="loadSample('federal')">Federal Government</button>
+                <button class="sample-btn" onclick="loadSample('sled')">SLED</button>
+                <button class="sample-btn" onclick="loadSample('healthcare')">Healthcare</button>
+            </div>
+            <div class="upload-zone" id="uploadZone">
+                <input type="file" id="fileInput" accept=".docx,.pdf" style="display:none">
+                <div id="uploadPlaceholder">
+                    <strong>Click to upload</strong> or drag and drop a Word (.docx) or PDF document
+                    <div style="font-size:0.8rem;color:#999;margin-top:0.25rem;">Text-layer documents only, max 15MB</div>
+                </div>
+                <div class="upload-status" id="uploadStatus" style="display:none;"></div>
+            </div>
+            <button class="download-btn" id="downloadBtn" style="display:none;" onclick="downloadRedactedDocument()">
+                ⬇ Generate &amp; Download Redacted Document
+            </button>
+            <textarea
+                class="text-input"
+                id="inputText"
+                placeholder="Enter text containing PII (names, phone numbers, SSN, addresses, etc.)..."
+            ></textarea>
+            <div class="controls">
+                <button class="process-btn" id="processBtn" onclick="processPII()">
+                    🔍 Process & Compare
+                </button>
+                <div class="settings">
+                    <div class="setting-group">
+                        <label>Max Length:</label>
+                        <input type="number" id="maxLength" value="512" min="128" max="2048">
+                    </div>
+                    <div class="setting-group">
+                        <label>Temperature:</label>
+                        <input type="number" id="temperature" value="0.1" min="0" max="1" step="0.1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comparison-section">
+            <div class="model-output base-model">
+                <div class="model-header">
+                    <span class="model-title">Base Model</span>
+                    <span class="model-badge" id="baseBadge">Qwen2.5-32B</span>
+                </div>
+                <div class="output-text" id="baseOutput">
+                    <span class="output-placeholder">Waiting for input...</span>
+                </div>
+                <div class="performance-metrics">
+                    <div class="metric">
+                        <span class="metric-label">Processing Time</span>
+                        <span class="metric-value" id="baseTime">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">PII Found</span>
+                        <span class="metric-value" id="basePIICount">--</span>
+                    </div>
+                </div>
+                <div class="loading-overlay" id="baseLoading">
+                    <div class="spinner"></div>
+                    <p>Processing with base model...</p>
+                </div>
+            </div>
+            
+            <div class="model-output finetuned-model">
+                <div class="model-header">
+                    <span class="model-title">Finetuned Model</span>
+                    <span class="model-badge" id="finetunedBadge">pii-detector (Finetuned)</span>
+                </div>
+                <div class="output-text" id="finetunedOutput">
+                    <span class="output-placeholder">Waiting for input...</span>
+                </div>
+                <div class="performance-metrics">
+                    <div class="metric">
+                        <span class="metric-label">Processing Time</span>
+                        <span class="metric-value" id="finetunedTime">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">PII Found</span>
+                        <span class="metric-value" id="finetunedPIICount">--</span>
+                    </div>
+                </div>
+                <div class="loading-overlay" id="finetunedLoading">
+                    <div class="spinner"></div>
+                    <p>Processing with finetuned model...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const API_URL = window.location.origin;
+        let modelsLoaded = false;
+        
+        // Sample texts
+        const samples = {
+            federal: `Security Clearance Investigation - Case File FC-2024-08817. Subject: Robert James Whitfield, DOB: 03/15/1982, SSN: 298-44-6173. Current residence: 1847 Sycamore Terrace, Apt 12B, Springfield, VA 22153. Subject holds a GS-13 position at the Department of Energy, Employee ID: DOE-2019-44281. Phone: (202) 586-4307. Email: robert.whitfield@energy.gov. Financial review flagged a $47,250 outstanding balance on credit card Account #4716-XXXX-XXXX-8834. Spouse of subject: Catherine Marie Whitfield, SSN: 412-67-5598, DOB: 07/29/1984.`,
+
+            sled: `Incident Report #CDE-IR-2024-03392. Filed by: Principal Donna Vasquez, Employee ID: CDE-T-88214, Lakewood Heights Elementary, 4520 West Colfax Avenue, Lakewood, CO 80215. Phone: (303) 982-4471. Email: donna.vasquez@jeffco.k12.co.us. Parent Kevin Darryl Bressler (DOB: 11/03/1979, Driver License: CO-2018-445672, phone: (720) 331-5587) arrived demanding release of his son Tyler Bressler (Student ID: JC-2022-55918, DOB: 06/22/2016). Ex-wife Angela Marie Thornton (phone: (303) 445-2098, email: angela.thornton@gmail.com, address: 892 Wadsworth Blvd, Apt 4, Lakewood, CO 80214) has sole custody per Court Order #2023-DR-04417.`,
+
+            healthcare: `Discharge Summary - Mercy General Hospital, MRN: MRN-2024-882714. Patient: Josephine Adele Marchetti, DOB: 05/18/1957, SSN: 551-32-8847. Address: 7742 Fair Oaks Boulevard, Carmichael, CA 95608. Phone: (916) 482-3391. Email: josie.marchetti@yahoo.com. Insurance: Blue Shield of California, Policy #BSC-4471882-A. Attending: Dr. Rajesh Krishnamurthy, MD (NPI: 1467552381, License #A-108834). Phone: (916) 733-4500. Diagnosis: Acute myocardial infarction. Emergency Contact: Anthony Richard Marchetti (spouse), cell: (916) 705-1128. Total charges: $187,442.16.`
+        };
+        
+        // Check connection status
+        async function checkConnection() {
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+
+            try {
+                const response = await fetch(`${API_URL}/api/health`);
+                const data = await response.json();
+
+                const ok = data.status === 'ok';
+                statusDot.className = ok ? 'status-dot connected' : 'status-dot error';
+                statusText.textContent = ok ? 'Connected - Ready' : 'Ollama unreachable';
+
+                if (data.model_base) document.getElementById('baseBadge').textContent = data.model_base;
+                if (data.model_finetuned) document.getElementById('finetunedBadge').textContent = data.model_finetuned + ' (Finetuned)';
+
+            } catch (error) {
+                statusDot.className = 'status-dot error';
+                statusText.textContent = 'Disconnected';
+            }
+        }
+        
+        // Load models
+        async function loadModels() {
+            const btn = document.getElementById('loadModelsBtn');
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+            
+            btn.disabled = true;
+            btn.textContent = 'Loading...';
+            statusDot.className = 'status-dot loading';
+            statusText.textContent = 'Loading models (this may take a few minutes)...';
+            
+            try {
+                const response = await fetch(`${API_URL}/load_models`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    statusDot.className = 'status-dot connected';
+                    statusText.textContent = 'Models Loaded Successfully';
+                    btn.textContent = 'Models Ready';
+                    modelsLoaded = true;
+                } else {
+                    throw new Error(data.detail || 'Failed to load models');
+                }
+                
+            } catch (error) {
+                alert('Failed to load models: ' + error.message);
+                statusDot.className = 'status-dot error';
+                statusText.textContent = 'Model Loading Failed';
+                btn.disabled = false;
+                btn.textContent = 'Retry Loading';
+            }
+        }
+        
+        // Load sample text
+        function loadSample(type) {
+            document.getElementById('inputText').value = samples[type];
+        }
+        
+        // Count PII tags in output
+        function countPIITags(text) {
+            // Match any text in square brackets that looks like a PII tag
+            // Covers both ALL_CAPS tags like [NAME] and mixed case like [First Name] or [Phone Number Redacted]
+            const piiPattern = /\[[A-Za-z][A-Za-z_ ]*(?:Redacted)?\]/g;
+            const matches = text.match(piiPattern);
+            return matches ? matches.length : 0;
+        }
+        
+        // Format output with colored tags
+function formatOutput(text) {
+    return text
+        // Generic MASKED tag (used by base model)
+        .replace(/\[MASKED\]/g, '<span class="pii-tag id">[MASKED]</span>')
+        
+        // Standard tags
+        .replace(/\[NAME\]/g, '<span class="pii-tag name">[NAME]</span>')
+        .replace(/\[PHONE\]/g, '<span class="pii-tag phone">[PHONE]</span>')
+        .replace(/\[EMAIL\]/g, '<span class="pii-tag email">[EMAIL]</span>')
+        .replace(/\[SSN\]/g, '<span class="pii-tag ssn">[SSN]</span>')
+        .replace(/\[ADDRESS\]/g, '<span class="pii-tag address">[ADDRESS]</span>')
+        .replace(/\[DATE\]/g, '<span class="pii-tag date">[DATE]</span>')
+        .replace(/\[CREDIT_CARD\]/g, '<span class="pii-tag credit_card">[CREDIT_CARD]</span>')
+        .replace(/\[ID\]/g, '<span class="pii-tag id">[ID]</span>')
+        
+        // Variations from finetuned model
+        .replace(/\[PHONE_NUMBER\]/g, '<span class="pii-tag phone">[PHONE_NUMBER]</span>')
+        .replace(/\[EMAIL_ADDRESS\]/g, '<span class="pii-tag email">[EMAIL_ADDRESS]</span>')
+        .replace(/\[STREET_ADDRESS\]/g, '<span class="pii-tag address">[STREET_ADDRESS]</span>')
+        .replace(/\[CITY\]/g, '<span class="pii-tag address">[CITY]</span>')
+        .replace(/\[STATE\]/g, '<span class="pii-tag address">[STATE]</span>')
+        .replace(/\[ZIP_CODE\]/g, '<span class="pii-tag address">[ZIP_CODE]</span>')
+        .replace(/\[ZIP\]/g, '<span class="pii-tag address">[ZIP]</span>')
+        
+        // Additional common variations
+        .replace(/\[PERSON\]/g, '<span class="pii-tag name">[PERSON]</span>')
+        .replace(/\[LOCATION\]/g, '<span class="pii-tag address">[LOCATION]</span>')
+        .replace(/\[DOB\]/g, '<span class="pii-tag date">[DOB]</span>')
+        .replace(/\[BIRTH_DATE\]/g, '<span class="pii-tag date">[BIRTH_DATE]</span>')
+        .replace(/\[DATE_OF_BIRTH\]/g, '<span class="pii-tag date">[DATE_OF_BIRTH]</span>')
+        .replace(/\[SOCIAL_SECURITY\]/g, '<span class="pii-tag ssn">[SOCIAL_SECURITY]</span>')
+        .replace(/\[CREDIT\]/g, '<span class="pii-tag credit_card">[CREDIT]</span>')
+        .replace(/\[CC\]/g, '<span class="pii-tag credit_card">[CC]</span>')
+        .replace(/\[ID_NUMBER\]/g, '<span class="pii-tag id">[ID_NUMBER]</span>')
+        .replace(/\[MEDICAL_RECORD\]/g, '<span class="pii-tag id">[MEDICAL_RECORD]</span>')
+        .replace(/\[MRN\]/g, '<span class="pii-tag id">[MRN]</span>')
+        .replace(/\[ACCOUNT\]/g, '<span class="pii-tag id">[ACCOUNT]</span>')
+        .replace(/\[LICENSE\]/g, '<span class="pii-tag id">[LICENSE]</span>')
+        .replace(/\[ALPHANUMERIC_ID\]/g, '<span class="pii-tag id">[ALPHANUMERIC_ID]</span>')
+        .replace(/\[FIRST_NAME\]/g, '<span class="pii-tag name">[FIRST_NAME]</span>')
+        .replace(/\[LAST_NAME\]/g, '<span class="pii-tag name">[LAST_NAME]</span>')
+        .replace(/\[CURRENCY_AMOUNT\]/g, '<span class="pii-tag credit_card">[CURRENCY_AMOUNT]</span>')
+        .replace(/\[CREDIT_CARD_NUMBER\]/g, '<span class="pii-tag credit_card">[CREDIT_CARD_NUMBER]</span>')
+        .replace(/\[INSURANCE_ID\]/g, '<span class="pii-tag id">[INSURANCE_ID]</span>')
+        
+        // Healthcare/PHI specific tags (from finetuned model)
+        .replace(/\[PATIENT_NAME\]/g, '<span class="pii-tag name">[PATIENT_NAME]</span>')
+        .replace(/\[MEDICAL_LICENSE_NUMBER\]/g, '<span class="pii-tag id">[MEDICAL_LICENSE_NUMBER]</span>')
+        .replace(/\[EMPLOYEE_ID\]/g, '<span class="pii-tag id">[EMPLOYEE_ID]</span>')
+        .replace(/\[SOCIAL_SECURITY_NUMBER\]/g, '<span class="pii-tag ssn">[SOCIAL_SECURITY_NUMBER]</span>')
+        .replace(/\[MEDICAL_RECORD_NUMBER\]/g, '<span class="pii-tag id">[MEDICAL_RECORD_NUMBER]</span>')
+        .replace(/\[INSURANCE_POLICY\]/g, '<span class="pii-tag id">[INSURANCE_POLICY]</span>')
+        .replace(/\[NPI\]/g, '<span class="pii-tag id">[NPI]</span>')
+        .replace(/\[PROVIDER_NAME\]/g, '<span class="pii-tag name">[PROVIDER_NAME]</span>')
+        .replace(/\[DIAGNOSIS\]/g, '<span class="pii-tag id">[DIAGNOSIS]</span>')
+        .replace(/\[MEDICATION\]/g, '<span class="pii-tag id">[MEDICATION]</span>')
+        .replace(/\[HEALTH_PLAN\]/g, '<span class="pii-tag id">[HEALTH_PLAN]</span>')
+        .replace(/\[PATIENT_IDENTIFIER\]/g, '<span class="pii-tag id">[PATIENT_IDENTIFIER]</span>')
+        .replace(/\[INSURANCE_POLICY_NUMBER\]/g, '<span class="pii-tag id">[INSURANCE_POLICY_NUMBER]</span>')
+        .replace(/\[POLICY_NUMBER\]/g, '<span class="pii-tag id">[POLICY_NUMBER]</span>')
+        
+        // Mixed-case tags from finetuned model (e.g. [First Name], [Phone Number Redacted])
+        .replace(/\[First Name\]/g, '<span class="pii-tag name">[First Name]</span>')
+        .replace(/\[Last Name\]/g, '<span class="pii-tag name">[Last Name]</span>')
+        .replace(/\[Full Name\]/g, '<span class="pii-tag name">[Full Name]</span>')
+        .replace(/\[Phone Number Redacted\]/g, '<span class="pii-tag phone">[Phone Number Redacted]</span>')
+        .replace(/\[Phone Number\]/g, '<span class="pii-tag phone">[Phone Number]</span>')
+        .replace(/\[Email Address Redacted\]/g, '<span class="pii-tag email">[Email Address Redacted]</span>')
+        .replace(/\[Email Address\]/g, '<span class="pii-tag email">[Email Address]</span>')
+        .replace(/\[Email Redacted\]/g, '<span class="pii-tag email">[Email Redacted]</span>')
+        .replace(/\[Address Redacted\]/g, '<span class="pii-tag address">[Address Redacted]</span>')
+        .replace(/\[Street Address Redacted\]/g, '<span class="pii-tag address">[Street Address Redacted]</span>')
+        .replace(/\[Date of Birth Redacted\]/g, '<span class="pii-tag date">[Date of Birth Redacted]</span>')
+        .replace(/\[Date of Birth\]/g, '<span class="pii-tag date">[Date of Birth]</span>')
+        .replace(/\[SSN Redacted\]/g, '<span class="pii-tag ssn">[SSN Redacted]</span>')
+        .replace(/\[Social Security Number Redacted\]/g, '<span class="pii-tag ssn">[Social Security Number Redacted]</span>')
+        .replace(/\[Social Security Number\]/g, '<span class="pii-tag ssn">[Social Security Number]</span>')
+        .replace(/\[License Number Redacted\]/g, '<span class="pii-tag id">[License Number Redacted]</span>')
+        .replace(/\[License Number\]/g, '<span class="pii-tag id">[License Number]</span>')
+        .replace(/\[Credit Card Redacted\]/g, '<span class="pii-tag credit_card">[Credit Card Redacted]</span>')
+        .replace(/\[Credit Card Number Redacted\]/g, '<span class="pii-tag credit_card">[Credit Card Number Redacted]</span>')
+        .replace(/\[Account Number Redacted\]/g, '<span class="pii-tag id">[Account Number Redacted]</span>')
+        .replace(/\[Insurance Policy Redacted\]/g, '<span class="pii-tag id">[Insurance Policy Redacted]</span>')
+        .replace(/\[Medical Record Number Redacted\]/g, '<span class="pii-tag id">[Medical Record Number Redacted]</span>')
+        .replace(/\[NPI Redacted\]/g, '<span class="pii-tag id">[NPI Redacted]</span>')
+        .replace(/\[Employee ID Redacted\]/g, '<span class="pii-tag id">[Employee ID Redacted]</span>')
+        .replace(/\[Student ID Redacted\]/g, '<span class="pii-tag id">[Student ID Redacted]</span>')
+        
+        // Catch-all: any remaining [SOMETHING] tag not yet matched above, in
+        // ANY casing style (ALL_CAPS_WITH_UNDERSCORES, Title Case, Mixed
+        // Case...) — the finetuned model doesn't draw from a fixed tag
+        // vocabulary (confirmed: it produces tags like [HOSPITAL_NAME],
+        // [PHYSICIAN_NAME], [NPI_NUMBER] that no fixed whitelist above this
+        // line covers), so this needs to match on shape, not on specific
+        // known words. The previous version only matched Title-Case tags
+        // (`[A-Z][a-z]+`) and silently left ALL_CAPS tags as plain,
+        // uncolored bracket text.
+        .replace(/\[([A-Za-z][A-Za-z0-9_ ]*)\]/g, function(match, inner) {
+            // Determine color based on keywords in the tag
+            let cls = 'id';  // default
+            const lower = inner.toLowerCase();
+            if (lower.includes('name')) cls = 'name';
+            else if (lower.includes('phone')) cls = 'phone';
+            else if (lower.includes('email')) cls = 'email';
+            else if (lower.includes('ssn') || lower.includes('social_security') || lower.includes('social security')) cls = 'ssn';
+            else if (lower.includes('address') || lower.includes('city') || lower.includes('state') || lower.includes('zip')) cls = 'address';
+            else if (lower.includes('date') || lower.includes('birth') || lower.includes('dob')) cls = 'date';
+            else if (lower.includes('credit') || lower.includes('card') || lower.includes('currency') || lower.includes('amount')) cls = 'credit_card';
+            return '<span class="pii-tag ' + cls + '">[' + inner + ']</span>';
+        });
+}
+        // Process PII
+        async function processPII() {
+            const inputText = document.getElementById('inputText').value.trim();
+            
+            if (!inputText) {
+                alert('Please enter some text to process');
+                // return;
+            }
+            
+            // Check if we should use test endpoint or real endpoint
+            const endpoint = '/mask_pii';
+            
+            if (false) { // Always use mask_pii
+                // Removed alert - models load on startup
+                // return;
+            }
+            
+            // Show loading
+            document.getElementById('baseLoading').classList.add('active');
+            document.getElementById('finetunedLoading').classList.add('active');
+            
+            // Clear previous results
+            document.getElementById('baseOutput').innerHTML = '<span class="output-placeholder">Processing...</span>';
+            document.getElementById('finetunedOutput').innerHTML = '<span class="output-placeholder">Processing...</span>';
+            document.getElementById('baseTime').textContent = '--';
+            document.getElementById('finetunedTime').textContent = '--';
+            document.getElementById('basePIICount').textContent = '--';
+            document.getElementById('finetunedPIICount').textContent = '--';
+            
+            try {
+                const response = await fetch(`${API_URL}${endpoint}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        text: inputText,
+                        max_tokens: parseInt(document.getElementById('maxLength').value),
+                        temperature: parseFloat(document.getElementById('temperature').value)
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to process text');
+                }
+                
+                const data = await response.json();
+                
+                // Update base model output
+                document.getElementById('baseOutput').innerHTML = formatOutput(data.base_model_output);
+                document.getElementById('baseTime').textContent = `${data.base_model_time}s`;
+                document.getElementById('basePIICount').textContent = countPIITags(data.base_model_output);
+                
+                // Update finetuned model output
+                document.getElementById('finetunedOutput').innerHTML = formatOutput(data.finetuned_model_output);
+                document.getElementById('finetunedTime').textContent = `${data.finetuned_model_time}s`;
+                document.getElementById('finetunedPIICount').textContent = countPIITags(data.finetuned_model_output);
+                
+            } catch (error) {
+                alert('Error processing text: ' + error.message);
+                document.getElementById('baseOutput').innerHTML = '<span class="output-placeholder">Error occurred</span>';
+                document.getElementById('finetunedOutput').innerHTML = '<span class="output-placeholder">Error occurred</span>';
+            } finally {
+                // Hide loading
+                document.getElementById('baseLoading').classList.remove('active');
+                document.getElementById('finetunedLoading').classList.remove('active');
+            }
+        }
+
+        // ── Document upload (drop a .docx/.pdf in, extract text, redact) ──
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+        const uploadStatus = document.getElementById('uploadStatus');
+        const downloadBtn = document.getElementById('downloadBtn');
+        let uploadedFile = null;
+
+        const MAX_UPLOAD_MB = 15;
+        const AUTO_COMPARE_MAX_CHARS = 6000; // keep the auto-run snappy; longer docs still get the
+                                              // full comparison, just via a manual click on the existing button
+
+        uploadZone.addEventListener('click', () => fileInput.click());
+        uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+        uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            if (e.dataTransfer.files.length > 0) handleFileUpload(e.dataTransfer.files[0]);
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) handleFileUpload(e.target.files[0]);
+        });
+
+        async function handleFileUpload(file) {
+            if (!/\.(docx|pdf)$/i.test(file.name)) { alert('Please upload a .docx or .pdf file'); return; }
+            if (file.size > MAX_UPLOAD_MB * 1024 * 1024) { alert(`File is too large — max ${MAX_UPLOAD_MB}MB`); return; }
+
+            uploadedFile = file;
+            uploadZone.classList.add('has-file');
+            uploadStatus.style.display = 'block';
+            uploadStatus.textContent = `Extracting text from ${file.name}...`;
+            downloadBtn.style.display = 'none';
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch(`${API_URL}/api/extract_text`, { method: 'POST', body: formData });
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.detail || 'Failed to extract text');
+
+                document.getElementById('inputText').value = data.text;
+                downloadBtn.style.display = 'inline-block';
+
+                if (data.text.length <= AUTO_COMPARE_MAX_CHARS) {
+                    uploadStatus.textContent = `Extracted ${data.char_count} characters — running comparison...`;
+                    processPII(); // additive: reuses the exact existing comparison flow, unchanged
+                } else {
+                    uploadStatus.textContent = `Extracted ${data.char_count} characters — click "Process & Compare" when ready (long document)`;
+                }
+            } catch (error) {
+                uploadStatus.textContent = `Error: ${error.message}`;
+            }
+        }
+
+        async function downloadRedactedDocument() {
+            if (!uploadedFile) return;
+            downloadBtn.disabled = true;
+            const originalLabel = downloadBtn.textContent;
+            downloadBtn.textContent = 'Redacting...';
+
+            const formData = new FormData();
+            formData.append('file', uploadedFile);
+
+            try {
+                const response = await fetch(`${API_URL}/api/redact_document`, { method: 'POST', body: formData });
+                if (!response.ok) {
+                    const errData = await response.json().catch(() => ({}));
+                    throw new Error(errData.detail || 'Failed to redact document');
+                }
+                const count = response.headers.get('X-PII-Redaction-Count') || '0';
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `redacted_${uploadedFile.name}`;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(url);
+                uploadStatus.textContent = `Redacted ${count} PII item(s) — download started`;
+            } catch (error) {
+                alert('Error generating redacted document: ' + error.message);
+            } finally {
+                downloadBtn.disabled = false;
+                downloadBtn.textContent = originalLabel;
+            }
+        }
+
+        // Initialize
+        window.onload = function() {
+            checkConnection();
+            // Check connection every 5 seconds
+            setInterval(checkConnection, 5000);
+
+            // Load a sample by default
+            loadSample('federal');
+        };
+    </script>
+<!-- zgx-device-label:begin (generated by scripts/sync_device_label.sh) -->
+<script>
+// Fill any [data-zgx-device] element with the machine the Demo Center detected.
+//
+// Every demo frontend used to hardcode "Powered by HP ZGX Nano" -- and the
+// pharmacy one went further with "with NVIDIA Grace Blackwell GB10". At an
+// AMD-funded show those lines sell the wrong vendor from the demo's own screen,
+// and there is no way to fix them except editing HTML per event.
+//
+// The attribute's value is a template; "{}" is replaced by the device label.
+//   <span data-zgx-device="Powered by {}">Powered by this AI Station</span>
+//
+// If /sysinfo cannot be reached the element keeps whatever it already says, so
+// the fallback text in the markup must name NO vendor. A demo that stays
+// generic is fine; a demo that confidently names the wrong silicon is not.
+//
+// Source of truth: demos/scripts/zgx-device-label.js. The copies inlined into
+// each frontend are kept in sync by scripts/sync_device_label.sh, and checked
+// by scripts/audit_hardware_strings.sh.
+(function () {
+  var els = document.querySelectorAll('[data-zgx-device]');
+  if (!els.length) return;
+  fetch('http://' + location.hostname + ':8086/sysinfo')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (hw) {
+      if (!hw || !hw.device_label) return;
+      for (var i = 0; i < els.length; i++) {
+        var tpl = els[i].getAttribute('data-zgx-device') || '{}';
+        els[i].textContent = tpl.replace('{}', hw.device_label);
+      }
+    })
+    .catch(function () { /* offline or launcher not running: keep the neutral text */ });
+})();
+</script>
+<!-- zgx-device-label:end -->
+<!-- zgx-ui:begin (generated by scripts/sync_ui.py — edit demos/ui/, not this) -->
+<style>
+/* ZGX demo chrome — the shared frame every demo wears.
+ *
+ * Fixed: the bar, the meter strip, the footer. Free: everything between them.
+ * Tokens live on :root so a demo can match its own palette without forking the
+ * layout; scripts/audit_ui_standard.sh checks nobody forks the layout anyway.
+ *
+ * The meter vocabulary (.zgx-meter / -label / -value / -sub) is lifted from
+ * grant-machine's web/styles.css, which already had it working — including
+ * font-variant-numeric: tabular-nums, the detail that stops a climbing counter
+ * jittering as its digits change width.
+ */
+
+:root {
+  --zgx-bar-bg: #0e1420;
+  --zgx-bar-fg: #e6edf6;
+  --zgx-bar-dim: #8fa3bd;
+  --zgx-bar-line: #1f2b3d;
+  --zgx-accent: #0096d6;         /* HP blue */
+  --zgx-ok: #35c46b;
+  --zgx-warn: #d9a441;
+  --zgx-bar-h: 56px;
+}
+
+#zgx-chrome { display: none; }   /* the marker element itself is never shown */
+
+.zgx-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--zgx-bar-h);
+  z-index: 2147483000;           /* above demo overlays, below nothing */
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 16px;
+  background: var(--zgx-bar-bg);
+  color: var(--zgx-bar-fg);
+  border-bottom: 1px solid var(--zgx-bar-line);
+  font: 500 13px/1.2 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+.zgx-bar *, .zgx-bar *::before, .zgx-bar *::after { box-sizing: border-box; }
+
+/* The approved logo artwork has an opaque white background, so it sits on a
+ * light plate rather than being alpha-keyed. */
+.zgx-logo-plate {
+  flex: 0 0 auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 4px 7px;
+  display: flex;
+  align-items: center;
+}
+.zgx-logo-plate img { display: block; height: 30px; width: auto; }
+
+.zgx-titles { flex: 0 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.zgx-title { font-size: 14px; font-weight: 650; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.zgx-subtitle { font-size: 11px; color: var(--zgx-bar-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.zgx-meters { flex: 1 1 auto; display: flex; gap: 14px; justify-content: flex-end; align-items: center; overflow: hidden; }
+
+.zgx-meter { display: flex; flex-direction: column; align-items: flex-end; min-width: 62px; }
+.zgx-meter-label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--zgx-bar-dim); white-space: nowrap; }
+.zgx-meter-value {
+  font-size: 17px; font-weight: 700; line-height: 1.15;
+  font-variant-numeric: tabular-nums;   /* keeps a counting number from jittering */
+  white-space: nowrap;
+}
+.zgx-meter-sub { font-size: 10px; color: var(--zgx-bar-dim); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.zgx-meter-value.zgx-unknown { color: var(--zgx-bar-dim); font-weight: 500; }
+.zgx-meter-value.zgx-accent { color: var(--zgx-accent); }
+
+.zgx-sep { width: 1px; align-self: stretch; margin: 10px 0; background: var(--zgx-bar-line); flex: 0 0 auto; }
+
+.zgx-device { flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; max-width: 210px; }
+.zgx-device-label { font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
+.zgx-device-sub { font-size: 10px; color: var(--zgx-bar-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
+
+/* The chrome is fixed, so the page is pushed down by exactly its height. */
+body.zgx-chromed { padding-top: var(--zgx-bar-h) !important; }
+
+/* The chrome owns the logo, so a demo's own copy is hidden rather than shown
+ * twice. Five demos shipped their own hp_logo.png (three DIFFERENT files under
+ * the same name), and stacking the canonical one above a divergent one is the
+ * opposite of a standard.
+ *
+ * Safe to match this broadly: the chrome's own logo is a data: URI, so it can
+ * never match src*="hp_logo". Rule removed and the demo's logo returns. */
+body.zgx-chromed img[src*="hp_logo"] { display: none !important; }
+
+.zgx-foot {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  z-index: 2147482999;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; padding: 4px 14px;
+  background: var(--zgx-bar-bg); color: var(--zgx-bar-dim);
+  border-top: 1px solid var(--zgx-bar-line);
+  font: 500 11px/1.3 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+body.zgx-chromed-foot { padding-bottom: 26px !important; }
+.zgx-foot .zgx-local { color: var(--zgx-ok); }
+
+@media (max-width: 1100px) {
+  .zgx-meter:nth-child(n+5) { display: none; }   /* shed the least critical meters first */
+  .zgx-subtitle { display: none; }
+}
+@media (max-width: 760px) {
+  .zgx-meters { display: none; }
+}
+</style>
+<div id="zgx-chrome" data-demo="pii" data-title="PII Detection &amp; Masking" data-subtitle="Security / Data Privacy" data-logo="data:image/png;base64,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"></div>
+<script>
+/* ZGX demo chrome — builds the shared bar and owns every poll.
+ *
+ * One rule this file will not bend: a value that was not received renders as an
+ * em-dash, never as 0. Zero watts, zero degrees and zero tokens are all readings
+ * an audience will believe. This project has repeatedly found meters that showed
+ * a plausible number while measuring nothing — a hardcoded "102 GB / 128 GB"
+ * captioned as live NVML, a launcher bar of typed-in green ticks, a token count
+ * that was a chars/4 guess. The chrome does not add to that list.
+ *
+ * Data sources, both optional:
+ *   GET  {launcher}/telemetry   host GPU/CPU — read by the BROWSER, not the
+ *                               demo's backend, so containerised demos with no
+ *                               GPU tooling and no host route still show it.
+ *   GET  ./api/metrics          the demo's own tokens. 404 = no LLM, panel hidden.
+ *   GET  {launcher}/sysinfo     device identity.
+ */
+(function () {
+  "use strict";
+
+  var mount = document.getElementById("zgx-chrome");
+  if (!mount || window.__zgxChromeLoaded) return;
+  window.__zgxChromeLoaded = true;
+
+  var LAUNCHER = "http://" + location.hostname + ":8086";
+  var DASH = "—";
+
+  var cfg = {
+    title: mount.getAttribute("data-title") || document.title || "ZGX Demo",
+    subtitle: mount.getAttribute("data-subtitle") || "",
+    logo: mount.getAttribute("data-logo") || "hp_logo.png",
+    metrics: mount.getAttribute("data-metrics") || "/api/metrics",
+    foot: mount.getAttribute("data-foot") !== "off"
+  };
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function meter(id, label, sub) {
+    var m = el("div", "zgx-meter");
+    m.appendChild(el("span", "zgx-meter-label", label));
+    var v = el("span", "zgx-meter-value zgx-unknown", DASH);
+    v.id = "zgx-" + id;
+    m.appendChild(v);
+    var s = el("span", "zgx-meter-sub", sub || "");
+    s.id = "zgx-" + id + "-sub";
+    m.appendChild(s);
+    return m;
+  }
+
+  // ── build ────────────────────────────────────────────────────────────────
+  var bar = el("div", "zgx-bar");
+
+  var plate = el("div", "zgx-logo-plate");
+  var img = document.createElement("img");
+  img.src = cfg.logo;
+  img.alt = "HP";
+  // A demo served from a subpath may not resolve the relative logo; fall back
+  // to the launcher's copy rather than showing a broken-image glyph on stage.
+  img.onerror = function () {
+    if (img.dataset.fellBack) { plate.style.display = "none"; return; }
+    img.dataset.fellBack = "1";
+    img.src = LAUNCHER + "/ui/brand/hp_logo.png";
+  };
+  plate.appendChild(img);
+  bar.appendChild(plate);
+
+  var titles = el("div", "zgx-titles");
+  titles.appendChild(el("div", "zgx-title", cfg.title));
+  if (cfg.subtitle) titles.appendChild(el("div", "zgx-subtitle", cfg.subtitle));
+  bar.appendChild(titles);
+
+  var meters = el("div", "zgx-meters");
+  var tokenPanel = el("div", "zgx-meters");          // hidden until /api/metrics answers
+  tokenPanel.style.display = "none";
+  tokenPanel.style.flex = "0 0 auto";
+  tokenPanel.appendChild(meter("tokens", "Tokens", "this session"));
+  tokenPanel.appendChild(meter("tps", "Tok/s", ""));
+  meters.appendChild(tokenPanel);
+  meters.appendChild(el("div", "zgx-sep"));
+  meters.appendChild(meter("gpu", "GPU", ""));
+  meters.appendChild(meter("power", "Power", ""));
+  meters.appendChild(meter("temp", "Temp", ""));
+  meters.appendChild(meter("mem", "Memory", ""));
+  meters.appendChild(meter("cpu", "CPU", ""));
+  bar.appendChild(meters);
+
+  bar.appendChild(el("div", "zgx-sep"));
+  var dev = el("div", "zgx-device");
+  var devLabel = el("div", "zgx-device-label", DASH);
+  devLabel.id = "zgx-device-label";
+  var devSub = el("div", "zgx-device-sub", "");
+  devSub.id = "zgx-device-sub";
+  dev.appendChild(devLabel);
+  dev.appendChild(devSub);
+  bar.appendChild(dev);
+
+  document.body.appendChild(bar);
+  document.body.classList.add("zgx-chromed");
+
+  if (cfg.foot) {
+    var foot = el("div", "zgx-foot");
+    var left = el("span", "zgx-local", "All inference on this device · no cloud");
+    var right = el("span", null, "");
+    right.id = "zgx-foot-right";
+    foot.appendChild(left);
+    foot.appendChild(right);
+    document.body.appendChild(foot);
+    document.body.classList.add("zgx-chromed-foot");
+  }
+
+  // ── render helpers ───────────────────────────────────────────────────────
+  function set(id, value, unit, digits) {
+    var n = document.getElementById("zgx-" + id);
+    if (!n) return;
+    if (value === null || value === undefined || value === "" || Number.isNaN(value)) {
+      n.textContent = DASH;
+      n.classList.add("zgx-unknown");
+      return;
+    }
+    var shown = (typeof value === "number" && digits !== undefined) ? value.toFixed(digits) : value;
+    n.textContent = shown + (unit || "");
+    n.classList.remove("zgx-unknown");
+  }
+  function setSub(id, text) {
+    var n = document.getElementById("zgx-" + id + "-sub");
+    if (n) n.textContent = text == null ? "" : text;
+  }
+
+  // ── hardware, from the launcher ──────────────────────────────────────────
+  function pollTelemetry() {
+    fetch(LAUNCHER + "/telemetry", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (t) {
+        if (!t) throw new Error("no telemetry");
+        set("gpu", t.util_pct, "%");
+        set("power", t.power_w, " W", 0);
+        set("temp", t.temp_c, "°C");
+        set("mem", t.mem_used_gb, " GB", 1);
+        setSub("mem", t.mem_total_gb ? "of " + t.mem_total_gb + " GB" : "");
+        set("cpu", t.cpu_pct, "%", 0);
+        setSub("cpu", t.ram_pct != null ? "RAM " + Math.round(t.ram_pct) + "%" : "");
+        setSub("gpu", t.source && t.source !== "none" ? t.source : "");
+        var fr = document.getElementById("zgx-foot-right");
+        if (fr) {
+          fr.textContent = [t.vendor && t.vendor !== "unknown" ? t.vendor : null,
+                            t.source && t.source !== "none" ? t.source : null]
+                           .filter(Boolean).join(" · ");
+        }
+      })
+      .catch(function () {
+        // Launcher down: clear every hardware meter. Leaving the last reading
+        // on screen would be a stale number presented as live.
+        ["gpu", "power", "temp", "mem", "cpu"].forEach(function (k) { set(k, null); setSub(k, ""); });
+      });
+  }
+
+  // ── tokens, from the demo itself ─────────────────────────────────────────
+  var tokensSupported = null;
+  function pollMetrics() {
+    if (tokensSupported === false) return;
+    fetch(cfg.metrics, { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (m) {
+        if (!m || typeof m.total_tokens !== "number") throw new Error("no metrics");
+        tokensSupported = true;
+        tokenPanel.style.display = "";
+        var approx = m.estimated ? "≈" : "";
+        set("tokens", approx + m.total_tokens.toLocaleString());
+        setSub("tokens", m.requests != null ? m.requests + " request" + (m.requests === 1 ? "" : "s") : "this session");
+        set("tps", m.tps, "", 1);
+      })
+      .catch(function () {
+        // A demo with no LLM serves no /api/metrics. Hide the panel rather than
+        // show a zero that would read as "this demo processed nothing".
+        if (tokensSupported === null) { tokensSupported = false; tokenPanel.style.display = "none"; }
+      });
+  }
+
+  function loadIdentity() {
+    fetch(LAUNCHER + "/sysinfo", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (hw) {
+        if (!hw) return;
+        var label = document.getElementById("zgx-device-label");
+        var sub = document.getElementById("zgx-device-sub");
+        label.textContent = label.title = hw.device_label || DASH;
+        // Some vendors' device names run long (marketing name plus arch id); the CSS
+        // ellipsizes both lines and the title keeps the full text on hover.
+        sub.textContent = sub.title =
+          [hw.accelerator !== "unknown" ? hw.accelerator : null, hw.arch].filter(Boolean).join(" · ");
+      })
+      .catch(function () {
+        document.getElementById("zgx-device-label").textContent = "hardware unknown";
+      });
+  }
+
+  loadIdentity();
+  pollTelemetry();
+  pollMetrics();
+  setInterval(pollTelemetry, 2000);
+  setInterval(pollMetrics, 2000);
+})();
+</script>
+<!-- zgx-ui:end -->
+</body>
+</html>

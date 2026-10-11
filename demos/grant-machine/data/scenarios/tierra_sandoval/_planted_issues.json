@@ -1,0 +1,14 @@
+[
+  { "id": "T1", "code": "SCHOLARSHIP_OVER_MAX", "detection": "deterministic",
+    "detail": "Scholarships are budgeted at $181,500 a year for 11 scholars, $16,500 each. NSF 25-514: \"The established maximum amount of an individual scholarship is $15,000 per year for undergraduate students\".",
+    "evidence": ["tsu-budget-bcp-draft"] },
+  { "id": "T2", "code": "INDIRECT_ON_PARTICIPANT_SUPPORT", "detection": "deterministic",
+    "detail": "F&A is charged on the scholarships. They are participant support (budget line F1), which is excluded from the MTDC base.",
+    "evidence": ["tsu-budget-bcp-draft"] },
+  { "id": "T3", "code": "HSI_ENROLLMENT_OVERSTATED", "detection": "agent",
+    "detail": "Draft describes Hispanic enrolment as 31%; the registrar's fall 2026 census records 26.4%.",
+    "evidence": ["tsu-enrollment-census-2026"] },
+  { "id": "T4", "code": "EXTERNAL_EVALUATOR_MISSING", "detection": "agent",
+    "detail": "S-STEM requires an evaluation plan \"executed by an external evaluator\"; the plan and budget put the evaluation in the university's own Office of Institutional Research.",
+    "evidence": ["tsu-evaluation-plan-framework", "tsu-budget-bcp-draft"] }
+]

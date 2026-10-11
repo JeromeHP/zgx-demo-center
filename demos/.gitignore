@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+*-env/
+
+# Model weights (downloaded at install time, never committed)
+*.gguf
+*.safetensors
+*.onnx
+*.engine
+*.trt
+models/
+
+# Editor cruft
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Logs and runtime data
+*.log
+.load_times.json
+
+# Backup files
+*.bak
+*.bak.*
+
+# Local environment
+.env
+.env.local
+
+# Local Claude Code guidance — not committed
+CLAUDE.md
+
+# Stale scratch (from earlier dev iterations)
+auto_demo.py
+auto_demo_package.zip
+demo_dashcam.mp4
+
+# Bundled native-asset tarballs — shipped with the delivery bundle (make_bundle.sh),
+# not committed to the repo. The tracked icon (assets/ZGX_Demo_Center_icon_512.png)
+# is unaffected.
+assets/zgx-videos.tar.gz
+assets/yolov8s-onnx.tar.gz
+
+# Kelsey clean-install sprint — explicit artifact guards
+*.bak*
+*-bak
+*venv*/
+document-translate-env/
+nohup.out
+zgx-demo-center-chrome/
+
+# Local artifact: a root-owned chroma index moved aside during a merge so git
+# could write the committed one. Never belongs in the repo.
+**/ddi_chromadb/.stale-rootowned-index-backup/

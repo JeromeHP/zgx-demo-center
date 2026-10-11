@@ -1,0 +1,26 @@
+{
+  "grants-gov-opportunity.md": {
+    "bytes": 2107,
+    "kind": "solicitation",
+    "license": "U.S. Government work \u2014 public domain",
+    "retrieved_at": "2026-09-19T00:27:09.135541+00:00",
+    "sha256": "7342f81232280a2821ec031a20e039a2b7da8a0529c910010388e329a1f7991f",
+    "source_url": "https://grants.gov/search-results-detail/363657"
+  },
+  "nih-nofo.md": {
+    "bytes": 59652,
+    "kind": "solicitation",
+    "license": "U.S. Government work \u2014 public domain",
+    "retrieved_at": "2026-09-19T00:28:10.643127+00:00",
+    "sha256": "466e0dfc82c97b37c6e2bac701c03a15229161d456d8e14e68a088eae5a936f6",
+    "source_url": "https://grants.nih.gov/grants/guide/pa-files/PA-25-302.html"
+  },
+  "nsf-funded-abstract.md": {
+    "bytes": 4631,
+    "kind": "proposal",
+    "license": "U.S. Government work \u2014 public domain",
+    "retrieved_at": "2026-09-19T00:27:10.099718+00:00",
+    "sha256": "1214af1ddf6ab19b1c517d7eac96e96c94a592ecd67ec12507b6905eedc767ca",
+    "source_url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2625516"
+  }
+}

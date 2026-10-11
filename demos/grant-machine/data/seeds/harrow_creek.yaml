@@ -1,0 +1,51 @@
+disclaimer: "Fictional institution. All people, organizations, figures, and documents are synthetic."
+institution:
+  name: "Harrow Creek Community College"
+  short_name: "HCCC"
+  type: "Public two-year college"
+  service_area: "Four rural counties in the Mid-South (fictional)"
+  credit_headcount_fall_2025: 6840
+  pell_recipient_pct: 52
+  first_generation_pct: 41
+  president: "Dr. Alan Pruett"
+people:
+  pi: { name: "Dr. Renee Okafor", title: "Dean of Workforce and Technical Programs" }
+  co_pi: { name: "Marcus Lindqvist", title: "Chair, Mechatronics and Industrial Automation" }
+  grants_director: { name: "Dana Whitfield", title: "Director of Grants and Sponsored Programs" }
+  evaluator: { org: "Bluestem Evaluation Group", lead: "Dr. Priya Raman" }
+prior_award:
+  id: "HCCC-FICT-ATE-2021"
+  title: "Mechatronics Pathways for Rural Manufacturers"
+  funder: "NSF ATE (fictional prior award for demo purposes)"
+  amount_usd: 598112
+  start: "2021-09-01"
+  end: "2025-08-31"             # includes a one-year no-cost extension
+  outcomes:
+    completers_target: 120
+    completers_actual: 84
+    placement_rate_pct: 78
+    placement_respondents: 61
+    new_courses: 3
+    industry_partners: 11
+    dual_credit_agreements: 2
+new_project:
+  title: "Smart Automation Technician Pathway"
+  short_name: "SATP"
+  track: "track_2"
+  years: 3
+  start: "2027-07-01"
+  completers_target: 150
+  budget_total_usd: 1038450      # planted: exceeds Track 2 cap by 38,450
+  fringe_rate_budget_pct: 28.0   # planted: disagrees with rate agreement
+rates:
+  fringe_rate_agreement_pct: 31.5
+  fringe_rate_agreement_doc: "rate-agreement-fy2026"
+  indirect_rate_pct: 36.0
+  indirect_base: "MTDC"
+employers:
+  - { name: "Kessler Fluid Systems", letter_doc: "letter-kessler-2026", letter_date: "2026-08-12", references_project: "SATP" }
+  - { name: "Tri-County Packaging Cooperative", letter_doc: "letter-tricounty-2026", letter_date: "2026-08-20", references_project: "SATP" }
+  - { name: "Northgate Precision Castings", letter_doc: "letter-northgate-2021", letter_date: "2021-03-15", references_project: "Mechatronics Pathways for Rural Manufacturers" }   # planted: stale
+demo_context:
+  today: "2026-09-16"
+  deadline: "2026-10-01"

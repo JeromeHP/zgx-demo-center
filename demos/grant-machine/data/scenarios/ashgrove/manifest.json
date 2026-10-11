@@ -1,0 +1,144 @@
+{
+  "documents": [
+    {
+      "doc_id": "aumc-budget-smsm-draft",
+      "path": "data/scenarios/ashgrove/aumc-budget-smsm-draft.csv",
+      "title": "SMSM Draft Budget (5 years)",
+      "doc_type": "csv",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a"
+    },
+    {
+      "doc_id": "aumc-prior-outcomes-data",
+      "path": "data/scenarios/ashgrove/aumc-prior-outcomes-data.csv",
+      "title": "Outcomes Data \u2014 Early Mobilization Protocols in Mechanically Ventilated Patients",
+      "doc_type": "csv",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a"
+    },
+    {
+      "doc_id": "aumc-institute-profile-2026",
+      "path": "data/scenarios/ashgrove/aumc-institute-profile-2026.md",
+      "title": "Ashgrove University Medical Center \u2014 Research Profile 2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "53af0e33f9dece5d02223c037d925e75cdb2530f51a444d5085f55efbae7fb55"
+    },
+    {
+      "doc_id": "aumc-clinical-research-capacity-2026",
+      "path": "data/scenarios/ashgrove/aumc-clinical-research-capacity-2026.md",
+      "title": "Clinical Research Capacity and Infrastructure",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a"
+    },
+    {
+      "doc_id": "aumc-irb-and-regulatory-status-2026",
+      "path": "data/scenarios/ashgrove/aumc-irb-and-regulatory-status-2026.md",
+      "title": "IRB, Regulatory and Trial Registration Status 2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "7cf34b60f8c69e8ddc94772b390f7137a2220ea9e0ea9a79faad89f24829a85b"
+    },
+    {
+      "doc_id": "aumc-bio-achterberg",
+      "path": "data/scenarios/ashgrove/aumc-bio-achterberg.md",
+      "title": "Biosketch \u2014 Dr. Saoirse Achterberg",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a"
+    },
+    {
+      "doc_id": "aumc-bio-ostrowski-baird",
+      "path": "data/scenarios/ashgrove/aumc-bio-ostrowski-baird.md",
+      "title": "Biosketch \u2014 Dr. Vikram Ostrowski-Baird",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a"
+    },
+    {
+      "doc_id": "aumc-prior-award-final-report-2026",
+      "path": "data/scenarios/ashgrove/aumc-prior-award-final-report-2026.md",
+      "title": "Final Progress Report \u2014 Early Mobilization Protocols in Mechanically Ventilated Patients",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a"
+    },
+    {
+      "doc_id": "aumc-enrollment-feasibility-analysis",
+      "path": "data/scenarios/ashgrove/aumc-enrollment-feasibility-analysis.md",
+      "title": "Enrollment Feasibility Analysis \u2014 Proposed Study",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a"
+    },
+    {
+      "doc_id": "aumc-data-safety-monitoring-plan",
+      "path": "data/scenarios/ashgrove/aumc-data-safety-monitoring-plan.md",
+      "title": "Data and Safety Monitoring Plan",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a"
+    },
+    {
+      "doc_id": "aumc-data-management-sharing-plan",
+      "path": "data/scenarios/ashgrove/aumc-data-management-sharing-plan.md",
+      "title": "Data Management and Sharing Plan",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "53af0e33f9dece5d02223c037d925e75cdb2530f51a444d5085f55efbae7fb55"
+    },
+    {
+      "doc_id": "aumc-rate-agreement-fy2026",
+      "path": "data/scenarios/ashgrove/aumc-rate-agreement-fy2026.md",
+      "title": "Negotiated Indirect Cost and Fringe Benefit Rate Agreement FY2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a"
+    },
+    {
+      "doc_id": "aumc-letter-wrenfield-2026",
+      "path": "data/scenarios/ashgrove/aumc-letter-wrenfield-2026.md",
+      "title": "Letter of Collaboration \u2014 Wrenfield Regional Hospital",
+      "doc_type": "md",
+      "date": "2026-08-09",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a"
+    },
+    {
+      "doc_id": "aumc-letter-calloway-2026",
+      "path": "data/scenarios/ashgrove/aumc-letter-calloway-2026.md",
+      "title": "Letter of Collaboration \u2014 Calloway Valley Health",
+      "doc_type": "md",
+      "date": "2026-08-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a"
+    }
+  ]
+}

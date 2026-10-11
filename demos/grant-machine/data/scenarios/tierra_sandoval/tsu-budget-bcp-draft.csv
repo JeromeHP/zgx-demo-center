@@ -1,0 +1,56 @@
+# doc_id: tsu-budget-bcp-draft
+# title: BCP Draft Budget (6 years)
+# doc_type: csv
+# date: 2026-09-21
+# synthetic: true
+# generator: generate_vault.py
+# seed_sha256: 5d1f08a8eaec00a36446718899d0bb1efb7a04187cd926953fdf373eba30db15
+year,category,line_item,amount_usd,fringe_applied,indirect_applied,notes,units
+1,participant_support,S-STEM scholarships (11 scholars),181500,0,0.415,,11
+1,senior_personnel,PI: Dr. Nayeli Arbuthnot (3% effort),4500,0,0.415,,
+1,other_personnel,Scholar programme coordinator (15%),9000,0,0.415,,
+1,other_personnel,Internal evaluation: Office of Institutional Research analyst (5%),3500,0,0.415,,
+1,travel,S-STEM PI meeting travel,2000,0,0.415,,
+1,materials_supplies,Cohort activity materials,1000,0,0.415,,
+1,fringe,Fringe benefits,5032,0.29600000000000004,0.415,29.6% of personnel,
+1,indirect,Indirect costs (F&A),85711,0,0.415,41.5% of MTDC base,
+2,participant_support,S-STEM scholarships (11 scholars),181500,0,0.415,,11
+2,senior_personnel,PI: Dr. Nayeli Arbuthnot (3% effort),4500,0,0.415,,
+2,other_personnel,Scholar programme coordinator (15%),9000,0,0.415,,
+2,other_personnel,Internal evaluation: Office of Institutional Research analyst (5%),3500,0,0.415,,
+2,travel,S-STEM PI meeting travel,2000,0,0.415,,
+2,materials_supplies,Cohort activity materials,1000,0,0.415,,
+2,fringe,Fringe benefits,5032,0.29600000000000004,0.415,29.6% of personnel,
+2,indirect,Indirect costs (F&A),85711,0,0.415,41.5% of MTDC base,
+3,participant_support,S-STEM scholarships (11 scholars),181500,0,0.415,,11
+3,senior_personnel,PI: Dr. Nayeli Arbuthnot (3% effort),4500,0,0.415,,
+3,other_personnel,Scholar programme coordinator (15%),9000,0,0.415,,
+3,other_personnel,Internal evaluation: Office of Institutional Research analyst (5%),3500,0,0.415,,
+3,travel,S-STEM PI meeting travel,2000,0,0.415,,
+3,materials_supplies,Cohort activity materials,1000,0,0.415,,
+3,fringe,Fringe benefits,5032,0.29600000000000004,0.415,29.6% of personnel,
+3,indirect,Indirect costs (F&A),85711,0,0.415,41.5% of MTDC base,
+4,participant_support,S-STEM scholarships (11 scholars),181500,0,0.415,,11
+4,senior_personnel,PI: Dr. Nayeli Arbuthnot (3% effort),4500,0,0.415,,
+4,other_personnel,Scholar programme coordinator (15%),9000,0,0.415,,
+4,other_personnel,Internal evaluation: Office of Institutional Research analyst (5%),3500,0,0.415,,
+4,travel,S-STEM PI meeting travel,2000,0,0.415,,
+4,materials_supplies,Cohort activity materials,1000,0,0.415,,
+4,fringe,Fringe benefits,5032,0.29600000000000004,0.415,29.6% of personnel,
+4,indirect,Indirect costs (F&A),85711,0,0.415,41.5% of MTDC base,
+5,participant_support,S-STEM scholarships (11 scholars),181500,0,0.415,,11
+5,senior_personnel,PI: Dr. Nayeli Arbuthnot (3% effort),4500,0,0.415,,
+5,other_personnel,Scholar programme coordinator (15%),9000,0,0.415,,
+5,other_personnel,Internal evaluation: Office of Institutional Research analyst (5%),3500,0,0.415,,
+5,travel,S-STEM PI meeting travel,2000,0,0.415,,
+5,materials_supplies,Cohort activity materials,1000,0,0.415,,
+5,fringe,Fringe benefits,5032,0.29600000000000004,0.415,29.6% of personnel,
+5,indirect,Indirect costs (F&A),85711,0,0.415,41.5% of MTDC base,
+6,participant_support,S-STEM scholarships (11 scholars),181500,0,0.415,,11
+6,senior_personnel,PI: Dr. Nayeli Arbuthnot (3% effort),4500,0,0.415,,
+6,other_personnel,Scholar programme coordinator (15%),9000,0,0.415,,
+6,other_personnel,Internal evaluation: Office of Institutional Research analyst (5%),3500,0,0.415,,
+6,travel,S-STEM PI meeting travel,2000,0,0.415,,
+6,materials_supplies,Cohort activity materials,1000,0,0.415,,
+6,fringe,Fringe benefits,5032,0.29600000000000004,0.415,29.6% of personnel,
+6,indirect,Indirect costs (F&A),85711,0,0.415,41.5% of MTDC base,

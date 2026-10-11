@@ -1,0 +1,38 @@
+# doc_id: budget-satp-draft
+# title: SATP Draft Budget (3 years)
+# doc_type: csv
+# date: 2026-09-16
+# synthetic: true
+# generator: generate_vault.py
+# seed_sha256: 4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c
+year,category,line_item,amount_usd,fringe_applied,indirect_applied,notes
+1,senior_personnel,PI and co-PI effort,95000,0,0.36,
+1,other_personnel,Project coordinator / instructional staff,42000,0,0.36,
+1,fringe,Fringe benefits,38360,0.28,0.36,28.0% of personnel
+1,equipment,Automation lab equipment,72000,0,0,excluded from indirect base
+1,travel,Conference and site-visit travel,9000,0,0.36,
+1,participant_support,Employer workshop stipends,10000,0,0,excluded from indirect base
+1,materials_supplies,Instructional materials and supplies,10000,0,0.36,balancing line
+1,evaluation_contract,Bluestem Evaluation Group contract,18000,0,0.36,
+1,other_direct,"Software licenses, dissemination",6000,0,0.36,
+1,indirect,Indirect costs (F&A),78610,0,0.36,36.0% of MTDC base
+2,senior_personnel,PI and co-PI effort,97850,0,0.36,
+2,other_personnel,Project coordinator / instructional staff,43000,0,0.36,
+2,fringe,Fringe benefits,39438,0.28,0.36,28.0% of personnel
+2,equipment,Automation lab equipment,8000,0,0,excluded from indirect base
+2,travel,Conference and site-visit travel,9500,0,0.36,
+2,participant_support,Employer workshop stipends,12000,0,0,excluded from indirect base
+2,materials_supplies,Instructional materials and supplies,12000,0,0.36,balancing line
+2,evaluation_contract,Bluestem Evaluation Group contract,18000,0,0.36,
+2,other_direct,"Software licenses, dissemination",6000,0,0.36,
+2,indirect,Indirect costs (F&A),81284,0,0.36,36.0% of MTDC base
+3,senior_personnel,PI and co-PI effort,100000,0,0.36,
+3,other_personnel,Project coordinator / instructional staff,44000,0,0.36,
+3,fringe,Fringe benefits,40320,0.28,0.36,28.0% of personnel
+3,equipment,Automation lab equipment,0,0,0,n/a
+3,travel,Conference and site-visit travel,10000,0,0.36,
+3,participant_support,Employer workshop stipends,14000,0,0,excluded from indirect base
+3,materials_supplies,Instructional materials and supplies,14303,0,0.36,balancing line
+3,evaluation_contract,Bluestem Evaluation Group contract,19000,0,0.36,
+3,other_direct,"Software licenses, dissemination",6500,0,0.36,
+3,indirect,Indirect costs (F&A),84285,0,0.36,36.0% of MTDC base

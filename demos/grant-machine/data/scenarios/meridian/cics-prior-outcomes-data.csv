@@ -1,0 +1,14 @@
+# doc_id: cics-prior-outcomes-data
+# title: Outcomes Data — Sediment Transport Under Compound Flooding in Microtidal Estuaries
+# doc_type: csv
+# date: 2026-09-19
+# synthetic: true
+# generator: generate_vault.py
+# seed_sha256: d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120
+metric,value,notes
+peer reviewed papers,9,
+graduate students supported,4,
+datasets published,3,
+field campaigns completed,5,
+field campaigns planned,8,
+instrument deployments,22,

@@ -1,0 +1,13 @@
+# doc_id: prior-outcomes-data
+# title: Outcomes Data 2021-2025
+# doc_type: csv
+# date: 2026-09-16
+# synthetic: true
+# generator: generate_vault.py
+# seed_sha256: 4f2f59bc327b270608ba350abeb422d553f0e7e2d229ae2faec95a5256d3e80c
+year,enrolled,completers,placement_respondents,placements_employed,notes
+2021-22,28,15,,,
+2022-23,34,22,,,
+2023-24,38,27,,,
+2024-25 (no-cost extension),26,20,,,
+TOTAL,126,84,61,48,"Placement rate reported over survey respondents, not total completers"

@@ -1,0 +1,78 @@
+HP ZGX Demo Center — host prerequisites, by hand
+================================================
+
+These are the same steps `setup-prereqs.sh` runs, written out as copy-paste
+commands for a rep who cannot run the script. Run them ON THE ZGX NANO, in
+order, in a terminal. They need sudo (admin) rights. The Nano is ARM64
+(aarch64) and runs Ubuntu 24.04, so the commands below assume that.
+
+The easy path is just:
+
+    sudo bash ~/demos/setup-prereqs.sh
+    sudo reboot
+    bash ~/demos/install.sh
+
+If you must do it by hand, run the numbered steps below, THEN reboot, THEN run
+the installer.
+
+------------------------------------------------------------------------------
+1) Docker Engine + Compose plugin (Docker's official apt repo)
+------------------------------------------------------------------------------
+sudo apt-get update -y
+sudo apt-get install -y ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update -y
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+------------------------------------------------------------------------------
+2) NVIDIA Container Toolkit (NVIDIA's apt repo) + wire it into Docker
+------------------------------------------------------------------------------
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /etc/apt/keyrings/nvidia-container-toolkit.gpg
+sudo chmod a+r /etc/apt/keyrings/nvidia-container-toolkit.gpg
+curl -fsSL https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | sed 's#deb https://#deb [signed-by=/etc/apt/keyrings/nvidia-container-toolkit.gpg] https://#g' | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list > /dev/null
+sudo apt-get update -y
+sudo apt-get install -y nvidia-container-toolkit
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+
+------------------------------------------------------------------------------
+3) Ollama (the local LLM runtime the demos pull their models through)
+------------------------------------------------------------------------------
+curl -fsSL https://ollama.com/install.sh | sh
+sudo systemctl enable --now ollama
+sudo usermod -aG ollama "$USER"   # replace $USER if running as someone else
+
+------------------------------------------------------------------------------
+4) Chromium (Demo Center opens fullscreen in Chromium)
+------------------------------------------------------------------------------
+sudo snap install chromium
+# (if snap is missing: sudo apt-get install -y snapd && sudo snap install chromium)
+
+------------------------------------------------------------------------------
+5) Window-manager helpers (fullscreen control)
+------------------------------------------------------------------------------
+sudo apt-get install -y wmctrl xdotool
+
+------------------------------------------------------------------------------
+6) Enable the Docker daemon
+------------------------------------------------------------------------------
+sudo systemctl enable --now docker
+
+------------------------------------------------------------------------------
+7) Add YOUR user to the docker group (replace $USER if running as someone else)
+------------------------------------------------------------------------------
+sudo usermod -aG docker "$USER"
+
+------------------------------------------------------------------------------
+8) REBOOT — required so the docker AND ollama group memberships take effect
+------------------------------------------------------------------------------
+sudo reboot
+
+------------------------------------------------------------------------------
+9) After reboot — run the Demo Center installer
+------------------------------------------------------------------------------
+bash ~/demos/install.sh

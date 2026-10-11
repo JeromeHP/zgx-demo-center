@@ -1,0 +1,42 @@
+# Money rules for NSF 25-514 (S-STEM), Track 2 (Implementation Projects), quoted from
+# the solicitation.
+
+cap_usd:
+  value: 2000000
+  quote: "Awards for Track 2 (Implementation Projects) projects may not exceed $2,000,000 total for a maximum duration of 6 years."
+  source: https://www.nsf.gov/funding/opportunities/s-stem-nsf-scholarships-science-technology-engineering-mathematics/nsf25-514/solicitation
+
+max_years:
+  value: 6
+  quote: "Awards for Track 2 (Implementation Projects) projects may not exceed $2,000,000 total for a maximum duration of 6 years."
+  source: https://www.nsf.gov/funding/opportunities/s-stem-nsf-scholarships-science-technology-engineering-mathematics/nsf25-514/solicitation
+
+cost_share:
+  value: prohibited
+  quote: "Inclusion of voluntary committed cost sharing is prohibited."
+  source: https://www.nsf.gov/funding/opportunities/s-stem-nsf-scholarships-science-technology-engineering-mathematics/nsf25-514/solicitation
+
+min_participant_support_pct:
+  value: 60
+  quote: >-
+    "In all Track 2 proposals, at least 60% of all funds must be provided solely as pure scholarships
+    to cover the cost of attendance and entered as Participant Support – Stipends (Line F1)"
+  source: https://www.nsf.gov/funding/opportunities/s-stem-nsf-scholarships-science-technology-engineering-mathematics/nsf25-514/solicitation
+
+max_participant_support_per_person_usd:
+  value: 15000
+  quote: "The established maximum amount of an individual scholarship is $15,000 per year for undergraduate students"
+  source: https://www.nsf.gov/funding/opportunities/s-stem-nsf-scholarships-science-technology-engineering-mathematics/nsf25-514/solicitation
+
+subaward_mtdc_limit_usd:
+  value: 50000
+  quote: '2 CFR 200.1: MTDC includes "up to the first $50,000 of each subaward".'
+  source: https://www.ecfr.gov/current/title-2/section-200.1
+
+# Not a budget arithmetic rule: the agent checks the evaluation plan.
+external_evaluator:
+  value: required
+  quote: >-
+    "Each Track 1, 2, and 3 proposal should describe a rigorous, clear and specific external evaluation
+    plan ... executed by an external evaluator"
+  source: https://www.nsf.gov/funding/opportunities/s-stem-nsf-scholarships-science-technology-engineering-mathematics/nsf25-514/solicitation

@@ -1,0 +1,628 @@
+{
+  "note": "Sample inputs so Find Funding (mode id discover), Draft and Grade have something to run without the operator producing a document first. Entries reference files already in the repo wherever possible rather than duplicating them, so there is one copy of each document and one provenance row in DATA_SOURCES.md. The mode tag explore predates Draft: the UI offers explore samples carrying a solicitation under Draft's uploaded solicitation, and the rest under its uploaded evidence. Paths are relative to the repository root and are resolved under data/ only.",
+  "samples": [
+    {
+      "id": "discover-harrow-creek",
+      "label": "Harrow Creek Community College",
+      "modes": [
+        "discover",
+        "explore"
+      ],
+      "synthetic": true,
+      "description": "A rural two-year technician college: institutional profile, strategic plan, facilities, labour-market analysis, prior-award report and two faculty bios.",
+      "files": [
+        {
+          "path": "data/vault/inst-profile-2025.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/strategic-plan-2025-2030.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/facilities-equipment.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/labor-market-memo-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/prior-annual-report-2025.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/advisory-board-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/bio-okafor.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/bio-lindqvist.md",
+          "kind": "documents"
+        }
+      ]
+    },
+    {
+      "id": "explore-nsf-ate",
+      "label": "NSF 24-584 — Advanced Technological Education",
+      "modes": [
+        "explore",
+        "grade"
+      ],
+      "synthetic": false,
+      "source": "https://www.nsf.gov/funding/opportunities/ate-advanced-technological-education/nsf24-584/solicitation",
+      "description": "The real NSF ATE solicitation, uploaded rather than used as the built-in default — so you can watch the agent extract its requirements from scratch.",
+      "files": [
+        {
+          "path": "data/solicitation/nsf24-584.md",
+          "kind": "solicitation"
+        }
+      ]
+    },
+    {
+      "id": "grade-flawed-satp",
+      "label": "SATP proposal draft (contains deliberate errors)",
+      "modes": [
+        "grade"
+      ],
+      "synthetic": true,
+      "description": "A full proposal written to fail in specific ways — an over-cap budget, a fringe rate disagreeing with the rate agreement, outcomes figures its own institution's records contradict, marketing language, a vague evaluation plan. Ships with the institutional records needed to catch them.",
+      "files": [
+        {
+          "path": "data/samples/files/satp-proposal-draft.md",
+          "kind": "proposal"
+        },
+        {
+          "path": "data/vault/prior-outcomes-data.csv",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/prior-evaluation-report-2025.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/rate-agreement-fy2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/budget-satp-draft.csv",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/letter-northgate-2021.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/vault/inst-profile-2025.md",
+          "kind": "documents"
+        }
+      ]
+    },
+    {
+      "id": "explore-nih-nofo",
+      "label": "NIH PA-25-302 — a real, current NIH announcement",
+      "modes": [
+        "explore",
+        "grade"
+      ],
+      "synthetic": false,
+      "source": "https://grants.nih.gov/grants/guide/pa-files/PA-25-302.html",
+      "retrieved": "2026-09-19",
+      "description": "A real, current NIH notice of funding opportunity — a different agency, structure and vocabulary from NSF. Watch the agent extract its requirements from a document nobody configured it for.",
+      "files": [
+        {
+          "path": "data/samples/files/nih-nofo.md",
+          "kind": "solicitation"
+        }
+      ]
+    },
+    {
+      "id": "explore-epa-workforce",
+      "label": "EPA water infrastructure workforce — a real posted opportunity",
+      "modes": [
+        "explore"
+      ],
+      "synthetic": false,
+      "source": "https://grants.gov/search-results-detail/363657",
+      "retrieved": "2026-09-19",
+      "description": "A short real opportunity record from grants.gov. Useful for showing intake on something far smaller than a full solicitation.",
+      "files": [
+        {
+          "path": "data/samples/files/grants-gov-opportunity.md",
+          "kind": "solicitation"
+        }
+      ]
+    },
+    {
+      "id": "grade-real-award",
+      "label": "A real funded NSF award (no planted flaws)",
+      "modes": [
+        "grade"
+      ],
+      "synthetic": false,
+      "source": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2625516",
+      "retrieved": "2026-09-19",
+      "description": "A real NSF award abstract that actually won funding. No deliberate errors and no institutional records supplied — so the claim check reports its figures as unverifiable rather than inventing a verdict. It shows the grader is reading rather than reciting planted answers.",
+      "files": [
+        {
+          "path": "data/samples/files/nsf-funded-abstract.md",
+          "kind": "proposal"
+        }
+      ]
+    },
+    {
+      "id": "discover-calderwick",
+      "label": "Calderwick Institute for Coastal Systems (research institute)",
+      "modes": [
+        "discover",
+        "explore"
+      ],
+      "synthetic": true,
+      "description": "A coastal-science research institute: profile, strategic priorities, two PI biosketches with current and pending support, facilities and instrumentation, a prior-award final report, data management and compliance. The research counterpart to Harrow Creek.",
+      "files": [
+        {
+          "path": "data/scenarios/meridian/cics-institute-profile-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-strategic-priorities-2026-2031.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-bio-sarkissian.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-bio-weyland.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-facilities-instrumentation.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-prior-award-final-report-2025.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-data-management-plan.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-compliance-summary-2026.md",
+          "kind": "documents"
+        }
+      ]
+    },
+    {
+      "id": "grade-flawed-cffue",
+      "label": "CFFUE proposal draft (research; contains deliberate errors)",
+      "modes": [
+        "grade"
+      ],
+      "synthetic": true,
+      "description": "An NSF Ocean Sciences proposal (NSF 26-516) written with PAPPG mistakes: all eight planned field campaigns claimed when five were completed, a PI already committed past 100% effort, $4,200 pressure loggers budgeted as equipment, and a postdoc and graduate student funded with no Mentoring Plan. Ships with the records its claims are checked against.",
+      "files": [
+        {
+          "path": "data/samples/files/cffue-proposal-draft.md",
+          "kind": "proposal"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-prior-award-final-report-2025.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-prior-outcomes-data.csv",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-bio-sarkissian.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-proposal-document-checklist-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-rate-agreement-fy2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/meridian/cics-budget-cffue-draft.csv",
+          "kind": "documents"
+        }
+      ]
+    },
+    {
+      "id": "discover-vantcross",
+      "label": "Vantcross State University (R1 research university)",
+      "modes": [
+        "discover",
+        "explore"
+      ],
+      "synthetic": true,
+      "description": "A large public R1: research profile, strategic plan, two biosketches with current and pending support, core facilities, an NIH prior-award final report, a reviewer summary statement, subaward note, data sharing and compliance.",
+      "files": [
+        {
+          "path": "data/scenarios/vantcross/vsu-institute-profile-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-strategic-research-plan-2026-2031.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-bio-anselmi.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-bio-adeyemo-strand.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-core-facilities.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-prior-award-final-report-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-prior-summary-statement-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-subaward-drumlin-budget-note.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-data-management-sharing-plan.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-human-subjects-and-compliance-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-rate-agreement-fy2026.md",
+          "kind": "documents"
+        }
+      ]
+    },
+    {
+      "id": "grade-vantcross",
+      "label": "MQC R01 resubmission (R1; contains deliberate errors)",
+      "modes": [
+        "grade"
+      ],
+      "synthetic": true,
+      "description": "An NIH R01 resubmission (PA-25-301) written to fail as a resubmission does: no introduction responding to the prior review, an inflated publication count, a PI already committed past 100% effort, subaward F&A applied to the whole subaward instead of the first $25,000, and year-one direct costs over $500,000 with no agreement from NIH to accept the application. Ships with the records its claims are checked against.",
+      "files": [
+        {
+          "path": "data/samples/files/mqc-proposal-draft.md",
+          "kind": "proposal"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-bio-anselmi.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-prior-award-final-report-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-prior-summary-statement-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-subaward-drumlin-budget-note.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-human-subjects-and-compliance-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-rate-agreement-fy2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-nih-program-official-correspondence-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-prior-outcomes-data.csv",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/vantcross/vsu-budget-mqc-draft.csv",
+          "kind": "documents"
+        }
+      ]
+    },
+    {
+      "id": "discover-tierra-sandoval",
+      "label": "Tierra Sandoval University (Hispanic-Serving Institution)",
+      "modes": [
+        "discover",
+        "explore"
+      ],
+      "synthetic": true,
+      "description": "A regional comprehensive HSI: institutional profile, enrollment census, strategic plan, two biosketches, facilities and student support, an NSF prior-award final report, articulation inventory and evaluation framework.",
+      "files": [
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-institute-profile-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-enrollment-census-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-strategic-plan-2026-2031.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-bio-arbuthnot.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-bio-vorderman.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-facilities-and-student-support.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-prior-award-final-report-2025.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-transfer-articulation-inventory-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-evaluation-plan-framework.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-rate-agreement-fy2026.md",
+          "kind": "documents"
+        }
+      ]
+    },
+    {
+      "id": "grade-tierra-sandoval",
+      "label": "BCP proposal (HSI; contains deliberate errors)",
+      "modes": [
+        "grade"
+      ],
+      "synthetic": true,
+      "description": "An NSF S-STEM Track 2 proposal (NSF 25-514) with the scholarship programme's classic mistakes: scholarships above the $15,000 maximum, F&A charged on the scholarships, an evaluation run in-house where S-STEM requires an external evaluator, and Hispanic enrolment overstated against the registrar's census. Ships with the records its claims are checked against.",
+      "files": [
+        {
+          "path": "data/samples/files/bcp-proposal-draft.md",
+          "kind": "proposal"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-enrollment-census-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-evaluation-plan-framework.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-prior-award-final-report-2025.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-rate-agreement-fy2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/tierra_sandoval/tsu-budget-bcp-draft.csv",
+          "kind": "documents"
+        }
+      ]
+    },
+    {
+      "id": "discover-ashgrove",
+      "label": "Ashgrove University Medical Center (academic medical centre)",
+      "modes": [
+        "discover",
+        "explore"
+      ],
+      "synthetic": true,
+      "description": "An academic medical centre: research profile, clinical research capacity, IRB and regulatory status, two biosketches, an NIH trial final report, enrollment feasibility, data safety monitoring and data sharing plans.",
+      "files": [
+        {
+          "path": "data/scenarios/ashgrove/aumc-institute-profile-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-clinical-research-capacity-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-irb-and-regulatory-status-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-bio-achterberg.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-bio-ostrowski-baird.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-prior-award-final-report-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-enrollment-feasibility-analysis.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-data-safety-monitoring-plan.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-data-management-sharing-plan.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-rate-agreement-fy2026.md",
+          "kind": "documents"
+        }
+      ]
+    },
+    {
+      "id": "grade-ashgrove",
+      "label": "SMSM clinical trial (medical centre; contains deliberate errors)",
+      "modes": [
+        "grade"
+      ],
+      "synthetic": true,
+      "description": "An NIH clinical trial R01 (PA-25-305) written to fail as clinical trials do: an IRB approval described as current that lapsed in March, a data safety monitoring board described as in place that has not been constituted, an accrual projection the prior trial's record does not support, prior-trial results never posted to ClinicalTrials.gov, and the PI's salary budgeted above the NIH cap. Ships with the records its claims are checked against.",
+      "files": [
+        {
+          "path": "data/samples/files/smsm-proposal-draft.md",
+          "kind": "proposal"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-irb-and-regulatory-status-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-prior-award-final-report-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-data-safety-monitoring-plan.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-enrollment-feasibility-analysis.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-bio-achterberg.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-prior-outcomes-data.csv",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-rate-agreement-fy2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/ashgrove/aumc-budget-smsm-draft.csv",
+          "kind": "documents"
+        }
+      ]
+    },
+    {
+      "id": "discover-sablecreek",
+      "label": "Sablecreek State University System (multi-campus consortium)",
+      "modes": [
+        "discover",
+        "explore"
+      ],
+      "synthetic": true,
+      "description": "A four-campus public university system: system profile, research strategy, two biosketches, shared infrastructure inventory, an EPSCoR prior-award final report, cost share register, subaward structure and governance plan.",
+      "files": [
+        {
+          "path": "data/scenarios/sablecreek/ssus-system-profile-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-research-strategy-2026-2031.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-bio-rieckhoff.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-bio-sandoval-teague.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-shared-infrastructure-inventory.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-prior-award-final-report-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-cost-share-commitment-register.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-subaward-structure-note.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-governance-and-data-plan.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-rate-agreement-fy2026.md",
+          "kind": "documents"
+        }
+      ]
+    },
+    {
+      "id": "grade-sablecreek",
+      "label": "SSI consortium proposal (system office; contains deliberate errors)",
+      "modes": [
+        "grade"
+      ],
+      "synthetic": true,
+      "description": "An EPSCoR E-CORE consortium proposal (NSF 25-523) that breaks the programme's rules: $250,000 of committed cost share on a new award, a letter of support where only letters of collaboration are allowed, F&A charged on equipment, and all four campuses claimed as committed when two have no current letter. Ships with the records its claims are checked against.",
+      "files": [
+        {
+          "path": "data/samples/files/ssi-proposal-draft.md",
+          "kind": "proposal"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-cost-share-commitment-register.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-letter-support-agcommission-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-letter-harlow-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-letter-grier-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-prior-award-final-report-2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-rate-agreement-fy2026.md",
+          "kind": "documents"
+        },
+        {
+          "path": "data/scenarios/sablecreek/ssus-budget-ssi-draft.csv",
+          "kind": "documents"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# The NIH Research Strategy structure PA-25-305 applies through the How to Apply guide,
+# in drafting order. The same four sections vantcross's extraction proposed for PA-25-301.
+- { id: specific_aims, title: "Specific Aims", word_target: "1 page" }
+- { id: significance, title: "Significance", word_target: "1-3 pages" }
+- { id: innovation, title: "Innovation", word_target: "1-3 pages" }
+- { id: approach, title: "Approach", word_target: "10-12 pages" }

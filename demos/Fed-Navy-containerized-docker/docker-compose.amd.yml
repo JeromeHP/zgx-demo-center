@@ -1,0 +1,73 @@
+# =============================================================================
+# AMD / non-CUDA overlay for the Maritime demo.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.amd.yml up -d --build
+#
+# The base file is left completely untouched, so the NVIDIA path is exactly
+# what it always was.
+#
+# What changes and why:
+#   - Dockerfile.external instead of the nvcr.io/nvidia/vllm image. That image
+#     is NGC-only and CUDA-only; python:3.12-slim is multi-arch.
+#   - INFERENCE_BACKEND=external, so entrypoint.sh starts no vLLM. Nothing in
+#     this container touches a GPU, which is why there is no /dev/kfd or
+#     /dev/dri passthrough here -- host Ollama owns the accelerator, exactly as
+#     it does for the pharmacy, pii and ballistics demos.
+#   - VLLM_BASE_URL points at host Ollama. backend/main.py speaks plain
+#     OpenAI-compatible /chat/completions with an image_url part, which Ollama
+#     serves for vision models, so no application code changes.
+#
+# The model: the base stack serves Qwen3-VL-8B-Instruct-FP8, and gfx1151 has no
+# FP8 path in vLLM. qwen2.5vl:7b is the default here because the Demo Center
+# already pulls it for the ballistics demo, so an AMD box needs no extra
+# download. Override MARITIME_MODEL to serve a Qwen3-VL GGUF instead once one is
+# pulled -- the intelligence-report prompt is model-agnostic.
+# =============================================================================
+services:
+  navy-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile.external
+    image: fed-navy-navy-demo:external
+    # Build when the tag is absent locally instead of trying to PULL it.
+    # Pinning image: without this turns `up` (launch_cmd passes no --build)
+    # into a registry pull for a tag that only ever exists locally, which
+    # fails -- so pinning the tag would have broken the working NVIDIA box.
+    pull_policy: build
+    # Host networking, because the endpoint we now talk to is host Ollama.
+    #
+    # The base file maps ports instead, which is correct for the NVIDIA stack --
+    # there, vLLM runs INSIDE this container and VLLM_BASE_URL resolves to the
+    # container's own localhost. Pointing that same setting at host Ollama
+    # without changing the network silently gives you the container's localhost,
+    # where nothing is listening: the entrypoint sits in its reachability probe
+    # and every request afterwards fails.
+    #
+    # This is exactly what the pharmacy, pii and ballistics demos already do,
+    # and for the same reason. `ports` must be cleared because Compose rejects
+    # port bindings alongside network_mode: host (the app still serves :8000,
+    # directly on the host).
+    network_mode: host
+    ports: !reset []
+    environment:
+      # Left over from the base file and meaningless without the NVIDIA
+      # container toolkit. Cleared so nothing reads as an NVIDIA requirement.
+      - NVIDIA_VISIBLE_DEVICES=
+      - INFERENCE_BACKEND=external
+      - VLLM_BASE_URL=${MARITIME_BASE_URL:-http://localhost:11434/v1}
+      - VLLM_MODEL=${MARITIME_MODEL:-qwen2.5vl:7b}
+    # The base file reserves `driver: nvidia`. Compose MERGES lists rather than
+    # replacing them, so `devices: []` here left the reservation in place and
+    # the stack still failed on AMD with "could not select device driver". The
+    # `!reset` tag (Compose 2.24+) is what actually removes it. Verified with
+    # `docker compose config` -- if you change this, verify it the same way
+    # rather than trusting the YAML to read the way it looks.
+    deploy:
+      resources:
+        reservations:
+          devices: !reset []
+    healthcheck:
+      # 180s of vLLM model-load budget in the base file buys nothing here --
+      # nothing loads a model in this container. A shorter start_period means
+      # the launcher can distinguish healthy from dead in seconds, not minutes.
+      start_period: 20s

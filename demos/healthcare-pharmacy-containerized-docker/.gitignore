@@ -1,0 +1,57 @@
+# Models (too large for git, downloaded separately)
+models/*.gguf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual envs
+medical-env/
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Data (generated, not tracked)
+medical_data/
+logs/
+# --- Strict additions for HP GitHub push ---
+__pycache__/
+*.pyc
+*.pyo
+*.log
+*.bak.*
+.venv/
+venv/
+*-env/
+node_modules/
+
+# Model files
+*.gguf
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.engine
+*.trt
+*.ckpt
+*.h5
+*.tflite
+
+# Common model dirs
+models/
+**/models/
+huggingface_cache/
+.cache/
+
+# Exception: the prebuilt DDI vector index (328 KB) ships with the repo.
+# ddi_chromadb/chroma.sqlite3 is tracked and references VECTOR segment b8e07864-…;
+# without these .bin files a clone gets a manifest declaring 51 embeddings with no
+# vectors on disk and the RAG lookup returns nothing. build_ddi_db.py can only
+# rebuild it with network access to ddinter.scbdd.com plus a live Ollama, and it is
+# not an install step — so vendor it complete.
+!ddi_chromadb/**/*.bin

@@ -1,0 +1,6 @@
+# NSF 25-523 (E-CORE) proposal sections, in drafting order. Its Project Description is
+# "20 pages maximum" (the solicitation), not the PAPPG's standard 15; Broader Impacts is
+# part of it, not a separate section.
+- { id: project_summary, title: "Project Summary", word_target: "1 page" }
+- { id: project_description, title: "Project Description", word_target: "20 pages" }
+- { id: data_management_and_sharing_plan, title: "Data Management and Sharing Plan", word_target: "2 pages" }

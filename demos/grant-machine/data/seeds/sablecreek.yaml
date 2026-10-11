@@ -1,0 +1,228 @@
+# State university system office assembling a multi-campus consortium proposal.
+#
+# One tier above a single institution, and the failure modes come from that: which
+# entity is actually the applicant, whether every campus has committed in writing,
+# whether cost share is real money or a sentence, and whether subaward F&A has been
+# applied correctly across four partners.
+#
+# It applies to the real NSF 25-523 (EPSCoR E-CORE): four years, up to $10 million, and
+# no committed cost share on a new award. Budget scaled from real E-CORE lead awards
+# (data/anchors/sablecreek.json); rules quoted in solicitation/budget_rules.yaml.
+disclaimer: "Fictional institution. All people, organizations, figures, and documents are synthetic."
+
+institution:
+  name: "Sablecreek State University System"
+  short_name: "Sablecreek System"
+  type: "Public university system office, four campuses"
+  service_area: "Northern plains, four campuses (fictional)"
+  campuses: 4
+  system_enrollment: 47500
+  annual_research_expenditure_usd: 96000000
+  chancellor: "Dr. Ingrid Velásquez-Moor"
+  member_campuses:
+    - "Sablecreek State University — Harlow Bend"
+    - "Sablecreek State University — Pellamy"
+    - "Sablecreek State Polytechnic — Grier Falls"
+    - "Sablecreek Community and Technical College — Ondrak"
+
+people:
+  pi: { name: "Dr. Augustin Rieckhoff", title: "System Vice Chancellor for Research" }
+  co_pi: { name: "Dr. Marlowe Sandoval-Teague", title: "Campus Research Lead, Grier Falls" }
+  grants_director: { name: "Delphine Okonkwo-Barr", title: "System Director of Sponsored Programs" }
+  evaluator: { org: "Ridgeline Systems Evaluation", lead: "Dr. Theodora Vasquez-Lund" }
+
+prior_award:
+  id: "SSUS-FICT-EPSCOR-2021"
+  title: "Statewide Research Infrastructure for Precision Agriculture"
+  funder: "NSF EPSCoR Research Infrastructure Improvement (fictional prior award)"
+  amount_usd: 3200000
+  start: "2021-09-01"
+  end: "2026-08-31"
+  outcomes:
+    campuses_participating: 3
+    campuses_planned: 4
+    faculty_engaged: 47
+    shared_instruments_deployed: 6
+    graduate_students_supported: 22
+    external_followon_awards: 5
+
+new_project:
+  title: "Shared Sensing Infrastructure for Working Lands Across the System"
+  short_name: "SSI"
+  track: "track_2"
+  years: 4
+  start: "2027-09-01"
+  cost_share_committed_usd: 250000   # planted: E-CORE does not allow committed cost share
+
+solicitation:
+  real: true
+  id: "NSF 25-523"
+  agency: "NSF"
+  program: "EPSCoR Research Infrastructure Improvement Program: EPSCoR Collaborations for Optimizing Research Ecosystems (E-CORE)"
+  track: "E-CORE"
+
+# Four years under the $10M cap, at the scale of real E-CORE lead awards. The member
+# campuses are subawards, and F&A is correctly limited to the first $50,000 of each.
+# Two errors are planted: $250,000 of committed campus cost share, which E-CORE forbids
+# on a new award, and F&A charged on the sensor-network base stations, which are
+# equipment and outside the MTDC base.
+budget:
+  fringe_rate_pct: 30.4
+  salary_escalation_pct: 3.0
+  subaward_mtdc_limit_usd: 50000
+  lines:
+    - { category: senior_personnel, line_item: "PI: Dr. Augustin Rieckhoff (10% effort)", amount_usd: 24000 }
+    - { category: senior_personnel, line_item: "Co-PI: Dr. Marlowe Sandoval-Teague (20% effort)", amount_usd: 30000 }
+    - { category: other_personnel, line_item: "Project director (100%)", amount_usd: 110000 }
+    - { category: other_personnel, line_item: "Field sensing technicians (3 FTE)", amount_usd: 186000 }
+    - { category: other_personnel, line_item: "Data engineer (100%)", amount_usd: 95000 }
+    - { category: other_personnel, line_item: "Postdoctoral researcher (100%)", amount_usd: 64000 }
+    - { category: other_personnel, line_item: "Graduate research assistants (4)", amount_usd: 120000 }
+    - { category: tuition_remission, line_item: "Graduate tuition remission", amount_usd: 56000 }
+    - { category: equipment, line_item: "Sensor-network base stations and eddy covariance towers", amount_usd: [400000, 160000, 0, 0], units: 7, fa: true }
+    - { category: materials_supplies, line_item: "Soil-moisture and weather sensor nodes (under $10,000 each)", amount_usd: 120000 }
+    - { category: travel, line_item: "Field deployment and cross-campus travel", amount_usd: 40000 }
+    - { category: participant_support, line_item: "Undergraduate research stipends", amount_usd: 60000 }
+    - { category: other_direct, line_item: "Data infrastructure and cloud storage", amount_usd: 50000 }
+    - { category: other_direct, line_item: "Ridgeline Systems Evaluation contract", amount_usd: 45000 }
+    - { category: subaward, line_item: "Harlow Bend campus subaward", amount_usd: 120000 }
+    - { category: subaward, line_item: "Grier Falls campus subaward", amount_usd: 150000 }
+    - { category: subaward, line_item: "Pellamy campus subaward", amount_usd: 100000 }
+    - { category: subaward, line_item: "Ondrak campus subaward", amount_usd: 60000 }
+    - { category: cost_share, line_item: "Committed campus cost share", amount_usd: 62500 }
+
+rates:
+  fringe_rate_agreement_pct: 30.4
+  fringe_rate_agreement_doc: "ssus-rate-agreement-fy2026"
+  indirect_rate_pct: 47.0
+  indirect_base: "MTDC"
+
+collaborators:
+  - { name: "Sablecreek State University — Harlow Bend", letter_doc: "ssus-letter-harlow-2026", letter_date: "2026-08-07", references_project: "SSI" }
+  - { name: "Sablecreek State Polytechnic — Grier Falls", letter_doc: "ssus-letter-grier-2026", letter_date: "2026-08-15", references_project: "SSI" }
+  # Pellamy and Ondrak have no current letter at all, which is the point.
+  # Planted: a letter of SUPPORT, which E-CORE does not allow (collaboration letters only).
+  - { name: "Northern Plains Agricultural Commission", letter_doc: "ssus-letter-support-agcommission-2026", letter_date: "2026-08-26", references_project: "SSI" }
+
+csv_documents:
+  budget: "ssus-budget-ssi-draft"
+  outcomes: "ssus-prior-outcomes-data"
+
+key_facts:
+  ssus-prior-outcomes-data: [3, 47, 6]
+  ssus-prior-award-final-report-2026: [3, 47]
+  ssus-rate-agreement-fy2026: ["30.4", "47.0"]
+  ssus-cost-share-commitment-register: ["250,000", "125,000"]
+  ssus-letter-support-agcommission-2026: ["Letter of Support"]
+
+must_not_contain:
+  # The register records the commitment; it must not know the rule it breaks.
+  ssus-cost-share-commitment-register: ["not allowed", "prohibited", "E-CORE does not"]
+  ssus-letter-support-agcommission-2026: ["letters of support are not", "collaboration only"]
+
+planted_issues:
+  - "The budget commits $250,000 of campus cost share; E-CORE does not allow committed cost share on a new award"
+  - "F&A is charged on the sensor-network base stations, which are equipment and outside the MTDC base"
+  - "A letter of support is included; E-CORE allows only letters of collaboration"
+  - "Two of four campuses have no current letter of commitment"
+
+demo_context:
+  today: "2026-09-21"
+  deadline: "2027-01-14"
+
+documents:
+  - doc_id: "ssus-system-profile-2026"
+    title: "Sablecreek State University System — System Profile 2026"
+    word_range: [700, 950]
+    brief: >
+      A profile of a four-campus public university system: the system office and its role,
+      each member campus with its mission and enrolment, combined research expenditure,
+      and how sponsored programmes are administered between the system office and campuses.
+  - doc_id: "ssus-research-strategy-2026-2031"
+    title: "System Research Strategy 2026-2031"
+    word_range: [650, 900]
+    brief: >
+      Research priorities across the system: precision agriculture and working lands,
+      rural health access, energy systems, and shared research infrastructure. Be explicit
+      about which campus leads which area.
+  - doc_id: "ssus-bio-rieckhoff"
+    title: "Biosketch — Dr. Augustin Rieckhoff"
+    word_range: [450, 650]
+    brief: >
+      A biosketch for the system vice chancellor serving as PI: position, research
+      background, large-project leadership, and a current and pending support table with
+      committed effort per award.
+  - doc_id: "ssus-bio-sandoval-teague"
+    title: "Biosketch — Dr. Marlowe Sandoval-Teague"
+    word_range: [400, 600]
+    brief: >
+      A biosketch for the campus research lead co-investigator: position at the
+      polytechnic campus, sensing and instrumentation background, and current and pending
+      support.
+  - doc_id: "ssus-shared-infrastructure-inventory"
+    title: "Shared Research Infrastructure Inventory"
+    word_range: [600, 850]
+    brief: >
+      An inventory of shared instrumentation and facilities across the four campuses:
+      what exists, where it is located, which campuses have access, and how usage is
+      scheduled and recharged. Note where access is limited.
+  - doc_id: "ssus-prior-award-final-report-2026"
+    title: "Final Report — Statewide Research Infrastructure for Precision Agriculture"
+    word_range: [850, 1150]
+    brief: >
+      The final report on the prior EPSCoR award. Report outcomes honestly and
+      specifically, including shortfalls: THREE of FOUR campuses participated, 47 faculty
+      engaged, 6 shared instruments deployed, 22 graduate students supported, and 5
+      follow-on external awards. Explain why the fourth campus did not participate (a
+      leadership transition and an unresolved indirect cost distribution dispute).
+  - doc_id: "ssus-cost-share-commitment-register"
+    title: "Cost Share Commitment Register"
+    word_range: [450, 650]
+    brief: >
+      A register of the institutional cost share the system office has committed in the
+      proposed budget: $250,000 in total over four years ($62,500 a year), by campus. State
+      that $125,000 is confirmed by signed campus commitment and the rest is pending campus
+      approval. Present it as routine voluntary committed cost share offered to strengthen
+      the proposal; say nothing about whether the funding programme allows it.
+  - doc_id: "ssus-subaward-structure-note"
+    title: "Consortium Subaward Structure Note"
+    word_range: [500, 700]
+    brief: >
+      How the consortium is structured: the system office as lead applicant, subawards to
+      each participating campus, scope of work per campus, and how facilities and
+      administrative costs are applied across subawards. State the F&A treatment explicitly.
+  - doc_id: "ssus-governance-and-data-plan"
+    title: "Consortium Governance and Data Management Plan"
+    word_range: [550, 750]
+    brief: >
+      Governance for a multi-campus project: an executive committee, decision rights
+      between system office and campuses, conflict resolution, plus data management —
+      shared repositories, metadata standards and access across campuses.
+  - doc_id: "ssus-rate-agreement-fy2026"
+    title: "Negotiated Indirect Cost and Fringe Benefit Rate Agreement FY2026"
+    word_range: [400, 600]
+    brief: >
+      The negotiated rate agreement covering the system. State clearly that the fringe
+      benefit rate is 30.4% and the on-campus organised research indirect cost rate is
+      47.0% of modified total direct cost. This document is what a budget is checked against.
+  - doc_id: "ssus-letter-harlow-2026"
+    title: "Letter of Commitment — Harlow Bend Campus"
+    word_range: [300, 450]
+    brief: >
+      A current letter of commitment from a member campus for the proposed project,
+      naming the personnel committed and the facilities made available.
+  - doc_id: "ssus-letter-grier-2026"
+    title: "Letter of Commitment — Grier Falls Campus"
+    word_range: [300, 450]
+    brief: >
+      A current letter of commitment from the polytechnic campus for the proposed project,
+      describing its sensing instrumentation contribution.
+  - doc_id: "ssus-letter-support-agcommission-2026"
+    title: "Letter of Support — Northern Plains Agricultural Commission"
+    word_range: [280, 420]
+    brief: >
+      A general letter of support dated 2026-08-26 from the fictional Northern Plains
+      Agricultural Commission, headed "Letter of Support", endorsing the SSI project for its
+      value to regional producers. It expresses enthusiasm and endorsement only: it commits
+      no personnel, data, facilities or other resources, and it is not a letter of
+      collaboration.

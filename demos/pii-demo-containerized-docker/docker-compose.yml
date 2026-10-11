@@ -1,0 +1,47 @@
+# =============================================================================
+# PII Masking Demo - Docker Compose (Ollama backend)
+#
+# Inference via Ollama on host (GPU) — container is a thin FastAPI client that
+# runs backend/main.py and reaches host Ollama at localhost:11434.
+# Modeled on the pharmacy demo: network_mode host + OLLAMA_* env.
+#
+# Usage:
+#   ./start.sh --build             # First time / after code changes
+#   ./start.sh                     # Subsequent runs
+#   docker compose down            # Stop everything
+#
+# Prerequisites:
+#   - Ollama running on host with qwen2.5:32b + pii-detector models
+# =============================================================================
+
+services:
+  pii-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile.ollama
+    container_name: pii-masking-demo
+    volumes:
+      # Frontend bind-mounted read-only so UI changes take effect on a
+      # container restart instead of an image rebuild. Without this the shared
+      # ZGX chrome (scripts/sync_ui.py) silently did not appear on this demo
+      # until someone happened to rebuild -- and nothing anywhere said why.
+      - ./frontend:/app/frontend:ro
+    # Host network so the container reaches host Ollama at localhost:11434
+    # (same pattern as the pharmacy demo). Serves API + /app/ frontend on :8000.
+    network_mode: host
+    environment:
+      - OLLAMA_HOST=http://localhost:11434
+      - OLLAMA_MODEL_BASE=qwen2.5:32b
+      - OLLAMA_MODEL_FINETUNED=pii-detector:latest
+      - TOKENIZERS_PARALLELISM=false
+      - OMP_NUM_THREADS=4
+      # Host IP for clickable URLs — auto-detected by start.sh
+      - HOST_IP=${HOST_IP:-}
+    restart: on-failure
+    stop_grace_period: 30s
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s

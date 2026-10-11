@@ -1,0 +1,144 @@
+{
+  "documents": [
+    {
+      "doc_id": "cics-budget-cffue-draft",
+      "path": "data/scenarios/meridian/cics-budget-cffue-draft.csv",
+      "title": "CFFUE Draft Budget (3 years)",
+      "doc_type": "csv",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-prior-outcomes-data",
+      "path": "data/scenarios/meridian/cics-prior-outcomes-data.csv",
+      "title": "Outcomes Data \u2014 Sediment Transport Under Compound Flooding in Microtidal Estuaries",
+      "doc_type": "csv",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-institute-profile-2026",
+      "path": "data/scenarios/meridian/cics-institute-profile-2026.md",
+      "title": "Calderwick Institute for Coastal Systems \u2014 Institutional Profile 2026",
+      "doc_type": "md",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-strategic-priorities-2026-2031",
+      "path": "data/scenarios/meridian/cics-strategic-priorities-2026-2031.md",
+      "title": "Research Strategic Priorities 2026-2031",
+      "doc_type": "md",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-bio-sarkissian",
+      "path": "data/scenarios/meridian/cics-bio-sarkissian.md",
+      "title": "Biosketch \u2014 Dr. Imogen Sarkissian",
+      "doc_type": "md",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-bio-weyland",
+      "path": "data/scenarios/meridian/cics-bio-weyland.md",
+      "title": "Biosketch \u2014 Dr. Toma Weyland",
+      "doc_type": "md",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-facilities-instrumentation",
+      "path": "data/scenarios/meridian/cics-facilities-instrumentation.md",
+      "title": "Facilities, Equipment and Other Resources",
+      "doc_type": "md",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-prior-award-final-report-2025",
+      "path": "data/scenarios/meridian/cics-prior-award-final-report-2025.md",
+      "title": "Final Report \u2014 Sediment Transport Under Compound Flooding (2021-2025)",
+      "doc_type": "md",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "b0fe3d58ece56e74190ed44d6781edb2de163ee9e8da997b83695a909b5a33df"
+    },
+    {
+      "doc_id": "cics-data-management-plan",
+      "path": "data/scenarios/meridian/cics-data-management-plan.md",
+      "title": "Data Management and Sharing Plan",
+      "doc_type": "md",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-compliance-summary-2026",
+      "path": "data/scenarios/meridian/cics-compliance-summary-2026.md",
+      "title": "Research Compliance Summary 2026",
+      "doc_type": "md",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-rate-agreement-fy2026",
+      "path": "data/scenarios/meridian/cics-rate-agreement-fy2026.md",
+      "title": "Negotiated Indirect Cost and Fringe Benefit Rate Agreement FY2026",
+      "doc_type": "md",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-letter-rowan-2026",
+      "path": "data/scenarios/meridian/cics-letter-rowan-2026.md",
+      "title": "Letter of Collaboration \u2014 Rowan Tidal Observatory",
+      "doc_type": "md",
+      "date": "2026-08-05",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-letter-quillon-2026",
+      "path": "data/scenarios/meridian/cics-letter-quillon-2026.md",
+      "title": "Letter of Collaboration \u2014 Quillon County Emergency Management",
+      "doc_type": "md",
+      "date": "2026-08-18",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    },
+    {
+      "doc_id": "cics-proposal-document-checklist-2026",
+      "path": "data/scenarios/meridian/cics-proposal-document-checklist-2026.md",
+      "title": "CFFUE Submission Checklist (Research Administration, September 2026)",
+      "doc_type": "md",
+      "date": "2026-09-19",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120"
+    }
+  ]
+}

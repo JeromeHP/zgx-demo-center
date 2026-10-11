@@ -1,0 +1,33 @@
+# Don't copy models into the Docker image (they're mounted at runtime)
+models/
+*.gguf
+
+# Data and tuning scripts (not needed in container)
+data-and-tuning-scripts/
+medical_data/
+helper-scripts/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+medical-env/
+.venv/
+venv/
+
+# Git
+.git/
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.md
+*.sh
+!backend/
+!frontend/

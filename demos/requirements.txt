@@ -1,0 +1,15 @@
+# HP ZGX Demo Center — Python dependencies for the zgx env.
+#
+# Single source of truth for the deps the install/launch server stack needs.
+# Installed by install.py (Phase 2) into the active zgx conda env via
+# `python -m pip install -r requirements.txt`.
+#
+# Derived from the third-party imports of:
+#   demo_install_server.py  → fastapi, uvicorn, httpx
+#   zgx_demo_lib.py         → httpx
+#   install_plans.py        → huggingface_hub (model snapshot_download in steps)
+
+fastapi
+uvicorn[standard]
+httpx
+huggingface_hub

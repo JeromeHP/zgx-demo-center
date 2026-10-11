@@ -1,0 +1,78 @@
+# doc_id: vsu-budget-mqc-draft
+# title: MQC Draft Budget (5 years)
+# doc_type: csv
+# date: 2026-09-21
+# synthetic: true
+# generator: generate_vault.py
+# seed_sha256: 53ac3e1f7b82a7ea8331974c82160a40e16e25301e5d2eee6e50ba580ecd9b90
+year,category,line_item,amount_usd,fringe_applied,indirect_applied,notes,annual_salary_usd,effort_pct
+1,senior_personnel,PI: Dr. Rurik Anselmi (30% effort),58800,0,0.58,,196000,30
+1,senior_personnel,Co-I: Dr. Pernille Adeyemo-Strand (20% effort),31600,0,0.58,,158000,20
+1,other_personnel,Postdoctoral researcher (100%),62000,0,0.58,,,
+1,other_personnel,Research technician (100%),52000,0,0.58,,,
+1,other_personnel,Graduate research assistant (50%),32000,0,0.58,,,
+1,tuition_remission,Graduate tuition remission,18000,0,0,excluded from indirect base,,
+1,materials_supplies,"Mouse colony, reagents and assay kits",45000,0,0.58,,,
+1,other_direct,"Core facility recharges (metabolic phenotyping, sequencing)",36000,0,0.58,,,
+1,other_direct,Human cohort participant compensation,24000,0,0.58,,,
+1,travel,Scientific meeting travel,6000,0,0.58,,,
+1,other_direct,Publication costs,4000,0,0.58,,,
+1,subaward,Drumlin Analytical Institute subaward (in MTDC base),75000,0,0.58,,,
+1,fringe,Fringe benefits,79903,0.33799999999999997,0.58,33.8% of personnel,,
+1,indirect,Indirect costs (F&A),293656,0,0.58,58.0% of MTDC base,,
+2,senior_personnel,PI: Dr. Rurik Anselmi (30% effort),60564,0,0.58,,201880,30
+2,senior_personnel,Co-I: Dr. Pernille Adeyemo-Strand (20% effort),32548,0,0.58,,162740,20
+2,other_personnel,Postdoctoral researcher (100%),63860,0,0.58,,,
+2,other_personnel,Research technician (100%),53560,0,0.58,,,
+2,other_personnel,Graduate research assistant (50%),32960,0,0.58,,,
+2,tuition_remission,Graduate tuition remission,18000,0,0,excluded from indirect base,,
+2,materials_supplies,"Mouse colony, reagents and assay kits",45000,0,0.58,,,
+2,other_direct,"Core facility recharges (metabolic phenotyping, sequencing)",36000,0,0.58,,,
+2,other_direct,Human cohort participant compensation,24000,0,0.58,,,
+2,travel,Scientific meeting travel,6000,0,0.58,,,
+2,other_direct,Publication costs,4000,0,0.58,,,
+2,subaward,Drumlin Analytical Institute subaward (in MTDC base),75000,0,0.58,,,
+2,fringe,Fringe benefits,82300,0.33799999999999997,0.58,33.8% of personnel,,
+2,indirect,Indirect costs (F&A),299159,0,0.58,58.0% of MTDC base,,
+3,senior_personnel,PI: Dr. Rurik Anselmi (30% effort),62381,0,0.58,,207936,30
+3,senior_personnel,Co-I: Dr. Pernille Adeyemo-Strand (20% effort),33524,0,0.58,,167622,20
+3,other_personnel,Postdoctoral researcher (100%),65776,0,0.58,,,
+3,other_personnel,Research technician (100%),55167,0,0.58,,,
+3,other_personnel,Graduate research assistant (50%),33949,0,0.58,,,
+3,tuition_remission,Graduate tuition remission,18000,0,0,excluded from indirect base,,
+3,materials_supplies,"Mouse colony, reagents and assay kits",45000,0,0.58,,,
+3,other_direct,"Core facility recharges (metabolic phenotyping, sequencing)",36000,0,0.58,,,
+3,other_direct,Human cohort participant compensation,24000,0,0.58,,,
+3,travel,Scientific meeting travel,6000,0,0.58,,,
+3,other_direct,Publication costs,4000,0,0.58,,,
+3,subaward,Drumlin Analytical Institute subaward (in MTDC base),75000,0,0.58,,,
+3,fringe,Fringe benefits,84769,0.33799999999999997,0.58,33.8% of personnel,,
+3,indirect,Indirect costs (F&A),304828,0,0.58,58.0% of MTDC base,,
+4,senior_personnel,PI: Dr. Rurik Anselmi (30% effort),64252,0,0.58,,214174,30
+4,senior_personnel,Co-I: Dr. Pernille Adeyemo-Strand (20% effort),34530,0,0.58,,172651,20
+4,other_personnel,Postdoctoral researcher (100%),67749,0,0.58,,,
+4,other_personnel,Research technician (100%),56822,0,0.58,,,
+4,other_personnel,Graduate research assistant (50%),34967,0,0.58,,,
+4,tuition_remission,Graduate tuition remission,18000,0,0,excluded from indirect base,,
+4,materials_supplies,"Mouse colony, reagents and assay kits",45000,0,0.58,,,
+4,other_direct,"Core facility recharges (metabolic phenotyping, sequencing)",36000,0,0.58,,,
+4,other_direct,Human cohort participant compensation,24000,0,0.58,,,
+4,travel,Scientific meeting travel,6000,0,0.58,,,
+4,other_direct,Publication costs,4000,0,0.58,,,
+4,subaward,Drumlin Analytical Institute subaward (in MTDC base),75000,0,0.58,,,
+4,fringe,Fringe benefits,87312,0.33799999999999997,0.58,33.8% of personnel,,
+4,indirect,Indirect costs (F&A),310667,0,0.58,58.0% of MTDC base,,
+5,senior_personnel,PI: Dr. Rurik Anselmi (30% effort),66180,0,0.58,,220600,30
+5,senior_personnel,Co-I: Dr. Pernille Adeyemo-Strand (20% effort),35566,0,0.58,,177830,20
+5,other_personnel,Postdoctoral researcher (100%),69782,0,0.58,,,
+5,other_personnel,Research technician (100%),58526,0,0.58,,,
+5,other_personnel,Graduate research assistant (50%),36016,0,0.58,,,
+5,tuition_remission,Graduate tuition remission,18000,0,0,excluded from indirect base,,
+5,materials_supplies,"Mouse colony, reagents and assay kits",45000,0,0.58,,,
+5,other_direct,"Core facility recharges (metabolic phenotyping, sequencing)",36000,0,0.58,,,
+5,other_direct,Human cohort participant compensation,24000,0,0.58,,,
+5,travel,Scientific meeting travel,6000,0,0.58,,,
+5,other_direct,Publication costs,4000,0,0.58,,,
+5,subaward,Drumlin Analytical Institute subaward (in MTDC base),75000,0,0.58,,,
+5,fringe,Fringe benefits,89932,0.33799999999999997,0.58,33.8% of personnel,,
+5,indirect,Indirect costs (F&A),316681,0,0.58,58.0% of MTDC base,,

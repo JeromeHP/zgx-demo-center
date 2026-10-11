@@ -1,0 +1,9 @@
+# mistral-small3.2 with a context sized to this demo.
+#
+# Ollama otherwise loads the model with its full 131k-token context, and the KV
+# cache for that is ~21 GB this demo never touches: one image plus a ~1.5k-token
+# prompt and a report is under 4k tokens. Measured on the GB10: 36.9 GB resident
+# at the default context. Registered at install time as `vehicle-inspector`
+# (install_plans.py), the same `ollama create` pattern pharmacy and pii use.
+FROM mistral-small3.2
+PARAMETER num_ctx 8192

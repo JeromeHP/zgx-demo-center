@@ -1,0 +1,17 @@
+[
+  { "id": "V1", "code": "LARGE_BUDGET_PRIOR_APPROVAL", "detection": "deterministic",
+    "detail": "Year-one direct costs are $524,303. At $500,000 or more in any year NIH must agree in writing to accept the application, requested at least six weeks before submission; the program official has not agreed (NOT-OD-17-005).",
+    "evidence": ["vsu-budget-mqc-draft", "vsu-nih-program-official-correspondence-2026"] },
+  { "id": "V2", "code": "SUBAWARD_FA_OVER_LIMIT", "detection": "deterministic",
+    "detail": "F&A is charged on the full $375,000 Drumlin subaward; NIH still applies 45 CFR 75, under which only the first $25,000 of each subaward is in the MTDC base.",
+    "evidence": ["vsu-budget-mqc-draft", "vsu-subaward-drumlin-budget-note", "vsu-rate-agreement-fy2026"] },
+  { "id": "V3", "code": "EFFORT_OVER_COMMITMENT", "detection": "agent",
+    "detail": "The PI's committed effort across current and pending support, including this project at 30%, totals 110%.",
+    "evidence": ["vsu-bio-anselmi"] },
+  { "id": "V4", "code": "RESUBMISSION_NO_INTRODUCTION", "detection": "agent",
+    "detail": "An A1 resubmission must include an Introduction responding to the prior summary statement; the draft does not address its critiques (third-aim preliminary data, PI effort, statistical plan, subaward role).",
+    "evidence": ["vsu-prior-summary-statement-2026"] },
+  { "id": "V5", "code": "CLAIM_CONTRADICTED", "detection": "agent",
+    "detail": "Draft claims 19 peer-reviewed papers from the prior award; the outcomes record and final report show 11.",
+    "evidence": ["vsu-prior-outcomes-data", "vsu-prior-award-final-report-2026"] }
+]

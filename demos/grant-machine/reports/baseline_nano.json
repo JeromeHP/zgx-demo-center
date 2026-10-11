@@ -1,0 +1,362 @@
+{
+  "base_url": "http://127.0.0.1:11434/v1",
+  "model": "qwen3.6:35b",
+  "label": "nano-ollama",
+  "server_version": "fp_ollama",
+  "reps": 3,
+  "timestamp": "2026-09-18T16:32:34.705625+00:00",
+  "checks": {
+    "E1": {
+      "name": "Models list",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 3,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "models=['gpt-oss:120b', 'qwen3.6:35b', 'qwen3.8:27b', 'qwen2.5vl:7b', 'qwen2.5:32b', 'nemotron3:33b', 'pii-detector:latest', 'tinyllama-pii:latest', 'medical-mixtral:latest', 'nomic-embed-text:latest', 'llama3.1:70b', 'gemma:latest']",
+          "sample": "[\"gpt-oss:120b\", \"qwen3.6:35b\", \"qwen3.8:27b\", \"qwen2.5vl:7b\", \"qwen2.5:32b\", \"nemotron3:33b\", \"pii-detector:latest\", \"tinyllama-pii:latest\", \"medical-mixtral:latest\", \"nomic-embed-text:latest\", \"llama3.1:70b\", \"gemma:latest\"]",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "models=['gpt-oss:120b', 'qwen3.6:35b', 'qwen3.8:27b', 'qwen2.5vl:7b', 'qwen2.5:32b', 'nemotron3:33b', 'pii-detector:latest', 'tinyllama-pii:latest', 'medical-mixtral:latest', 'nomic-embed-text:latest', 'llama3.1:70b', 'gemma:latest']",
+          "sample": "[\"gpt-oss:120b\", \"qwen3.6:35b\", \"qwen3.8:27b\", \"qwen2.5vl:7b\", \"qwen2.5:32b\", \"nemotron3:33b\", \"pii-detector:latest\", \"tinyllama-pii:latest\", \"medical-mixtral:latest\", \"nomic-embed-text:latest\", \"llama3.1:70b\", \"gemma:latest\"]",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "models=['gpt-oss:120b', 'qwen3.6:35b', 'qwen3.8:27b', 'qwen2.5vl:7b', 'qwen2.5:32b', 'nemotron3:33b', 'pii-detector:latest', 'tinyllama-pii:latest', 'medical-mixtral:latest', 'nomic-embed-text:latest', 'llama3.1:70b', 'gemma:latest']",
+          "sample": "[\"gpt-oss:120b\", \"qwen3.6:35b\", \"qwen3.8:27b\", \"qwen2.5vl:7b\", \"qwen2.5:32b\", \"nemotron3:33b\", \"pii-detector:latest\", \"tinyllama-pii:latest\", \"medical-mixtral:latest\", \"nomic-embed-text:latest\", \"llama3.1:70b\", \"gemma:latest\"]",
+          "meta": {}
+        }
+      ]
+    },
+    "E2": {
+      "name": "Plain completion",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 3,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "content='ready'",
+          "sample": "ready",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "content='ready'",
+          "sample": "ready",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "content='ready'",
+          "sample": "ready",
+          "meta": {}
+        }
+      ]
+    },
+    "E3": {
+      "name": "Thinking separation",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "reasoning_source=field, content='12'",
+          "sample": "12",
+          "meta": {
+            "reasoning_source": "field"
+          }
+        },
+        {
+          "ok": true,
+          "detail": "reasoning_source=field, content='12'",
+          "sample": "12",
+          "meta": {
+            "reasoning_source": "field"
+          }
+        },
+        {
+          "ok": true,
+          "detail": "reasoning_source=field, content='12'",
+          "sample": "12",
+          "meta": {
+            "reasoning_source": "field"
+          }
+        }
+      ]
+    },
+    "E4": {
+      "name": "Thinking off",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 3,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "reasoning=''",
+          "sample": "4",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "reasoning=''",
+          "sample": "4",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "reasoning=''",
+          "sample": "4",
+          "meta": {}
+        }
+      ]
+    },
+    "E5": {
+      "name": "Single tool call",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        }
+      ]
+    },
+    "E6": {
+      "name": "Tool round trip",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "final_content=\"The search for 'prior outcomes' returned 1 hit:\\n- Doc ID: ZX-4471\"",
+          "sample": "The search for 'prior outcomes' returned 1 hit:\n- Doc ID: ZX-4471",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "final_content='The search for \"prior outcomes\" returned 1 result:\\n\\n- **Document ID:** ZX-4471\\n  - **Snippet:** token ZX-4471 present'",
+          "sample": "The search for \"prior outcomes\" returned 1 result:\n\n- **Document ID:** ZX-4471\n  - **Snippet:** token ZX-4471 present",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "final_content=\"The search for 'prior outcomes' returned 1 hit:\\n\\n*   **Document ID:** ZX-4471\"",
+          "sample": "The search for 'prior outcomes' returned 1 hit:\n\n*   **Document ID:** ZX-4471",
+          "meta": {}
+        }
+      ]
+    },
+    "E7": {
+      "name": "Nested object args",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "tool_call=update_compliance({'item': {'evidence': ['doc-a', 'doc-b'], 'id': 'R-1', 'status': 'met'}})",
+          "sample": "{\"item\":{\"evidence\":[\"doc-a\",\"doc-b\"],\"id\":\"R-1\",\"status\":\"met\"}}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=update_compliance({'item': {'evidence': ['doc-a', 'doc-b'], 'id': 'R-1', 'status': 'met'}})",
+          "sample": "{\"item\":{\"evidence\":[\"doc-a\",\"doc-b\"],\"id\":\"R-1\",\"status\":\"met\"}}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=update_compliance({'item': {'evidence': ['doc-a', 'doc-b'], 'id': 'R-1', 'status': 'met'}})",
+          "sample": "{\"item\":{\"evidence\":[\"doc-a\",\"doc-b\"],\"id\":\"R-1\",\"status\":\"met\"}}",
+          "meta": {}
+        }
+      ]
+    },
+    "E8": {
+      "name": "Streaming tool call",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        }
+      ]
+    },
+    "E9": {
+      "name": "No spurious tool call",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "tool_calls=0, content='4'",
+          "sample": "4",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_calls=0, content='4'",
+          "sample": "4",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_calls=0, content='4'",
+          "sample": "4",
+          "meta": {}
+        }
+      ]
+    },
+    "E10": {
+      "name": "Usage fields",
+      "required": false,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "sample": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "sample": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "sample": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "meta": {}
+        }
+      ]
+    },
+    "E11": {
+      "name": "Decode speed",
+      "required": false,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "completion_tokens=492, total_s=6.48, decode_tps=75.95, ttft_s=0.13316970800042327",
+          "sample": "completion_tokens=492, total_s=6.48, decode_tps=75.95, ttft_s=0.13316970800042327",
+          "meta": {
+            "decode_tps": 75.95391264536458,
+            "ttft_s": 0.13316970800042327
+          }
+        },
+        {
+          "ok": true,
+          "detail": "completion_tokens=505, total_s=6.43, decode_tps=78.57, ttft_s=0.06996370199976809",
+          "sample": "completion_tokens=505, total_s=6.43, decode_tps=78.57, ttft_s=0.06996370199976809",
+          "meta": {
+            "decode_tps": 78.57481086473399,
+            "ttft_s": 0.06996370199976809
+          }
+        },
+        {
+          "ok": true,
+          "detail": "completion_tokens=488, total_s=6.34, decode_tps=77.02, ttft_s=0.08532957599982183",
+          "sample": "completion_tokens=488, total_s=6.34, decode_tps=77.02, ttft_s=0.08532957599982183",
+          "meta": {
+            "decode_tps": 77.02385207066148,
+            "ttft_s": 0.08532957599982183
+          }
+        }
+      ]
+    },
+    "E12": {
+      "name": "Long context",
+      "required": false,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19301, content='ZX-9981'",
+          "sample": "ZX-9981",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19301, content='ZX-9981'",
+          "sample": "ZX-9981",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19301, content='ZX-9981'",
+          "sample": "ZX-9981",
+          "meta": {}
+        }
+      ]
+    }
+  },
+  "overall_passed": true
+}

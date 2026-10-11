@@ -1,0 +1,28 @@
+# Don't copy models into the Docker image (they're mounted at runtime)
+models/
+*.gguf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+new-ft-env/
+.venv/
+venv/
+
+# Git
+.git/
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.md
+*.sh
+!backend/
+!frontend/

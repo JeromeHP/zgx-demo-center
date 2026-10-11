@@ -1,0 +1,4 @@
+# NSF proposal sections under the PAPPG, which NSF 26-516 applies, in drafting order.
+- { id: project_summary, title: "Project Summary", word_target: "1 page" }
+- { id: project_description, title: "Project Description", word_target: "15 pages" }
+- { id: data_management_and_sharing_plan, title: "Data Management and Sharing Plan", word_target: "2 pages" }

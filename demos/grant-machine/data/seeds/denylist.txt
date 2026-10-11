@@ -1,0 +1,14 @@
+# Strings that must never appear in the synthetic vault or generated documents,
+# matched case-insensitively by scripts/validate_vault.py. Real organizations
+# and hardware brand names (Section 0.6: no HP/NVIDIA branding anywhere in the
+# demo) plus real Mid-South community colleges that share HCCC's naming
+# pattern, checked as a regression guard even though direct web searches for
+# the seed's fictional names (Phase 4.3) found no exact collisions.
+HP
+Hewlett-Packard
+Hewlett Packard
+NVIDIA
+Northwest Mississippi Community College
+East Mississippi Community College
+Itawamba Community College
+Holmes Community College

@@ -1,0 +1,12 @@
+fastapi>=0.100.0
+uvicorn[standard]>=0.24.0
+transformers>=4.35.0
+accelerate>=0.25.0
+# bitsandbytes removed 2026-09-21: declared here but imported nowhere in this
+# backend (grep bitsandbytes/load_in_*bit/quantiz -> no hits). It is effectively
+# CUDA-only and was the most likely single point of failure for a ROCm install,
+# in exchange for nothing.
+python-multipart>=0.0.6
+pydantic>=2.0.0
+sentencepiece>=0.1.99
+protobuf>=3.20.0

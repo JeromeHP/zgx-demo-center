@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAWSCL Range Surveillance</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --hp-blue: #0096D6;
+            --hp-dark-blue: #024AD8;
+            --range-bg: #0c0e12;
+            --range-surface: #12151b;
+            --range-panel: #181c24;
+            --range-border: #2a3040;
+            --range-border-light: #3a4258;
+            --range-accent: #d4a843;
+            --range-accent-dim: rgba(212, 168, 67, 0.15);
+            --range-amber: #e8a317;
+            --text-primary: #d8dce6;
+            --text-secondary: #8b92a5;
+            --text-muted: #575e70;
+            --success: #3dbd5d;
+            --warning: #e8a317;
+            --danger: #d94040;
+            --manned-color: #3d8bd4;
+            --unmanned-color: #d4a843;
+            --grid-line: rgba(42, 48, 64, 0.5);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--range-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Subtle grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            background: var(--range-surface);
+            border-bottom: 1px solid var(--range-border);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .hp-logo { height: 30px; }
+
+        .header-divider {
+            width: 1px;
+            height: 28px;
+            background: var(--range-border);
+        }
+
+        .header-title h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.04em;
+        }
+
+        .header-title span {
+            font-size: 0.7rem;
+            color: var(--range-accent);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .nav-emblem { height: 36px; }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-secondary);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Classification Banner */
+        .classification-banner {
+            position: relative;
+            z-index: 1;
+            background: var(--range-bg);
+            border-top: 2px solid var(--success);
+            border-bottom: 1px solid var(--range-border);
+            padding: 0.35rem;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--success);
+            letter-spacing: 0.12em;
+        }
+
+        /* Main Layout */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 0;
+            min-height: calc(100vh - 110px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--range-panel);
+            border-right: 1px solid var(--range-border);
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .panel {
+            background: var(--range-surface);
+            border: 1px solid var(--range-border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            background: var(--range-accent-dim);
+            border-bottom: 1px solid var(--range-border);
+            padding: 0.6rem 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--range-accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .panel-content { padding: 0.85rem; }
+
+        /* Upload Area */
+        .upload-zone {
+            border: 2px dashed var(--range-border);
+            border-radius: 4px;
+            padding: 1.75rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: rgba(212, 168, 67, 0.02);
+        }
+
+        .upload-zone:hover {
+            border-color: var(--range-accent);
+            background: var(--range-accent-dim);
+        }
+
+        .upload-zone.dragover {
+            border-color: var(--success);
+            background: rgba(61, 189, 93, 0.08);
+        }
+
+        .upload-zone.has-image {
+            padding: 0.5rem;
+            border-style: solid;
+            border-color: var(--range-accent);
+        }
+
+        .upload-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            filter: grayscale(0.3);
+        }
+
+        .upload-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .upload-text strong { color: var(--range-accent); }
+
+        .preview-image {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 3px;
+            object-fit: contain;
+        }
+
+        #file-input { display: none; }
+
+        /* Form Controls */
+        .form-group { margin-bottom: 0.85rem; }
+        .form-group:last-child { margin-bottom: 0; }
+
+        .form-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            background: var(--range-bg);
+            border: 1px solid var(--range-border);
+            border-radius: 3px;
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--range-accent);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        /* Analyze Button */
+        .btn-analyze {
+            width: 100%;
+            padding: 0.85rem;
+            background: linear-gradient(135deg, var(--range-accent) 0%, #b8912e 100%);
+            border: none;
+            border-radius: 4px;
+            color: #0c0e12;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-analyze:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(212, 168, 67, 0.25);
+        }
+
+        .btn-analyze:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .btn-analyze.loading {
+            background: var(--range-border);
+            color: var(--text-secondary);
+        }
+
+        /* Results Area */
+        .results-area {
+            padding: 1.25rem 1.5rem;
+            overflow-y: auto;
+        }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 0.75rem;
+            opacity: 0.4;
+        }
+
+        .empty-state h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.35rem;
+        }
+
+        .empty-state p { font-size: 0.85rem; }
+
+        /* Classification Badge */
+        .classification-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+        }
+
+        .badge-manned {
+            background: rgba(61, 139, 212, 0.15);
+            color: var(--manned-color);
+            border: 1px solid var(--manned-color);
+        }
+
+        .badge-unmanned {
+            background: var(--range-accent-dim);
+            color: var(--range-accent);
+            border: 1px solid var(--range-accent);
+        }
+
+        .badge-undetermined {
+            background: rgba(217, 64, 64, 0.12);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        /* Report */
+        .intel-report {
+            background: var(--range-panel);
+            border: 1px solid var(--range-border);
+            border-radius: 4px;
+            overflow: hidden;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .report-header {
+            background: linear-gradient(135deg, rgba(212, 168, 67, 0.1) 0%, rgba(212, 168, 67, 0.02) 100%);
+            border-bottom: 1px solid var(--range-border);
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .report-header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .report-id {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--range-accent);
+        }
+
+        .report-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .report-classification-tag {
+            font-size: 0.65rem;
+            background: rgba(61, 189, 93, 0.12);
+            color: var(--success);
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            border: 1px solid rgba(61, 189, 93, 0.3);
+        }
+
+        .report-body { padding: 1.25rem; }
+
+        .report-section { margin-bottom: 1.25rem; }
+        .report-section:last-child { margin-bottom: 0; }
+
+        .report-section-title {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.4rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid var(--range-border);
+        }
+
+        .report-field {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 0.4rem;
+            margin-bottom: 0.35rem;
+            font-size: 0.8rem;
+        }
+
+        .report-field-label { color: var(--text-muted); }
+        .report-field-value { color: var(--text-primary); }
+        .report-field-value.highlight { color: var(--range-accent); font-weight: 600; }
+
+        .analysis-content {
+            background: var(--range-bg);
+            border: 1px solid var(--range-border);
+            border-radius: 3px;
+            padding: 0.85rem;
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            white-space: pre-wrap;
+        }
+
+        .token-bar {
+            display: flex;
+            gap: 1.5rem;
+            padding: 0.75rem 0.85rem;
+            background: var(--range-bg);
+            border: 1px solid var(--range-border);
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        .token-item { display: flex; gap: 0.4rem; }
+        .token-label { color: var(--text-muted); }
+        .token-value { color: var(--text-primary); font-weight: 600; }
+        .token-value.total { color: var(--range-accent); }
+
+        /* Loading Animation */
+        .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid transparent;
+            border-top-color: currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 1;
+            background: var(--range-surface);
+            border-top: 1px solid var(--range-border);
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-container { grid-template-columns: 1fr; }
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--range-border);
+            }
+            .results-area { min-height: 60vh; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <img src="/static/hp_logo.png" alt="HP" class="hp-logo">
+            <div class="header-divider"></div>
+            <div class="header-title">
+                <h1>NAWSCL Range Surveillance</h1>
+                <span data-zgx-device="Aircraft Classification System // {}">Aircraft Classification System</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="/static/Navy-Emblem.png" alt="US Navy" class="nav-emblem">
+            <div class="status-indicator">
+                <div class="status-dot" id="status-dot"></div>
+                <span id="status-text">SYS READY</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="classification-banner">
+        UNCLASSIFIED // FOR DEMONSTRATION PURPOSES ONLY // NAWSCL CHINA LAKE
+    </div>
+
+    <main class="main-container">
+        <aside class="sidebar">
+            <div class="panel">
+                <div class="panel-header">
+                    <span>&#9678;</span> Imagery Upload
+                </div>
+                <div class="panel-content">
+                    <div class="upload-zone" id="upload-zone">
+                        <input type="file" id="file-input" accept="image/*">
+                        <div id="upload-placeholder">
+                            <div class="upload-icon">&#9992;</div>
+                            <div class="upload-text">
+                                <strong>Click to upload</strong> or drag and drop<br>
+                                Range imagery (PNG, JPG)
+                            </div>
+                        </div>
+                        <img id="preview-image" class="preview-image" style="display: none;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <span>&#9632;</span> Range Area
+                </div>
+                <div class="panel-content">
+                    <div class="form-group">
+                        <label class="form-label" for="range-select">Select Test Range</label>
+                        <select class="form-select" id="range-select">
+                            <option value="baker_range">Baker Range (R-2508N)</option>
+                            <option value="charlie_range">Charlie Range (R-2508S)</option>
+                            <option value="coso_range">Coso Range Complex</option>
+                            <option value="armitage_field">Armitage Airfield</option>
+                            <option value="superior_valley">Superior Valley Range</option>
+                            <option value="north_range">North Range (R-2502)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="custom-instructions">Additional Guidance</label>
+                        <textarea
+                            class="form-textarea"
+                            id="custom-instructions"
+                            placeholder="Optional: focus areas, specific platform types, test event context..."
+                        ></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-analyze" id="analyze-btn" disabled>
+                <span class="btn-text">Classify Aircraft</span>
+            </button>
+        </aside>
+
+        <section class="results-area" id="results-area">
+            <div class="empty-state" id="empty-state">
+                <div class="empty-state-icon">&#9708;</div>
+                <h3>No Analysis Generated</h3>
+                <p>Upload range imagery and select a test area to classify aircraft.</p>
+            </div>
+            <div id="report-container" style="display: none;"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-brand">
+            <svg height="14" viewBox="0 0 100 100" fill="currentColor">
+                <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="4"/>
+                <text x="50" y="62" text-anchor="middle" font-size="32" font-weight="bold">HP</text>
+            </svg>
+            <span data-zgx-device="{} AI Station">AI Station</span>
+        </div>
+        <div>
+            <span id="timestamp"></span>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const uploadZone = document.getElementById('upload-zone');
+        const fileInput = document.getElementById('file-input');
+        const previewImage = document.getElementById('preview-image');
+        const uploadPlaceholder = document.getElementById('upload-placeholder');
+        const rangeSelect = document.getElementById('range-select');
+        const customInstructions = document.getElementById('custom-instructions');
+        const analyzeBtn = document.getElementById('analyze-btn');
+        const resultsArea = document.getElementById('results-area');
+        const emptyState = document.getElementById('empty-state');
+        const reportContainer = document.getElementById('report-container');
+        const statusDot = document.getElementById('status-dot');
+        const statusText = document.getElementById('status-text');
+        const timestampEl = document.getElementById('timestamp');
+
+        let selectedFile = null;
+
+        // Update timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            timestampEl.textContent = now.toISOString().replace('T', ' ').substring(0, 19) + 'Z';
+        }
+        updateTimestamp();
+        setInterval(updateTimestamp, 1000);
+
+        // File Upload Handlers
+        uploadZone.addEventListener('click', () => fileInput.click());
+
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('dragover');
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('dragover');
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0 && files[0].type.startsWith('image/')) {
+                handleFile(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            selectedFile = file;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImage.src = e.target.result;
+                previewImage.style.display = 'block';
+                uploadPlaceholder.style.display = 'none';
+                uploadZone.classList.add('has-image');
+            };
+            reader.readAsDataURL(file);
+            analyzeBtn.disabled = false;
+        }
+
+        // Analysis
+        analyzeBtn.addEventListener('click', async () => {
+            if (!selectedFile) return;
+
+            analyzeBtn.disabled = true;
+            analyzeBtn.classList.add('loading');
+            analyzeBtn.innerHTML = '<div class="spinner"></div><span>Classifying...</span>';
+            statusDot.style.background = 'var(--warning)';
+            statusText.textContent = 'PROCESSING';
+
+            const formData = new FormData();
+            formData.append('image', selectedFile);
+            formData.append('range_area', rangeSelect.value);
+            formData.append('custom_instructions', customInstructions.value);
+
+            try {
+                const response = await fetch('/api/analyze', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Analysis failed: ${response.statusText}`);
+                }
+
+                const report = await response.json();
+                displayReport(report);
+
+                statusDot.style.background = 'var(--success)';
+                statusText.textContent = 'REPORT READY';
+
+            } catch (error) {
+                console.error('Analysis error:', error);
+                statusDot.style.background = 'var(--danger)';
+                statusText.textContent = 'ANALYSIS FAILED';
+                alert('Failed to classify aircraft: ' + error.message);
+            } finally {
+                analyzeBtn.disabled = false;
+                analyzeBtn.classList.remove('loading');
+                analyzeBtn.innerHTML = '<span class="btn-text">Classify Aircraft</span>';
+            }
+        });
+
+        function getBadgeClass(mannedUnmanned) {
+            if (mannedUnmanned === 'MANNED') return 'badge-manned';
+            if (mannedUnmanned === 'UNMANNED') return 'badge-unmanned';
+            return 'badge-undetermined';
+        }
+
+        function getBadgeIcon(mannedUnmanned) {
+            if (mannedUnmanned === 'MANNED') return '\u2708';
+            if (mannedUnmanned === 'UNMANNED') return '\u25C8';
+            return '?';
+        }
+
+        function displayReport(report) {
+            emptyState.style.display = 'none';
+            reportContainer.style.display = 'block';
+
+            const badgeClass = getBadgeClass(report.manned_unmanned);
+            const badgeIcon = getBadgeIcon(report.manned_unmanned);
+
+            reportContainer.innerHTML = `
+                <div class="intel-report">
+                    <div class="report-header">
+                        <div class="report-header-left">
+                            <div class="report-id">${report.report_id}</div>
+                            <div class="report-time">${report.capture_time}</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span class="classification-badge ${badgeClass}">${badgeIcon} ${report.manned_unmanned}</span>
+                            <span class="report-classification-tag">${report.classification}</span>
+                        </div>
+                    </div>
+                    <div class="report-body">
+                        <div class="report-section">
+                            <div class="report-section-title">Platform Classification</div>
+                            <div class="report-field">
+                                <span class="report-field-label">Status:</span>
+                                <span class="report-field-value highlight">${report.manned_unmanned}</span>
+                            </div>
+                            <div class="report-field">
+                                <span class="report-field-label">Category:</span>
+                                <span class="report-field-value">${report.platform_category}</span>
+                            </div>
+                            ${report.platform_match ? `
+                            <div class="report-field">
+                                <span class="report-field-label">Platform ID:</span>
+                                <span class="report-field-value highlight">${report.platform_match}</span>
+                            </div>
+                            ` : ''}
+                        </div>
+
+                        <div class="report-section">
+                            <div class="report-section-title">Position Data [Synthetic]</div>
+                            <div class="report-field">
+                                <span class="report-field-label">Coordinates:</span>
+                                <span class="report-field-value highlight">${report.location.coordinates_dms}</span>
+                            </div>
+                            <div class="report-field">
+                                <span class="report-field-label">Decimal:</span>
+                                <span class="report-field-value">${report.location.coordinates_decimal.lat}, ${report.location.coordinates_decimal.lon}</span>
+                            </div>
+                            <div class="report-field">
+                                <span class="report-field-label">Grid Reference:</span>
+                                <span class="report-field-value">${report.location.grid_reference}</span>
+                            </div>
+                            <div class="report-field">
+                                <span class="report-field-label">Relative:</span>
+                                <span class="report-field-value">${report.location.relative_position}</span>
+                            </div>
+                            <div class="report-field">
+                                <span class="report-field-label">Range Area:</span>
+                                <span class="report-field-value">${report.location.range_area}</span>
+                            </div>
+                            <div class="report-field">
+                                <span class="report-field-label">Altitude:</span>
+                                <span class="report-field-value">${report.location.altitude_ft.toLocaleString()} ft MSL</span>
+                            </div>
+                        </div>
+
+                        <div class="report-section">
+                            <div class="report-section-title">Full Analysis</div>
+                            <div class="analysis-content">${escapeHtml(report.analysis)}</div>
+                        </div>
+
+                        ${report.token_usage ? `
+                        <div class="report-section">
+                            <div class="report-section-title">Token Consumption</div>
+                            <div class="token-bar">
+                                <div class="token-item">
+                                    <span class="token-label">Prompt:</span>
+                                    <span class="token-value">${report.token_usage.prompt_tokens.toLocaleString()}</span>
+                                </div>
+                                <div class="token-item">
+                                    <span class="token-label">Completion:</span>
+                                    <span class="token-value">${report.token_usage.completion_tokens.toLocaleString()}</span>
+                                </div>
+                                <div class="token-item">
+                                    <span class="token-label">Total:</span>
+                                    <span class="token-value total">${report.token_usage.total_tokens.toLocaleString()}</span>
+                                </div>
+                            </div>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Health check
+        async function checkHealth() {
+            try {
+                const response = await fetch('/api/health');
+                const data = await response.json();
+                if (data.vllm_server === 'ready') {
+                    statusDot.style.background = 'var(--success)';
+                    statusText.textContent = 'SYS READY';
+                } else {
+                    statusDot.style.background = 'var(--warning)';
+                    statusText.textContent = 'MODEL LOADING';
+                }
+            } catch {
+                statusDot.style.background = 'var(--danger)';
+                statusText.textContent = 'CONN ERROR';
+            }
+        }
+
+        checkHealth();
+    </script>
+<!-- zgx-device-label:begin (generated by scripts/sync_device_label.sh) -->
+<script>
+// Fill any [data-zgx-device] element with the machine the Demo Center detected.
+//
+// Every demo frontend used to hardcode "Powered by HP ZGX Nano" -- and the
+// pharmacy one went further with "with NVIDIA Grace Blackwell GB10". At an
+// AMD-funded show those lines sell the wrong vendor from the demo's own screen,
+// and there is no way to fix them except editing HTML per event.
+//
+// The attribute's value is a template; "{}" is replaced by the device label.
+//   <span data-zgx-device="Powered by {}">Powered by this AI Station</span>
+//
+// If /sysinfo cannot be reached the element keeps whatever it already says, so
+// the fallback text in the markup must name NO vendor. A demo that stays
+// generic is fine; a demo that confidently names the wrong silicon is not.
+//
+// Source of truth: demos/scripts/zgx-device-label.js. The copies inlined into
+// each frontend are kept in sync by scripts/sync_device_label.sh, and checked
+// by scripts/audit_hardware_strings.sh.
+(function () {
+  var els = document.querySelectorAll('[data-zgx-device]');
+  if (!els.length) return;
+  fetch('http://' + location.hostname + ':8086/sysinfo')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (hw) {
+      if (!hw || !hw.device_label) return;
+      for (var i = 0; i < els.length; i++) {
+        var tpl = els[i].getAttribute('data-zgx-device') || '{}';
+        els[i].textContent = tpl.replace('{}', hw.device_label);
+      }
+    })
+    .catch(function () { /* offline or launcher not running: keep the neutral text */ });
+})();
+</script>
+<!-- zgx-device-label:end -->
+<!-- zgx-ui:begin (generated by scripts/sync_ui.py — edit demos/ui/, not this) -->
+<style>
+/* ZGX demo chrome — the shared frame every demo wears.
+ *
+ * Fixed: the bar, the meter strip, the footer. Free: everything between them.
+ * Tokens live on :root so a demo can match its own palette without forking the
+ * layout; scripts/audit_ui_standard.sh checks nobody forks the layout anyway.
+ *
+ * The meter vocabulary (.zgx-meter / -label / -value / -sub) is lifted from
+ * grant-machine's web/styles.css, which already had it working — including
+ * font-variant-numeric: tabular-nums, the detail that stops a climbing counter
+ * jittering as its digits change width.
+ */
+
+:root {
+  --zgx-bar-bg: #0e1420;
+  --zgx-bar-fg: #e6edf6;
+  --zgx-bar-dim: #8fa3bd;
+  --zgx-bar-line: #1f2b3d;
+  --zgx-accent: #0096d6;         /* HP blue */
+  --zgx-ok: #35c46b;
+  --zgx-warn: #d9a441;
+  --zgx-bar-h: 56px;
+}
+
+#zgx-chrome { display: none; }   /* the marker element itself is never shown */
+
+.zgx-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--zgx-bar-h);
+  z-index: 2147483000;           /* above demo overlays, below nothing */
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 16px;
+  background: var(--zgx-bar-bg);
+  color: var(--zgx-bar-fg);
+  border-bottom: 1px solid var(--zgx-bar-line);
+  font: 500 13px/1.2 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+.zgx-bar *, .zgx-bar *::before, .zgx-bar *::after { box-sizing: border-box; }
+
+/* The approved logo artwork has an opaque white background, so it sits on a
+ * light plate rather than being alpha-keyed. */
+.zgx-logo-plate {
+  flex: 0 0 auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 4px 7px;
+  display: flex;
+  align-items: center;
+}
+.zgx-logo-plate img { display: block; height: 30px; width: auto; }
+
+.zgx-titles { flex: 0 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.zgx-title { font-size: 14px; font-weight: 650; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.zgx-subtitle { font-size: 11px; color: var(--zgx-bar-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.zgx-meters { flex: 1 1 auto; display: flex; gap: 14px; justify-content: flex-end; align-items: center; overflow: hidden; }
+
+.zgx-meter { display: flex; flex-direction: column; align-items: flex-end; min-width: 62px; }
+.zgx-meter-label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--zgx-bar-dim); white-space: nowrap; }
+.zgx-meter-value {
+  font-size: 17px; font-weight: 700; line-height: 1.15;
+  font-variant-numeric: tabular-nums;   /* keeps a counting number from jittering */
+  white-space: nowrap;
+}
+.zgx-meter-sub { font-size: 10px; color: var(--zgx-bar-dim); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.zgx-meter-value.zgx-unknown { color: var(--zgx-bar-dim); font-weight: 500; }
+.zgx-meter-value.zgx-accent { color: var(--zgx-accent); }
+
+.zgx-sep { width: 1px; align-self: stretch; margin: 10px 0; background: var(--zgx-bar-line); flex: 0 0 auto; }
+
+.zgx-device { flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; max-width: 210px; }
+.zgx-device-label { font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
+.zgx-device-sub { font-size: 10px; color: var(--zgx-bar-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
+
+/* The chrome is fixed, so the page is pushed down by exactly its height. */
+body.zgx-chromed { padding-top: var(--zgx-bar-h) !important; }
+
+/* The chrome owns the logo, so a demo's own copy is hidden rather than shown
+ * twice. Five demos shipped their own hp_logo.png (three DIFFERENT files under
+ * the same name), and stacking the canonical one above a divergent one is the
+ * opposite of a standard.
+ *
+ * Safe to match this broadly: the chrome's own logo is a data: URI, so it can
+ * never match src*="hp_logo". Rule removed and the demo's logo returns. */
+body.zgx-chromed img[src*="hp_logo"] { display: none !important; }
+
+.zgx-foot {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  z-index: 2147482999;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; padding: 4px 14px;
+  background: var(--zgx-bar-bg); color: var(--zgx-bar-dim);
+  border-top: 1px solid var(--zgx-bar-line);
+  font: 500 11px/1.3 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+body.zgx-chromed-foot { padding-bottom: 26px !important; }
+.zgx-foot .zgx-local { color: var(--zgx-ok); }
+
+@media (max-width: 1100px) {
+  .zgx-meter:nth-child(n+5) { display: none; }   /* shed the least critical meters first */
+  .zgx-subtitle { display: none; }
+}
+@media (max-width: 760px) {
+  .zgx-meters { display: none; }
+}
+</style>
+<div id="zgx-chrome" data-demo="ballistics" data-title="NAWSCL Aircraft Classification" data-subtitle="Defense / Range Surveillance" data-logo="data:image/png;base64,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"></div>
+<script>
+/* ZGX demo chrome — builds the shared bar and owns every poll.
+ *
+ * One rule this file will not bend: a value that was not received renders as an
+ * em-dash, never as 0. Zero watts, zero degrees and zero tokens are all readings
+ * an audience will believe. This project has repeatedly found meters that showed
+ * a plausible number while measuring nothing — a hardcoded "102 GB / 128 GB"
+ * captioned as live NVML, a launcher bar of typed-in green ticks, a token count
+ * that was a chars/4 guess. The chrome does not add to that list.
+ *
+ * Data sources, both optional:
+ *   GET  {launcher}/telemetry   host GPU/CPU — read by the BROWSER, not the
+ *                               demo's backend, so containerised demos with no
+ *                               GPU tooling and no host route still show it.
+ *   GET  ./api/metrics          the demo's own tokens. 404 = no LLM, panel hidden.
+ *   GET  {launcher}/sysinfo     device identity.
+ */
+(function () {
+  "use strict";
+
+  var mount = document.getElementById("zgx-chrome");
+  if (!mount || window.__zgxChromeLoaded) return;
+  window.__zgxChromeLoaded = true;
+
+  var LAUNCHER = "http://" + location.hostname + ":8086";
+  var DASH = "—";
+
+  var cfg = {
+    title: mount.getAttribute("data-title") || document.title || "ZGX Demo",
+    subtitle: mount.getAttribute("data-subtitle") || "",
+    logo: mount.getAttribute("data-logo") || "hp_logo.png",
+    metrics: mount.getAttribute("data-metrics") || "/api/metrics",
+    foot: mount.getAttribute("data-foot") !== "off"
+  };
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function meter(id, label, sub) {
+    var m = el("div", "zgx-meter");
+    m.appendChild(el("span", "zgx-meter-label", label));
+    var v = el("span", "zgx-meter-value zgx-unknown", DASH);
+    v.id = "zgx-" + id;
+    m.appendChild(v);
+    var s = el("span", "zgx-meter-sub", sub || "");
+    s.id = "zgx-" + id + "-sub";
+    m.appendChild(s);
+    return m;
+  }
+
+  // ── build ────────────────────────────────────────────────────────────────
+  var bar = el("div", "zgx-bar");
+
+  var plate = el("div", "zgx-logo-plate");
+  var img = document.createElement("img");
+  img.src = cfg.logo;
+  img.alt = "HP";
+  // A demo served from a subpath may not resolve the relative logo; fall back
+  // to the launcher's copy rather than showing a broken-image glyph on stage.
+  img.onerror = function () {
+    if (img.dataset.fellBack) { plate.style.display = "none"; return; }
+    img.dataset.fellBack = "1";
+    img.src = LAUNCHER + "/ui/brand/hp_logo.png";
+  };
+  plate.appendChild(img);
+  bar.appendChild(plate);
+
+  var titles = el("div", "zgx-titles");
+  titles.appendChild(el("div", "zgx-title", cfg.title));
+  if (cfg.subtitle) titles.appendChild(el("div", "zgx-subtitle", cfg.subtitle));
+  bar.appendChild(titles);
+
+  var meters = el("div", "zgx-meters");
+  var tokenPanel = el("div", "zgx-meters");          // hidden until /api/metrics answers
+  tokenPanel.style.display = "none";
+  tokenPanel.style.flex = "0 0 auto";
+  tokenPanel.appendChild(meter("tokens", "Tokens", "this session"));
+  tokenPanel.appendChild(meter("tps", "Tok/s", ""));
+  meters.appendChild(tokenPanel);
+  meters.appendChild(el("div", "zgx-sep"));
+  meters.appendChild(meter("gpu", "GPU", ""));
+  meters.appendChild(meter("power", "Power", ""));
+  meters.appendChild(meter("temp", "Temp", ""));
+  meters.appendChild(meter("mem", "Memory", ""));
+  meters.appendChild(meter("cpu", "CPU", ""));
+  bar.appendChild(meters);
+
+  bar.appendChild(el("div", "zgx-sep"));
+  var dev = el("div", "zgx-device");
+  var devLabel = el("div", "zgx-device-label", DASH);
+  devLabel.id = "zgx-device-label";
+  var devSub = el("div", "zgx-device-sub", "");
+  devSub.id = "zgx-device-sub";
+  dev.appendChild(devLabel);
+  dev.appendChild(devSub);
+  bar.appendChild(dev);
+
+  document.body.appendChild(bar);
+  document.body.classList.add("zgx-chromed");
+
+  if (cfg.foot) {
+    var foot = el("div", "zgx-foot");
+    var left = el("span", "zgx-local", "All inference on this device · no cloud");
+    var right = el("span", null, "");
+    right.id = "zgx-foot-right";
+    foot.appendChild(left);
+    foot.appendChild(right);
+    document.body.appendChild(foot);
+    document.body.classList.add("zgx-chromed-foot");
+  }
+
+  // ── render helpers ───────────────────────────────────────────────────────
+  function set(id, value, unit, digits) {
+    var n = document.getElementById("zgx-" + id);
+    if (!n) return;
+    if (value === null || value === undefined || value === "" || Number.isNaN(value)) {
+      n.textContent = DASH;
+      n.classList.add("zgx-unknown");
+      return;
+    }
+    var shown = (typeof value === "number" && digits !== undefined) ? value.toFixed(digits) : value;
+    n.textContent = shown + (unit || "");
+    n.classList.remove("zgx-unknown");
+  }
+  function setSub(id, text) {
+    var n = document.getElementById("zgx-" + id + "-sub");
+    if (n) n.textContent = text == null ? "" : text;
+  }
+
+  // ── hardware, from the launcher ──────────────────────────────────────────
+  function pollTelemetry() {
+    fetch(LAUNCHER + "/telemetry", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (t) {
+        if (!t) throw new Error("no telemetry");
+        set("gpu", t.util_pct, "%");
+        set("power", t.power_w, " W", 0);
+        set("temp", t.temp_c, "°C");
+        set("mem", t.mem_used_gb, " GB", 1);
+        setSub("mem", t.mem_total_gb ? "of " + t.mem_total_gb + " GB" : "");
+        set("cpu", t.cpu_pct, "%", 0);
+        setSub("cpu", t.ram_pct != null ? "RAM " + Math.round(t.ram_pct) + "%" : "");
+        setSub("gpu", t.source && t.source !== "none" ? t.source : "");
+        var fr = document.getElementById("zgx-foot-right");
+        if (fr) {
+          fr.textContent = [t.vendor && t.vendor !== "unknown" ? t.vendor : null,
+                            t.source && t.source !== "none" ? t.source : null]
+                           .filter(Boolean).join(" · ");
+        }
+      })
+      .catch(function () {
+        // Launcher down: clear every hardware meter. Leaving the last reading
+        // on screen would be a stale number presented as live.
+        ["gpu", "power", "temp", "mem", "cpu"].forEach(function (k) { set(k, null); setSub(k, ""); });
+      });
+  }
+
+  // ── tokens, from the demo itself ─────────────────────────────────────────
+  var tokensSupported = null;
+  function pollMetrics() {
+    if (tokensSupported === false) return;
+    fetch(cfg.metrics, { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (m) {
+        if (!m || typeof m.total_tokens !== "number") throw new Error("no metrics");
+        tokensSupported = true;
+        tokenPanel.style.display = "";
+        var approx = m.estimated ? "≈" : "";
+        set("tokens", approx + m.total_tokens.toLocaleString());
+        setSub("tokens", m.requests != null ? m.requests + " request" + (m.requests === 1 ? "" : "s") : "this session");
+        set("tps", m.tps, "", 1);
+      })
+      .catch(function () {
+        // A demo with no LLM serves no /api/metrics. Hide the panel rather than
+        // show a zero that would read as "this demo processed nothing".
+        if (tokensSupported === null) { tokensSupported = false; tokenPanel.style.display = "none"; }
+      });
+  }
+
+  function loadIdentity() {
+    fetch(LAUNCHER + "/sysinfo", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (hw) {
+        if (!hw) return;
+        var label = document.getElementById("zgx-device-label");
+        var sub = document.getElementById("zgx-device-sub");
+        label.textContent = label.title = hw.device_label || DASH;
+        // Some vendors' device names run long (marketing name plus arch id); the CSS
+        // ellipsizes both lines and the title keeps the full text on hover.
+        sub.textContent = sub.title =
+          [hw.accelerator !== "unknown" ? hw.accelerator : null, hw.arch].filter(Boolean).join(" · ");
+      })
+      .catch(function () {
+        document.getElementById("zgx-device-label").textContent = "hardware unknown";
+      });
+  }
+
+  loadIdentity();
+  pollTelemetry();
+  pollMetrics();
+  setInterval(pollTelemetry, 2000);
+  setInterval(pollMetrics, 2000);
+})();
+</script>
+<!-- zgx-ui:end -->
+</body>
+</html>

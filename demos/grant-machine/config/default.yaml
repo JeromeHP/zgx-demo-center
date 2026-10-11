@@ -1,0 +1,104 @@
+llm:
+  base_url: "http://127.0.0.1:8080/v1"
+  api_key: "not-needed"
+  model: "qwen3.6-35b-a3b"
+  request_timeout_s: 900
+  reasoning_mode: "auto"          # auto | field | inline_tags
+  # chat_template  -> send chat_template_kwargs.enable_thinking (llama-server, vLLM)
+  # reasoning_effort -> send reasoning_effort: medium|none (Ollama, which ignores
+  #                     chat_template_kwargs entirely). See docs/DEMO_CENTER_INTEGRATION.md.
+  thinking_control: "chat_template"
+  context_tokens: 65536           # Phase 2.5 context sizing: 65536 loads fine (12s) and a 19,303-token prompt completed
+  profiles:
+    # Sampling values from the Qwen3.6 model card "Best Practices".
+    orchestrator:                 # thinking mode, general tasks
+      enable_thinking: true
+      temperature: 1.0
+      top_p: 0.95
+      top_k: 20
+      min_p: 0.0
+      presence_penalty: 1.5
+      max_tokens: 8192
+    drafter:                      # instruct mode, general tasks
+      enable_thinking: false
+      temperature: 0.7
+      top_p: 0.8
+      top_k: 20
+      min_p: 0.0
+      presence_penalty: 1.5
+      max_tokens: 3000
+    reviewer:                     # instruct mode, general; JSON output
+      enable_thinking: false
+      temperature: 0.7
+      top_p: 0.8
+      top_k: 20
+      min_p: 0.0
+      presence_penalty: 1.5
+      max_tokens: 2000
+    extractor:                    # thinking mode for requirement extraction (offline script)
+      enable_thinking: true
+      temperature: 1.0
+      top_p: 0.95
+      top_k: 20
+      min_p: 0.0
+      presence_penalty: 1.5
+      max_tokens: 8192
+
+server:
+  host: "0.0.0.0"
+  port: 8095
+
+agent:
+  max_steps: 60
+  max_revisions_per_section: 2
+  review_pass_threshold: 4.0      # mean criterion score (1-5) to pass
+  max_tool_result_chars: 6000
+  scopes:
+    quick:
+      sections: ["results_prior_support"]
+      required_tools: ["get_requirements", "check_budget"]
+    full:
+      sections: ["project_summary", "results_prior_support", "evaluation_plan"]
+      required_tools: ["get_requirements", "check_budget"]
+
+budget:
+  track: "track_2"
+  equipment_threshold_usd: 10000  # verify against current 2 CFR 200 and institutional policy
+
+# The outbound boundary. app/egress.py is the only way out of the app, and these
+# are its limits. The vocabulary is an ALLOWLIST: a search term that does not match
+# an entry under vocabulary_dir never leaves the device, so widening that directory
+# is the one change that actually changes what can be transmitted.
+egress:
+  enabled: true
+  vocabulary_dir: "data/vocabulary"
+  max_requests_per_run: 40      # per run; a runaway agent cannot hammer the network
+  timeout_s: 30.0
+  max_response_bytes: 5000000
+  max_term_words: 6             # longer phrases read as lifted text, not field names
+  ngram_len: 3                  # upload n-gram length for the payload backstop scan
+  searxng_url: ""               # self-hosted SearXNG for general web search; empty = disabled
+  max_page_chars: 40000         # cap on a single fetched page
+
+uploads:
+  max_bytes: 20000000
+  max_pdf_pages: 200
+  allowed_extensions: [".pdf", ".html", ".htm", ".md", ".txt"]
+
+demo:
+  # Shown in the header, the replay banner and the PDF packet. Deliberately
+  # names no machine: the Demo Center launcher overrides it with detected
+  # hardware, and a wrong machine name in a generated packet outlives the demo.
+  device_label: "this AI Station"
+  human_baseline_minutes:        # null = UI shows "not configured"; set only with a defensible source
+    compliance_matrix: null
+    budget_review: null
+    section_draft: null
+  cloud_pricing:                 # null = cost meter hidden; set only from a dated public price list
+    input_per_million_usd: null
+    output_per_million_usd: null
+    label: null                  # e.g., "Frontier API list price, as of <date>"
+  connectivity_probe:
+    hosts: ["1.1.1.1:443", "9.9.9.9:443"]
+    interval_s: 3
+    timeout_s: 1.0

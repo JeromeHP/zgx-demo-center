@@ -1,0 +1,228 @@
+# Second scenario: a research institute, to exercise Discover and Grade the way a
+# university would. Harrow Creek is a two-year technician college and does no
+# research, so it could never demonstrate "find grants for our research group".
+#
+# Fictional, like the first one. Names were chosen to be distinctive rather than
+# plausible-sounding, so they do not collide with a real institution. It applies to the
+# real NSF 26-516 (GEO Core, Ocean Sciences), prepared under the PAPPG; its budget is
+# scaled from real Physical Oceanography awards (data/anchors/meridian.json) and its money
+# rules are quoted in data/scenarios/meridian/solicitation/budget_rules.yaml.
+disclaimer: "Fictional institution. All people, organizations, figures, and documents are synthetic."
+
+institution:
+  name: "Calderwick Institute for Coastal Systems"
+  short_name: "CICS"
+  type: "Research institute within a public doctoral university"
+  service_area: "Mid-Atlantic estuarine and nearshore systems (fictional)"
+  parent_university: "Alderbrook State University"
+  research_staff: 41
+  graduate_students: 28
+  annual_research_expenditure_usd: 9400000
+  director: "Dr. Halvard Mensing"
+
+people:
+  pi: { name: "Dr. Imogen Sarkissian", title: "Associate Director, Coastal Process Modelling" }
+  co_pi: { name: "Dr. Toma Weyland", title: "Research Scientist, Sediment Dynamics" }
+  grants_director: { name: "Beatrix Okonjo-Hale", title: "Director of Research Administration" }
+  evaluator: { org: "Fernlake Program Assessment", lead: "Dr. Soren Ashby-Quill" }
+
+prior_award:
+  id: "CICS-FICT-OCE-2021"
+  title: "Sediment Transport Under Compound Flooding in Microtidal Estuaries"
+  funder: "NSF Division of Ocean Sciences (fictional prior award for demo purposes)"
+  amount_usd: 842600
+  start: "2021-08-01"
+  end: "2025-07-31"
+  outcomes:
+    # Planted: the proposal draft will claim all 8 planned field campaigns were completed.
+    peer_reviewed_papers: 9
+    graduate_students_supported: 4
+    datasets_published: 3
+    field_campaigns_completed: 5
+    field_campaigns_claimed_in_draft: 8
+    field_campaigns_planned: 8
+    instrument_deployments: 22
+
+new_project:
+  title: "Compound Flood Forecasting for Under-Instrumented Estuaries"
+  short_name: "CFFUE"
+  track: "track_2"
+  years: 3
+  start: "2027-07-01"
+
+solicitation:
+  real: true
+  id: "NSF 26-516"
+  agency: "NSF"
+  program: "Geosciences Core Research: Atmospheric, Geospace, Earth and Ocean Sciences (GEO Core)"
+  track: "Ocean Sciences"
+
+# Three years, about $1.0M in total: real Physical Oceanography projects in the anchors
+# run roughly $380K-$940K. NSF allows salary escalation and limits senior personnel to
+# two months a year; both PIs budget one summer month. One error is planted: six $4,200
+# pressure loggers are budgeted as equipment, which starts at $10,000 a unit.
+budget:
+  fringe_rate_pct: 31.5
+  salary_escalation_pct: 3.0
+  lines:
+    - { category: senior_personnel, line_item: "PI: Dr. Imogen Sarkissian (1 summer month)", amount_usd: 14500 }
+    - { category: senior_personnel, line_item: "Co-PI: Dr. Toma Weyland (1 summer month)", amount_usd: 11000 }
+    - { category: other_personnel, line_item: "Postdoctoral researcher (100%)", amount_usd: 62000 }
+    - { category: other_personnel, line_item: "Graduate research assistant", amount_usd: 30000 }
+    - { category: tuition_remission, line_item: "Graduate tuition remission", amount_usd: 14000 }
+    - { category: equipment, line_item: "Acoustic Doppler current profiler", amount_usd: [48000, 0, 0], units: 1 }
+    - { category: equipment, line_item: "Bottom-mounted pressure loggers", amount_usd: [25200, 0, 0], units: 6 }
+    - { category: materials_supplies, line_item: "Moorings, batteries and field consumables", amount_usd: 8000 }
+    - { category: other_direct, line_item: "Research vessel time", amount_usd: 18000 }
+    - { category: travel, line_item: "Field deployment and conference travel", amount_usd: 9000 }
+    - { category: other_direct, line_item: "Publication and data archiving costs", amount_usd: 3000 }
+
+rates:
+  fringe_rate_agreement_pct: 31.5
+  fringe_rate_agreement_doc: "cics-rate-agreement-fy2026"
+  indirect_rate_pct: 54.5        # an on-campus research rate, unlike a college's
+  indirect_base: "MTDC"
+
+collaborators:
+  - { name: "Rowan Tidal Observatory", letter_doc: "cics-letter-rowan-2026", letter_date: "2026-08-05", references_project: "CFFUE" }
+  - { name: "Quillon County Emergency Management", letter_doc: "cics-letter-quillon-2026", letter_date: "2026-08-18", references_project: "CFFUE" }
+
+planted_issues:
+  - "Six $4,200 pressure loggers are budgeted as equipment; NSF's equipment threshold is $10,000 a unit"
+  - "The budget supports a postdoc and a graduate student, but no Mentoring Plan is among the prepared documents"
+  - "Draft claims all 8 planned field campaigns; the record shows 5 completed"
+  - "PI committed effort across current and pending support exceeds 100%"
+
+csv_documents:
+  budget: "cics-budget-cffue-draft"
+  outcomes: "cics-prior-outcomes-data"
+
+# Facts the generated documents must still contain. Every planted issue is a fact
+# that has to survive regeneration, and nothing but a check like this keeps it true --
+# the first generated biosketch reported a healthy 12% total and quietly defeated the
+# effort over-commitment issue declared below.
+key_facts:
+  cics-prior-outcomes-data: [9, 4, 3]
+  cics-prior-award-final-report-2025: [9, 4]
+  cics-rate-agreement-fy2026: ["31.5", "54.5"]
+  cics-bio-sarkissian: ["35%", "30%", "25%", "17%"]
+  cics-proposal-document-checklist-2026: ["Data Management and Sharing Plan", "Biographical Sketch"]
+
+must_not_contain:
+  cics-bio-sarkissian: ["significant availability", "maintains availability"]
+  # Planted: the plan is missing, so the checklist must not list it.
+  cics-proposal-document-checklist-2026: ["Mentoring Plan", "mentoring plan", "mentoring"]
+
+demo_context:
+  today: "2026-09-19"
+  deadline: "2026-11-05"
+
+# Declaring the document set here rather than in the generator means a scenario is
+# described entirely by its seed, and adding one needs no code change.
+documents:
+  - doc_id: "cics-institute-profile-2026"
+    title: "Calderwick Institute for Coastal Systems — Institutional Profile 2026"
+    word_range: [650, 900]
+    brief: >
+      An institutional profile of the research institute: its position within the parent
+      university, research staff and graduate student numbers, annual research expenditure,
+      the three research groups (coastal process modelling, sediment dynamics, estuarine
+      ecology), and its role serving regional emergency managers. Factual and plain.
+  - doc_id: "cics-strategic-priorities-2026-2031"
+    title: "Research Strategic Priorities 2026-2031"
+    word_range: [600, 850]
+    brief: >
+      The institute's five-year research priorities: compound flood forecasting, sediment
+      transport under changing storm regimes, estuarine ecosystem response, data
+      infrastructure for under-instrumented coastlines, and workforce development for
+      coastal resilience practitioners.
+  - doc_id: "cics-bio-sarkissian"
+    title: "Biosketch — Dr. Imogen Sarkissian"
+    word_range: [450, 650]
+    brief: >
+      A biosketch for the PI: position, training, research focus in coastal process
+      modelling, and selected publications. Then a current-and-pending-support table
+      listing exactly these FIVE awards, all active or pending through at least 2029, with
+      committed effort in calendar months per year AND as a percentage:
+      (1) "Compound Flood Forecasting for Under-Instrumented Estuaries", NSF, pending,
+      2027-07-01 to 2030-06-30, 1.0 month, 8%;
+      (2) "Storm Surge Ensemble Methods for Mid-Atlantic Bays", NSF, active, 2025-01-01 to
+      2028-12-31, 4.2 months, 35%;
+      (3) "Estuarine Salt Wedge Dynamics Under Sea Level Rise", NOAA, active, 2024-09-01 to
+      2029-08-31, 3.6 months, 30%;
+      (4) "Coastal Model Coupling Consortium", Office of Naval Research, active, 2026-01-01
+      to 2029-12-31, 3.0 months, 25%;
+      (5) "Institute modelling group leadership", Calderwick internal, active, ongoing,
+      2.0 months, 17%.
+      These total 115%. Present the table plainly and do not comment on the total, do not
+      flag it as a problem, and do not say the investigator has availability. A reviewer
+      is supposed to notice this, not be told.
+  - doc_id: "cics-bio-weyland"
+    title: "Biosketch — Dr. Toma Weyland"
+    word_range: [400, 600]
+    brief: >
+      A biosketch for the co-investigator: position, training, research focus in sediment
+      dynamics, selected publications, and current and pending support with committed effort.
+  - doc_id: "cics-facilities-instrumentation"
+    title: "Facilities, Equipment and Other Resources"
+    word_range: [600, 850]
+    brief: >
+      The institute's research facilities: a coastal sediment flume, moored instrument
+      inventory (ADCPs, pressure sensors, turbidity loggers), a small research vessel,
+      shared high-performance computing access through the parent university, and data
+      storage. Note what is shared and what the institute controls directly.
+  - doc_id: "cics-prior-award-final-report-2025"
+    title: "Final Report — Sediment Transport Under Compound Flooding (2021-2025)"
+    word_range: [800, 1100]
+    brief: >
+      The final report on the prior award. Report outcomes honestly and specifically,
+      including where the project fell short: 9 peer-reviewed papers, 4 graduate students
+      supported, 3 published datasets, 5 of 8 planned field campaigns completed, and 22
+      instrument deployments. Explain the shortfall in field campaigns (two storm seasons
+      lost to vessel availability and one to equipment loss). Write every count in digits
+      (9, 4, 3, 5 of 8, 22), never as words.
+  - doc_id: "cics-data-management-plan"
+    title: "Data Management and Sharing Plan"
+    word_range: [500, 700]
+    brief: >
+      How observational and model output data are managed: formats, metadata standards,
+      repository deposit, embargo periods, and long-term preservation through the parent
+      university library.
+  - doc_id: "cics-compliance-summary-2026"
+    title: "Research Compliance Summary 2026"
+    word_range: [450, 650]
+    brief: >
+      A summary of the institute's compliance posture: IACUC and IRB status (minimal
+      human subjects involvement), environmental permitting for field deployments,
+      vessel safety certification, and export control screening.
+  - doc_id: "cics-rate-agreement-fy2026"
+    title: "Negotiated Indirect Cost and Fringe Benefit Rate Agreement FY2026"
+    word_range: [400, 600]
+    brief: >
+      The negotiated rate agreement with the cognizant federal agency. State clearly that
+      the fringe benefit rate is 31.5% and the on-campus research indirect cost rate is
+      54.5% of modified total direct cost. This document is what a budget is checked against.
+  - doc_id: "cics-letter-rowan-2026"
+    title: "Letter of Collaboration — Rowan Tidal Observatory"
+    word_range: [300, 450]
+    brief: >
+      A current letter of collaboration for the proposed project, describing shared access
+      to tide gauge records and co-located deployments.
+  - doc_id: "cics-letter-quillon-2026"
+    title: "Letter of Collaboration — Quillon County Emergency Management"
+    word_range: [300, 450]
+    brief: >
+      A current letter from a county emergency management office describing how forecast
+      products would be used operationally, and their role in evaluating usability.
+  - doc_id: "cics-proposal-document-checklist-2026"
+    title: "CFFUE Submission Checklist (Research Administration, September 2026)"
+    word_range: [300, 450]
+    brief: >
+      An internal checklist from the Office of Research Administration, dated
+      2026-09-17, of the documents prepared so far for the CFFUE submission to NSF: Project
+      Summary, Project Description, References Cited, Budget and Budget Justification,
+      Biographical Sketches for both PIs, Current and Pending (Other) Support, Facilities,
+      Equipment and Other Resources, Data Management and Sharing Plan, and two Letters of
+      Collaboration (Rowan Tidal Observatory, Quillon County Emergency Management). Mark
+      each "Draft complete" or "In review". List only these items, and do not mention any
+      other supplementary document.

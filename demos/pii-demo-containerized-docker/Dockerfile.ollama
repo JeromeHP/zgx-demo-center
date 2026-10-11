@@ -1,0 +1,31 @@
+# =============================================================================
+# PII Masking Demo - Ollama-client image (thin FastAPI front for backend/main.py)
+#
+# Inference runs in HOST Ollama (qwen2.5:32b base + pii-detector finetuned).
+# This container is just the FastAPI client, so we DON'T build
+# llama-cpp-python / CUDA here — that path crashes on SM 12.1 anyway, which
+# is why the demo moved to Ollama. Modeled on the pharmacy demo's thin-client
+# container.
+# =============================================================================
+FROM python:3.12-slim
+
+ENV PYTHONUNBUFFERED=1
+ENV TOKENIZERS_PARALLELISM=false
+ENV OMP_NUM_THREADS=4
+
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY backend/requirements-docker.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+COPY backend/ /app/backend/
+COPY frontend/ /app/frontend/
+
+EXPOSE 8000
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+    CMD curl -f http://localhost:8000/api/health || exit 1
+
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,0 +1,14 @@
+# doc_id: aumc-prior-outcomes-data
+# title: Outcomes Data — Early Mobilization Protocols in Mechanically Ventilated Patients
+# doc_type: csv
+# date: 2026-09-21
+# synthetic: true
+# generator: generate_vault.py
+# seed_sha256: 35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a
+metric,value,notes
+participants enrolled,288,
+participants target,450,
+sites activated,4,
+sites planned,7,
+peer reviewed papers,6,
+protocol deviations reported,14,

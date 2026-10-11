@@ -1,0 +1,720 @@
+{
+  "solicitation_id": "NSF 24-584",
+  "program": "Advanced Technological Education (ATE)",
+  "source_url": "https://www.nsf.gov/funding/opportunities/ate-advanced-technological-education/nsf24-584/solicitation",
+  "retrieved_at": "2026-09-17T13:49:43.512008+00:00",
+  "source_sha256": "41378d75e5c58c3c6a224e94cd231f6a2ef33355bfc0a8d28ad3fdac0f70caf4",
+  "tracks": {
+    "track_2": {
+      "name": "Projects",
+      "max_total_usd": 1000000,
+      "max_years": 3
+    }
+  },
+  "deadline_rule": "First Thursday in October, annually",
+  "demo_deadline": "2026-10-01",
+  "requirements": [
+    {
+      "category": "eligibility",
+      "text": "Proposals must focus on two-year Institutions of Higher Education (IHEs).",
+      "source_quote": "With a focus on two-year Institutions of Higher Education (IHEs), the Advanced Technological Education (ATE) program supports",
+      "source_heading": "General Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-001"
+    },
+    {
+      "category": "eligibility",
+      "text": "Projects must involve partnerships between academic institutions, industry, and economic development agencies.",
+      "source_quote": "The program involves partnerships between academic institutions (grades 7-12, IHEs), industry, and economic development agencies to promote improvement in the education of science and engineering technicians.",
+      "source_heading": "General Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-002"
+    },
+    {
+      "category": "eligibility",
+      "text": "Courses and programs developed under the grant must be credit-bearing.",
+      "source_quote": "required that courses and programs are credit-bearing",
+      "source_heading": "General Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-003"
+    },
+    {
+      "category": "eligibility",
+      "text": "Institutions of Higher Education must be accredited in and have a campus located in the US.",
+      "source_quote": "accredited in, and having a campus located in the US",
+      "source_heading": "Eligibility Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-004"
+    },
+    {
+      "category": "eligibility",
+      "text": "Two-year IHEs and their faculty must have significant leadership roles on all projects; if a four-year IHE or non-two-year organization is the fiscal lead, or a secondary institution/school district develops the proposal, two-year IHE (community college) faculty must be identified as Co-PIs.",
+      "source_quote": "The ATE program focuses on IHEs that award two-year degrees in advanced technology fields and requires these IHEs and their faculty to have significant leadership roles on all projects.",
+      "source_heading": "Eligibility Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-005"
+    },
+    {
+      "category": "eligibility",
+      "text": "The ATE program does not support projects focusing on students who will become health, veterinary, or medical technicians.",
+      "source_quote": "The ATE program does not support projects that focus on students who will become health, veterinary, or medical technicians.",
+      "source_heading": "I. Introduction",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-006"
+    },
+    {
+      "category": "eligibility",
+      "text": "Programs for the development of baccalaureate degree programs or those focusing solely on pathways to baccalaureate degrees are not eligible.",
+      "source_quote": "Programs for the development of baccalaureate degree programs or that focus solely on pathways to baccalaureate degrees are not eligible.",
+      "source_heading": "II. Program Description",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-007"
+    },
+    {
+      "category": "eligibility",
+      "text": "RAPID, EAGER, and ABR proposals are not appropriate for the ATE program and should not be submitted.",
+      "source_quote": "Certain special types of proposals described in the PAPPG\u2014i.e., Grants for Rapid Research Response (RAPID) proposals, EArly Grants for Exploratory Research (EAGER) proposals, and Accomplishment-Based Renewal (ABR) proposals are not appropriate for the ATE program and should not be submitted in response to this solicitation.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-008"
+    },
+    {
+      "category": "budget",
+      "text": "Track 2 (Projects) budget requests must not exceed $1,000,000 over up to three years, and the budget request should match the scope of the project.",
+      "source_quote": "Track 2: ATE Projects: Maximum budget of $1,000,000 over three years.",
+      "source_heading": "Important Information And Revision Notes",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "deterministic",
+      "human_reviewed": true,
+      "id": "R-009"
+    },
+    {
+      "category": "budget",
+      "text": "Voluntary committed cost sharing is prohibited.",
+      "source_quote": "Inclusion of voluntary committed cost sharing is prohibited.",
+      "source_heading": "Proposal Preparation and Submission Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "deterministic",
+      "human_reviewed": true,
+      "id": "R-010"
+    },
+    {
+      "category": "budget",
+      "text": "All budget requests must be aligned with the scope of the project.",
+      "source_quote": "It is expected that the budget request will match the scope of the project.",
+      "source_heading": "III. Award Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-011"
+    },
+    {
+      "category": "budget",
+      "text": "Funds for equipment and instrumentation normally may not exceed $300,000 for the duration of a full project grant, with exceptions for single pieces costing more than $300,000 if justified for student use/learning outcomes.",
+      "source_quote": "Funds requested for equipment and instrumentation essential to meet the goals and objectives of the project normally may not exceed $300,000 for the duration of a full project grant. Exceptions to this limit will be considered when a single piece of equipment costs more than $300,000, and the need for the equipment is justified in terms of student use and learning outcomes.",
+      "source_heading": "B. Budgetary Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-012"
+    },
+    {
+      "category": "budget",
+      "text": "Proposers must request educational discounts from equipment suppliers and explain any discount in the budget justification.",
+      "source_quote": "It is expected that the proposer will request educational discounts from the equipment supplier, and that any discount will be explained in the budget justification.",
+      "source_heading": "B. Budgetary Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-013"
+    },
+    {
+      "category": "budget",
+      "text": "Equipment requests must be clearly disclosed in the proposal budget and justified in the budget justification.",
+      "source_quote": "Equipment requests must be clearly disclosed in the proposal budget and justified in the budget justification.",
+      "source_heading": "B. Budgetary Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-014"
+    },
+    {
+      "category": "budget",
+      "text": "NSF project funds may not be used for routine or common items not specific to the project: ordinary teaching activities, general-purpose lab/classroom equipment and software, replacement equipment that doesn't significantly improve instructional capability, vehicles, furnishings, routine supplies, maintenance/service contracts, or construction/renovation of facilities.",
+      "source_quote": "NSF funds may not be used to support expenditures that would normally be made in the absence of an award, such as costs for routine teaching activities and laboratory upgrades (supplies and computers).",
+      "source_heading": "B. Budgetary Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-015"
+    },
+    {
+      "category": "budget",
+      "text": "Salaries of administrative and clerical staff should normally be treated as indirect costs; direct charging is only appropriate if specific conditions in PAPPG and 2 CFR \u00a7 200.413 are met.",
+      "source_quote": "In accordance with NSF Administrative and Clerical Salaries and Wages Policy (see PAPPG Chapter II.D.2.f(i)(b) and 2 CFR \u00a7 200.413), the salaries of administrative and clerical staff should normally be treated as indirect costs (F&A). Direct charging of these costs may be appropriate only if all the conditions specified in the PAPPG and in section 413(c) of the Uniform Guidance are met.",
+      "source_heading": "B. Budgetary Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-016"
+    },
+    {
+      "category": "budget",
+      "text": "Reasonable travel costs, subsistence (lodging and meals), and specific justified stipends per meeting day for participants may be included in project budgets for professional development conferences.",
+      "source_quote": "In proposals that involve professional development activities, reasonable associated travel costs and costs for subsistence (lodging and meals) may be included in project budgets. In addition, funds may be requested for a reasonable stipend per meeting day for participants; requests for such stipends must be specific to the target audience and must be fully justified",
+      "source_heading": "B. Budgetary Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-017"
+    },
+    {
+      "category": "budget",
+      "text": "Funds to support an independent evaluator must be requested, matching the scope of proposed evaluative activities developed in partnership with the project team.",
+      "source_quote": "The funds to support an evaluator independent of the project must be requested. The requested funds must match the scope of the proposed evaluative activities that have been developed in partnership with the Center/project team.",
+      "source_heading": "B. Budgetary Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-018"
+    },
+    {
+      "category": "budget",
+      "text": "An evaluator employed by the home institution is allowed only if they work in a separate organizational unit with a different reporting line.",
+      "source_quote": "The evaluator may be employed by a project's home institution, as long as he or she works in a separate organizational unit (e.g., a different department) that has a different reporting line than that of the project's home unit.",
+      "source_heading": "B. Budgetary Information",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-019"
+    },
+    {
+      "category": "formatting",
+      "text": "Proposals must be submitted in accordance with the NSF Proposal & Award Policies & Procedures Guide (PAPPG) effective for the relevant due date; meeting PAPPG requirements is the proposer's responsibility.",
+      "source_quote": "Any proposal submitted in response to this solicitation should be submitted in accordance with the *NSF Proposal & Award Policies & Procedures Guide* (PAPPG) that is in effect for the relevant due date to which the proposal is being submitted.",
+      "source_heading": "Important Information And Revision Notes",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-020"
+    },
+    {
+      "category": "formatting",
+      "text": "The Project Description is limited to 15 pages.",
+      "source_quote": "The length of the Project Description is limited to 15 pages.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "deterministic",
+      "human_reviewed": true,
+      "id": "R-021"
+    },
+    {
+      "category": "formatting",
+      "text": "A References Cited section must be included, with literature relating specifically to the proposed project's motivation or design; if no references are cited, the section must explicitly state that.",
+      "source_quote": "A References Cited section must be included in the proposal. Literature cited should specifically relate to the proposed project, and the Project Description should make clear how each reference has played a role in the motivation for or design of the project.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-022"
+    },
+    {
+      "category": "formatting",
+      "text": "New materials created with grant support must be licensed under a Creative Commons Attribution license (CC BY, CC BY-SA, or CC BY-NC-SA); computer software source code must instead use an open license acceptable to the Free Software Foundation and/or Open Source Initiative.",
+      "source_quote": "Additionally, it is suggested that the developer of new materials license all work (except for computer software source code, discussed below) created with the support of the grant under either the 3.0 Unsupported or 3.0 United States version of the Creative Commons Attribution (CC BY), Attribution-ShareAlike (CC BY-SA), or Attribution-NonCommercial-ShareAlike (CC BY-NC-SA) license.",
+      "source_heading": "C. Reporting Requirements",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-023"
+    },
+    {
+      "category": "project_description",
+      "text": "The Project Summary overview must state the disciplinary focus, activities, and primary audience.",
+      "source_quote": "The Project Summary should clearly indicate, in the overview section, the disciplinary focus (or foci) of the proposed project, the kinds of activities to be undertaken (e.g., educational materials development, adaptation and implementation, professional development for educators), and the primary audience to be affected by those activities (e.g., two-year IHE students, secondary school students, two-year IHE faculty members, secondary school teachers).",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-024"
+    },
+    {
+      "category": "project_description",
+      "text": "The Project Description must start with the 'Results from Prior NSF Support' subsection, which must include outcomes and metrics for prior NSF awards and other directly impacting awards.",
+      "source_quote": "The Project Description must begin with the subsection on Results from Prior NSF Support, and this subsection should cover NSF awards pertaining to the new proposal. Awards from other sources that directly impact the proposed work should also be included. This subsection must contain specific outcomes and results including metrics to demonstrate the impact of the project activities.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "results_prior_support",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-025"
+    },
+    {
+      "category": "project_description",
+      "text": "The Project Description must explain the project's motivating rationale, goals, objectives, deliverables, and activities; a timetable and management plan; roles and responsibilities of PI/co-PIs/senior personnel; a sustainability plan; an Evaluation Plan; and a dissemination plan.",
+      "source_quote": "For all projects, the Project Description must explain the project's motivating rationale, goals, objectives, deliverables, and activities; the timetable; the management plan; the roles and responsibilities of the PI, co-PI(s), and other senior/key personnel; the plan for sustainability after the period of NSF funding; the evaluation plan; and the dissemination plan.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-026"
+    },
+    {
+      "category": "project_description",
+      "text": "The evaluation plan must be included in the Project Description; submitting it as supplementary documentation is not allowed.",
+      "source_quote": "Submission of the evaluation plan in supplementary documents is not allowable and may result in the proposal being returned without review.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "evaluation_plan",
+      "verification": "deterministic",
+      "human_reviewed": true,
+      "id": "R-027"
+    },
+    {
+      "category": "project_description",
+      "text": "The Project Description must include a subsection titled 'Evaluation Plan' detailing specific evaluation requirements.",
+      "source_quote": "Project descriptions must include a subsection titled \"Evaluation Plan\" that includes the following information:",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "evaluation_plan",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-028"
+    },
+    {
+      "category": "project_description",
+      "text": "The Evaluation Plan must address formative and summative evaluation, show clear alignment with project goals/objectives/outcomes/activities, identify specific data sources and instruments, and include a timeline for data collection, reporting, and communication.",
+      "source_quote": "The primary role of the evaluator is to analyze collected data to summarize findings and inform project team decision making about any modifications to the implementation of the project activities (i.e., formative evaluation). At the end of the project, the project evaluator should provide a summative evaluation identifying key accomplishments, their impacts, and lessons learned.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "evaluation_plan",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-029"
+    },
+    {
+      "category": "project_description",
+      "text": "Proposals must address issues in one or more of the specified areas: rural technician education, broadening participation (including veterans), recruiting/retaining students with disabilities, or emerging industry needs.",
+      "source_quote": "The ATE program is interested in projects addressing issues in: 1) rural technician education; 2) projects that broaden the participation of the full spectrum of diverse talent that society has to offer in the entry-level technical workforce including strategies to recruit veterans into technician education programs; 3) projects that focus on recruiting, retaining and completing students with disabilities into STEM technician education programs; and 4) projects that support emerging industry needs for skilled technical workers, for example, industry needs for technicians with AI knowledge and skills.",
+      "source_heading": "I. Introduction",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-030"
+    },
+    {
+      "category": "project_description",
+      "text": "The project must demonstrate institutional impact and potential to impact technician education regionally and/or nationally, including a measurable impact on the local workforce.",
+      "source_quote": "Projects must have an institutional impact",
+      "source_heading": "I. Introduction",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-031"
+    },
+    {
+      "category": "project_description",
+      "text": "Courses developed or updated under the grant must be credit-bearing, with the potential to contribute to or result in an academic credential.",
+      "source_quote": "It is required that courses developed or updated be credit-bearing courses with the potential to contribute to or result in an academic credential.",
+      "source_heading": "I. Introduction",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-032"
+    },
+    {
+      "category": "project_description",
+      "text": "Proposals must demonstrate awareness of prior relevant ATE-funded work and contemporary developments in the field, and should build upon proven educational materials, strategies, and methods where possible.",
+      "source_quote": "Proposals in all tracks should demonstrate a thorough awareness of previous relevant ATE grants, research on effective technician education, and contemporary developments in the relevant field(s) of technology.",
+      "source_heading": "II. Program Description",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-033"
+    },
+    {
+      "category": "project_description",
+      "text": "The Project Description must address what the proposers want to do, why, how, how success will be measured, and the potential benefits, with a well-reasoned, well-organized plan based on sound rationale.",
+      "source_quote": "When evaluating NSF proposals, reviewers will be asked to consider what the proposers want to do, why they want to do it, how they plan to do it, how they will know if they succeed, and what benefits could accrue if the project is successful.",
+      "source_heading": "A. Merit Review Principles and Criteria",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-034"
+    },
+    {
+      "category": "program_specific",
+      "text": "Program Development and Improvement proposals must produce a coherent sequence of classes, laboratories, and work-based educational experiences.",
+      "source_quote": "Proposed activities should produce a coherent sequence of classes, laboratories, and work-based educational experiences to produce a compelling learning environment for students preparing to be science and engineering technicians.",
+      "source_heading": "II. Program Description",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-035"
+    },
+    {
+      "category": "project_description",
+      "text": "Projects of this type are expected to gather and report on data regarding student completion and initial job placement.",
+      "source_quote": "It is expected that data on student completion and initial job placement will be gathered and reported on.",
+      "source_heading": "II. Program Description",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "results_prior_support",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-036"
+    },
+    {
+      "category": "program_specific",
+      "text": "Proposals are expected to communicate a realistic vision and an achievable plan for sustainability.",
+      "source_quote": "All ATE proposals are expected to communicate a realistic vision and an achievable plan for sustainability.",
+      "source_heading": "I. Introduction",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-037"
+    },
+    {
+      "category": "merit_review",
+      "text": "Proposals should be of the highest quality with the potential to advance or transform frontiers of knowledge.",
+      "source_quote": "All NSF projects should be of the highest quality and have the potential to advance, if not transform, the frontiers of knowledge.",
+      "source_heading": "A. Merit Review Principles and Criteria",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-038"
+    },
+    {
+      "category": "merit_review",
+      "text": "Projects must contribute more broadly to achieving societal goals through research, directly related activities, or complementary supported activities, with all methods well justified.",
+      "source_quote": "NSF projects, in the aggregate, should contribute more broadly to achieving societal goals. These \"Broader Impacts\" may be accomplished through the research itself, through activities that are directly related to specific research projects, or through activities that are supported by, but are complementary to, the project. The project activities may be based on previously established and/or innovative methods and approaches, but in either case must be well justified.",
+      "source_heading": "A. Merit Review Principles and Criteria",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-039"
+    },
+    {
+      "category": "merit_review",
+      "text": "Proposals must demonstrate that the individual, team, or organization is well qualified to conduct the proposed activities.",
+      "source_quote": "4. How well qualified is the individual, team, or organization to conduct the proposed activities?",
+      "source_heading": "A. Merit Review Principles and Criteria",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-040"
+    },
+    {
+      "category": "merit_review",
+      "text": "Proposals must demonstrate that adequate resources are available to carry out the proposed activities.",
+      "source_quote": "5. Are there adequate resources available to the PI (either at the home organization or through collaborations) to carry out the proposed activities?",
+      "source_heading": "A. Merit Review Principles and Criteria",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-041"
+    },
+    {
+      "category": "merit_review",
+      "text": "Evidence of institutional and industry support must be clear and compelling, and plans for long-term institutionalization must be addressed.",
+      "source_quote": "Is the evidence of institutional and industry support clear and compelling, and have plans for long-term institutionalization been addressed?",
+      "source_heading": "A. Merit Review Principles and Criteria",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-042"
+    },
+    {
+      "category": "merit_review",
+      "text": "An assessment of workforce needs for technicians must be conducted, and the project should work with employers to address their current and future needs.",
+      "source_quote": "Has an assessment of workforce needs for technicians been conducted? Does the project work with employers to address their current and future needs for technicians?",
+      "source_heading": "A. Merit Review Principles and Criteria",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-043"
+    },
+    {
+      "category": "program_specific",
+      "text": "Project results must be widely disseminated, products distributed effectively, and commercialized when appropriate.",
+      "source_quote": "Will the project's results be widely disseminated and will its products be distributed effectively and commercialized when appropriate?",
+      "source_heading": "A. Merit Review Principles and Criteria",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-044"
+    },
+    {
+      "category": "program_specific",
+      "text": "The project must promote the participation of the full spectrum of diverse talent in the technical workforce.",
+      "source_quote": "Does the project promote the participation of the full spectrum of diverse talent that society has to offer in the technical workforce?",
+      "source_heading": "A. Merit Review Principles and Criteria",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": "project_summary",
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-045"
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Employers in Program Development and Improvement proposals must be committed partners with defined roles, detailed in letters of commitment.",
+      "source_quote": "Employers must be committed partners with defined project roles and responsibilities as detailed in letters of commitment",
+      "source_heading": "II. Program Description",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-046"
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Proposals acquiring instrumentation must include a letter from industry partner(s) describing how workplace needs require the new instrumentation and their role in curricular revisions.",
+      "source_quote": "Industry partner(s) must provide a letter describing how the changing workplace needs require the new instrumentation and their role in curricular revisions.",
+      "source_heading": "II. Program Description",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-047"
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Named evaluators or evaluation teams must have their Biographical Sketches uploaded in 'Other Personnel Biographical Information' in Research.gov using NSF format.",
+      "source_quote": "If the evaluator or evaluation team is named in the proposal, then their Biographical Sketch(es) must be uploaded in the section in Research.gov called \"Other Personnel Biographical Information\", and they must follow the NSF format.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-048"
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Letters of Collaboration describing expected contributions, roles, and responsibilities are required; nonspecific letters are prohibited.",
+      "source_quote": "Letters of Collaboration that describe the expected contributions, roles and responsibilities of the partners to the project/Center are required. Letters that merely endorse the project or offer nonspecific support for project activities should not be included and the proposal may be returned without review if such letters of support are included.",
+      "source_heading": "A. Proposal Preparation Instructions",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "agent",
+      "human_reviewed": true,
+      "id": "R-049"
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Proposers must prepare a Data Management and Sharing Plan, which reviewers will evaluate as appropriate.",
+      "source_quote": "Proposers are reminded that reviewers will also be asked to review the Data Management and Sharing Plan and the Mentoring Plan, as appropriate.",
+      "source_heading": "A. Merit Review Principles and Criteria",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-050"
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Submit annual project reports no later than 90 days before each budget period ends, a final project report no later than 120 days after the award expires, and a public project outcomes report no later than 120 days after the award expires, all via Research.gov.",
+      "source_quote": "the Principal Investigator must submit an annual project report to the cognizant Program Officer no later than 90 days prior to the end of the current budget period.",
+      "source_heading": "C. Reporting Requirements",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-051"
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Respond annually to the ATE Annual Survey conducted by the EvaluATE Resource Hub, providing specific data on students, educators, retention, placement, impact, and quality indicators.",
+      "source_quote": "All PIs are required to respond annually to this survey that requests information about the number and characteristics of students and educators that have been affected by the project; the retention, graduation, and placement rates for students; the project's impact on workforce needs; awards and other measures of the quality of the project's products and activities; and other indicators of the project's effect on the quality and quantity of technicians being educated for the high-tech workplace.",
+      "source_heading": "C. Reporting Requirements",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-052"
+    },
+    {
+      "category": "supplementary_documents",
+      "text": "Work with ATE Central to archive digital deliverables (e.g., curriculum, materials) by providing copies in an archivable format with clear intellectual property information.",
+      "source_quote": "Specifically, projects and centers that create resources that exist in digital form (e.g., curriculum, professional development, and recruitment materials) must provide copies of those resources in appropriate format and with clear intellectual property information to ATE Central for archiving purposes, in an archivable format and with clear intellectual property information.",
+      "source_heading": "C. Reporting Requirements",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "human",
+      "human_reviewed": true,
+      "id": "R-053"
+    },
+    {
+      "category": "program_specific",
+      "text": "The full proposal must be submitted by the deadline: first Thursday in October, annually (2026-10-01 for this cycle).",
+      "source_quote": "First Thursday in October, Annually Thereafter",
+      "source_heading": "C. Due Dates",
+      "applies_to_tracks": [
+        "track_2"
+      ],
+      "section_link": null,
+      "verification": "deterministic",
+      "human_reviewed": true,
+      "id": "R-054"
+    }
+  ]
+}

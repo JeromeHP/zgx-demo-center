@@ -1,0 +1,43 @@
+# doc_id: cics-budget-cffue-draft
+# title: CFFUE Draft Budget (3 years)
+# doc_type: csv
+# date: 2026-09-19
+# synthetic: true
+# generator: generate_vault.py
+# seed_sha256: d5b4f85238dac1da60dc622b8c635eb15391fbd2730e764b492672937109e120
+year,category,line_item,amount_usd,fringe_applied,indirect_applied,notes,units
+1,senior_personnel,PI: Dr. Imogen Sarkissian (1 summer month),14500,0,0.545,,
+1,senior_personnel,Co-PI: Dr. Toma Weyland (1 summer month),11000,0,0.545,,
+1,other_personnel,Postdoctoral researcher (100%),62000,0,0.545,,
+1,other_personnel,Graduate research assistant,30000,0,0.545,,
+1,tuition_remission,Graduate tuition remission,14000,0,0,excluded from indirect base,
+1,equipment,Acoustic Doppler current profiler,48000,0,0,excluded from indirect base,1
+1,equipment,Bottom-mounted pressure loggers,25200,0,0,excluded from indirect base,6
+1,materials_supplies,"Moorings, batteries and field consumables",8000,0,0.545,,
+1,other_direct,Research vessel time,18000,0,0.545,,
+1,travel,Field deployment and conference travel,9000,0,0.545,,
+1,other_direct,Publication and data archiving costs,3000,0,0.545,,
+1,fringe,Fringe benefits,37013,0.315,0.545,31.5% of personnel,
+1,indirect,Indirect costs (F&A),104920,0,0.545,54.5% of MTDC base,
+2,senior_personnel,PI: Dr. Imogen Sarkissian (1 summer month),14935,0,0.545,,
+2,senior_personnel,Co-PI: Dr. Toma Weyland (1 summer month),11330,0,0.545,,
+2,other_personnel,Postdoctoral researcher (100%),63860,0,0.545,,
+2,other_personnel,Graduate research assistant,30900,0,0.545,,
+2,tuition_remission,Graduate tuition remission,14000,0,0,excluded from indirect base,
+2,materials_supplies,"Moorings, batteries and field consumables",8000,0,0.545,,
+2,other_direct,Research vessel time,18000,0,0.545,,
+2,travel,Field deployment and conference travel,9000,0,0.545,,
+2,other_direct,Publication and data archiving costs,3000,0,0.545,,
+2,fringe,Fringe benefits,38123,0.315,0.545,31.5% of personnel,
+2,indirect,Indirect costs (F&A),107446,0,0.545,54.5% of MTDC base,
+3,senior_personnel,PI: Dr. Imogen Sarkissian (1 summer month),15383,0,0.545,,
+3,senior_personnel,Co-PI: Dr. Toma Weyland (1 summer month),11670,0,0.545,,
+3,other_personnel,Postdoctoral researcher (100%),65776,0,0.545,,
+3,other_personnel,Graduate research assistant,31827,0,0.545,,
+3,tuition_remission,Graduate tuition remission,14000,0,0,excluded from indirect base,
+3,materials_supplies,"Moorings, batteries and field consumables",8000,0,0.545,,
+3,other_direct,Research vessel time,18000,0,0.545,,
+3,travel,Field deployment and conference travel,9000,0,0.545,,
+3,other_direct,Publication and data archiving costs,3000,0,0.545,,
+3,fringe,Fringe benefits,39267,0.315,0.545,31.5% of personnel,
+3,indirect,Indirect costs (F&A),110048,0,0.545,54.5% of MTDC base,

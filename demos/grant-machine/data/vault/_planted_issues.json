@@ -1,0 +1,14 @@
+[
+  { "id": "P1", "code": "BUDGET_OVER_CAP", "detection": "deterministic",
+    "detail": "Draft budget total $1,038,450 exceeds the Track 2 maximum of $1,000,000 by $38,450.",
+    "evidence": ["budget-satp-draft"] },
+  { "id": "P2", "code": "PRIOR_OUTCOMES_SHORTFALL", "detection": "agent",
+    "detail": "Prior award produced 84 completers against a target of 120; Results from Prior NSF Support must report this accurately.",
+    "evidence": ["prior-annual-report-2025", "prior-outcomes-data", "prior-proposal-mpm-2021"] },
+  { "id": "P3", "code": "STALE_SUPPORT_LETTER", "detection": "agent",
+    "detail": "Northgate letter is dated 2021-03-15 and references the prior project, not SATP.",
+    "evidence": ["letter-northgate-2021"] },
+  { "id": "P4", "code": "FRINGE_RATE_MISMATCH", "detection": "deterministic",
+    "detail": "Budget applies 28.0% fringe; FY2026 rate memo specifies 31.5%. Correcting it raises the total further over the cap.",
+    "evidence": ["budget-satp-draft", "rate-agreement-fy2026"] }
+]

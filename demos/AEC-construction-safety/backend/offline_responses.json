@@ -1,0 +1,14 @@
+{
+  "ppe_helmet_hard_hat": "Required PPE includes hard hat (ANSI Z89.1 compliant), safety glasses, high-visibility vest, steel-toed boots, and work gloves. Additional PPE required based on specific tasks.",
+  "ladder_safety": "Maintain three points of contact at all times. Inspect before each use. Set at 4:1 ratio (for every 4 feet of height, base should be 1 foot from wall). Extend 3 feet above landing. Never exceed manufacturer's weight rating. Always face ladder when climbing.",
+  "fall_protection_harness": "Use OSHA-approved fall protection when working 6+ feet above ground level. Inspect harnesses before each use. Ensure anchor points are rated for 5,000 lbs per worker. Maintain 100% tie-off when exposed to fall hazards.",
+  "emergency_fire_accident": "Immediately call 911 for serious injuries. Alert site supervisor. Do not move injured persons unless in immediate danger. Evacuate to designated assembly point. Account for all personnel. Never re-enter until cleared by authorities.",
+  "scaffold_scaffolding": "Scaffolds must be erected by competent persons only. Inspect before each shift. Ensure proper guardrails, toe boards, and planking. Never exceed rated load capacity. Tag damaged scaffolds out of service immediately.",
+  "excavation_trench": "Trenches 5+ feet deep require protective systems (shoring, sloping, or trench boxes). Inspect daily before entry. Keep excavated soil 2+ feet from edge. Test for atmospheric hazards. Always have safe means of exit within 25 feet.",
+  "electrical_lockout_tagout": "De-energize and lockout/tagout all energy sources before work. Test with meter to verify zero energy. Each worker applies their own lock. Never remove another worker's lock. Follow written LOTO procedures.",
+  "crane_rigging_lifting": "Only certified operators may operate cranes. Inspect rigging before each use. Never exceed load ratings. Maintain minimum clearance from power lines (20 feet). Use tag lines to control loads. Never walk under suspended loads.",
+  "hot_work_welding_cutting": "Obtain hot work permit before starting. Clear area of combustibles within 35 feet. Have fire watch during and 30 minutes after work. Keep fire extinguisher readily available. Use welding screens to protect others.",
+  "confined_space": "Test atmosphere before entry. Use continuous monitoring. Ensure attendant is present at all times. Have rescue plan in place. Use mechanical ventilation. Wear appropriate respirators if required.",
+  "chemical_hazmat_sds": "Review Safety Data Sheets (SDS) before handling chemicals. Use appropriate PPE including gloves and eye protection. Ensure proper ventilation. Know location of eyewash stations. Never mix chemicals unless directed.",
+  "default": "This is an important safety question. For immediate guidance, consult your site safety officer or refer to your company's safety manual. If this is an emergency, stop work and alert your supervisor immediately."
+}

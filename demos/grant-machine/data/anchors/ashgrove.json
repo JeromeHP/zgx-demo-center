@@ -1,0 +1,146 @@
+{
+  "scenario": "ashgrove",
+  "comparable": "NIH R01 clinical trials in ICU sedation and respiratory failure",
+  "retrieved_at": "2026-09-29T19:31:38Z",
+  "license": "U.S. Government work \u2014 public domain (award metadata)",
+  "note": "Scale reference for the scenario seed. Recipient and investigator names are not stored.",
+  "summary": {
+    "n": 11,
+    "median_annual_total_usd": 781129,
+    "median_years": 4.8
+  },
+  "awards": [
+    {
+      "award_id": "1R01HL157361-01A1",
+      "title": "Promoting Equity via Change in Practice for Respiratory Failure (PRECIPICE)",
+      "agency": "NIH NHLBI",
+      "mechanism": "R01",
+      "annual_total_usd": 724310,
+      "annual_direct_usd": 546407,
+      "start": "2022-05-15",
+      "end": "2026-04-30",
+      "years": 4.0,
+      "url": "https://reporter.nih.gov/project-details/1R01HL157361-01A1"
+    },
+    {
+      "award_id": "1R01HD117422-01A1",
+      "title": "Pediatric Acute Respiratory distress syndrome MAnagement (PARMA)",
+      "agency": "NIH NICHD",
+      "mechanism": "R01",
+      "annual_total_usd": 767069,
+      "annual_direct_usd": 488053,
+      "start": "2025-08-18",
+      "end": "2030-04-30",
+      "years": 4.7,
+      "url": "https://reporter.nih.gov/project-details/1R01HD117422-01A1"
+    },
+    {
+      "award_id": "1R01AI197146-01",
+      "title": "SCH: A structural causal framework for adaptive experiments",
+      "agency": "NIH NIAID",
+      "mechanism": "R01",
+      "annual_total_usd": 299422,
+      "annual_direct_usd": 176650,
+      "start": "2025-08-06",
+      "end": "2029-07-31",
+      "years": 4.0,
+      "url": "https://reporter.nih.gov/project-details/1R01AI197146-01"
+    },
+    {
+      "award_id": "1R01HL179905-01",
+      "title": "Optimizing Medications and Lung Health in People with HIV through Pharmacist-led Proactive E-Consults (OPTIMIZE Lung-HIV)",
+      "agency": "NIH NHLBI",
+      "mechanism": "R01",
+      "annual_total_usd": 803801,
+      "annual_direct_usd": 620798,
+      "start": "2025-08-15",
+      "end": "2030-05-31",
+      "years": 4.8,
+      "url": "https://reporter.nih.gov/project-details/1R01HL179905-01"
+    },
+    {
+      "award_id": "1R01AI187244-01",
+      "title": "Care, Review, Assessment and Feedback Tool In Acute Respiratory infections (CRAFT-IAR)",
+      "agency": "NIH NIAID",
+      "mechanism": "R01",
+      "annual_total_usd": 873716,
+      "annual_direct_usd": 499266,
+      "start": "2025-03-01",
+      "end": "2030-02-28",
+      "years": 5.0,
+      "url": "https://reporter.nih.gov/project-details/1R01AI187244-01"
+    },
+    {
+      "award_id": "1R01AI182308-01A1",
+      "title": "Integrated Host/Microbe (IHM) Metagenomics of the Lower Airway to Diagnose PediatricRespiratory Infections, Identify Etiologic Pathogens, and Predict Outcomes",
+      "agency": "NIH NIAID",
+      "mechanism": "R01",
+      "annual_total_usd": 781129,
+      "annual_direct_usd": 615218,
+      "start": "2025-01-01",
+      "end": "2029-12-31",
+      "years": 5.0,
+      "url": "https://reporter.nih.gov/project-details/1R01AI182308-01A1"
+    },
+    {
+      "award_id": "1R01ES037322-01",
+      "title": "Cell-free DNA Methylation Patterns and Mitochondrial Therapeutics in a Rodent Model of Organophosphate Poisoning",
+      "agency": "NIH NIEHS",
+      "mechanism": "R01",
+      "annual_total_usd": 821373,
+      "annual_direct_usd": 527927,
+      "start": "2025-08-01",
+      "end": "2030-05-31",
+      "years": 4.8,
+      "url": "https://reporter.nih.gov/project-details/1R01ES037322-01"
+    },
+    {
+      "award_id": "1R01HL178952-01",
+      "title": "SMART-SEPSIS: Sequential MAchine learning for individualized Response to early Treatment in lung SEPSIS",
+      "agency": "NIH NHLBI",
+      "mechanism": "R01",
+      "annual_total_usd": 750561,
+      "annual_direct_usd": 577493,
+      "start": "2025-08-21",
+      "end": "2029-05-31",
+      "years": 3.8,
+      "url": "https://reporter.nih.gov/project-details/1R01HL178952-01"
+    },
+    {
+      "award_id": "1R01DA062186-01A1",
+      "title": "Optimizing methadone treatment strategies for opioid use disorder in the era of fentanyl",
+      "agency": "NIH NIDA",
+      "mechanism": "R01",
+      "annual_total_usd": 915478,
+      "annual_direct_usd": 633525,
+      "start": "2025-09-01",
+      "end": "2030-05-31",
+      "years": 4.7,
+      "url": "https://reporter.nih.gov/project-details/1R01DA062186-01A1"
+    },
+    {
+      "award_id": "1R01AI183902-01A1",
+      "title": "Oral BCG: Optimizing mucosal vaccination against tuberculosis",
+      "agency": "NIH NIAID",
+      "mechanism": "R01",
+      "annual_total_usd": 1162224,
+      "annual_direct_usd": 766721,
+      "start": "2025-04-24",
+      "end": "2030-03-31",
+      "years": 4.9,
+      "url": "https://reporter.nih.gov/project-details/1R01AI183902-01A1"
+    },
+    {
+      "award_id": "1R01CA299332-01",
+      "title": "Creating a transient metabolic catastrophe for AML therapy",
+      "agency": "NIH NCI",
+      "mechanism": "R01",
+      "annual_total_usd": 491357,
+      "annual_direct_usd": 338082,
+      "start": "2025-03-15",
+      "end": "2030-02-28",
+      "years": 5.0,
+      "url": "https://reporter.nih.gov/project-details/1R01CA299332-01"
+    }
+  ]
+}

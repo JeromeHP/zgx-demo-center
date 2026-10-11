@@ -1,0 +1,164 @@
+{
+  "documents": [
+    {
+      "doc_id": "vsu-budget-mqc-draft",
+      "path": "data/scenarios/vantcross/vsu-budget-mqc-draft.csv",
+      "title": "MQC Draft Budget (5 years)",
+      "doc_type": "csv",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "53ac3e1f7b82a7ea8331974c82160a40e16e25301e5d2eee6e50ba580ecd9b90"
+    },
+    {
+      "doc_id": "vsu-prior-outcomes-data",
+      "path": "data/scenarios/vantcross/vsu-prior-outcomes-data.csv",
+      "title": "Outcomes Data \u2014 Mitochondrial Dynamics in Skeletal Muscle Insulin Resistance",
+      "doc_type": "csv",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "53ac3e1f7b82a7ea8331974c82160a40e16e25301e5d2eee6e50ba580ecd9b90"
+    },
+    {
+      "doc_id": "vsu-institute-profile-2026",
+      "path": "data/scenarios/vantcross/vsu-institute-profile-2026.md",
+      "title": "Vantcross State University \u2014 Research Profile 2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "ad886da90abec79d7862788a5c5edb5761ebf1eeda70a2b7466bd1bee1c11887"
+    },
+    {
+      "doc_id": "vsu-strategic-research-plan-2026-2031",
+      "path": "data/scenarios/vantcross/vsu-strategic-research-plan-2026-2031.md",
+      "title": "University Research Strategic Plan 2026-2031",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "ad886da90abec79d7862788a5c5edb5761ebf1eeda70a2b7466bd1bee1c11887"
+    },
+    {
+      "doc_id": "vsu-bio-anselmi",
+      "path": "data/scenarios/vantcross/vsu-bio-anselmi.md",
+      "title": "Biosketch \u2014 Dr. Rurik Anselmi",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "032adc79d0e80ab3fbe7a15a7e6b8bde44c5202f2f178e98e7053ddefe23ade7"
+    },
+    {
+      "doc_id": "vsu-bio-adeyemo-strand",
+      "path": "data/scenarios/vantcross/vsu-bio-adeyemo-strand.md",
+      "title": "Biosketch \u2014 Dr. Pernille Adeyemo-Strand",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "ad886da90abec79d7862788a5c5edb5761ebf1eeda70a2b7466bd1bee1c11887"
+    },
+    {
+      "doc_id": "vsu-core-facilities",
+      "path": "data/scenarios/vantcross/vsu-core-facilities.md",
+      "title": "Core Facilities and Shared Instrumentation",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "ad886da90abec79d7862788a5c5edb5761ebf1eeda70a2b7466bd1bee1c11887"
+    },
+    {
+      "doc_id": "vsu-prior-award-final-report-2026",
+      "path": "data/scenarios/vantcross/vsu-prior-award-final-report-2026.md",
+      "title": "Final Progress Report \u2014 Mitochondrial Dynamics in Skeletal Muscle Insulin Resistance",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "ad886da90abec79d7862788a5c5edb5761ebf1eeda70a2b7466bd1bee1c11887"
+    },
+    {
+      "doc_id": "vsu-prior-summary-statement-2026",
+      "path": "data/scenarios/vantcross/vsu-prior-summary-statement-2026.md",
+      "title": "Summary Statement \u2014 Prior Submission (for resubmission reference)",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "032adc79d0e80ab3fbe7a15a7e6b8bde44c5202f2f178e98e7053ddefe23ade7"
+    },
+    {
+      "doc_id": "vsu-subaward-drumlin-budget-note",
+      "path": "data/scenarios/vantcross/vsu-subaward-drumlin-budget-note.md",
+      "title": "Subaward Budget Note \u2014 Drumlin Analytical Institute",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "2c5d9cccbdac92070b7be13f64d6c56f1c74d2658962c574dcf097e90d7c2178"
+    },
+    {
+      "doc_id": "vsu-data-management-sharing-plan",
+      "path": "data/scenarios/vantcross/vsu-data-management-sharing-plan.md",
+      "title": "Data Management and Sharing Plan",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "53ac3e1f7b82a7ea8331974c82160a40e16e25301e5d2eee6e50ba580ecd9b90"
+    },
+    {
+      "doc_id": "vsu-human-subjects-and-compliance-2026",
+      "path": "data/scenarios/vantcross/vsu-human-subjects-and-compliance-2026.md",
+      "title": "Human Subjects, Vertebrate Animals and Compliance Status 2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "ad886da90abec79d7862788a5c5edb5761ebf1eeda70a2b7466bd1bee1c11887"
+    },
+    {
+      "doc_id": "vsu-rate-agreement-fy2026",
+      "path": "data/scenarios/vantcross/vsu-rate-agreement-fy2026.md",
+      "title": "Negotiated Indirect Cost and Fringe Benefit Rate Agreement FY2026",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "ad886da90abec79d7862788a5c5edb5761ebf1eeda70a2b7466bd1bee1c11887"
+    },
+    {
+      "doc_id": "vsu-letter-pellworth-2026",
+      "path": "data/scenarios/vantcross/vsu-letter-pellworth-2026.md",
+      "title": "Letter of Collaboration \u2014 Pellworth Metabolic Core",
+      "doc_type": "md",
+      "date": "2026-08-14",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "53ac3e1f7b82a7ea8331974c82160a40e16e25301e5d2eee6e50ba580ecd9b90"
+    },
+    {
+      "doc_id": "vsu-letter-drumlin-2026",
+      "path": "data/scenarios/vantcross/vsu-letter-drumlin-2026.md",
+      "title": "Letter of Collaboration \u2014 Drumlin Analytical Institute",
+      "doc_type": "md",
+      "date": "2026-08-22",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "ad886da90abec79d7862788a5c5edb5761ebf1eeda70a2b7466bd1bee1c11887"
+    },
+    {
+      "doc_id": "vsu-nih-program-official-correspondence-2026",
+      "path": "data/scenarios/vantcross/vsu-nih-program-official-correspondence-2026.md",
+      "title": "Correspondence with the NIDDK Program Official (September 2026)",
+      "doc_type": "md",
+      "date": "2026-09-21",
+      "synthetic": true,
+      "generator": "generate_vault.py",
+      "seed_sha256": "5490bba0543f5b3f0676c6b1c3e7fd7866963a440db10c7301c0bba196dcdf43"
+    }
+  ]
+}

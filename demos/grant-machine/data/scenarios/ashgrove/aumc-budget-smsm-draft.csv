@@ -1,0 +1,75 @@
+# doc_id: aumc-budget-smsm-draft
+# title: SMSM Draft Budget (5 years)
+# doc_type: csv
+# date: 2026-09-21
+# synthetic: true
+# generator: generate_vault.py
+# seed_sha256: 35f14629eccc748d1a24b337f46272dc6a397b685e30437a0858997ad9749b6a
+year,category,line_item,amount_usd,fringe_applied,indirect_applied,notes,annual_salary_usd,effort_pct
+1,senior_personnel,PI: Dr. Saoirse Achterberg (30% effort),78000,0,0.625,,260000,30
+1,senior_personnel,Co-I: Dr. Vikram Ostrowski-Baird (15% effort),27750,0,0.625,,185000,15
+1,other_personnel,Clinical research coordinator (100%),68000,0,0.625,,,
+1,other_personnel,ICU research nurse (50%),48000,0,0.625,,,
+1,other_personnel,Data manager (50%),36000,0,0.625,,,
+1,other_direct,Participant compensation,26000,0,0.625,,,
+1,materials_supplies,"Mobility equipment, sedation assessment supplies",10000,0,0.625,,,
+1,other_direct,Harbrace Clinical Monitoring contract (independent monitoring),24000,0,0.625,,,
+1,travel,Investigator meeting and site visit travel,5000,0,0.625,,,
+1,subaward,Wrenfield Regional Hospital site subaward (in MTDC base),25000,0,0.625,,,
+1,subaward,Wrenfield Regional Hospital site subaward (beyond MTDC limit),15000,0,0,excluded from indirect base,,
+1,subaward,Calloway Valley Health site subaward (in MTDC base),25000,0,0.625,,,
+1,subaward,Calloway Valley Health site subaward (beyond MTDC limit),15000,0,0,excluded from indirect base,,
+1,fringe,Fringe benefits,80418,0.312,0.625,31.2% of personnel,,
+1,indirect,Indirect costs (F&A),283230,0,0.625,62.5% of MTDC base,,
+2,senior_personnel,PI: Dr. Saoirse Achterberg (30% effort),78000,0,0.625,,260000,30
+2,senior_personnel,Co-I: Dr. Vikram Ostrowski-Baird (15% effort),27750,0,0.625,,185000,15
+2,other_personnel,Clinical research coordinator (100%),68000,0,0.625,,,
+2,other_personnel,ICU research nurse (50%),48000,0,0.625,,,
+2,other_personnel,Data manager (50%),36000,0,0.625,,,
+2,other_direct,Participant compensation,26000,0,0.625,,,
+2,materials_supplies,"Mobility equipment, sedation assessment supplies",10000,0,0.625,,,
+2,other_direct,Harbrace Clinical Monitoring contract (independent monitoring),24000,0,0.625,,,
+2,travel,Investigator meeting and site visit travel,5000,0,0.625,,,
+2,subaward,Wrenfield Regional Hospital site subaward (beyond MTDC limit),40000,0,0,excluded from indirect base,,
+2,subaward,Calloway Valley Health site subaward (beyond MTDC limit),40000,0,0,excluded from indirect base,,
+2,fringe,Fringe benefits,80418,0.312,0.625,31.2% of personnel,,
+2,indirect,Indirect costs (F&A),251980,0,0.625,62.5% of MTDC base,,
+3,senior_personnel,PI: Dr. Saoirse Achterberg (30% effort),78000,0,0.625,,260000,30
+3,senior_personnel,Co-I: Dr. Vikram Ostrowski-Baird (15% effort),27750,0,0.625,,185000,15
+3,other_personnel,Clinical research coordinator (100%),68000,0,0.625,,,
+3,other_personnel,ICU research nurse (50%),48000,0,0.625,,,
+3,other_personnel,Data manager (50%),36000,0,0.625,,,
+3,other_direct,Participant compensation,26000,0,0.625,,,
+3,materials_supplies,"Mobility equipment, sedation assessment supplies",10000,0,0.625,,,
+3,other_direct,Harbrace Clinical Monitoring contract (independent monitoring),24000,0,0.625,,,
+3,travel,Investigator meeting and site visit travel,5000,0,0.625,,,
+3,subaward,Wrenfield Regional Hospital site subaward (beyond MTDC limit),40000,0,0,excluded from indirect base,,
+3,subaward,Calloway Valley Health site subaward (beyond MTDC limit),40000,0,0,excluded from indirect base,,
+3,fringe,Fringe benefits,80418,0.312,0.625,31.2% of personnel,,
+3,indirect,Indirect costs (F&A),251980,0,0.625,62.5% of MTDC base,,
+4,senior_personnel,PI: Dr. Saoirse Achterberg (30% effort),78000,0,0.625,,260000,30
+4,senior_personnel,Co-I: Dr. Vikram Ostrowski-Baird (15% effort),27750,0,0.625,,185000,15
+4,other_personnel,Clinical research coordinator (100%),68000,0,0.625,,,
+4,other_personnel,ICU research nurse (50%),48000,0,0.625,,,
+4,other_personnel,Data manager (50%),36000,0,0.625,,,
+4,other_direct,Participant compensation,26000,0,0.625,,,
+4,materials_supplies,"Mobility equipment, sedation assessment supplies",10000,0,0.625,,,
+4,other_direct,Harbrace Clinical Monitoring contract (independent monitoring),24000,0,0.625,,,
+4,travel,Investigator meeting and site visit travel,5000,0,0.625,,,
+4,subaward,Wrenfield Regional Hospital site subaward (beyond MTDC limit),40000,0,0,excluded from indirect base,,
+4,subaward,Calloway Valley Health site subaward (beyond MTDC limit),40000,0,0,excluded from indirect base,,
+4,fringe,Fringe benefits,80418,0.312,0.625,31.2% of personnel,,
+4,indirect,Indirect costs (F&A),251980,0,0.625,62.5% of MTDC base,,
+5,senior_personnel,PI: Dr. Saoirse Achterberg (30% effort),78000,0,0.625,,260000,30
+5,senior_personnel,Co-I: Dr. Vikram Ostrowski-Baird (15% effort),27750,0,0.625,,185000,15
+5,other_personnel,Clinical research coordinator (100%),68000,0,0.625,,,
+5,other_personnel,ICU research nurse (50%),48000,0,0.625,,,
+5,other_personnel,Data manager (50%),36000,0,0.625,,,
+5,other_direct,Participant compensation,26000,0,0.625,,,
+5,materials_supplies,"Mobility equipment, sedation assessment supplies",10000,0,0.625,,,
+5,other_direct,Harbrace Clinical Monitoring contract (independent monitoring),24000,0,0.625,,,
+5,travel,Investigator meeting and site visit travel,5000,0,0.625,,,
+5,subaward,Wrenfield Regional Hospital site subaward (beyond MTDC limit),40000,0,0,excluded from indirect base,,
+5,subaward,Calloway Valley Health site subaward (beyond MTDC limit),40000,0,0,excluded from indirect base,,
+5,fringe,Fringe benefits,80418,0.312,0.625,31.2% of personnel,,
+5,indirect,Indirect costs (F&A),251980,0,0.625,62.5% of MTDC base,,

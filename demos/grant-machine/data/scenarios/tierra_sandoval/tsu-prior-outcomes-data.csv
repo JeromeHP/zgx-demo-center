@@ -1,0 +1,14 @@
+# doc_id: tsu-prior-outcomes-data
+# title: Outcomes Data — Pathways to Computing Degrees for Transfer Students
+# doc_type: csv
+# date: 2026-09-21
+# synthetic: true
+# generator: generate_vault.py
+# seed_sha256: 5d1f08a8eaec00a36446718899d0bb1efb7a04187cd926953fdf373eba30db15
+metric,value,notes
+students served,214,
+transfer completions,61,
+new courses developed,4,
+faculty professional development hours,320,
+articulation agreements signed,2,
+articulation agreements planned,5,

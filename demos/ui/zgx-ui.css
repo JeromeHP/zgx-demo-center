@@ -1,0 +1,108 @@
+/* ZGX demo chrome — the shared frame every demo wears.
+ *
+ * Fixed: the bar, the meter strip, the footer. Free: everything between them.
+ * Tokens live on :root so a demo can match its own palette without forking the
+ * layout; scripts/audit_ui_standard.sh checks nobody forks the layout anyway.
+ *
+ * The meter vocabulary (.zgx-meter / -label / -value / -sub) is lifted from
+ * grant-machine's web/styles.css, which already had it working — including
+ * font-variant-numeric: tabular-nums, the detail that stops a climbing counter
+ * jittering as its digits change width.
+ */
+
+:root {
+  --zgx-bar-bg: #0e1420;
+  --zgx-bar-fg: #e6edf6;
+  --zgx-bar-dim: #8fa3bd;
+  --zgx-bar-line: #1f2b3d;
+  --zgx-accent: #0096d6;         /* HP blue */
+  --zgx-ok: #35c46b;
+  --zgx-warn: #d9a441;
+  --zgx-bar-h: 56px;
+}
+
+#zgx-chrome { display: none; }   /* the marker element itself is never shown */
+
+.zgx-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--zgx-bar-h);
+  z-index: 2147483000;           /* above demo overlays, below nothing */
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 16px;
+  background: var(--zgx-bar-bg);
+  color: var(--zgx-bar-fg);
+  border-bottom: 1px solid var(--zgx-bar-line);
+  font: 500 13px/1.2 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+.zgx-bar *, .zgx-bar *::before, .zgx-bar *::after { box-sizing: border-box; }
+
+/* The approved logo artwork has an opaque white background, so it sits on a
+ * light plate rather than being alpha-keyed. */
+.zgx-logo-plate {
+  flex: 0 0 auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 4px 7px;
+  display: flex;
+  align-items: center;
+}
+.zgx-logo-plate img { display: block; height: 30px; width: auto; }
+
+.zgx-titles { flex: 0 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.zgx-title { font-size: 14px; font-weight: 650; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.zgx-subtitle { font-size: 11px; color: var(--zgx-bar-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.zgx-meters { flex: 1 1 auto; display: flex; gap: 14px; justify-content: flex-end; align-items: center; overflow: hidden; }
+
+.zgx-meter { display: flex; flex-direction: column; align-items: flex-end; min-width: 62px; }
+.zgx-meter-label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--zgx-bar-dim); white-space: nowrap; }
+.zgx-meter-value {
+  font-size: 17px; font-weight: 700; line-height: 1.15;
+  font-variant-numeric: tabular-nums;   /* keeps a counting number from jittering */
+  white-space: nowrap;
+}
+.zgx-meter-sub { font-size: 10px; color: var(--zgx-bar-dim); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.zgx-meter-value.zgx-unknown { color: var(--zgx-bar-dim); font-weight: 500; }
+.zgx-meter-value.zgx-accent { color: var(--zgx-accent); }
+
+.zgx-sep { width: 1px; align-self: stretch; margin: 10px 0; background: var(--zgx-bar-line); flex: 0 0 auto; }
+
+.zgx-device { flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; max-width: 210px; }
+.zgx-device-label { font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
+.zgx-device-sub { font-size: 10px; color: var(--zgx-bar-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
+
+/* The chrome is fixed, so the page is pushed down by exactly its height. */
+body.zgx-chromed { padding-top: var(--zgx-bar-h) !important; }
+
+/* The chrome owns the logo, so a demo's own copy is hidden rather than shown
+ * twice. Five demos shipped their own hp_logo.png (three DIFFERENT files under
+ * the same name), and stacking the canonical one above a divergent one is the
+ * opposite of a standard.
+ *
+ * Safe to match this broadly: the chrome's own logo is a data: URI, so it can
+ * never match src*="hp_logo". Rule removed and the demo's logo returns. */
+body.zgx-chromed img[src*="hp_logo"] { display: none !important; }
+
+.zgx-foot {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  z-index: 2147482999;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; padding: 4px 14px;
+  background: var(--zgx-bar-bg); color: var(--zgx-bar-dim);
+  border-top: 1px solid var(--zgx-bar-line);
+  font: 500 11px/1.3 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+body.zgx-chromed-foot { padding-bottom: 26px !important; }
+.zgx-foot .zgx-local { color: var(--zgx-ok); }
+
+@media (max-width: 1100px) {
+  .zgx-meter:nth-child(n+5) { display: none; }   /* shed the least critical meters first */
+  .zgx-subtitle { display: none; }
+}
+@media (max-width: 760px) {
+  .zgx-meters { display: none; }
+}

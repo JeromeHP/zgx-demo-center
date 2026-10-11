@@ -1,0 +1,55 @@
+# =============================================================================
+# Port-of-Entry Vehicle Inspection Analyst - Docker Compose (Ollama backend)
+#
+# Thin FastAPI client over HOST Ollama (mistral-small3.2, registered as vehicle-inspector). Serves API + frontend on
+# :8097 -- the port map lives in RUNBOOK.md, not here.
+#
+# Usage:
+#   ./start.sh -d                  # what the launcher runs
+#   docker compose down            # stop
+#
+# Prerequisites:
+#   - Ollama on the host with mistral-small3.2 pulled and vehicle-inspector created
+# =============================================================================
+
+services:
+  vehicle-inspection-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vehicle-inspection-demo
+    # Host networking, for two reasons:
+    #   - the container reaches host Ollama on loopback (:11434)
+    #   - ufw filters it. Docker-PUBLISHED ports bypass ufw, so a `ports:`
+    #     mapping would stay LAN-visible after tools/lockdown-tailnet.sh.
+    # The app therefore binds its host port, 8097, directly.
+    network_mode: host
+    volumes:
+      # Read-only: both are git-tracked, and a read-write mount of a tracked
+      # directory dirties the repo on every run (audit_ui_standard.sh #6).
+      # Bind-mounted so the shared ZGX chrome updates on restart, not rebuild.
+      - ./frontend:/app/frontend:ro
+      - ./sample-images:/app/sample-images:ro
+      # Recorded vessel runs for Replay mode (scripts/record_vessel_replay.py).
+      - ./data:/app/data:ro
+    environment:
+      - PORT=8097
+      - OLLAMA_BASE_URL=http://localhost:11434/v1
+      # vehicle-inspector = mistral-small3.2 with an 8k context (Modelfile.vehicle).
+      # The default 131k context held 36.9 GB resident; this holds 15.8 GB.
+      - OLLAMA_MODEL=vehicle-inspector
+      - MODEL_LABEL=Mistral Small 3.2 (24B)
+      - REPLAY_DIR=/app/data/replays
+      # Host IP for the startup banner -- auto-detected by start.sh
+      - HOST_IP=${HOST_IP:-}
+    # NOT a restart policy: a crash-loop scrolls the real error away. Failing
+    # once leaves `docker logs` readable and lets the launcher report it.
+    restart: "no"
+    stop_grace_period: 30s
+    healthcheck:
+      # Greps for this service's own marker, not just any 200 on the port.
+      test: ["CMD-SHELL", "curl -fs http://localhost:8097/api/health | grep -q vehicle-inspection"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s

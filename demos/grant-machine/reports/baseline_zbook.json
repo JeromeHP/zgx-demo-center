@@ -1,0 +1,362 @@
+{
+  "base_url": "http://127.0.0.1:8081/v1",
+  "model": "qwen3.6-35b-a3b",
+  "label": "zbook-rocm-llamacpp",
+  "server_version": "b10729-458681e1d",
+  "reps": 3,
+  "timestamp": "2026-09-16T18:01:46.203161+00:00",
+  "checks": {
+    "E1": {
+      "name": "Models list",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 3,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "models=['qwen3.6-35b-a3b']",
+          "sample": "[\"qwen3.6-35b-a3b\"]",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "models=['qwen3.6-35b-a3b']",
+          "sample": "[\"qwen3.6-35b-a3b\"]",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "models=['qwen3.6-35b-a3b']",
+          "sample": "[\"qwen3.6-35b-a3b\"]",
+          "meta": {}
+        }
+      ]
+    },
+    "E2": {
+      "name": "Plain completion",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 3,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "content='ready'",
+          "sample": "ready",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "content='ready'",
+          "sample": "ready",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "content='ready'",
+          "sample": "ready",
+          "meta": {}
+        }
+      ]
+    },
+    "E3": {
+      "name": "Thinking separation",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "reasoning_source=field, content='12'",
+          "sample": "12",
+          "meta": {
+            "reasoning_source": "field"
+          }
+        },
+        {
+          "ok": true,
+          "detail": "reasoning_source=field, content='12'",
+          "sample": "12",
+          "meta": {
+            "reasoning_source": "field"
+          }
+        },
+        {
+          "ok": true,
+          "detail": "reasoning_source=field, content='12'",
+          "sample": "12",
+          "meta": {
+            "reasoning_source": "field"
+          }
+        }
+      ]
+    },
+    "E4": {
+      "name": "Thinking off",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 3,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "reasoning=''",
+          "sample": "4",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "reasoning=''",
+          "sample": "4",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "reasoning=''",
+          "sample": "4",
+          "meta": {}
+        }
+      ]
+    },
+    "E5": {
+      "name": "Single tool call",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        }
+      ]
+    },
+    "E6": {
+      "name": "Tool round trip",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "final_content=\"The search for 'prior outcomes' returned the following result:\\n\\n*   **Document ID:** ZX-4471\\n*   **Snippet:** token ZX-4471 present\"",
+          "sample": "The search for 'prior outcomes' returned the following result:\n\n*   **Document ID:** ZX-4471\n*   **Snippet:** token ZX-4471 present",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "final_content=\"I searched for 'prior outcomes' and found one matching document with ID **ZX-4471**.\"",
+          "sample": "I searched for 'prior outcomes' and found one matching document with ID **ZX-4471**.",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "final_content=\"The search for 'prior outcomes' returned the following result:\\n\\n*   **Document ID:** ZX-4471\"",
+          "sample": "The search for 'prior outcomes' returned the following result:\n\n*   **Document ID:** ZX-4471",
+          "meta": {}
+        }
+      ]
+    },
+    "E7": {
+      "name": "Nested object args",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "tool_call=update_compliance({'item': {'id': 'R-1', 'status': 'met', 'evidence': ['doc-a', 'doc-b']}})",
+          "sample": "{\"item\":{\"id\": \"R-1\", \"status\": \"met\", \"evidence\": [\"doc-a\", \"doc-b\"]}}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=update_compliance({'item': {'id': 'R-1', 'status': 'met', 'evidence': ['doc-a', 'doc-b']}})",
+          "sample": "{\"item\":{\"id\": \"R-1\", \"status\": \"met\", \"evidence\": [\"doc-a\", \"doc-b\"]}}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=update_compliance({'item': {'id': 'R-1', 'status': 'met', 'evidence': ['doc-a', 'doc-b']}})",
+          "sample": "{\"item\":{\"id\": \"R-1\", \"status\": \"met\", \"evidence\": [\"doc-a\", \"doc-b\"]}}",
+          "meta": {}
+        }
+      ]
+    },
+    "E8": {
+      "name": "Streaming tool call",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_call=search_vault({'query': 'prior outcomes'})",
+          "sample": "{\"query\":\"prior outcomes\"}",
+          "meta": {}
+        }
+      ]
+    },
+    "E9": {
+      "name": "No spurious tool call",
+      "required": true,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "tool_calls=0, content='4'",
+          "sample": "4",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_calls=0, content='4'",
+          "sample": "4",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "tool_calls=0, content='4'",
+          "sample": "4",
+          "meta": {}
+        }
+      ]
+    },
+    "E10": {
+      "name": "Usage fields",
+      "required": false,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "sample": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "sample": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "sample": "prompt_tokens=19, completion_tokens=3, estimated=False",
+          "meta": {}
+        }
+      ]
+    },
+    "E11": {
+      "name": "Decode speed",
+      "required": false,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "completion_tokens=479, total_s=20.04, decode_tps=23.90, ttft_s=0.6609581899997465",
+          "sample": "completion_tokens=479, total_s=20.04, decode_tps=23.90, ttft_s=0.6609581899997465",
+          "meta": {
+            "decode_tps": 23.899778821168383,
+            "ttft_s": 0.6609581899997465
+          }
+        },
+        {
+          "ok": true,
+          "detail": "completion_tokens=458, total_s=19.16, decode_tps=23.90, ttft_s=0.7049407350000365",
+          "sample": "completion_tokens=458, total_s=19.16, decode_tps=23.90, ttft_s=0.7049407350000365",
+          "meta": {
+            "decode_tps": 23.90370542414421,
+            "ttft_s": 0.7049407350000365
+          }
+        },
+        {
+          "ok": true,
+          "detail": "completion_tokens=536, total_s=22.59, decode_tps=23.73, ttft_s=0.7228384589998313",
+          "sample": "completion_tokens=536, total_s=22.59, decode_tps=23.73, ttft_s=0.7228384589998313",
+          "meta": {
+            "decode_tps": 23.726210281326885,
+            "ttft_s": 0.7228384589998313
+          }
+        }
+      ]
+    },
+    "E12": {
+      "name": "Long context",
+      "required": false,
+      "passes": 3,
+      "reps": 3,
+      "min_required": 2,
+      "passed": true,
+      "samples": [
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19301, content='ZX-9981'",
+          "sample": "ZX-9981",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19301, content='ZX-9981'",
+          "sample": "ZX-9981",
+          "meta": {}
+        },
+        {
+          "ok": true,
+          "detail": "prompt_tokens=19301, content='ZX-9981'",
+          "sample": "ZX-9981",
+          "meta": {}
+        }
+      ]
+    }
+  },
+  "overall_passed": true
+}
